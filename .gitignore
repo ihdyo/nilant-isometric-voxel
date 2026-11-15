@@ -1,0 +1,23 @@
+# Voxel Fauna · what git leaves out (same rule as Nilant: assets are tracked; only what rebuilds itself stays out)
+
+# previews, information plates, selftest renders, Blender job logs
+_system/cache/
+
+# this PC's Blender path
+_system/studio/blender_path.txt
+
+# Python
+__pycache__/
+*.pyc
+
+# Blender's own backups
+*.blend1
+*.blend2
+
+# OS
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# render.bat remembers this PC's Python (the Blender path is _system/studio/blender_path.txt above)
+_system/studio/render/python_path.txt

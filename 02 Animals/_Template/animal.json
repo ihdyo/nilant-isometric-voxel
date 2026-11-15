@@ -1,0 +1,43 @@
+{
+  "code": "{{CODE}}",
+  "common": "{{COMMON}}",
+  "scientific": "{{SCIENTIFIC}}",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "main": "stone-400",
+      "light": "stone-100",
+      "dark": "stone-800",
+      "eye": "neutral-950"
+    },
+    "background": "sky-200",
+    "accent": null,
+    "why": "Why this background complements the species (hue opposite the main coat colour, soft shade)."
+  },
+  "info": {
+    "kicker": "Class · Family (plain English)",
+    "classification": {"kingdom": "Animalia", "phylum": "", "class": "", "order": "", "family": "", "genus": "", "species": ""},
+    "conservation": {"status": "", "code": "", "assessed": "", "trend": "", "source": []},
+    "stats": [
+      {"label": "Length", "value": "", "source": []},
+      {"label": "Weight", "value": "", "source": []},
+      {"label": "Lifespan", "value": "", "source": []},
+      {"label": "", "value": "", "source": []}
+    ],
+    "habitat": {"text": "", "source": []},
+    "diet": {"text": "", "source": []},
+    "facts": [
+      {"text": "", "source": []},
+      {"text": "", "source": []}
+    ],
+    "photo": {"file": "", "author": "", "licence": "", "source": "Wikimedia Commons", "url": "", "centre": [0.5, 0.5]}
+  },
+  "sources": [
+    {"id": 1, "title": "", "publisher": "", "url": "", "accessed": ""}
+  ],
+  "stock": {"title": null, "info_title": null, "keywords": []},
+  "approvals": {"preview": null, "final": null},
+  "notes": [],
+  "history": []
+}

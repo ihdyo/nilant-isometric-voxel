@@ -1,0 +1,151 @@
+{
+  "code": "26-008",
+  "common": "Lion",
+  "scientific": "Panthera leo",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "orange-300",
+      "mane": "amber-800",
+      "muzzle": "orange-100",
+      "nose": "stone-700",
+      "eye": "neutral-950"
+    },
+    "background": "violet-200",
+    "accent": null,
+    "why": "Soft violet, the complement of the golden coat: a dusk sky over the savanna."
+  },
+  "info": {
+    "kicker": "Mammal · Cat family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Panthera",
+      "species": "P. leo"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "2.4–3.3 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "126–189 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pride",
+        "value": "2–40 lions",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Rest",
+        "value": "~20 h/day",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open savannas and grassy plains of sub-Saharan Africa, plus one forest in India.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Zebras, wildebeest, gazelles and buffalo. The lionesses do most of the hunting.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Every lion has its own pattern of whisker spots, like a fingerprint.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Lions are the only cats with manes.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-male-rock.jpg",
+      "author": "wwarby",
+      "licence": "CC BY 2.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Male_Lion_on_Rock.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Panthera leo: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Panthera_leo/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Bauer, H., Packer, C., Funston, P.F., Henschel, P. & Nowell, K. (2016). Panthera leo. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-3.RLTS.T15951A107265605.en",
+      "doi": "10.2305/IUCN.UK.2016-3.RLTS.T15951A107265605.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "lion",
+      "male lion",
+      "king of the jungle",
+      "big cat",
+      "africa",
+      "savanna",
+      "mane",
+      "safari"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

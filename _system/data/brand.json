@@ -1,0 +1,10 @@
+{
+  "collection": "Voxel Fauna",
+  "parent": "Nilant",
+  "owner": "ihdyo",
+  "exports_carry_brand": false,
+  "brand_on": ["Gumroad cover", "Gumroad listing", "stock portfolio profile"],
+  "platforms": ["Adobe Stock", "Gumroad", "Shutterstock", "Freepik", "Creative Market"],
+  "contributor_names": {"Adobe Stock": "", "Shutterstock": "", "Gumroad": "", "Freepik": ""},
+  "notes": "Contributor names and the Gumroad licence text are the owner's to fill in."
+}

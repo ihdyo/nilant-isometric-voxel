@@ -1,0 +1,159 @@
+{
+  "code": "26-001",
+  "common": "Red Fox",
+  "scientific": "Vulpes vulpes",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "orange-600",
+      "white": "stone-50",
+      "dark": "stone-800",
+      "eye": "neutral-950"
+    },
+    "background": "teal-200",
+    "accent": null,
+    "why": "Teal sits opposite the fox's rusty orange on the colour wheel; a soft 200 keeps it pastel."
+  },
+  "info": {
+    "kicker": "Mammal · Dog family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Canidae",
+      "genus": "Vulpes",
+      "species": "V. vulpes"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2016",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "46–90 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Tail",
+        "value": "30–56 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3–14 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "~3 yrs wild",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Forests, tundra, deserts, farms and even cities. No wild dog roams more of the planet!",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Mice, voles and rabbits, plus bugs, fruit and leftovers. Up to 1 kg of food a day.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Foxes pounce on mice under snow, and leaps aimed roughly north-east land far more often. A magnetic sense, maybe!",
+        "source": [
+          3
+        ]
+      },
+      {
+        "text": "It has the widest range of any wild dog, from the Arctic Circle to North Africa.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-standing.jpg",
+      "author": "Alexis Lours",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_2025_09_28_05.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Vulpes vulpes: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Vulpes_vulpes/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Hoffmann, M. & Sillero-Zubiri, C. (2016). Vulpes vulpes. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-1.RLTS.T23062A46190249.en",
+      "doi": "10.2305/IUCN.UK.2016-1.RLTS.T23062A46190249.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Červený, J., Begall, S., Koubek, P., Nováková, P. & Burda, H. (2011). Directional preference may enhance hunting accuracy in foraging foxes. Biology Letters 7(3): 355–357",
+      "publisher": "The Royal Society",
+      "url": "https://doi.org/10.1098/rsbl.2010.1145",
+      "doi": "10.1098/rsbl.2010.1145",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "red fox",
+      "fox",
+      "vulpes",
+      "canid",
+      "orange fox",
+      "forest animal",
+      "predator",
+      "woodland"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

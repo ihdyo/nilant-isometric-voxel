@@ -1,0 +1,150 @@
+{
+  "code": "26-007",
+  "common": "Koala",
+  "scientific": "Phascolarctos cinereus",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "stone-400",
+      "white": "stone-100",
+      "nose": "stone-800",
+      "eye": "neutral-950"
+    },
+    "background": "amber-200",
+    "accent": null,
+    "why": "Warm sunny amber against the cool grey fur: the koala looks cosy, like an afternoon nap."
+  },
+  "info": {
+    "kicker": "Marsupial · Koala family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Diprotodontia",
+      "family": "Phascolarctidae",
+      "genus": "Phascolarctos",
+      "species": "P. cinereus"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "72–78 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "5–12 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Sleep",
+        "value": "18 h a day",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "10+ yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Eucalyptus forests of eastern and south-eastern Australia, mostly below 600 m.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Eucalyptus leaves, about 500 g a day, from just a handful of favourite tree species.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "It naps up to 18 hours a day. A leafy, low-energy diet means lots of rest!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "No sweat glands, no problem: it cools off by licking its arms.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-in-tree.jpg",
+      "author": "Les Anderson",
+      "licence": "CC0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Koala-bear-sunlight_(Unsplash).jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Phascolarctos cinereus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Phascolarctos_cinereus/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Woinarski, J. & Burbidge, A.A. (2016). Phascolarctos cinereus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-1.RLTS.T16892A21960344.en",
+      "doi": "10.2305/IUCN.UK.2016-1.RLTS.T16892A21960344.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "koala",
+      "australia",
+      "marsupial",
+      "eucalyptus",
+      "cute",
+      "sleepy",
+      "grey",
+      "tree animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

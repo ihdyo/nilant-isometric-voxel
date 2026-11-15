@@ -1,0 +1,149 @@
+{
+  "code": "26-002",
+  "common": "Giant Panda",
+  "scientific": "Ailuropoda melanoleuca",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "white": "stone-50",
+      "black": "neutral-900",
+      "eye": "stone-400"
+    },
+    "background": "lime-200",
+    "accent": null,
+    "why": "Bamboo green: a soft lime that lets the black-and-white coat pop and says 'dinner' at the same time."
+  },
+  "info": {
+    "kicker": "Mammal · Bear family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Ursidae",
+      "genus": "Ailuropoda",
+      "species": "A. melanoleuca"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": "increasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "1.5–1.8 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "80–125 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "10–15 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Bamboo",
+        "value": "over 99%",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Cool, misty mountain forests full of bamboo in central China, 1,200 to 3,900 m up.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Bamboo, bamboo, bamboo! It munches 10 to 12 hours a day, with the odd fish or insect.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "That 'thumb' isn't a finger. It's a pad over a wrist bone, perfect for gripping bamboo.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "A newborn panda weighs just 85 to 140 g. That's lighter than an apple!",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-sitting.jpg",
+      "author": "Jeff Kubina",
+      "licence": "Public domain",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Giant_Panda_2004-03-2.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ailuropoda melanoleuca: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ailuropoda_melanoleuca/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Swaisgood, R., Wang, D. & Wei, F. (2016). Ailuropoda melanoleuca. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-2.RLTS.T712A45033386.en",
+      "doi": "10.2305/IUCN.UK.2016-2.RLTS.T712A45033386.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "giant panda",
+      "panda",
+      "bamboo",
+      "china",
+      "black and white",
+      "bear",
+      "endangered animal",
+      "cute"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

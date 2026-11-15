@@ -1,0 +1,151 @@
+{
+  "code": "26-010",
+  "common": "Giraffe",
+  "scientific": "Giraffa camelopardalis",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "patch": "amber-700",
+      "base": "amber-100",
+      "mane": "amber-800",
+      "dark": "stone-800",
+      "eye": "neutral-950"
+    },
+    "background": "sky-300",
+    "accent": null,
+    "why": "A clear savanna sky, the complement of the amber patches: the tallest animal gets the sky."
+  },
+  "info": {
+    "kicker": "Mammal · Giraffe family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Giraffidae",
+      "genus": "Giraffa",
+      "species": "G. camelopardalis"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Height",
+        "value": "up to 5.7 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "up to 1.9 t",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Tongue",
+        "value": "45 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Speed",
+        "value": "32–60 km/h",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Dry savannas, open woodlands and scrub across Africa, south of the Sahara.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Mostly acacia leaves, grabbed with a 45 cm tongue. A big male eats up to 66 kg a day!",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "That huge neck has just 7 bones, the same number as yours!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Calves drop about 2 m to the ground at birth. Welcome to the world!",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-standing.jpg",
+      "author": "flowcomm",
+      "licence": "CC BY 2.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Giraffe,_Madikwe_(52230992086).jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Giraffa camelopardalis: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Giraffa_camelopardalis/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Muller, Z., Bercovitch, F., Brand, R., Brown, D., Brown, M., Bolger, D., Carter, K., Deacon, F., Doherty, J.B., Fennessy, J., Fennessy, S., Hussein, A.A., Lee, D., Marais, A., Strauss, M., Tutchings, A. & Wube, T. (2016). Giraffa camelopardalis. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-3.RLTS.T9194A136266699.en",
+      "doi": "10.2305/IUCN.UK.2016-3.RLTS.T9194A136266699.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "giraffe",
+      "africa",
+      "savanna",
+      "tallest animal",
+      "long neck",
+      "safari",
+      "spotted",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

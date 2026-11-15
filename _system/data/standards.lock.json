@@ -1,0 +1,14 @@
+{
+ "version": "1.0",
+ "locked": "2026-11-16",
+ "reason": "Owner requests 2026-11-16: colour Khronos PBR Neutral + slate-100 fill (models were pale under AgX); Duolingo-style information cards with a real credited photo; build/render split for render.bat; palette rule 50-800",
+ "rig": "iso_top",
+ "geometry": "merged",
+ "files": {
+  "_system/studio/blender/vf_standards.py": "e5bae553d154cee7",
+  "_system/studio/blender/vf_voxel.py": "0d5b927aa9d956e2",
+  "_system/studio/blender/vf_scene.py": "38743aeb1a99b53f",
+  "_system/studio/blender/vf_job.py": "d187d8403266d429",
+  "_system/studio/scripts/infographic.py": "20e6072ef815e068"
+ }
+}
