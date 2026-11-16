@@ -99,6 +99,7 @@ exit /b 1
 
 rem ---- run ----------------------------------------------------------------------------------------------------
 set "BLENDER=%B%"
+echo  %DIM%Starting Voxel Fauna render...%END%
 "%P%" "%~dp0..\scripts\render_cli.py" %*
 if errorlevel 1 (
   echo.
