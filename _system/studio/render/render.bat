@@ -60,6 +60,7 @@ rem ---- find Python with Pillow and openpyxl ----------------------------------
 set "P="
 if exist "python_path.txt" set /p P=<"python_path.txt"
 if defined P if not exist "%P%" set "P="
+if defined P ("%P%" -c "import PIL, openpyxl" >nul 2>&1 || set "P=")
 if not defined P for /f "delims=" %%F in ('where python.exe 2^>nul') do if not defined P (
   "%%F" -c "import PIL, openpyxl" >nul 2>&1 && set "P=%%F"
 )
@@ -69,7 +70,8 @@ if not defined P for %%V in (3.12 3.13 3.11 3.10) do if not defined P (
 if not defined P (
   echo.
   echo  %BAD%No Python with Pillow and openpyxl was found.%END%
-  echo  %DIM%Install Python 3.10+ from python.org, then in a terminal: pip install pillow openpyxl%END%
+  echo  %DIM%Install Python 3.10+ from python.org, then in a terminal: python -m pip install pillow openpyxl%END%
+  echo  %DIM%^(or, for the Python you already use: python -m pip install pillow openpyxl, then delete python_path.txt^)%END%
   pause
   exit /b 1
 )
