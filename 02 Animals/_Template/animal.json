@@ -13,7 +13,8 @@
     },
     "background": "sky-200",
     "accent": null,
-    "why": "Why this background complements the species (hue opposite the main coat colour, soft shade)."
+    "why": "Why this background complements the species (hue opposite the main coat colour, soft shade).",
+    "size": {"real_m": null, "measure": "the real longest dimension: nose to tail tip, or height for upright and long-necked species", "source": []}
   },
   "info": {
     "kicker": "Class · Family (plain English)",

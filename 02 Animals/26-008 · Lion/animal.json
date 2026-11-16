@@ -14,7 +14,14 @@
     },
     "background": "violet-200",
     "accent": null,
-    "why": "Soft violet, the complement of the golden coat: a dusk sky over the savanna."
+    "why": "Soft violet, the complement of the golden coat: a dusk sky over the savanna.",
+    "size": {
+      "real_m": 2.8,
+      "measure": "nose to tail tip: 2.4–3.3 m, mid-range",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Mammal · Cat family",

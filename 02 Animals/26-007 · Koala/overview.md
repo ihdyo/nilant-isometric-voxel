@@ -39,7 +39,7 @@
 ## Look
 
 - Background: `amber-200`: Warm sunny amber against the cool grey fur: the koala looks cosy, like an afternoon nap.
-- Palette: fur `stone-400`, white `stone-100`, nose `stone-800`, eye `neutral-950`
+- Palette: fur `stone-400`, white `stone-100`, nose `stone-800`, eye `neutral-950`, paw `stone-600`
 - Photo on the information artwork: `assets/photos/01-in-tree.jpg` (Les Anderson, CC0)
 
 ## Files

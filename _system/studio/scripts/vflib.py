@@ -17,6 +17,7 @@ BLENDER_DIR = os.path.join(STUDIO, "blender")
 sys.path.insert(0, BLENDER_DIR)
 import vf_standards as ST  # noqa: E402
 import vf_voxel as VX  # noqa: E402
+import vf_color as VC  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(STUDIO, "..", ".."))
 ANIMALS = os.path.join(ROOT, "02 Animals")
@@ -36,7 +37,7 @@ DEFAULT_BLENDER = r"C:\Users\ihdyo\AppData\Local\Programs\Blender 5.3.0\blender-
 # the files whose content is the approved look: a change to any of them needs the owner's OK and a relock
 LOCKED_FILES = ["_system/studio/blender/vf_standards.py", "_system/studio/blender/vf_voxel.py",
                 "_system/studio/blender/vf_scene.py", "_system/studio/blender/vf_job.py",
-                "_system/studio/scripts/infographic.py"]
+                "_system/studio/blender/vf_color.py", "_system/studio/scripts/infographic.py"]
 
 
 def rel(path):
@@ -45,7 +46,29 @@ def rel(path):
 
 # ---- colour ---------------------------------------------------------------------------------------------------------
 def hexcode(token):
-    return {"white": "FFFFFF", "black": "000000"}.get(token) or PALETTE[token]["hex"]
+    """A Tailwind token or "#RRGGBB" -> "RRGGBB"."""
+    return VC.hex_of(token)
+
+
+def is_colour(c):
+    return VC.is_colour(c)
+
+
+def background(look):
+    """The rendered background colour: a vivid pastel of look.background (vf_standards.BACKGROUND_RULE)."""
+    R = ST.BACKGROUND_RULE
+    return VC.pastel(look["background"], R["max_chroma"], R["lightness"])
+
+
+def background_factor(look):
+    """The chroma factor the background gets; card colours drawn from its family get the same."""
+    return VC.pastel_factor(look["background"], ST.BACKGROUND_RULE["max_chroma"])
+
+
+def budget(animal):
+    """(min, max, target) voxels on the posed longest side, from animal.json look.size.real_m (vf_standards.SIZE_RULE)."""
+    real = ((animal.get("look") or {}).get("size") or {}).get("real_m")
+    return ST.size_budget(real) if real else (ST.BUDGET[0], ST.BUDGET[1], None)
 
 
 def rgb(token):

@@ -14,7 +14,14 @@
     },
     "background": "cyan-200",
     "accent": null,
-    "why": "Cool cyan, opposite the rusty red coat, like the misty Himalayan forest it lives in."
+    "why": "Cool cyan, opposite the rusty red coat, like the misty Himalayan forest it lives in.",
+    "size": {
+      "real_m": 1.0,
+      "measure": "nose to tail tip: head and body 56–63 cm plus tail 37–47 cm",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Mammal · Red panda family",

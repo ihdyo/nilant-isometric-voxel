@@ -1,0 +1,64 @@
+# 26-025 · Plains Zebra · voxel brief
+
+*Equus quagga* · attach this file together with `key-prompt.md` (project root) to write `blender/model.py`.
+
+## Palette (must match `animal.json → look.palette`; the first key is the main colour)
+
+| Key | Colour (Tailwind token or #hex) | Where |
+|---|---|---|
+| `white` | `stone-50` | the white between the stripes |
+| `stripe` | `neutral-900` | the stripes, the mane, the tail tuft, the hooves and the eye |
+| `muzzle` | `stone-700` | the dark muzzle |
+
+Background (not modelled): `orange-300` (rendered as a calm pastel).
+
+## Size and pose
+
+- Size: 33 × 12 × 39 voxels posed (L × W × H); longest side 39, budget 36–48 (target 42) from the real size 2.8 m (nose to tail tip: head and body 2.17–2.46 m plus a 0.47–0.56 m tail).
+- Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
+- Parts: shin_fl, shin_fr, shin_hl, shin_hr, leg_fl, leg_fr, leg_hl, leg_hr, tail, body, neck, head, muzzle, ear_l, ear_r.
+
+## Personality, pose and expression
+
+- Personality: lively, sociable and a little cheeky.
+- Pose: trotting with one front leg lifted, the head held high and turned to the camera, the short mane bristling, the tail swishing.
+- Expression: a big dark eye with a white glint and a cheeky smirk, painted flat.
+
+## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
+
+| Part | x | y | z | Pose |
+|---|---|---|---|---|
+| shin_fl | 18 to 20 | -5 to -3 | 0 to 7 | turned ry +40°; on leg_fl |
+| shin_fr | 18 to 20 | 3 to 5 | 0 to 7 | on leg_fr |
+| shin_hl | 2 to 4 | -5 to -3 | 0 to 7 | on leg_hl |
+| shin_hr | 2 to 4 | 3 to 5 | 0 to 7 | turned ry -12°; on leg_hr |
+| leg_fl | 18 to 20 | -5 to -3 | 8 to 14 | turned ry -28°; on body |
+| leg_fr | 18 to 20 | 3 to 5 | 8 to 14 | on body |
+| leg_hl | 2 to 4 | -5 to -3 | 8 to 14 | on body |
+| leg_hr | 2 to 4 | 3 to 5 | 8 to 14 | turned ry +14°; on body |
+| tail | -1 to -1 | -1 to 1 | 13 to 23 | turned rx -20°; on body |
+| body | 0 to 21 | -5 to 5 | 15 to 24 |  |
+| neck | 17 to 22 | -3 to 3 | 25 to 34 | turned ry -6°, rz -10°; on body |
+| head | 22 to 29 | -3 to 3 | 30 to 35 | turned rx +6°, ry +8°, rz -8°; on neck |
+| muzzle | 30 to 32 | -2 to 2 | 30 to 33 | on head |
+| ear_l | 24 to 25 | -3 to -2 | 36 to 38 | turned rx +10°; on head |
+| ear_r | 24 to 25 | 2 to 3 | 36 to 38 | turned rx -10°; on head |
+
+## Recognisable features (in order of importance)
+
+1. bold black-and-white stripes, vertical on the neck and horizontal on the rump
+2. a short upright striped mane
+3. a dark muzzle
+4. a tufted tail
+5. stripes running down the legs
+
+## Colour map
+
+- `white`: the white between the stripes
+- `stripe`: the stripes, the mane, the tail tuft, the hooves and the eye
+- `muzzle`: the dark muzzle
+
+## Photos used
+
+- `assets/photos/01-kenya.jpg`: a pair of Grant's zebras by a road in Kenya, stripes and mane (Public domain)
+- `assets/photos/02-serengeti.jpg`: a zebra trotting in the Serengeti, leg stripes and tail (CC BY 2.0)

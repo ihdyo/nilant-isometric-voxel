@@ -1,14 +1,15 @@
 {
- "version": "1.0",
+ "version": "2.1",
  "locked": "2026-11-16",
- "reason": "Owner requests 2026-11-16: colour Khronos PBR Neutral + slate-100 fill (models were pale under AgX); Duolingo-style information cards with a real credited photo; build/render split for render.bat; palette rule 50-800",
+ "reason": "Owner approved (2026-11-16, 'Approve and relock'): plates switched off, every part whole voxels (solid feet for penguin, flamingo, toucan); information cards redesigned to breathe (roomier cards, pixel-art icon badges, centred text, the photo as a tilted sticker, 16:9 three cards side by side). References: 03 Design/Reference/look \u00b7 2026-11-16 \u00b7 solid feet before-after.jpg and cards before-after.jpg",
  "rig": "iso_top",
- "geometry": "merged",
+ "geometry": "mob",
  "files": {
-  "_system/studio/blender/vf_standards.py": "e5bae553d154cee7",
-  "_system/studio/blender/vf_voxel.py": "0d5b927aa9d956e2",
-  "_system/studio/blender/vf_scene.py": "38743aeb1a99b53f",
-  "_system/studio/blender/vf_job.py": "d187d8403266d429",
-  "_system/studio/scripts/infographic.py": "20e6072ef815e068"
+  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
+  "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb",
+  "_system/studio/blender/vf_job.py": "f35d4e8f9792a9f1",
+  "_system/studio/blender/vf_color.py": "90184be2ddba6a7c",
+  "_system/studio/scripts/infographic.py": "b32c1764f84ed085"
  }
 }

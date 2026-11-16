@@ -1,102 +1,102 @@
 {
  "code": "26-008",
- "built": "2026-11-16T02:13:21",
+ "built": "2026-11-16T17:08:40",
  "blender": "5.3.0",
- "model_hash": "d1641afac62501ce",
+ "model_hash": "150f327db031ac55",
  "look_hash": "9818c45d4bd157d3",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "e5bae553d154cee7",
-  "_system/studio/blender/vf_voxel.py": "0d5b927aa9d956e2",
-  "_system/studio/blender/vf_scene.py": "38743aeb1a99b53f"
+  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
+  "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
  },
- "standards_version": "1.0",
+ "standards_version": "2.1",
  "rig": "iso_top",
- "geometry": "merged",
+ "geometry": "mob",
  "model": {
   "errors": [],
   "notes": [
-   "19 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant)",
-   "size 32 x 11 x 20 voxels (L x W x H), 1793 voxels, 895 visible, colours coat, eye, mane, muzzle, nose, parts body, head, legs, mane, tail"
+   "the pose moves the lowest point to z = -0.22: the engine sets the animal back on the ground",
+   "posed size 47.0 x 21.4 x 27.6 voxels (L x W x H), 6875 voxels, colours coat, eye, mane, muzzle, nose, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, mane, muzzle, shin_fl, shin_fr, shin_hl, shin_hr, tail, tail_tip; turned ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, mane, shin_fl, shin_hl, tail, tail_tip"
   ],
   "size": [
-   32,
-   11,
-   20
+   47,
+   19,
+   26
   ],
-  "voxels": 1793
+  "voxels": 6875
  },
  "frames": {
   "ILL 1x1": {
-   "ortho_scale": 3.636549176190326,
+   "ortho_scale": 5.456388437310937,
    "view": [
-    3.636549176190326,
-    3.636549176190326
+    5.456388437310937,
+    5.456388437310937
    ],
    "box_size": [
-    2.545584423333228,
-    1.9187638945877552
+    3.8194719061176556,
+    3.0604583621025085
    ]
   },
   "ILL 9x16": {
-   "ortho_scale": 5.518882218608624,
+   "ortho_scale": 8.280697899442073,
    "view": [
-    3.104371247967351,
-    5.518882218608624
+    4.657892568436166,
+    8.280697899442073
    ],
    "box_size": [
-    2.545584423333228,
-    1.9187638945877552
+    3.8194719061176556,
+    3.0604583621025085
    ]
   },
   "ILL 16x9": {
-   "ortho_scale": 5.0163761950006664,
+   "ortho_scale": 8.00119833229414,
    "view": [
-    5.0163761950006664,
-    2.821711609687875
+    8.00119833229414,
+    4.500674061915453
    ],
    "box_size": [
-    2.545584423333228,
-    1.9187638945877552
+    3.8194719061176556,
+    3.0604583621025085
    ]
   },
   "INF 1x1": {
-   "ortho_scale": 5.233944065978602,
+   "ortho_scale": 8.348222482549124,
    "view": [
-    5.233944065978602,
-    5.233944065978602
+    8.348222482549124,
+    8.348222482549124
    ],
    "box_size": [
-    2.545584423333228,
-    1.9187638945877552
+    3.8194719061176556,
+    3.0604583621025085
    ]
   },
   "INF 9x16": {
-   "ortho_scale": 8.159905191595875,
+   "ortho_scale": 12.522333723823685,
    "view": [
-    4.589946670272679,
-    8.159905191595875
+    7.043812719650823,
+    12.522333723823685
    ],
    "box_size": [
-    2.545584423333228,
-    1.9187638945877552
+    3.8194719061176556,
+    3.0604583621025085
    ]
   },
   "INF 16x9": {
-   "ortho_scale": 6.148754645732435,
+   "ortho_scale": 9.22577755100883,
    "view": [
-    6.148754645732435,
-    3.458674488224495
+    9.22577755100883,
+    5.189499872442467
    ],
    "box_size": [
-    2.545584423333228,
-    1.9187638945877552
+    3.8194719061176556,
+    3.0604583621025085
    ]
   }
  },
  "renders": {
   "LOW": {
    "ILL 1x1": {
-    "seconds": 1.3,
+    "seconds": 4.8,
     "size": [
      1024,
      1024
@@ -104,7 +104,7 @@
     "at": "2026-11-16"
    },
    "ILL 9x16": {
-    "seconds": 0.4,
+    "seconds": 2.6,
     "size": [
      576,
      1024
@@ -112,7 +112,7 @@
     "at": "2026-11-16"
    },
    "ILL 16x9": {
-    "seconds": 0.4,
+    "seconds": 3.1,
     "size": [
      1024,
      576
@@ -120,7 +120,7 @@
     "at": "2026-11-16"
    },
    "INF 1x1": {
-    "seconds": 0.5,
+    "seconds": 4.7,
     "size": [
      1024,
      1024
@@ -128,7 +128,7 @@
     "at": "2026-11-16"
    },
    "INF 9x16": {
-    "seconds": 0.3,
+    "seconds": 2.7,
     "size": [
      576,
      1024
@@ -136,7 +136,7 @@
     "at": "2026-11-16"
    },
    "INF 16x9": {
-    "seconds": 0.3,
+    "seconds": 3.9,
     "size": [
      1024,
      576

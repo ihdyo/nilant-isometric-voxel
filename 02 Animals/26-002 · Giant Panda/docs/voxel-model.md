@@ -6,27 +6,36 @@
 
 | Key | Token | Where |
 |---|---|---|
-| `white` | `stone-50` | body, head, muzzle, tail |
+| `white` | `stone-50` | body, head, muzzle, tail, the glint in each eye patch |
 | `black` | `neutral-900` | legs, shoulder band, ears, eye patches, nose |
-| `eye` | `stone-400` | one light voxel inside each eye patch so the eye reads |
 
-Background (not modelled): `lime-200`.
+Background (not modelled): `#BFD7A7` (a calm pastel bamboo green).
 
 ## Size and pose
 
-- Size: 22 × 9 × 19 voxels (L × W × H); longest side 22 (budget 16–32).
-- Pose: standing on four legs, head level. Head towards +X, feet on z = 0, left flank at −Y, symmetric about y = 0.
-- Parts: legs, body, head, ears, tail.
+- Size: 31 × 17 × 27 voxels posed (L × W × H); longest side 31, budget 29–39 (target 34) from the real size 1.65 m (nose to tail: 1.5–1.8 m, mid-range).
+- Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
+- Parts: leg_fl, leg_fr, leg_hl, leg_hr, body, head, muzzle, ear_l, ear_r.
 
-## Proportions (inclusive voxel ranges of each part, as built)
+## Personality, pose and expression
 
-| Part | x | y | z |
-|---|---|---|---|
-| tail | 1 to 1 | -1 to 1 | 9 to 10 |
-| body | 2 to 14 | -4 to 4 | 6 to 13 |
-| legs | 3 to 13 | -4 to 4 | 0 to 5 |
-| head | 14 to 22 | -4 to 4 | 9 to 17 |
-| ears | 15 to 16 | -4 to 4 | 17 to 18 |
+- Personality: gentle and laid-back.
+- Pose: a slow amble, the big head cocked towards the camera, ears following.
+- Expression: content: drooping black eye patches with a white glint, a small v smile under the nose, all painted flat on the face.
+
+## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
+
+| Part | x | y | z | Pose |
+|---|---|---|---|---|
+| leg_fl | 13 to 16 | -6 to -3 | 0 to 6 | turned ry -10°; on body |
+| leg_fr | 13 to 16 | 3 to 6 | 0 to 6 | turned ry +6°; on body |
+| leg_hl | 1 to 4 | -6 to -3 | 0 to 6 | turned ry +8°; on body |
+| leg_hr | 1 to 4 | 3 to 6 | 0 to 6 | turned ry -6°; on body |
+| body | -1 to 18 | -6 to 6 | 7 to 17 |  |
+| head | 18 to 26 | -6 to 6 | 12 to 22 | turned rx +14°, ry +4°, rz -10°; on body |
+| muzzle | 27 to 29 | -2 to 2 | 12 to 16 | on head |
+| ear_l | 20 to 21 | -6 to -4 | 23 to 25 | turned rx +14°; on head |
+| ear_r | 20 to 21 | 4 to 6 | 23 to 25 | turned rx -14°; on head |
 
 ## Recognisable features (in order of importance)
 
@@ -38,9 +47,8 @@ Background (not modelled): `lime-200`.
 
 ## Colour map
 
-- `white`: body, head, muzzle, tail
+- `white`: body, head, muzzle, tail, the glint in each eye patch
 - `black`: legs, shoulder band, ears, eye patches, nose
-- `eye`: one light voxel inside each eye patch so the eye reads
 
 ## Photos used
 

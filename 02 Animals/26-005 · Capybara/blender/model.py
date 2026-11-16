@@ -1,27 +1,31 @@
-"""26-005 · Capybara (Hydrochoerus hydrochaeris) · voxel model.
-Built from docs/voxel-model.md. Palette keys: fur, dark, eye. Size: 24 x 9 x 15 voxels."""
+"""26-005 · Capybara (Hydrochoerus hydrochaeris) · voxel model, bulky blocky-mob style.
+Built from docs/voxel-model.md. Palette keys: fur, dark, eye. Size: 29 x 13 x 19 voxels posed.
+Personality: calm, unbothered, everyone's friend. Pose: standing at ease, the big head lowered and turned a little to
+the camera, one ear flicked back. Expression: sleepy half-closed eyes (flat lines) and a small easy smile, painted
+flat."""
 
 
 def build(g):
-    # legs: short 2 x 2, darker feet
-    for x in (3, 13):
-        g.box((x, -3, 0), (x + 1, -2, 3), "fur", part="legs")
-        g.box((x, -3, 0), (x + 1, -2, 0), "dark", part="legs")
-    # body: a big rounded barrel, the rump sloping down at the back, no tail
-    g.box((2, -4, 4), (16, 4, 10), "fur", part="body")
-    g.box((3, -3, 11), (15, 3, 12), "fur", part="body")
-    g.carve((2, -4, 10), (16, -4, 10))
-    g.carve((2, -4, 4), (2, -4, 10))
-    g.carve((2, -3, 12), (3, 3, 12))
-    g.box((1, -3, 5), (1, 3, 9), "fur", part="body")
-    # head: big and blunt, flat on top, set high on a short neck
-    g.box((17, -3, 6), (21, 3, 13), "fur", part="head")
-    # the deep blunt muzzle, a step narrower and lower, the same brown; dark nostrils high on the front
-    g.box((22, -2, 6), (23, 2, 11), "fur", part="head")
-    g.carve((23, -2, 11), (23, 2, 11))
-    g.paint((23, -1, 9), (23, -1, 10), "dark")
-    # eyes high on the side of the head
-    g.set(20, -3, 12, "eye", part="head")
-    # small round ears on top, at the back of the head
-    g.box((17, -3, 14), (18, -2, 14), "dark", part="ears")
-    g.mirror("-Y")
+    # body: one big barrel box
+    g.box((0, -6, 4), (17, 6, 14), "fur", part="body")
+    # legs: short 3 x 3 pillars
+    for name, x in (("leg_hl", 1), ("leg_fl", 13)):
+        g.box((x, -6, 0), (x + 2, -4, 3), "fur", part=name)
+        g.joint(name, pivot=(x + 1.5, -5, 4), parent="body")
+    # head: a long box, a little narrower than the body
+    g.box((17, -5, 8), (24, 5, 16), "fur", part="head")
+    g.joint("head", pivot=(18, 0.5, 12), rotate=(6, 10, -8), parent="body")
+    # sleepy eyes painted high on the face: flat dark lines
+    g.box((24, -4, 14), (24, -3, 14), "eye", part="head")
+    # deep square snout, nearly as wide as the head; dark nostrils and a small easy smile painted on its front
+    g.box((25, -4, 8), (27, 4, 13), "fur", part="snout")
+    g.set(27, -2, 12, "dark", part="snout")
+    g.box((27, -1, 9), (27, 0, 9), "dark", part="snout")
+    g.joint("snout", pivot=(25, 0.5, 10.5), parent="head")
+    # small dark ears on top, one flicked back
+    g.box((19, -5, 17), (20, -4, 17), "dark", part="ear_l")
+    g.joint("ear_l", pivot=(19.5, -4.5, 17), rotate=(20, 0, 0), parent="head")
+    g.mirror()
+    g.joint("ear_r", pivot=(19.5, 5.5, 17), rotate=(-10, -24, 0), parent="head")
+    g.joint("leg_fl", pivot=(14.5, -5, 4), rotate=(0, -6, 0), parent="body")
+    g.joint("leg_hr", pivot=(2.5, 6, 4), rotate=(0, 6, 0), parent="body")

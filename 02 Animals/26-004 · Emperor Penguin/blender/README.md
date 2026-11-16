@@ -8,6 +8,6 @@
 | `26-004 · Emperor Penguin.blend` | the editable project, built from `model.py`: collections Animal / Stage / Lights, six scenes (ILL and INF × 1x1, 9x16, 16x9) with framed orthographic cameras |
 | `build.json` | the stamp: when, which Blender, the model, look and standards hashes, framing, render times |
 
-- Build: **current**, built 2026-11-16T02:12:44
-- Model: 76 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant); size 12 x 11 x 26 voxels (L x W x H), 1565 voxels, 730 visible, colours bill, black, cream, white, yellow, parts beak, body, head, legs, tail, wings
-- Standards 1.0, rig `iso_top`, geometry `merged`, Blender 5.3.0
+- Build: **current**, built 2026-11-16T17:06:11
+- Model: posed size 14.7 x 20.2 x 28.0 voxels (L x W x H), 2677 voxels, colours bill, black, cream, white, yellow, parts beak, body, flipper_l, flipper_r, foot_l, foot_r, head; turned beak, flipper_l, flipper_r, foot_l, foot_r, head
+- Standards 2.1, rig `iso_top`, geometry `mob`, Blender 5.3.0

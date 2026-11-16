@@ -14,7 +14,14 @@
     },
     "background": "sky-200",
     "accent": null,
-    "why": "Pale polar sky: cool and calm, with the black back and the yellow ear patch standing out."
+    "why": "Pale polar sky: cool and calm, with the black back and the yellow ear patch standing out.",
+    "size": {
+      "real_m": 1.15,
+      "measure": "standing height 101–132 cm, mid-range",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Bird · Penguin family",

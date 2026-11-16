@@ -7,43 +7,55 @@
 | Key | Token | Where |
 |---|---|---|
 | `fur` | `orange-700` | back, flanks, head, tail |
-| `white` | `stone-50` | muzzle, cheeks, brows, ear fronts |
+| `white` | `stone-50` | muzzle, cheeks, brows, ear rims, the outer half of each eye |
 | `dark` | `orange-950` | legs, belly, nose, tail tip |
 | `ring` | `orange-300` | two pale rings on the tail |
-| `eye` | `neutral-950` | one voxel on the face front and one on the flank |
+| `eye` | `neutral-950` | the dark inner half of each two-voxel eye on the front of the head |
 
 Background (not modelled): `cyan-200`.
 
 ## Size and pose
 
-- Size: 27 × 7 × 16 voxels (L × W × H); longest side 27 (budget 16–32).
-- Pose: walking on four legs, tail held straight out behind. Head towards +X, feet on z = 0, left flank at −Y, symmetric about y = 0.
-- Parts: legs, body, head, ears, tail.
+- Size: 32 × 15 × 20 voxels posed (L × W × H); longest side 32, budget 24–32 (target 28) from the real size 1.0 m (nose to tail tip: head and body 56–63 cm plus tail 37–47 cm).
+- Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
+- Parts: leg_fl, leg_fr, leg_hl, leg_hr, body, tail, tail_tip, head, muzzle, ear_l, ear_r.
 
-## Proportions (inclusive voxel ranges of each part, as built)
+## Personality, pose and expression
 
-| Part | x | y | z |
-|---|---|---|---|
-| tail | -7 to 1 | -1 to 1 | 6 to 9 |
-| body | 2 to 13 | -3 to 3 | 5 to 10 |
-| legs | 3 to 12 | -3 to 3 | 0 to 4 |
-| head | 13 to 19 | -3 to 3 | 8 to 13 |
-| ears | 14 to 15 | -3 to 3 | 14 to 15 |
+- Personality: curious and playful.
+- Pose: head cocked hard to one side and looking up, one front paw reaching forward, the ringed tail curling up in two blocks.
+- Expression: wide white eyes with the pupils to the inside, white brows rising towards the middle, a small round mouth, all painted flat on the face.
+
+## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
+
+| Part | x | y | z | Pose |
+|---|---|---|---|---|
+| leg_fl | 8 to 10 | -4 to -2 | 0 to 4 | turned ry -30°; on body |
+| leg_fr | 8 to 10 | 2 to 4 | 0 to 4 | on body |
+| leg_hl | 1 to 3 | -4 to -2 | 0 to 4 | turned ry +6°; on body |
+| leg_hr | 1 to 3 | 2 to 4 | 0 to 4 | turned ry -4°; on body |
+| body | 0 to 11 | -4 to 4 | 5 to 10 |  |
+| tail | -6 to -1 | -2 to 2 | 6 to 10 | turned ry +18°, rz +6°; on body |
+| tail_tip | -10 to -7 | -2 to 2 | 6 to 10 | turned ry +20°; on tail |
+| head | 11 to 18 | -5 to 5 | 8 to 15 | turned rx +18°, ry -6°, rz -12°; on body |
+| muzzle | 19 to 20 | -2 to 2 | 8 to 10 | on head |
+| ear_l | 13 to 14 | -5 to -3 | 16 to 18 | turned rx +16°, ry +8°; on head |
+| ear_r | 13 to 14 | 3 to 5 | 16 to 18 | turned rx -16°, ry +8°; on head |
 
 ## Recognisable features (in order of importance)
 
 1. the long thick ringed tail
 2. the white face mask (cheeks, brows, muzzle) around dark eyes
-3. white-fronted pointed ears
+3. pointed ears with white rims
 4. dark legs and belly under rusty red fur
 
 ## Colour map
 
 - `fur`: back, flanks, head, tail
-- `white`: muzzle, cheeks, brows, ear fronts
+- `white`: muzzle, cheeks, brows, ear rims, the outer half of each eye
 - `dark`: legs, belly, nose, tail tip
 - `ring`: two pale rings on the tail
-- `eye`: one voxel on the face front and one on the flank
+- `eye`: the dark inner half of each two-voxel eye on the front of the head
 
 ## Photos used
 

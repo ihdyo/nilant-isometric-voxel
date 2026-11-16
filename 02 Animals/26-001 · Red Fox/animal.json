@@ -13,7 +13,14 @@
     },
     "background": "teal-200",
     "accent": null,
-    "why": "Teal sits opposite the fox's rusty orange on the colour wheel; a soft 200 keeps it pastel."
+    "why": "Teal sits opposite the fox's rusty orange on the colour wheel; a soft 200 keeps it pastel.",
+    "size": {
+      "real_m": 1.1,
+      "measure": "nose to tail tip: head and body 46–90 cm plus tail 30–56 cm, mid-range",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Mammal · Dog family",

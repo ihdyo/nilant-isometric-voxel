@@ -1,0 +1,147 @@
+{
+ "code": "26-024",
+ "built": "2026-11-16T17:18:48",
+ "blender": "5.3.0",
+ "model_hash": "bd701e6646aa6861",
+ "look_hash": "3c5296f5e0357fe0",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
+  "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
+ },
+ "standards_version": "2.1",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "posed size 18.1 x 15.0 x 11.8 voxels (L x W x H), 939 voxels, colours belly, blue, green, pupil, red, toe, yellow, parts body, head, leg_fl, leg_fr, leg_hl, leg_hr; turned head"
+  ],
+  "size": [
+   17,
+   15,
+   10
+  ],
+  "voxels": 939
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 2.727411868316787,
+   "view": [
+    2.727411868316787,
+    2.727411868316787
+   ],
+   "box_size": [
+    1.9091883078217506,
+    1.632985681295395
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 4.139161642973985,
+   "view": [
+    2.3282784241728667,
+    4.139161642973985
+   ],
+   "box_size": [
+    1.9091883078217506,
+    1.632985681295395
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 4.269243611229791,
+   "view": [
+    4.269243611229791,
+    2.401449531316757
+   ],
+   "box_size": [
+    1.9091883078217506,
+    1.632985681295395
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 4.454407204842868,
+   "view": [
+    4.454407204842868,
+    4.454407204842868
+   ],
+   "box_size": [
+    1.9091883078217506,
+    1.632985681295395
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 6.6816108072643,
+   "view": [
+    3.7584060790861686,
+    6.6816108072643
+   ],
+   "box_size": [
+    1.9091883078217506,
+    1.632985681295395
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 4.611565960922103,
+   "view": [
+    4.611565960922103,
+    2.5940058530186834
+   ],
+   "box_size": [
+    1.9091883078217506,
+    1.632985681295395
+   ]
+  }
+ },
+ "renders": {
+  "LOW": {
+   "ILL 1x1": {
+    "seconds": 4.4,
+    "size": [
+     1024,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "ILL 9x16": {
+    "seconds": 2.9,
+    "size": [
+     576,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "ILL 16x9": {
+    "seconds": 2.2,
+    "size": [
+     1024,
+     576
+    ],
+    "at": "2026-11-16"
+   },
+   "INF 1x1": {
+    "seconds": 4.4,
+    "size": [
+     1024,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "INF 9x16": {
+    "seconds": 2.4,
+    "size": [
+     576,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "INF 16x9": {
+    "seconds": 3.2,
+    "size": [
+     1024,
+     576
+    ],
+    "at": "2026-11-16"
+   }
+  }
+ }
+}

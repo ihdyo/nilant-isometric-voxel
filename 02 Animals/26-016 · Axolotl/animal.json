@@ -1,0 +1,158 @@
+{
+  "code": "26-016",
+  "common": "Axolotl",
+  "scientific": "Ambystoma mexicanum",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "rose-200",
+      "gill": "rose-400",
+      "belly": "rose-100",
+      "eye": "neutral-950"
+    },
+    "background": "cyan-200",
+    "accent": null,
+    "why": "A cool watery cyan, the complement of the pink skin: the lake it should be living in.",
+    "size": {
+      "real_m": 0.23,
+      "measure": "snout to tail tip: about 23 cm on average, some over 30 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Amphibian · Salamander family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Caudata",
+      "family": "Ambystomatidae",
+      "genus": "Ambystoma",
+      "species": "A. mexicanum"
+    },
+    "conservation": {
+      "code": "CR",
+      "status": "Critically Endangered",
+      "assessed": "2019",
+      "trend": null,
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "~23 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "60–110 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Eggs",
+        "value": "100–300",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "≤15 yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "The canals of Lake Xochimilco in Mexico City, high in the mountains. Its other lake was drained.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Snails, worms, insects, small fish and even other axolotls!",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "It keeps its feathery baby gills all its life and is famous for regrowing lost body parts.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Almost every lab axolotl descends from just 33 shipped from Mexico to Paris in 1864!",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-pale-pair.jpg",
+      "author": "ZeWrestler",
+      "licence": "CC BY 3.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Ambystoma_mexicanum_at_Vancouver_Aquarium.jpg",
+      "centre": [
+        0.55,
+        0.6
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ambystoma mexicanum: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ambystoma_mexicanum/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "IUCN SSC Amphibian Specialist Group (2020). Ambystoma mexicanum. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2020-3.RLTS.T1095A53947343.en",
+      "doi": "10.2305/IUCN.UK.2020-3.RLTS.T1095A53947343.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "axolotl",
+      "ambystoma",
+      "salamander",
+      "amphibian",
+      "mexico",
+      "gills",
+      "pink axolotl",
+      "critically endangered",
+      "cute animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

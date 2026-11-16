@@ -7,7 +7,7 @@ it copies `_Template/`, takes the next code and sets the status to Research. One
 | Code | Animal | Background | Status (2026-11-16) |
 |---|---|---|---|
 | `26-001 · Red Fox` | *Vulpes vulpes* · LC | teal-200 | LOW preview, awaiting the owner |
-| `26-002 · Giant Panda` | *Ailuropoda melanoleuca* · VU | lime-200 | LOW preview, awaiting the owner |
+| `26-002 · Giant Panda` | *Ailuropoda melanoleuca* · VU | #BFD7A7 | LOW preview, awaiting the owner |
 | `26-003 · Red Panda` | *Ailurus fulgens* · EN | cyan-200 | LOW preview, awaiting the owner |
 | `26-004 · Emperor Penguin` | *Aptenodytes forsteri* · NT | sky-200 | LOW preview, awaiting the owner |
 | `26-005 · Capybara` | *Hydrochoerus hydrochaeris* · LC | indigo-200 | LOW preview, awaiting the owner |
@@ -16,8 +16,24 @@ it copies `_Template/`, takes the next code and sets the status to Research. One
 | `26-008 · Lion` | *Panthera leo* · VU | violet-200 | LOW preview, awaiting the owner |
 | `26-009 · Polar Bear` | *Ursus maritimus* · VU | blue-300 | LOW preview, awaiting the owner |
 | `26-010 · Giraffe` | *Giraffa camelopardalis* · VU | sky-300 | LOW preview, awaiting the owner |
+| `26-011 · African Elephant` | *Loxodonta africana* · EN | orange-200 | LOW preview, awaiting the owner |
+| `26-012 · Bengal Tiger` | *Panthera tigris tigris* · EN (species) | green-200 | LOW preview, awaiting the owner |
+| `26-013 · Toco Toucan` | *Ramphastos toco* · LC | blue-200 | LOW preview, awaiting the owner |
+| `26-014 · Hippo` | *Hippopotamus amphibius* · VU | yellow-200 | LOW preview, awaiting the owner |
+| `26-015 · European Hedgehog` | *Erinaceus europaeus* · NT | emerald-100 | LOW preview, awaiting the owner |
+| `26-016 · Axolotl` | *Ambystoma mexicanum* · CR | cyan-200 | LOW preview, awaiting the owner |
+| `26-017 · Gray Wolf` | *Canis lupus* · LC | indigo-200 | LOW preview, awaiting the owner |
+| `26-018 · Green Sea Turtle` | *Chelonia mydas* · LC | sky-200 | LOW preview, awaiting the owner |
+| `26-019 · Nine-banded Armadillo` | *Dasypus novemcinctus* · LC | lime-200 | LOW preview, awaiting the owner |
+| `26-020 · Scarlet Macaw` | *Ara macao* · LC | emerald-200 | LOW preview, awaiting the owner |
+| `26-021 · Bottlenose Dolphin` | *Tursiops truncatus* · LC | orange-100 | LOW preview, awaiting the owner |
+| `26-022 · Mountain Goat` | *Oreamnos americanus* · LC | violet-300 | LOW preview, awaiting the owner |
+| `26-023 · European Rabbit` | *Oryctolagus cuniculus* · EN | lime-200 | LOW preview, awaiting the owner |
+| `26-024 · Red-eyed Tree Frog` | *Agalychnis callidryas* · LC | pink-200 | LOW preview, awaiting the owner |
+| `26-025 · Plains Zebra` | *Equus quagga* · NT | orange-300 | LOW preview, awaiting the owner |
 
-The ten examples were made together at the owner's request (2026-11-16). `vf.py list` (or `render.bat` → `5`) shows the
+The ten examples were made together at the owner's request (2026-11-16), then five and ten more the same day. Backgrounds are
+rendered as calm pastels of the colour listed. `vf.py list` (or `render.bat` → `5`) shows the
 live state; each folder's `overview.md` shows its stage.
 
 ## Inside an animal folder

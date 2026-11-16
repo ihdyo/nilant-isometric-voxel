@@ -7,12 +7,18 @@
   "look": {
     "palette": {
       "white": "stone-50",
-      "black": "neutral-900",
-      "eye": "stone-400"
+      "black": "neutral-900"
     },
-    "background": "lime-200",
+    "background": "#BFD7A7",
     "accent": null,
-    "why": "Bamboo green: a soft lime that lets the black-and-white coat pop and says 'dinner' at the same time."
+    "why": "Bamboo green: a calm pastel lime that lets the black-and-white coat pop and says 'dinner' at the same time; a hex (the pastel of lime-400) because every Tailwind lime or green pastel sits too close to the white fur (delta E under 30).",
+    "size": {
+      "real_m": 1.65,
+      "measure": "nose to tail: 1.5–1.8 m, mid-range",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Mammal · Bear family",

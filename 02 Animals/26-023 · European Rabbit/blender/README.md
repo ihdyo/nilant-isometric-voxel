@@ -1,0 +1,13 @@
+# 26-023 · European Rabbit · Blender
+
+> Written by `vf.py build`. The model is code: change `model.py` (or the palette in `animal.json`) and build again; never edit the .blend by hand.
+
+| File | What |
+|---|---|
+| `model.py` | the voxel model: `build(g)` on the grid of `_system/studio/blender/vf_voxel.py` (source of truth) |
+| `26-023 · European Rabbit.blend` | the editable project, built from `model.py`: collections Animal / Stage / Lights, six scenes (ILL and INF × 1x1, 9x16, 16x9) with framed orthographic cameras |
+| `build.json` | the stamp: when, which Blender, the model, look and standards hashes, framing, render times |
+
+- Build: **current**, built 2026-11-16T21:12:27
+- Model: posed size 17.2 x 11.1 x 17.1 voxels (L x W x H), 1055 voxels, colours belly, ear, eye, fur, nose, tail, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, muzzle; turned ear_l, ear_r, head
+- Standards 2.1, rig `iso_top`, geometry `mob`, Blender 5.3.0

@@ -39,7 +39,7 @@
 ## Look
 
 - Background: `emerald-200`: Mint green, the complement of flamingo pink: the brightest bird of the collection gets the boldest contrast.
-- Palette: pink `rose-400`, light `rose-200`, black `neutral-900`, bill `rose-100`, legs `rose-500`, eye `amber-300`
+- Palette: pink `rose-400`, light `rose-200`, black `neutral-900`, bill `rose-100`, legs `rose-500`, feet `rose-700`, eye `amber-300`
 - Photo on the information artwork: `assets/photos/01-head.jpg` (Wilfredor, CC0)
 
 ## Files

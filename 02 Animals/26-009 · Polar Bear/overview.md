@@ -39,7 +39,7 @@
 ## Look
 
 - Background: `blue-300`: Arctic blue: the cold sea-ice world, with the creamy white bear standing out in full.
-- Palette: fur `amber-50`, dark `neutral-900`
+- Palette: fur `amber-50`, dark `neutral-900`, shine `white`
 - Photo on the information artwork: `assets/photos/01-on-ice.jpg` (Christopher Michel, CC BY 2.0)
 
 ## Files

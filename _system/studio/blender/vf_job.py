@@ -3,8 +3,8 @@
     blender -b --factory-startup --python vf_job.py -- <job.json>
 
 job.json (written by scripts/vf.py, never by hand), one of:
-    build   {"model": ".../blender/model.py", "look": {...}, "blend": ".../<code> · <Name>.blend", "readme": "...",
-             "renders": [...]}                     model.py -> scenes -> saved .blend (+ optional renders)
+    build   {"model": ".../blender/model.py", "look": {...}, "budget": [min, max], "blend": ".../<code> · <Name>.blend",
+             "readme": "...", "renders": [...]}                     model.py -> scenes -> saved .blend (+ optional renders)
     render  {"open": ".../<code> · <Name>.blend", "renders": [...]}
                                                    renders straight from the built .blend (render.bat, final)
     renders: [{"scene": "ILL 1x1", "profile": "LOW", "out": ".../VF-26-001-ILL-1x1.png"}, ...]
@@ -38,7 +38,7 @@ def main():
         else:
             from vf_voxel import load_model
             grid = load_model(job["model"])
-            errors, notes = grid.report(ST.BUDGET)
+            errors, notes = grid.report(tuple(job.get("budget") or ST.BUDGET), ST.POSE["max_angle"], ST.POSE["plates"])
             result["model"] = dict(errors=errors, notes=notes, size=grid.size(), voxels=len(grid.v))
             if errors:
                 raise ValueError("model check failed: " + "; ".join(errors))

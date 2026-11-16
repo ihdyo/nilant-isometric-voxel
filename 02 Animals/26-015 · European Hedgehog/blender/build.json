@@ -1,0 +1,148 @@
+{
+ "code": "26-015",
+ "built": "2026-11-16T17:13:03",
+ "blender": "5.3.0",
+ "model_hash": "7893bf5668505ed0",
+ "look_hash": "95d175c223b942de",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
+  "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
+ },
+ "standards_version": "2.1",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "the pose moves the lowest point to z = -0.18: the engine sets the animal back on the ground",
+   "posed size 18.4 x 11.0 x 11.2 voxels (L x W x H), 1067 voxels, colours eye, face, feet, nose, spines, tips, parts body, head, leg_fl, leg_fr, leg_hl, leg_hr; turned head, leg_fl"
+  ],
+  "size": [
+   18,
+   11,
+   11
+  ],
+  "voxels": 1067
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 2.4509522056802067,
+   "view": [
+    2.4509522056802067,
+    2.4509522056802067
+   ],
+   "box_size": [
+    1.7156665439761447,
+    1.5258928388357162
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 3.7196022633629156,
+   "view": [
+    2.09227627314164,
+    3.7196022633629156
+   ],
+   "box_size": [
+    1.7156665439761447,
+    1.5258928388357162
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 3.989262323753506,
+   "view": [
+    3.989262323753506,
+    2.243960057111347
+   ],
+   "box_size": [
+    1.7156665439761447,
+    1.5258928388357162
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 4.16228270277064,
+   "view": [
+    4.16228270277064,
+    4.16228270277064
+   ],
+   "box_size": [
+    1.7156665439761447,
+    1.5258928388357162
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 6.243424054155958,
+   "view": [
+    3.5119260304627264,
+    6.243424054155958
+   ],
+   "box_size": [
+    1.7156665439761447,
+    1.5258928388357162
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 4.144122086898901,
+   "view": [
+    4.144122086898901,
+    2.331068673880632
+   ],
+   "box_size": [
+    1.7156665439761447,
+    1.5258928388357162
+   ]
+  }
+ },
+ "renders": {
+  "LOW": {
+   "ILL 1x1": {
+    "seconds": 6.2,
+    "size": [
+     1024,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "ILL 9x16": {
+    "seconds": 3.5,
+    "size": [
+     576,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "ILL 16x9": {
+    "seconds": 4.0,
+    "size": [
+     1024,
+     576
+    ],
+    "at": "2026-11-16"
+   },
+   "INF 1x1": {
+    "seconds": 4.7,
+    "size": [
+     1024,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "INF 9x16": {
+    "seconds": 3.7,
+    "size": [
+     576,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "INF 16x9": {
+    "seconds": 3.4,
+    "size": [
+     1024,
+     576
+    ],
+    "at": "2026-11-16"
+   }
+  }
+ }
+}

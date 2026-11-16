@@ -1,31 +1,52 @@
-"""26-001 · Red Fox (Vulpes vulpes) · voxel model.
-Built from docs/voxel-model.md. Palette keys: fur, white, dark, eye. Size: 31 x 7 x 18 voxels."""
+"""26-001 · Red Fox (Vulpes vulpes) · voxel model, bulky blocky-mob style.
+Built from docs/voxel-model.md. Palette keys: fur, white, dark, eye. Size: 32 x 14 x 23 voxels posed.
+Personality: clever and sly. Pose: head turned to the camera and cocked, ears perked forward, tail raised, the front
+left paw lifted mid-sneak. Expression: white eyes with the pupils to the inside, one brow slanting down to the
+middle and the other raised, a crooked smirk, all painted flat on the face."""
 
 
 def build(g):
-    # legs: 2 x 2, black stockings up to the knee
-    for x in (5, 14):
-        g.box((x, -3, 0), (x + 1, -2, 5), "fur", part="legs")
-        g.box((x, -3, 0), (x + 1, -2, 2), "dark", part="legs")
-    # body: long and low, a rounded back, a white bib at the chest
-    g.box((4, -3, 6), (16, 3, 10), "fur", part="body")
-    g.box((6, -2, 11), (14, 2, 11), "fur", part="body")
-    g.paint((15, -2, 6), (16, 2, 9), "white")
-    # neck and head: narrower than the body, white cheeks and jaw
-    g.box((16, -2, 9), (17, 2, 12), "fur", part="head")
-    g.box((17, -2, 10), (21, 2, 14), "fur", part="head")
-    g.paint((19, -2, 10), (21, 2, 11), "white")
-    # long pointed snout, white underneath, black nose
-    g.box((22, -1, 10), (24, 1, 11), "white", part="head")
-    g.box((22, -1, 12), (23, 1, 12), "fur", part="head")
-    g.paint((24, 0, 11), (24, 0, 11), "dark")
-    # eye on the corner of the face (seen from the front and the flank)
-    g.set(21, -2, 13, "eye", part="head")
-    # big pointed ears with black tips
-    g.box((18, -2, 15), (19, -1, 16), "fur", part="ears")
-    g.set(18, -2, 17, "dark", part="ears")
-    # bushy tail with the white tip
-    g.box((2, -1, 8), (3, 1, 10), "fur", part="tail")
-    g.box((-4, -2, 6), (1, 2, 10), "fur", part="tail")
-    g.box((-6, -1, 6), (-5, 1, 9), "white", part="tail")
-    g.mirror("-Y")
+    # body: one bulky box, white chest
+    g.box((0, -4, 6), (13, 4, 12), "fur", part="body")
+    g.paint((12, -3, 6), (13, 3, 9), "white", of="body")
+    # legs: 3 x 3 pillars hinged under the body, black stockings
+    for name, x in (("leg_hl", 1), ("leg_fl", 10)):
+        g.box((x, -4, 0), (x + 2, -2, 5), "fur", part=name)
+        g.box((x, -4, 0), (x + 2, -2, 2), "dark", part=name)
+        g.joint(name, pivot=(x + 1.5, -3, 6), parent="body")
+    # head: a big box stacked on the front of the body, white cheeks and jaw
+    g.box((13, -5, 9), (20, 5, 17), "fur", part="head")
+    g.paint((16, -5, 9), (20, 5, 11), "white", of="head")
+    g.joint("head", pivot=(14, 0.5, 12), rotate=(8, -4, -16), parent="body")
+    # face, painted flat on the front of the head: white eye with the pupil to the inside, a brow slanting down
+    # towards the middle (sly)
+    g.box((20, -4, 13), (20, -4, 14), "white", part="head")
+    g.box((20, -3, 13), (20, -3, 14), "eye", part="head")
+    g.box((20, -5, 16), (20, -4, 16), "dark", part="head")
+    g.box((20, -3, 15), (20, -2, 15), "dark", part="head")
+    # snout: orange bridge, white chin, black nose on its top front edge
+    g.box((21, -2, 9), (23, 2, 12), "white", part="snout")
+    g.paint((21, -2, 11), (23, 2, 12), "fur", of="snout")
+    g.paint((23, -1, 12), (23, 1, 12), "dark", of="snout")
+    g.joint("snout", pivot=(21, 0.5, 10.5), parent="head")
+    # big ears with black tips, perked forward and splayed
+    g.box((15, -5, 18), (16, -3, 20), "fur", part="ear_l")
+    g.box((15, -5, 21), (16, -4, 21), "dark", part="ear_l")
+    g.joint("ear_l", pivot=(15.5, -4, 18), rotate=(12, 10, 0), parent="head")
+    # bushy tail in two blocks, raised, white tip
+    g.box((-4, -2, 8), (-1, 2, 12), "fur", part="tail")
+    g.joint("tail", pivot=(0, 0.5, 10), rotate=(0, 18, 8), parent="body")
+    g.box((-7, -2, 8), (-5, 2, 12), "fur", part="tail_tip")
+    g.box((-7, -2, 8), (-6, 2, 12), "white", part="tail_tip")
+    g.joint("tail_tip", pivot=(-4, 0.5, 10), rotate=(0, 12, 0), parent="tail")
+    g.mirror()
+    # the sly look is lopsided: the right brow raised and level, a smirk rising on one side of the chin
+    g.box((20, 2, 15), (20, 3, 15), "fur", part="head")
+    g.box((20, 2, 16), (20, 5, 16), "dark", part="head")
+    g.box((23, -1, 9), (23, 1, 9), "dark", part="snout")
+    g.set(23, 2, 10, "dark", part="snout")
+    # the front left paw lifted (sneaking); the other legs settle into the step
+    g.joint("leg_fl", pivot=(11.5, -3, 6), rotate=(0, 24, 0), parent="body")
+    g.joint("leg_fr", pivot=(11.5, 4, 6), rotate=(0, -6, 0), parent="body")
+    g.joint("leg_hl", pivot=(2.5, -3, 6), rotate=(0, -8, 0), parent="body")
+    g.joint("leg_hr", pivot=(2.5, 4, 6), rotate=(0, 6, 0), parent="body")

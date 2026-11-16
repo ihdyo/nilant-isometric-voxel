@@ -27,19 +27,34 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
    render) and the finished animal (`vf.py approve <code> final`). Never approve on the owner's behalf.
 
 ## Status (2026-11-16)
-- Engine, skill, template, registry, guides, `render.bat` and `key-prompt.md` in place; look approved (rig `iso_top`,
-  geometry `merged`); colour changed to Khronos PBR Neutral + neutral fill (owner: "the model colour is so pale").
-- **Ten example animals** (owner, 2026-11-16) 26-001 Red Fox … 26-010 Giraffe: research docs with verified sources
-  (ADW, IUCN DOIs, papers), 20 genuine photos (PD / CC0 / CC BY), voxel briefs, models, built `.blend`, LOW previews
-  in `_system/cache/preview/`. **No preview approved yet**, so no ULTRA finals.
-- Awaiting the owner: the ten preview approvals, the Poppins italic download, contributor names and Gumroad licence.
+- Engine, skill, template, registry, guides, `render.bat` and `key-prompt.md` in place; rig `iso_top` approved;
+  colour changed to Khronos PBR Neutral + neutral fill (owner: "the model colour is so pale").
+- **Bulky, posed blocky-mob look APPROVED and locked, standards v2.1** (owner, 2026-11-16, after three rounds: "minecraft mobs vibes", "keep the
+  texture flat solid", then "blocky bulk style like the attached image", rotatable sections, flat plates, a pose and
+  an expression per animal, voxels scaled to real size, colours free of Tailwind; then stacked sections with no holes,
+  expressions painted flat, vivid pastel backgrounds): geometry `mob`, `vf_voxel` layers, joints and plates,
+  `vf_color.py`. Before/after: `03 Design/Reference/look · 2026-11-16 · bulky posed before-after.jpg` (round 2) and
+  `look · 2026-11-16 · flat faces before-after.jpg` (round 3, the approved look).
+- **Twenty-five example animals** (owner, 2026-11-16) 26-001 Red Fox … 26-010 Giraffe, 26-011 African Elephant …
+  26-015 European Hedgehog, then 26-016 Axolotl, 26-017 Gray Wolf, 26-018 Green Sea Turtle, 26-019 Nine-banded
+  Armadillo, 26-020 Scarlet Macaw, 26-021 Bottlenose Dolphin, 26-022 Mountain Goat, 26-023 European Rabbit, 26-024
+  Red-eyed Tree Frog, 26-025 Plains Zebra: research docs with verified sources (ADW, IUCN assessments read on the
+  IUCN site and their DOIs on Crossref, papers), 50 genuine photos (PD / CC0 / CC BY), voxel briefs, models, built
+  `.blend`, LOW previews in `_system/cache/preview/`. **No preview approved yet**, so no ULTRA finals.
+- **Plates switched off** (owner, 2026-11-16: "disable flat pixel for now"): `vf_standards.POSE["plates"] = False`;
+  every part is whole voxels. **Information cards redesigned** to breathe (pixel-art icon badges, roomier cards, the
+  photo as a tilted sticker). Both approved by the owner and locked as standards v2.1 (2026-11-16).
+- **Rigging and animation** are planned in `_system/log/PLAN.md` (armature from the joints, walk/idle cycles,
+  expressions), not started.
+- Awaiting the owner: the twenty-five preview approvals, the Poppins italic download, contributor names and Gumroad licence.
 
 ## Hard rules
 - **One source of truth each:** numbers in `_system/studio/blender/vf_standards.py`; an animal's names, look, card copy,
   photo, sources, stock metadata and approvals in its `animal.json`; its geometry in `blender/model.py`; its modelling
   brief in `docs/voxel-model.md` (palette must equal `animal.json`); the registry and publish log in
   `05 Publish/Voxel Fauna · Registry.xlsx` (+ `Voxel Fauna · Publish Log.md`).
-- **Colours:** Tailwind v4 tokens only (`03 Design/Color/tailwind-v4-palette.json`), as in Nilant.
+- **Colours:** Tailwind v4 tokens by default (`03 Design/Color/tailwind-v4-palette.json`); a `#RRGGBB` hex where no
+  token fits (owner, 2026-11-16: "for this project, break from tailwind coloring token"); backgrounds render muted.
 - **No AI-generated images, ever** (animals, references, backgrounds, photos on the artwork).
 - **Photos:** genuine, public domain, CC0 or CC BY only (never BY-SA, NC, ND), logged in the animal's
   `docs/references.md` with author, licence and URL, credited on the information artwork. Stock sites get the

@@ -1,0 +1,170 @@
+{
+  "code": "26-013",
+  "common": "Toco Toucan",
+  "scientific": "Ramphastos toco",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "body": "neutral-900",
+      "throat": "stone-50",
+      "bill": "yellow-400",
+      "ring": "orange-400",
+      "eye": "sky-500",
+      "vent": "red-600",
+      "feet": "slate-400"
+    },
+    "background": "blue-200",
+    "accent": null,
+    "why": "A soft sky blue, the complement of the huge orange bill, with the black body standing out clearly.",
+    "size": {
+      "real_m": 0.61,
+      "measure": "bill tip to tail tip: about 61 cm, a third of it bill",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Toucan family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Piciformes",
+      "family": "Ramphastidae",
+      "genus": "Ramphastos",
+      "species": "R. toco"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2025",
+      "trend": null,
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "~61 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "592–760 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "~20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Bill",
+        "value": "1/3 length",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open woods, savannas and plantations in South America, mostly lowland Brazil and nearby.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Mostly fruit, tossed up and gulped down whole, plus insects and the odd egg.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "That huge bill is an air conditioner: toucans send warm blood into it to cool down on hot days.",
+        "source": [
+          3
+        ]
+      },
+      {
+        "text": "The biggest bill for its size of any bird: a third of its length, yet only a twentieth of its weight.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pablo",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Ramphastos_toco_407212656.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ramphastos toco: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ramphastos_toco/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "BirdLife International (2025). Ramphastos toco. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2025-2.RLTS.T22682164A281011279.en",
+      "doi": "10.2305/IUCN.UK.2025-2.RLTS.T22682164A281011279.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Tattersall, G.J., Andrade, D.V. & Abe, A.S. (2009). Heat exchange from the toucan bill reveals a controllable vascular thermal radiator. Science 325(5939): 468–470",
+      "publisher": "American Association for the Advancement of Science",
+      "url": "https://doi.org/10.1126/science.1175553",
+      "doi": "10.1126/science.1175553",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "toco toucan",
+      "toucan",
+      "ramphastos",
+      "tropical bird",
+      "rainforest bird",
+      "orange beak",
+      "brazil",
+      "south america",
+      "exotic bird"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 5 animals'); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

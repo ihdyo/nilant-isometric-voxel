@@ -18,15 +18,17 @@ import time
 import bpy
 import bmesh
 import numpy as np
-from mathutils import Vector
+from mathutils import Matrix, Vector
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 if HERE not in sys.path:
     sys.path.insert(0, HERE)
 import vf_standards as ST  # noqa: E402
+import vf_color as VC  # noqa: E402
+from vf_voxel import apply as _apply  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
-PALETTE = json.load(open(os.path.join(ROOT, "03 Design", "Color", "tailwind-v4-palette.json"), encoding="utf-8"))["colors"]
+PALETTE = VC.PALETTE
 REPORT = []
 
 CORNERS = ((0, 0, 0), (1, 0, 0), (1, 1, 0), (0, 1, 0), (0, 0, 1), (1, 0, 1), (1, 1, 1), (0, 1, 1))
@@ -39,17 +41,18 @@ def log(line):
 
 
 # ---- colour ---------------------------------------------------------------------------------------------------------
-def hex_of(token):
-    return {"white": "FFFFFF", "black": "000000"}.get(token) or PALETTE[token]["hex"]
+hex_of = VC.hex_of          # a Tailwind token or "#RRGGBB" (owner 2026-11-16: tokens are no longer required)
+srgb = VC.srgb
 
 
 def _lin(c):
     return c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4
 
 
-def srgb(token):
-    h = hex_of(token)
-    return tuple(int(h[i:i + 2], 16) / 255 for i in (0, 2, 4))
+def background_hex(look):
+    """The colour every open pixel gets: a vivid pastel of the animal's background (vf_standards.BACKGROUND_RULE)."""
+    R = ST.BACKGROUND_RULE
+    return VC.pastel(look["background"], R["max_chroma"], R["lightness"])
 
 
 def rgba(token, a=1.0):
@@ -86,8 +89,8 @@ def clear():
     return first
 
 
-def plastic(key, token):
-    P = ST.PLASTIC
+def plastic(key, token, finish=None):
+    P = ST.MATERIALS[finish or ST.GEOMETRIES[ST.GEOMETRY]["material"]]
     m = bpy.data.materials.new(f"VF · {key} · {token}")
     nt = _nodes(m)
     b = next((n for n in nt.nodes if n.type == "BSDF_PRINCIPLED"), None) or nt.nodes.new("ShaderNodeBsdfPrincipled")
@@ -125,37 +128,52 @@ def _collection(name, scene):
 DIRS = ((0, 0, -1), (0, 0, 1), (0, -1, 0), (0, 1, 0), (-1, 0, 0), (1, 0, 0))      # the normal of each CUBE face
 
 
+def ground_offset(grid):
+    """Voxels to lift the posed animal by so its lowest point stands on z = 0."""
+    return -grid.posed_bounds()[0][2]
+
+
 def animal_meshes(grid, palette, coll, geometry=None):
     """One object per part, one material per palette key. "block": every visible voxel its own bevelled cube.
     "merged": a part's outer faces share vertices, so its flat planes carry no seams; faces against another part are
-    kept, so parts meet with a visible seam."""
+    kept, so parts meet with a visible seam. "mob": merged faces with sharp edges (no bevel, flat shading), matte,
+    flat solid colours. Each object's origin is its part's hinge (vf_voxel joint pivot) and its transform is the
+    part's pose, so the sections can be turned again in the .blend; plates are squashed in the mesh."""
     geometry = geometry or ST.GEOMETRY
+    G = ST.GEOMETRIES[geometry]
     s = ST.VOXEL
     keys = sorted(palette)
-    mats = {k: plastic(k, palette[k]) for k in keys}
+    mats = {k: plastic(k, palette[k], G["material"]) for k in keys}
     missing = [c for c in grid.colors() if c not in palette]
     if missing:
         raise KeyError(f"model uses colour keys not in animal.json look.palette: {missing}")
+    lift = ground_offset(grid)
     objs, culled = [], 0
     for part, voxels in sorted(grid.parts().items()):
         used = sorted({c for _, c in voxels})
         index = {c: i for i, c in enumerate(used)}
         mine = {k for k, _ in voxels}
+        j = grid.joints.get(part)
+        origin = j["pivot"] if j else (0.0, 0.0, 0.0)
         bm = bmesh.new()
         cache = {}
+
+        def local(p):
+            q = grid.scaled(part, p)
+            return ((q[0] - origin[0]) * s, (q[1] - origin[1]) * s, (q[2] - origin[2]) * s)
 
         def vert(p):
             v = cache.get(p)
             if v is None:
-                v = cache[p] = bm.verts.new((p[0] * s, p[1] * s, p[2] * s))
+                v = cache[p] = bm.verts.new(local(p))
             return v
 
         for (x, y, z), color in voxels:
-            if ST.CULL_HIDDEN and not grid.visible((x, y, z)):
+            if ST.CULL_HIDDEN and not grid.visible((x, y, z), part):
                 culled += 1
                 continue
             if geometry == "block":
-                vs = [bm.verts.new(((x + dx) * s, (y + dy) * s, (z + dz) * s)) for dx, dy, dz in CORNERS]
+                vs = [bm.verts.new(local((x + dx, y + dy, z + dz))) for dx, dy, dz in CORNERS]
                 for f in CUBE:
                     face = bm.faces.new([vs[i] for i in f])
                     face.material_index = index[color]
@@ -175,23 +193,31 @@ def animal_meshes(grid, palette, coll, geometry=None):
         for c in used:
             me.materials.append(mats[c])
         for p in me.polygons:
-            p.use_smooth = True
+            p.use_smooth = G["bevel"]           # sharp boxes shade flat; bevelled ones smooth across the bevel
         o = bpy.data.objects.new(f"VF · {part}", me)
+        m = grid.matrix(part)                       # rest -> posed, voxel units; the origin sits on the hinge
+        p0 = _apply(m, origin)
+        o.matrix_world = Matrix(((m[0][0], m[0][1], m[0][2], p0[0] * s),
+                                 (m[1][0], m[1][1], m[1][2], p0[1] * s),
+                                 (m[2][0], m[2][1], m[2][2], (p0[2] + lift) * s),
+                                 (0.0, 0.0, 0.0, 1.0)))
         coll.objects.link(o)
-        b = o.modifiers.new("VF bevel", "BEVEL")
-        b.width = ST.BEVEL["width"]
-        b.segments = ST.BEVEL["segments"]
-        b.profile = ST.BEVEL["profile"]
-        b.limit_method = ST.GEOMETRIES[geometry]["limit"]
-        b.angle_limit = math.radians(ST.BEVEL_ANGLE)
-        b.use_clamp_overlap = True
-        try:
-            b.harden_normals = True
-        except Exception:
-            pass
+        if G["bevel"]:
+            b = o.modifiers.new("VF bevel", "BEVEL")
+            b.width = ST.BEVEL["width"]
+            b.segments = ST.BEVEL["segments"]
+            b.profile = ST.BEVEL["profile"]
+            b.limit_method = G["limit"]
+            b.angle_limit = math.radians(ST.BEVEL_ANGLE)
+            b.use_clamp_overlap = True
+            try:
+                b.harden_normals = True
+            except Exception:
+                pass
         objs.append(o)
+    turned = sum(1 for jj in grid.joints.values() if any(abs(a) > 0.01 for a in jj["rotate"]))
     log(f"model: {len(objs)} parts ({geometry}), {len(grid.v)} voxels, {culled} hidden voxels not built, "
-        f"{len(mats)} materials")
+        f"{len(mats)} materials, {turned} turned sections, lifted {lift:+.2f} voxels to the ground")
     return objs
 
 
@@ -244,13 +270,10 @@ def view_axes():
 
 
 def corners_of(grid):
+    """Every visible voxel corner of the posed, grounded animal, in metres (what the camera frames)."""
     s = ST.VOXEL
-    pts = []
-    for (x, y, z) in grid.v:
-        if grid.visible((x, y, z)):
-            for dx, dy, dz in CORNERS:
-                pts.append(Vector(((x + dx) * s, (y + dy) * s, (z + dz) * s)))
-    return pts
+    lift = ground_offset(grid)
+    return [Vector((p[0] * s, p[1] * s, (p[2] + lift) * s)) for p in grid.posed_points()]
 
 
 def frame(kind, ratio, pts, width, height):
@@ -357,7 +380,7 @@ def build(grid, look, rig_name=None, geometry=None):
             w, h = ST.SIZES[ratio]
             fr = frame(kind, ratio, pts, w, h)
             camera(sc, f"CAM · {name}", fr)
-            sc["vf_background"] = look["background"]
+            sc["vf_background"] = background_hex(look)
             sc["vf_profile"] = "ULTRA"
             frames[name] = dict(ortho_scale=fr["ortho_scale"], view=fr["view"], box_size=fr["box_size"])
     bpy.context.window_manager  # noqa: B018 (keeps the context alive in background runs)

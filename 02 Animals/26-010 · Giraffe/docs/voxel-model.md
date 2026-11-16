@@ -10,25 +10,42 @@
 | `base` | `amber-100` | the cream network between patches, lower legs, head |
 | `mane` | `amber-800` | the mane along the back of the neck |
 | `dark` | `stone-800` | hooves, ossicone tufts, tail tuft |
-| `eye` | `neutral-950` | one voxel on each side of the head |
+| `eye` | `neutral-950` | one voxel on each front corner of the head (seen from the front and the flank) |
+| `tongue` | `#4F4A6B` | the long dark blue-purple tongue poking out (a hex colour: no Tailwind token is that blue-grey) |
 
 Background (not modelled): `sky-300`.
 
 ## Size and pose
 
-- Size: 19 × 5 × 32 voxels (L × W × H); longest side 32 (budget 16–32).
-- Pose: standing, the long neck rising almost straight up, head forward. Head towards +X, feet on z = 0, left flank at −Y, symmetric about y = 0.
-- Parts: legs, body, neck, head, tail.
+- Size: 28 × 11 × 55 voxels posed (L × W × H); longest side 55, budget 45–56 (target 53) from the real size 5.0 m (height to the ossicones: up to 5.7 m, a typical adult about 5 m).
+- Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
+- Parts: shin_fl, shin_fr, shin_hl, shin_hr, leg_fl, leg_fr, leg_hl, leg_hr, tail, body, neck, head, tongue, ear_l, ear_r.
 
-## Proportions (inclusive voxel ranges of each part, as built)
+## Personality, pose and expression
 
-| Part | x | y | z |
-|---|---|---|---|
-| tail | 1 to 1 | 0 to 0 | 9 to 14 |
-| body | 2 to 13 | -2 to 2 | 11 to 16 |
-| legs | 3 to 12 | -2 to 2 | 0 to 10 |
-| neck | 11 to 15 | -1 to 1 | 17 to 27 |
-| head | 14 to 19 | -2 to 2 | 27 to 31 |
+- Personality: gentle, curious and a little goofy.
+- Pose: the long neck leaning forward and turned to the camera, the head cocked, ears out, the tail swishing, the long dark tongue poking out of the side of the mouth.
+- Expression: big friendly dark eyes with a cream glint under a row of long lashes, painted flat.
+
+## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
+
+| Part | x | y | z | Pose |
+|---|---|---|---|---|
+| shin_fl | 13 to 15 | -4 to -2 | 0 to 9 | turned ry +18°; on leg_fl |
+| shin_fr | 13 to 15 | 2 to 4 | 0 to 9 | on leg_fr |
+| shin_hl | 1 to 3 | -4 to -2 | 0 to 9 | on leg_hl |
+| shin_hr | 1 to 3 | 2 to 4 | 0 to 9 | turned ry -10°; on leg_hr |
+| leg_fl | 13 to 15 | -4 to -2 | 10 to 19 | turned ry -8°; on body |
+| leg_fr | 13 to 15 | 2 to 4 | 10 to 19 | on body |
+| leg_hl | 1 to 3 | -4 to -2 | 10 to 19 | on body |
+| leg_hr | 1 to 3 | 2 to 4 | 10 to 19 | turned ry +6°; on body |
+| tail | -1 to -1 | -1 to 1 | 19 to 28 | turned rx -16°; on body |
+| body | 0 to 16 | -4 to 4 | 20 to 31 |  |
+| neck | 11 to 16 | -2 to 2 | 32 to 45 | turned ry +10°, rz -8°; on body |
+| head | 12 to 23 | -3 to 3 | 46 to 54 | turned rx +14°, ry +6°; on neck |
+| tongue | 22 to 24 | -3 to -3 | 46 to 46 | turned ry +18°, rz -10°; on head |
+| ear_l | 15 to 17 | -4 to -4 | 49 to 50 | turned rx +20°; on head |
+| ear_r | 15 to 17 | 4 to 4 | 49 to 50 | turned rx -20°; on head |
 
 ## Recognisable features (in order of importance)
 
@@ -44,7 +61,8 @@ Background (not modelled): `sky-300`.
 - `base`: the cream network between patches, lower legs, head
 - `mane`: the mane along the back of the neck
 - `dark`: hooves, ossicone tufts, tail tuft
-- `eye`: one voxel on each side of the head
+- `eye`: one voxel on each front corner of the head (seen from the front and the flank)
+- `tongue`: the long dark blue-purple tongue poking out (a hex colour: no Tailwind token is that blue-grey)
 
 ## Photos used
 

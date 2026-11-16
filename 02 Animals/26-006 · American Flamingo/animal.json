@@ -11,11 +11,19 @@
       "black": "neutral-900",
       "bill": "rose-100",
       "legs": "rose-500",
+      "feet": "rose-700",
       "eye": "amber-300"
     },
     "background": "emerald-200",
     "accent": null,
-    "why": "Mint green, the complement of flamingo pink: the brightest bird of the collection gets the boldest contrast."
+    "why": "Mint green, the complement of flamingo pink: the brightest bird of the collection gets the boldest contrast.",
+    "size": {
+      "real_m": 1.2,
+      "measure": "standing height about 1.2 m",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Bird · Flamingo family",

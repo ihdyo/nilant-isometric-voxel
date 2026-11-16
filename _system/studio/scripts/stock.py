@@ -20,17 +20,28 @@ import vflib as VL
 
 ST = VL.ST
 BASE_KEYWORDS = ["voxel", "isometric", "3d illustration", "voxel art", "cube", "blocky", "animal", "wildlife",
-                 "cute", "low resolution", "pixel", "minimal", "geometric", "plastic toy", "solid background"]
+                 "cute", "low resolution", "pixel", "minimal", "geometric", "block toy", "solid background"]
 INFO_KEYWORDS = ["infographic", "fact sheet", "education", "biology", "zoology", "information"]
+# The look borrows the blocky-mob style of block-building games (owner, 2026-11-16); a game's name in a title or
+# keyword is a trademark Adobe Stock and Shutterstock refuse (and a claim of affiliation). vf.py check fails on these.
+TRADEMARKS = ("minecraft", "mojang", "roblox", "lego", "crossy road", "fortnite", "nintendo", "pokemon", "pokémon")
+
+
+def trademark_hits(animal):
+    """Game or brand names found in the stock title, info title or keywords (must be empty)."""
+    s = animal.get("stock") or {}
+    text = " | ".join([s.get("title") or "", s.get("info_title") or ""] + list(s.get("keywords") or [])).lower()
+    return [t for t in TRADEMARKS if t in text]
 ADOBE_ANIMALS = 1          # Adobe Stock category id "Animals"
 
 
 def _titles(animal, kind):
     s = animal.get("stock") or {}
-    bg = animal["look"]["background"].rsplit("-", 1)[0]
+    import infographic as IG
+    bg = IG._token_of(animal["look"]["background"]).rsplit("-", 1)[0]
     if kind == "ILL":
         return s.get("title") or (f"{animal['common']} ({animal['scientific']}) isometric voxel 3D illustration "
-                                  f"on a solid {bg} background")
+                                  f"on a soft {bg} background")
     return s.get("info_title") or (f"{animal['common']} ({animal['scientific']}) infographic: isometric voxel 3D "
                                    f"illustration with habitat, diet and facts")
 

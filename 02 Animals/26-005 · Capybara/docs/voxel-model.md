@@ -8,24 +8,35 @@
 |---|---|---|
 | `fur` | `amber-800` | body, legs, head |
 | `dark` | `orange-950` | the front of the muzzle and nose, the ears |
-| `eye` | `neutral-950` | one voxel high on each side of the head |
+| `eye` | `neutral-950` | one voxel high on each front corner of the head (seen from the front and the flank) |
 
 Background (not modelled): `indigo-200`.
 
 ## Size and pose
 
-- Size: 23 × 9 × 15 voxels (L × W × H); longest side 23 (budget 16–32).
-- Pose: standing, head level, relaxed. Head towards +X, feet on z = 0, left flank at −Y, symmetric about y = 0.
-- Parts: legs, body, head, ears.
+- Size: 29 × 13 × 19 voxels posed (L × W × H); longest side 29, budget 26–34 (target 30) from the real size 1.2 m (nose to rump: 106–134 cm, mid-range).
+- Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
+- Parts: leg_fl, leg_fr, leg_hl, leg_hr, body, head, snout, ear_l, ear_r.
 
-## Proportions (inclusive voxel ranges of each part, as built)
+## Personality, pose and expression
 
-| Part | x | y | z |
-|---|---|---|---|
-| body | 1 to 16 | -4 to 4 | 4 to 12 |
-| legs | 3 to 14 | -3 to 3 | 0 to 3 |
-| head | 17 to 23 | -3 to 3 | 6 to 13 |
-| ears | 17 to 18 | -3 to 3 | 14 to 14 |
+- Personality: calm, unbothered, everyone's friend.
+- Pose: standing at ease, the big head lowered and turned a little to the camera, one ear flicked back.
+- Expression: sleepy half-closed eyes (flat lines) and a small easy smile, painted flat.
+
+## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
+
+| Part | x | y | z | Pose |
+|---|---|---|---|---|
+| leg_fl | 13 to 15 | -6 to -4 | 0 to 3 | turned ry -6°; on body |
+| leg_fr | 13 to 15 | 4 to 6 | 0 to 3 | on body |
+| leg_hl | 1 to 3 | -6 to -4 | 0 to 3 | on body |
+| leg_hr | 1 to 3 | 4 to 6 | 0 to 3 | turned ry +6°; on body |
+| body | 0 to 17 | -6 to 6 | 4 to 14 |  |
+| head | 17 to 24 | -5 to 5 | 8 to 16 | turned rx +6°, ry +10°, rz -8°; on body |
+| snout | 25 to 27 | -4 to 4 | 8 to 13 | on head |
+| ear_l | 19 to 20 | -5 to -4 | 17 to 17 | turned rx +20°; on head |
+| ear_r | 19 to 20 | 4 to 5 | 17 to 17 | turned rx -10°, ry -24°; on head |
 
 ## Recognisable features (in order of importance)
 
@@ -38,7 +49,7 @@ Background (not modelled): `indigo-200`.
 
 - `fur`: body, legs, head
 - `dark`: the front of the muzzle and nose, the ears
-- `eye`: one voxel high on each side of the head
+- `eye`: one voxel high on each front corner of the head (seen from the front and the flank)
 
 ## Photos used
 

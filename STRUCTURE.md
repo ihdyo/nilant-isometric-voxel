@@ -38,7 +38,7 @@ nilant-voxel-isometric/
 ├── 02 Animals/
 │   ├── README.md
 │   ├── _Template/                copied by `vf.py new`
-│   ├── 26-001 · Red Fox/ … 26-010 · Giraffe/     the ten example animals (2026-11-16)
+│   ├── 26-001 · Red Fox/ … 26-025 · Plains Zebra/   the twenty-five example animals (2026-11-16)
 │   └── <YY-SEQ · Common Name>/
 │       ├── overview.md           front page (generated)
 │       ├── animal.json           source of truth: names, look, card copy + sources, photo, stock metadata, approvals

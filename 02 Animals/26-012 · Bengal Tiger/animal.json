@@ -1,0 +1,168 @@
+{
+  "code": "26-012",
+  "common": "Bengal Tiger",
+  "scientific": "Panthera tigris tigris",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "orange-500",
+      "stripe": "neutral-900",
+      "white": "stone-50",
+      "nose": "rose-300",
+      "eye": "amber-400",
+      "pupil": "neutral-950"
+    },
+    "background": "green-200",
+    "accent": null,
+    "why": "Jungle green, the complement of the orange coat: the tiger stands out the way it hides in the grass.",
+    "size": {
+      "real_m": 3.0,
+      "measure": "nose to tail tip: males up to 3 m, females up to 2.7 m",
+      "source": [
+        3
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Cat family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Panthera",
+      "species": "P. tigris"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2021",
+      "trend": null,
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "up to 3 m",
+        "source": [
+          3
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "225 kg max",
+        "source": [
+          3
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "≤15 yrs",
+        "source": [
+          3
+        ]
+      },
+      {
+        "label": "Fangs",
+        "value": "7.5–10 cm",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Jungles, mangroves, marshes and tall grass in India, Bangladesh, Nepal, Bhutan and Myanmar.",
+      "source": [
+        3
+      ]
+    },
+    "diet": {
+      "text": "Deer, wild pigs, antelopes and buffalo, stalked through the grass. One meal can be 40 kg!",
+      "source": [
+        3
+      ]
+    },
+    "facts": [
+      {
+        "text": "Tigers are great swimmers: one was recorded crossing 29 km of water!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Bengal tigers have the longest fangs of any big cat alive: up to 10 cm, as long as your finger.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-bandhavgarh.jpg",
+      "author": "Bernard Gagnon",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Bengal_tiger_in_Bandhavgarh_National_Park_02.jpg",
+      "centre": [
+        0.42,
+        0.42
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Panthera tigris: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Panthera_tigris/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Goodrich, J., Wibisono, H., Miquelle, D., Lynam, A.J., Sanderson, E., Chapman, S., Gray, T.N.E., Chanchani, P. & Harihar, A. (2022). Panthera tigris. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2022-1.RLTS.T15955A214862019.en",
+      "doi": "10.2305/IUCN.UK.2022-1.RLTS.T15955A214862019.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Bengal Tiger: animal facts",
+      "publisher": "SeaWorld Parks & Entertainment (SeaWorld and Busch Gardens animal information)",
+      "url": "https://seaworld.org/animals/facts/mammals/bengal-tiger/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (zoological institution fact page)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "bengal tiger",
+      "tiger",
+      "panthera tigris",
+      "big cat",
+      "india",
+      "jungle",
+      "stripes",
+      "predator",
+      "endangered animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 5 animals'); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

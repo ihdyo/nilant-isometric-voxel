@@ -2,7 +2,7 @@
 
 > Written by `render.bat` (and `vf.py render-all`). Double-click `render.bat` to build, preview and render.
 
-- 10 animals · 0 with all six finals · checked 2026-11-16 02:13
+- 25 animals · 0 with all six finals · checked 2026-11-16 17:20
 
 | Code | Animal | .blend | LOW | Preview approved | ULTRA | Final approved |
 |---|---|---|---|---|---|---|
@@ -16,3 +16,18 @@
 | 26-008 | Lion | current | 6/6 | - | 0/6 | - |
 | 26-009 | Polar Bear | current | 6/6 | - | 0/6 | - |
 | 26-010 | Giraffe | current | 6/6 | - | 0/6 | - |
+| 26-011 | African Elephant | current | 6/6 | - | 0/6 | - |
+| 26-012 | Bengal Tiger | current | 6/6 | - | 0/6 | - |
+| 26-013 | Toco Toucan | current | 6/6 | - | 0/6 | - |
+| 26-014 | Hippo | current | 6/6 | - | 0/6 | - |
+| 26-015 | European Hedgehog | current | 6/6 | - | 0/6 | - |
+| 26-016 | Axolotl | current | 6/6 | - | 0/6 | - |
+| 26-017 | Gray Wolf | current | 6/6 | - | 0/6 | - |
+| 26-018 | Green Sea Turtle | current | 6/6 | - | 0/6 | - |
+| 26-019 | Nine-banded Armadillo | current | 6/6 | - | 0/6 | - |
+| 26-020 | Scarlet Macaw | current | 6/6 | - | 0/6 | - |
+| 26-021 | Bottlenose Dolphin | current | 6/6 | - | 0/6 | - |
+| 26-022 | Mountain Goat | current | 6/6 | - | 0/6 | - |
+| 26-023 | European Rabbit | current | 6/6 | - | 0/6 | - |
+| 26-024 | Red-eyed Tree Frog | current | 6/6 | - | 0/6 | - |
+| 26-025 | Plains Zebra | current | 6/6 | - | 0/6 | - |

@@ -38,8 +38,8 @@
 
 ## Look
 
-- Background: `lime-200`: Bamboo green: a soft lime that lets the black-and-white coat pop and says 'dinner' at the same time.
-- Palette: white `stone-50`, black `neutral-900`, eye `stone-400`
+- Background: `#BFD7A7`: Bamboo green: a calm pastel lime that lets the black-and-white coat pop and says 'dinner' at the same time; a hex (the pastel of lime-400) because every Tailwind lime or green pastel sits too close to the white fur (delta E under 30).
+- Palette: white `stone-50`, black `neutral-900`
 - Photo on the information artwork: `assets/photos/01-sitting.jpg` (Jeff Kubina, Public domain)
 
 ## Files

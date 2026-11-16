@@ -1,0 +1,158 @@
+{
+  "code": "26-019",
+  "common": "Nine-banded Armadillo",
+  "scientific": "Dasypus novemcinctus",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "shell": "stone-400",
+      "band": "stone-500",
+      "skin": "stone-300",
+      "eye": "neutral-950"
+    },
+    "background": "lime-200",
+    "accent": null,
+    "why": "A soft grassland green, the complement of the grey-tan armour.",
+    "size": {
+      "real_m": 1.0,
+      "measure": "nose to tail tip: body about 75 cm plus a 30 cm tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Armadillo family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Cingulata",
+      "family": "Dasypodidae",
+      "genus": "Dasypus",
+      "species": "D. novemcinctus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2025",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "62–80 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3.6–7.7 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Bands",
+        "value": "8–11",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Babies",
+        "value": "4 identical",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Forests, savannas, scrub and grasslands across South America.",
+      "source": [
+        2
+      ]
+    },
+    "diet": {
+      "text": "Beetles, ants, termites and worms, sniffed out up to 20 cm underground!",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Almost always born as identical quadruplets: one egg splits into four babies!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "It can hold its breath for 6 minutes and swallows air to float across streams.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-uruguay.jpg",
+      "author": "Enrique González",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Tatu_(dasypus_novemcinctus),_Uruguay,_2020.jpg",
+      "centre": [
+        0.45,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Dasypus novemcinctus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Dasypus_novemcinctus/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Arteaga, M., Abba, A.M., Superina, M., Feijó, A., Smith, P. & Aliaga-Rossel, E. (2026). Dasypus novemcinctus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2026-1.RLTS.T268513068A268516717.en",
+      "doi": "10.2305/IUCN.UK.2026-1.RLTS.T268513068A268516717.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "nine-banded armadillo",
+      "armadillo",
+      "dasypus",
+      "armour",
+      "south america",
+      "burrow",
+      "mammal",
+      "cute animal",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

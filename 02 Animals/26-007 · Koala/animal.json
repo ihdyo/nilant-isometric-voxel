@@ -9,11 +9,19 @@
       "fur": "stone-400",
       "white": "stone-100",
       "nose": "stone-800",
-      "eye": "neutral-950"
+      "eye": "neutral-950",
+      "paw": "stone-600"
     },
     "background": "amber-200",
     "accent": null,
-    "why": "Warm sunny amber against the cool grey fur: the koala looks cosy, like an afternoon nap."
+    "why": "Warm sunny amber against the cool grey fur: the koala looks cosy, like an afternoon nap.",
+    "size": {
+      "real_m": 0.75,
+      "measure": "head and body 72–78 cm (sitting height with the ears)",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Marsupial · Koala family",

@@ -5,21 +5,28 @@ skill's standards table); this page says what they are for. Approved sheets are 
 
 ## Identity
 A collection of animal portraits that belong together: every animal seen from the same true-isometric camera, built
-from the same size of voxel, lit by the same rig, finished in the same satin plastic, in vivid solid colours, each on
-its own soft flat colour. Recognition comes from proportions and three to five species features carried by large
-blocks, never from detail. The information artworks speak in a friendly, Duolingo-like voice with chunky cards.
+in the same **bulky blocky-mob** style (a few big sharp-edged sections per animal, turned a little at their joints in
+a pose that fits its personality, an expressive face drawn on the front of the head), lit by the same rig, matte, in
+vivid flat solid colours, each on its own soft, muted flat colour. Bigger animals are built from more, finer voxels.
+Recognition comes from proportions, pose and three to five species features carried by large blocks, never from
+detail. The information artworks speak in a friendly, Duolingo-like voice with chunky cards.
 
 ## The picture
 | Element | Rule |
 |---|---|
 | Camera | orthographic, azimuth 45°, elevation 35.264° (true isometric), deep focus |
 | Facing | head lower right; the face and the left flank visible together |
-| Voxel | 0.1 m; the animal 16–32 voxels long, whatever its real size |
-| Geometry | `merged`: flat planes per part, bevelled where the surface turns; parts meet with a seam (approved 2026-11-15) |
-| Material | satin plastic (roughness 0.62, thin coat), light subsurface; no texture, no gradient |
+| Voxel | 0.1 m; the posed longest side scales with the real size: 28 × L^0.4 ± 15 % voxels (fox 29, lion 42, giraffe 53; approved 2026-11-16, was 16–32 for all) |
+| Geometry | `mob`: one box per part (body, big head, pillar legs, slab ears, block tail; a second box only for a real feature), flat planes, sharp edges, no bevel; no rounded or stair-stepped curves (approved 2026-11-16, owner: "minecraft mobs vibes"; was `merged`, bevelled, approved 2026-11-15) |
+| Pose | sections turn at their joints (≤ 40°), ears and brows follow the head; one pose per species from its personality (sly fox mid-sneak, flamingo on one leg, sleepy koala) |
+| Stacking | each section is its own layer: overlapping sections both stay whole, so a turned section never leaves a hole (owner: "stack the block, dont make a hole of it") |
+| Plates | switched off for now (owner, 2026-11-16: "disable flat pixel for now"): every part, feet included, is whole voxels |
+| Face | an expression painted flat on the front of the head (owner: "they should flat", block-game character reference): a white eye with the pupil to the inside (or a dark eye with a glint, or a sleepy line), a darker brow strip whose steps carry the mood, a painted mouth; a snout box with a dark nose row on its top front edge |
+| Material | matte (roughness 0.86, specular 0.3, no coat, no subsurface); flat solid colours, no texture, no shading painted in colour (owner: "keep the texture flat solid") |
+| Style source | the blocky-mob style of block-building games, never a copy of a particular game's creature and never named after a game anywhere (titles, keywords, listings) |
 | Colour | Khronos PBR Neutral view, neutral slate-100 sky fill: colours render as authored (owner 2026-11-16: "the model colour is so pale" under AgX) |
-| Palette | Tailwind v4 tokens; 3–6 keys; large areas shades 50–800, details any shade |
-| Background | one Tailwind token per species, shades 50–300, complementary, ΔE ≥ 30 from the main colour; exactly that hex in every open pixel |
+| Palette | Tailwind v4 tokens by default, a hex where none fits (owner 2026-11-16: "break from tailwind coloring token"); 3–7 keys; large areas shades 50–800, details any shade |
+| Background | one colour per species (Tailwind 50–300 or a soft hex), complementary, rendered as a **vivid pastel** (OKLCH chroma ≤ 0.07, lightness 0.85–0.93, hue kept; owner: "vivid but pastel (not too vibrant or neon), keep it calm"), ΔE ≥ 30 between the main colour and the rendered background; exactly that hex in every open pixel; card lips and the fun-fact card get the same chroma factor |
 | Light | warm key sun front-left and 55° high (`iso_top`, approved 2026-11-15), cool rim behind without its own shadow |
 | Shadow | one soft shadow on the ground, strength 0.65, composited over the background |
 | Framing | the whole animal, centred; illustrations fill 70 % (1:1), 82 % (9:16 width), 68 % (16:9 height) on the binding side |
@@ -30,20 +37,25 @@ blocks, never from detail. The information artworks speak in a friendly, Duoling
 2. Start from the opposite family (orange ↔ teal/cyan/sky, yellow-amber ↔ violet/indigo, pink ↔ emerald, red ↔ teal);
    for neutral animals pick a soft colour of their world (bamboo lime for the panda, Arctic blue for the polar bear,
    sunny amber for the grey koala).
-3. Shade 200 (300 for very light animals); `vf.py check` enforces ΔE ≥ 30; the preview must separate the animal at
-   thumbnail size.
+3. Shade 200 (300 for very light animals, or when the muted 200 sits too close to white fur, as for the panda);
+   `vf.py check` enforces ΔE ≥ 30 against the muted colour; the preview must separate the animal at thumbnail size.
 4. Write the reason in `animal.json → look.why`. Animals may share a background.
 
-The first ten: fox teal-200, panda lime-200, red panda cyan-200, penguin sky-200, capybara indigo-200, flamingo
-emerald-200, koala amber-200, lion violet-200, polar bear blue-300, giraffe sky-300.
+The first twenty-five (all rendered as calm pastels): fox teal-200, panda #BFD7A7 (the pastel of lime-400: the lime and
+green pastels sit too close to its white fur), red panda cyan-200, penguin sky-200, capybara indigo-200, flamingo
+emerald-200, koala amber-200, lion violet-200, polar bear blue-300, giraffe sky-300, elephant orange-200, tiger green-200, toucan
+blue-200, hippo yellow-200, hedgehog emerald-100, axolotl cyan-200, wolf indigo-200, green sea turtle sky-200,
+armadillo lime-200, macaw emerald-200, dolphin orange-100, mountain goat violet-300 and zebra orange-300 (white coats
+need a stronger shade to stay ΔE 30 away), rabbit lime-200, tree frog pink-200.
 
 ## The information artwork (Duolingo-style cards)
 | Element | Rule |
 |---|---|
-| Arrangements | 1:1 header and photo across the top, stat tiles beside the animal, three cards in a bottom band · 9:16 header, the animal with the photo beside it, 2×2 stats, three stacked cards · 16:9 the animal left; header + photo, 2×2 stats, two cards and the fun fact right |
-| Cards | white, rounded (1.5u), a darker lip under each (background + 200), 1.4u padding; flat, no gradients or shadows |
+| Arrangements | 1:1 header and photo across the top, stat tiles beside the animal, three cards in a bottom band · 9:16 header, the animal with the photo beside it, 2×2 stats, three stacked cards · 16:9 the animal left; header + photo, 2×2 stats, three cards side by side on the right |
+| Cards | white, rounded (2.2u), a darker lip under each (0.9u, background + 200), 2.0u padding (1.3u in stat tiles), 2.2u gutters, the text centred in its card; flat, no gradients or shadows (approved 2026-11-16, owner: "make it breathe") |
+| Icons | 8 × 8 pixel-art icons in a rounded badge (the background family one step lighter, the icon at 600): house, apple and light bulb on the card headings; span, weight, heart, egg, bolt or star on the stat tiles by their label |
 | Fun fact | a full-colour card in the background's family at 700 with white type |
-| Photo | a real photograph in a white framed card, cropped to fill; credit underneath: `Photo: <author> · <licence>` |
+| Photo | a real photograph in a thick white frame (1.0u) with a lip, pasted like a sticker tilted −3°, cropped to fill; credit underneath: `Photo: <author> · <licence>` |
 | Status | the IUCN chip in the status colour (LC emerald, NT lime, VU amber, EN orange, CR red) |
 | Type | Poppins: kicker Bold caps in a dark pill · name ExtraBold (≤ 2 lines) · scientific name italic · labels Bold tracked caps · values ExtraBold · body Medium · fun fact SemiBold |
 | Unit | u = 1 % of the short side |
@@ -53,4 +65,5 @@ emerald-200, koala amber-200, lion violet-200, polar bear blue-300, giraffe sky-
 
 ## Files
 `Color/tailwind-v4-palette.json` (copy of Nilant's), `Fonts/` (Poppins, OFL), `Reference/` (approved look sheets:
-rig and geometry 2026-11-15, colour fidelity 2026-11-16).
+rig and geometry 2026-11-15, colour fidelity 2026-11-16, blocky mob before-after, bulky posed before-after and flat faces before-after 2026-11-16; the last is the approved
+look, standards v2.0).

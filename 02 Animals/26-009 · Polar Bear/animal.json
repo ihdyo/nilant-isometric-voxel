@@ -7,11 +7,19 @@
   "look": {
     "palette": {
       "fur": "amber-50",
-      "dark": "neutral-900"
+      "dark": "neutral-900",
+      "shine": "white"
     },
     "background": "blue-300",
     "accent": null,
-    "why": "Arctic blue: the cold sea-ice world, with the creamy white bear standing out in full."
+    "why": "Arctic blue: the cold sea-ice world, with the creamy white bear standing out in full.",
+    "size": {
+      "real_m": 2.2,
+      "measure": "nose to tail: 1.8–2.5 m, mid-range",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Mammal · Bear family",

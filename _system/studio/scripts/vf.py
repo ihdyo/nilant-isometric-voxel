@@ -97,7 +97,7 @@ def brief_palette(folder):
         return None
     pal = {}
     for line in open(p, encoding="utf-8"):
-        m = re.match(r"\|\s*`([a-z_]+)`\s*\|\s*`([a-z]+-\d{2,3}|white|black)`\s*\|", line)
+        m = re.match(r"\|\s*`([a-z_]+)`\s*\|\s*`([a-z]+-\d{2,3}|white|black|#[0-9A-Fa-f]{6})`\s*\|", line)
         if m:
             pal[m.group(1)] = m.group(2)
     return pal
@@ -124,20 +124,33 @@ def check_animal(folder, animal, strict=False):
     look = animal["look"]
     pal = look.get("palette") or {}
     for k, t in pal.items():
-        if t not in VL.PALETTE and t not in ("white", "black"):
-            E.append(f"look.palette.{k}: '{t}' is not a Tailwind v4 token")
+        if not VL.is_colour(t):
+            E.append(f"look.palette.{k}: '{t}' is neither a Tailwind v4 token nor a #RRGGBB hex")
     bg = look.get("background", "")
-    if bg not in VL.PALETTE:
-        E.append(f"look.background '{bg}' is not a Tailwind v4 token")
+    if not VL.is_colour(bg):
+        E.append(f"look.background '{bg}' is neither a Tailwind v4 token nor a #RRGGBB hex")
     elif pal:
         lo, hi = ST.BACKGROUND_RULE["shades"]
-        if not lo <= (VL.shade(bg) or 0) <= hi:
+        if bg in VL.PALETTE and not lo <= (VL.shade(bg) or 0) <= hi:
             E.append(f"background {bg}: shade outside the soft range {lo}-{hi}")
+        if bg not in VL.PALETTE and VL.VC.oklch(bg)[0] < ST.BACKGROUND_RULE["min_lightness"]:
+            E.append(f"background {bg}: OKLCH lightness {VL.VC.oklch(bg)[0]:.2f} is below "
+                     f"{ST.BACKGROUND_RULE['min_lightness']} (backgrounds stay soft)")
         main = next(iter(pal.values()))
-        if main in VL.PALETTE:
-            de = VL.delta_e(main, bg)
+        if VL.is_colour(main):
+            de = VL.delta_e(main, VL.background(look))
             if de < ST.BACKGROUND_RULE["min_delta_e"]:
-                E.append(f"background {bg} is too close to the main colour {main} (delta E {de:.0f})")
+                E.append(f"background {bg} (rendered {VL.background(look)}) is too close to the main colour {main} "
+                         f"(delta E {de:.0f})")
+    if real and not ((look.get("size") or {}).get("real_m")):
+        has_model = bool(folder) and os.path.exists(os.path.join(folder, "blender", "model.py"))
+        (E if has_model else W).append("look.size.real_m is missing (the real longest dimension in metres sets the "
+                                       "voxel budget)")
+    # no game or brand name in the stock metadata (the look is blocky-mob style, never a named game)
+    import stock as SK
+    hits = SK.trademark_hits(animal)
+    if hits:
+        E.append(f"animal.json stock title/keywords name a trademark ({', '.join(hits)}): remove it")
     # the voxel brief agrees with animal.json
     if real:
         bp = brief_palette(folder)
@@ -192,7 +205,7 @@ def check_animal(folder, animal, strict=False):
     if model and os.path.exists(model):
         try:
             g = VL.VX.load_model(model)
-            e, notes = g.report(ST.BUDGET)
+            e, notes = g.report(VL.budget(animal)[:2], ST.POSE["max_angle"], ST.POSE["plates"])
             E += [f"model: {x}" for x in e]
             W += [f"model: {x}" for x in notes if "not mirrored" in x]
             miss = [c for c in g.colors() if c not in pal]
@@ -323,6 +336,7 @@ def do_build(folder, animal, force=False):
     if model_errors:
         raise SystemExit(f"{animal['code']}: cannot build: " + "; ".join(model_errors))
     res = VL.run_blender(dict(model=os.path.join(folder, "blender", "model.py"), look=animal["look"],
+                              budget=list(VL.budget(animal)[:2]),
                               blend=VL.blend_path(folder, animal), readme=readme_text(animal), renders=[]),
                          f"{animal['code']}-build")
     data = dict(code=animal["code"], built=datetime.datetime.now().isoformat(timespec="seconds"),
@@ -799,7 +813,7 @@ def cmd_selftest(a):
                     im.convert("RGB").save(p, optimize=True, dpi=(300, 300))
                 want = tuple(round(v * ST.PROFILES[profile]["scale"]) for v in ST.SIZES[r])
                 corner = im.convert("RGB").getpixel((2, im.height - 3))
-                bg = VL.rgb(SELFTEST["look"]["background"])
+                bg = VL.rgb(VL.background(SELFTEST["look"]))
                 out(f"  {os.path.basename(p)}: {im.size[0]}x{im.size[1]} {'ok' if im.size == want else 'WRONG SIZE'}, "
                     f"corner {'= background' if corner == bg else str(corner) + ' != ' + str(bg)}")
     sheet = contact_sheet({k: [os.path.join(dest, VL.image_id("00-000", k, r) + ".png") for r in ratios] for k in ST.KINDS},
@@ -819,9 +833,17 @@ def standards_md():
         f"Standards version {ST.STANDARDS_VERSION} · rig `{ST.RIG}` · geometry `{ST.GEOMETRY}` "
         f"(generated from `vf_standards.py` by `vf.py standards --write`; do not edit by hand)", "",
         "| Area | Value |", "|---|---|",
-        f"| Voxel | {ST.VOXEL} m; longest side {ST.BUDGET[0]}–{ST.BUDGET[1]} voxels (target 24); smallest feature {ST.MIN_FEATURE} voxel |",
-        f"| Bevel | {ST.BEVEL['width']} m, {ST.BEVEL['segments']} segments, profile {ST.BEVEL['profile']} (round); "
-        f"`{ST.GEOMETRY}` geometry (bevel limit {ST.GEOMETRIES[ST.GEOMETRY]['limit']}, {ST.BEVEL_ANGLE}°) |",
+        f"| Voxel | {ST.VOXEL} m; posed longest side {ST.BUDGET[0]}–{ST.BUDGET[1]} voxels: target "
+        f"{ST.SIZE_RULE['base']:g} × (real longest dimension in m)^{ST.SIZE_RULE['exponent']} ± "
+        f"{ST.SIZE_RULE['tolerance']:.0%}; smallest feature {ST.MIN_FEATURE} voxel |",
+        f"| Pose | sections turn at their joints, at most {ST.POSE['max_angle']:g}° on any axis, ears, snout and jaw "
+        f"follow their parent; plates (flat surfaces) {'allowed, ' + str(ST.POSE['plate']) + ' voxel thick' if ST.POSE['plates'] else 'switched off for now: whole voxels only'}; "
+        f"the face is painted flat; the posed animal is set on z = 0 |",
+        (f"| Bevel | {ST.BEVEL['width']} m, {ST.BEVEL['segments']} segments, profile {ST.BEVEL['profile']} (round); "
+         f"`{ST.GEOMETRY}` geometry (bevel limit {ST.GEOMETRIES[ST.GEOMETRY]['limit']}, {ST.BEVEL_ANGLE}°) |"
+         if ST.GEOMETRIES[ST.GEOMETRY]["bevel"] else
+         f"| Geometry | `{ST.GEOMETRY}`: one part's faces merge into flat planes; sharp box edges (no bevel), flat "
+         f"shading, flat solid colours; one voxel layer per part, so overlapping sections stack whole (no holes) |"),
         f"| Camera | {c['type']}, azimuth {c['azimuth']}°, elevation {c['elevation']}° (true isometric), "
         f"distance {c['distance']} m, clip {c['clip_start']}–{c['clip_end']} m, no depth of field |",
         f"| Facing | head towards {ST.FACING}, back up, left flank at −Y (head lower right in frame) |",
@@ -831,11 +853,16 @@ def standards_md():
         f"| Rim sun | {rig['rim']['token']}, {rig['rim']['energy']:.2f} W/m², rotation {rig['rim']['rotation']} + "
         f"{ST.RIG_TURN}° turn, angle {ST.SUN_MIN_ANGLE} rad, shadow {rig['rim']['shadow']} |",
         f"| Sky fill | {ST.SKY['token']} × {ST.SKY['strength']} |",
-        "| Plastic | " + ", ".join(f"{k} {v}" for k, v in ST.PLASTIC.items()) + " (no texture) |",
+        f"| Material | {ST.GEOMETRIES[ST.GEOMETRY]['material']}: "
+        + ", ".join(f"{k} {v}" for k, v in ST.MATERIALS[ST.GEOMETRIES[ST.GEOMETRY]['material']].items())
+        + " (no texture) |",
         f"| Shadow | composited: strength {ST.SHADOW['strength']}, dead zone {ST.SHADOW['deadzone']}, "
         f"blur {ST.SHADOW['smooth']} of the short side (twice), pass ground grey {ST.SHADOW['ground_grey']} |",
-        f"| Background | one Tailwind token, shades {ST.BACKGROUND_RULE['shades'][0]}–{ST.BACKGROUND_RULE['shades'][1]}, "
-        f"ΔE ≥ {ST.BACKGROUND_RULE['min_delta_e']:.0f} from the main colour |",
+        f"| Background | one colour per animal (Tailwind shade {ST.BACKGROUND_RULE['shades'][0]}–"
+        f"{ST.BACKGROUND_RULE['shades'][1]} or hex, OKLCH L ≥ {ST.BACKGROUND_RULE['min_lightness']}), rendered as a "
+        f"vivid pastel: OKLCH chroma ≤ {ST.BACKGROUND_RULE['max_chroma']}, lightness "
+        f"{ST.BACKGROUND_RULE['lightness'][0]}–{ST.BACKGROUND_RULE['lightness'][1]} (card colours from its family get "
+        f"the same chroma factor); ΔE ≥ {ST.BACKGROUND_RULE['min_delta_e']:.0f} from the main colour |",
         f"| Shared render base | {ST.RENDER_BASE['engine']}; " + ", ".join(f"{k} {v}" for k, v in ST.RENDER_BASE['eevee'].items())
         + f"; motion blur {ST.RENDER_BASE['motion_blur']}; bloom {ST.RENDER_BASE['bloom']} |",
         f"| ULTRA | scale {U['scale']}; " + ", ".join(f"{k} {v}" for k, v in U["eevee"].items())

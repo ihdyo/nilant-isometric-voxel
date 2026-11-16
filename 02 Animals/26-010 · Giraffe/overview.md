@@ -39,7 +39,7 @@
 ## Look
 
 - Background: `sky-300`: A clear savanna sky, the complement of the amber patches: the tallest animal gets the sky.
-- Palette: patch `amber-700`, base `amber-100`, mane `amber-800`, dark `stone-800`, eye `neutral-950`
+- Palette: patch `amber-700`, base `amber-100`, mane `amber-800`, dark `stone-800`, eye `neutral-950`, tongue `#4F4A6B`
 - Photo on the information artwork: `assets/photos/01-standing.jpg` (flowcomm, CC BY 2.0)
 
 ## Files

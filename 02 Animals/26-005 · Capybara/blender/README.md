@@ -8,6 +8,6 @@
 | `26-005 · Capybara.blend` | the editable project, built from `model.py`: collections Animal / Stage / Lights, six scenes (ILL and INF × 1x1, 9x16, 16x9) with framed orthographic cameras |
 | `build.json` | the stamp: when, which Blender, the model, look and standards hashes, framing, render times |
 
-- Build: **current**, built 2026-11-16T02:12:53
-- Model: 21 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant); size 23 x 9 x 15 voxels (L x W x H), 1541 voxels, 730 visible, colours dark, eye, fur, parts body, ears, head, legs
-- Standards 1.0, rig `iso_top`, geometry `merged`, Blender 5.3.0
+- Build: **current**, built 2026-11-16T17:06:49
+- Model: the pose moves the lowest point to z = -0.13: the engine sets the animal back on the ground; posed size 28.8 x 13.5 x 18.7 voxels (L x W x H), 3603 voxels, colours dark, eye, fur, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, snout; turned ear_l, ear_r, head, leg_fl, leg_hr
+- Standards 2.1, rig `iso_top`, geometry `mob`, Blender 5.3.0

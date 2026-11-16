@@ -1,0 +1,148 @@
+{
+ "code": "26-014",
+ "built": "2026-11-16T17:12:27",
+ "blender": "5.3.0",
+ "model_hash": "11cddc012703e9a1",
+ "look_hash": "27bddde8820cf18d",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
+  "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
+ },
+ "standards_version": "2.1",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "the pose moves the lowest point to z = -0.28: the engine sets the animal back on the ground",
+   "posed size 44.8 x 21.3 x 28.1 voxels (L x W x H), 12343 voxels, colours eye, mouth, pink, skin, tusk, parts body, ear_l, ear_r, head, jaw, leg_fl, leg_fr, leg_hl, leg_hr; turned ear_l, ear_r, head, jaw, leg_fl, leg_hr"
+  ],
+  "size": [
+   43,
+   19,
+   27
+  ],
+  "voxels": 12343
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 6.035704147345007,
+   "view": [
+    6.035704147345007,
+    6.035704147345007
+   ],
+   "box_size": [
+    4.224992903141505,
+    3.756340444087982
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 9.159876212772911,
+   "view": [
+    5.152430369684763,
+    9.159876212772911
+   ],
+   "box_size": [
+    4.224992903141505,
+    3.756340444087982
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 9.820497893040475,
+   "view": [
+    9.820497893040475,
+    5.524030064835268
+   ],
+   "box_size": [
+    4.224992903141505,
+    3.756340444087982
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 10.24642783439166,
+   "view": [
+    10.24642783439166,
+    10.24642783439166
+   ],
+   "box_size": [
+    4.224992903141505,
+    3.756340444087982
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 15.369641751587489,
+   "view": [
+    8.645423485267962,
+    15.369641751587489
+   ],
+   "box_size": [
+    4.224992903141505,
+    3.756340444087982
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 10.205296867491558,
+   "view": [
+    10.205296867491558,
+    5.740479487964002
+   ],
+   "box_size": [
+    4.224992903141505,
+    3.756340444087982
+   ]
+  }
+ },
+ "renders": {
+  "LOW": {
+   "ILL 1x1": {
+    "seconds": 5.5,
+    "size": [
+     1024,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "ILL 9x16": {
+    "seconds": 3.7,
+    "size": [
+     576,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "ILL 16x9": {
+    "seconds": 3.0,
+    "size": [
+     1024,
+     576
+    ],
+    "at": "2026-11-16"
+   },
+   "INF 1x1": {
+    "seconds": 4.2,
+    "size": [
+     1024,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "INF 9x16": {
+    "seconds": 2.8,
+    "size": [
+     576,
+     1024
+    ],
+    "at": "2026-11-16"
+   },
+   "INF 16x9": {
+    "seconds": 2.6,
+    "size": [
+     1024,
+     576
+    ],
+    "at": "2026-11-16"
+   }
+  }
+ }
+}

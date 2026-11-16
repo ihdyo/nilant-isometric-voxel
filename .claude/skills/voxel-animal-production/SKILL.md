@@ -21,24 +21,49 @@ sites (Adobe Stock first). It reuses Nilant's directory conventions and Blender 
    `vf.py lock "what and why"` and `vf.py standards --write`.
 5. Every animal passes two owner approvals: the LOW preview (`vf.py approve <code> preview`) before any ULTRA render,
    and the finished animal (`vf.py approve <code> final`). Never approve on the owner's behalf. The owner asked for
-   the ten examples 26-001 to 26-010 at once (2026-11-16); after them, one new animal at a time unless the owner asks
-   otherwise.
+   the ten examples 26-001 to 26-010 at once (2026-11-16), then five more (26-011 to 26-015) and ten more
+   (26-016 to 26-025); after them, one new animal at a time unless the owner asks otherwise.
 
 ## 1. Visual standards
 - **Camera:** orthographic, true isometric: azimuth 45° (Nilant pose convention: 0 = in front at −Y), elevation
   35.264°, deep focus. One camera setup for the whole collection; only the framing changes per composition.
 - **Orientation:** head towards +X, back up, feet on z = 0, left flank at −Y. Through the camera the head is lower
   right and we see the face and the left flank together (three-quarter).
-- **Large voxels:** 0.1 m voxels, the longest side 16–32 voxels (aim 24–30) whatever the species' real size; the
-  smallest feature is one voxel. `merged` geometry (owner-approved 2026-11-15): one part's faces merge into flat planes,
-  bevelled where the surface turns; parts meet with a visible seam, like an assembled toy.
-- **Colour:** vivid but soft, solid Tailwind v4 tokens, satin plastic, no textures, no gradients. The view transform
+- **Voxels scale with the animal** (owner, 2026-11-16: "add more pixel for larger animal, but keep it blocky
+  bulky", "scale with real size"): 0.1 m voxels; the posed longest side follows the species' real longest dimension
+  (`animal.json → look.size.real_m`, sourced): target 28 × L^0.4 ± 15 % (`SIZE_RULE`), so a 1 m red panda gets 28, a
+  2.8 m lion 42, a 5 m giraffe 53. The smallest feature is one voxel.
+- **Bulky blocky-mob look** (owner, 2026-11-16: "minecraft mobs vibes", "keep the texture flat solid", "blocky bulk
+  style like the attached image"; approved by the owner 2026-11-16, standards v2.0): `mob` geometry, each section one or
+  two big sharp-edged boxes (no bevel, flat shading), matte, flat solid colours: a big body box, a big head box,
+  thick pillar legs, block tails, slab or plate ears. The style of block-building games, never a copy of one game's
+  creature, and never named after a game in titles, keywords or listings (trademark; stock sites refuse it). The old
+  look was `merged` (bevelled satin plastic, approved 2026-11-15).
+- **Posed sections** (owner: "on assembling them, they can rotate the section so it looks more dynamic", "subtle
+  tilts, but make it dynamic pose that different for every animal based on animal personality"): sections turn at
+  their joints (≤ 40°), children follow their parent (ears and brows on the head); every species gets a pose from its
+  personality (written in the brief). **Plates** (flat surfaces) are switched off for now (owner, 2026-11-16:
+  "disable flat pixel for now, maybe it is exist in future, but not for current animals"): every part, feet
+  included, is made of whole voxels; `vf.py check` refuses `plate()`.
+- **Stacked sections** (owner: "stack the block, dont make a hole of it ... apply for all animal"): every part is its
+  own layer of voxels; sections that overlap (an ear set into the head, the head into the mane) both stay whole, so a
+  turned section never leaves a hole in its neighbour.
+- **Expression, painted flat** (owner: "set the animal expression to not flat", then "dont extrude the mouth and
+  eyebrow like that. they should flat", with a block-game character as the reference): eyes (a white eye with the
+  pupil to the inside, or a dark eye with a glint, or a sleepy line), brows (a darker strip whose steps give the
+  mood) and the mouth (a U smile, a smirk, a dot) are colours on the face voxels, flush; never plates or blocks.
+- **Colour:** vivid but soft, matte, flat, no textures, no gradients. Tailwind v4 tokens by default; a hex is allowed
+  where no token fits (owner, 2026-11-16: "for this project, break from tailwind coloring token"). The view transform
   is **Khronos PBR Neutral** with a neutral `slate-100` sky fill (owner, 2026-11-16: Nilant's AgX + blue sky made the
-  models pale; PBR Neutral renders base colours as authored). 3–6 palette keys per species; large areas shades
+  models pale; PBR Neutral renders base colours as authored). 3–7 palette keys per species; large areas shades
   50–800, small details any shade.
-- **Background:** one flat Tailwind token per species, shade 50–300, complementing the animal (the hue opposite its
-  main coat colour, or its habitat's colour for black, white or grey animals), at least ΔE 30 from the main colour.
-  Nothing else in the frame.
+- **Background:** one flat colour per species (a Tailwind token at shade 50–300, or a soft hex), complementing the
+  animal (the hue opposite its main coat colour, or its habitat's colour for black, white or grey animals),
+  rendered as a **vivid pastel** (owner: "the background color is too vibrant, make it slightly desaturated so the
+  animal more popup", then "keep the background vivid but pastel (not too vibrant or neon), keep it calm"): OKLCH
+  chroma capped at 0.07, lightness held in 0.85–0.93, hue kept (soft tokens such as sky-200 unchanged, neon ones
+  calmed); the card lips and the fun-fact card get the same chroma factor; at least ΔE 30 between the main colour and
+  the rendered background. Nothing else in the frame.
 - **Light and shadow:** rig `iso_top` (owner-approved): a warm key 55° high from the camera's front-left, a cool rim
   from behind without its own shadow; one soft shadow composited on the background.
 - **Composition:** the whole animal visible, never cropped or stretched, centred with balanced space; each ratio
@@ -53,16 +78,28 @@ sites (Adobe Stock first). It reuses Nilant's directory conventions and Blender 
 - **`key-prompt.md`** (project root) + one `docs/voxel-model.md` is everything a model in a browser (Claude Sonnet,
   high effort) needs to write `blender/model.py`. It holds the full grid API, the conventions, the hard rules, the style
   rules, a worked example and a self-check. Keep it in step with `vf_voxel.py` and this section.
-- `blender/model.py` defines `build(g)` on the grid of `_system/studio/blender/vf_voxel.py` (`box`, `ellipsoid`,
-  `paint`, `carve`, `set`, `mirror`). It is the source of truth; the `.blend` is built from it and never edited by hand.
-- Hard rules (enforced by `vf.py check`): longest side 16–32; lowest voxel at z = 0; one face-connected piece; only
-  palette keys; parts named; the left side modelled then `g.mirror("-Y")`.
-- Workflow: proportions from the photos → masses (`box`, `ellipsoid`) → step the silhouette → the recognisable
-  features (made big enough to read at thumbnail size) → colour patches with `paint` → eyes (on a light voxel or the
-  face corner, visible from the front-left) → `mirror` → `vf.py check` → `vf.py preview` and judge.
+- `blender/model.py` defines `build(g)` on the grid of `_system/studio/blender/vf_voxel.py` (`box`, `paint`, `carve`,
+  `set`, `plate`, `joint`, `mirror`). Parts are built in place in a straight rest pose, then turned at their joints
+  (`joint(part, pivot, rotate, parent)`); `_l` parts mirror to `_r` with their joints; joints set after `mirror()`
+  make the pose asymmetric. It is the source of truth; the `.blend` is built from it (one object per part, its origin
+  on the hinge, its rotation set, so a section can still be turned in Blender to try a pose) and never edited by hand.
+- Hard rules (enforced by `vf.py check`): the posed longest side inside the animal's size budget; rest-pose lowest
+  voxel at z = 0 (the engine grounds the posed animal); one face-connected piece in the rest pose; joints ≤ 40° with
+  the pivot on the part; only palette keys; the left side modelled then `g.mirror()`.
+- Workflow (bulky blocky mob): proportions from the photos → one big box per section (body, head, thick legs, tail;
+  a second box only for a real feature; no `ellipsoid`, no stair-stepped curves) → the recognisable features,
+  exaggerated like a toy → colour shapes with `paint` (flat, no speckles) → the face painted flat (white eye + inner
+  pupil, a brow strip, a mouth; the snout box with a dark nose row) → `mirror()` → the pose from the personality
+  (head turned to the camera and cocked, ears, tail, a stride or a lifted paw) → `vf.py check` → `vf.py preview` and
+  judge.
 - Lessons from the first ten: a long neck must be about as long as the legs (giraffe); a mane must frame the face on
   every side, not sit behind it (lion); a solid dark muzzle block reads as a bear, keep only the nostrils dark
-  (capybara); a dark eye on dark fur disappears, put it on the face corner or a light voxel (panda, penguin).
+  (capybara); a dark eye on dark fur disappears, put it on a light voxel or a white dot (panda, penguin); a light
+  voxel inside an ear reads as an extra eye on the front, keep ears one colour or rimmed (fox, red panda); two dark
+  voxels on a muzzle's top corners read as a second pair of eyes (giraffe); black flippers on a black body vanish,
+  hold them out over a white flank (penguin); long legs need a knee (upper leg + shin) or a stride looks stiff (lion,
+  zebra, giraffe); a sitting animal reads when the torso is its own section rising from the haunches and the front
+  legs go straight down (wolf, rabbit); a hippo's muzzle is wider than its skull and the open jaw hinges under it.
 - Scene organisation (built by the engine): collections `Animal`, `Stage` (the ground), `Lights` (key and rim suns);
   six scenes `ILL 1x1` … `INF 16x9` linking them, each with its own orthographic camera `CAM · <scene>` and the ULTRA
   settings; a `README` text block. `blender/build.json` stamps the build (model, look and standards hashes).
@@ -89,28 +126,29 @@ sites (Adobe Stock first). It reuses Nilant's directory conventions and Blender 
 
 ### The locked values
 <!-- standards:begin -->
-Standards version 1.0 · rig `iso_top` · geometry `merged` (generated from `vf_standards.py` by `vf.py standards --write`; do not edit by hand)
+Standards version 2.1 · rig `iso_top` · geometry `mob` (generated from `vf_standards.py` by `vf.py standards --write`; do not edit by hand)
 
 | Area | Value |
 |---|---|
-| Voxel | 0.1 m; longest side 16–32 voxels (target 24); smallest feature 1 voxel |
-| Bevel | 0.012 m, 4 segments, profile 0.5 (round); `merged` geometry (bevel limit ANGLE, 30.0°) |
+| Voxel | 0.1 m; posed longest side 16–56 voxels: target 28 × (real longest dimension in m)^0.4 ± 15%; smallest feature 1 voxel |
+| Pose | sections turn at their joints, at most 40° on any axis, ears, snout and jaw follow their parent; plates (flat surfaces) switched off for now: whole voxels only; the face is painted flat; the posed animal is set on z = 0 |
+| Geometry | `mob`: one part's faces merge into flat planes; sharp box edges (no bevel), flat shading, flat solid colours; one voxel layer per part, so overlapping sections stack whole (no holes) |
 | Camera | ORTHO, azimuth 45.0°, elevation 35.264° (true isometric), distance 40.0 m, clip 0.1–200.0 m, no depth of field |
 | Facing | head towards +X, back up, left flank at −Y (head lower right in frame) |
 | Colour | view Khronos PBR Neutral, look None, exposure 0.0 |
 | Key sun | orange-200, 2.4 W/m², rotation (35.0, 0.0, -50.0) + 45.0° turn, angle 0.12 rad, shadow True |
 | Rim sun | indigo-200, 0.72 W/m², rotation (62.0, 0.0, 140.0) + 45.0° turn, angle 0.12 rad, shadow False |
 | Sky fill | slate-100 × 0.5 |
-| Plastic | roughness 0.62, specular 0.5, coat 0.08, coat_roughness 0.2, subsurface 0.1, subsurface_scale 0.06, subsurface_radius (0.8, 0.8, 0.8) (no texture) |
+| Material | matte: roughness 0.86, specular 0.3, coat 0.0, coat_roughness 0.2, subsurface 0.0, subsurface_scale 0.06, subsurface_radius (0.8, 0.8, 0.8) (no texture) |
 | Shadow | composited: strength 0.65, dead zone 0.03, blur 0.004 of the short side (twice), pass ground grey 0.25 |
-| Background | one Tailwind token, shades 50–300, ΔE ≥ 30 from the main colour |
+| Background | one colour per animal (Tailwind shade 50–300 or hex, OKLCH L ≥ 0.8), rendered as a vivid pastel: OKLCH chroma ≤ 0.07, lightness 0.85–0.93 (card colours from its family get the same chroma factor); ΔE ≥ 30 from the main colour |
 | Shared render base | BLENDER_EEVEE; use_raytracing True, use_shadows True, use_fast_gi True, fast_gi_method GLOBAL_ILLUMINATION, fast_gi_quality 0.75, fast_gi_step_count 12, fast_gi_ray_count 3, fast_gi_thickness_near 0.3, fast_gi_bias 0.02, fast_gi_distance 0.0; motion blur False; bloom False |
 | ULTRA | scale 1.0; taa_render_samples 256, shadow_ray_count 4, shadow_step_count 16, shadow_resolution_scale 1.0, light_threshold 0.001, fast_gi_resolution 1; shadow pass samples 64; ray tracing resolution 1/1, denoise True |
 | LOW | scale 0.25; taa_render_samples 8, shadow_ray_count 1, shadow_step_count 2, shadow_resolution_scale 1.0, light_threshold 0.01, fast_gi_resolution 2; shadow pass samples 8; ray tracing resolution 1/4, denoise True |
 | Sizes (ULTRA) | 1x1 4096×4096, 9x16 2304×4096, 16x9 4096×2304 |
 | Sizes (LOW) | 1x1 1024×1024, 9x16 576×1024, 16x9 1024×576 |
 | Framing | ILL 1x1: zone (0.0, 0.0, 1.0, 1.0), fill 0.7; ILL 9x16: zone (0.0, 0.0, 1.0, 1.0), fill 0.82; ILL 16x9: zone (0.0, 0.0, 1.0, 1.0), fill 0.68; INF 1x1: zone (0.31, 0.32, 0.97, 0.71), fill 0.94; INF 9x16: zone (0.03, 0.215, 0.62, 0.475), fill 0.94; INF 16x9: zone (0.02, 0.08, 0.48, 0.95), fill 0.9 |
-| Card system | radius 1.5u, lip 0.6u (background + 200), padding 1.4u, white tiles and cards, fun fact on the background family at 700; headings Home turf, On the menu, Fun fact! |
+| Card system | radius 2.2u, lip 0.9u (background + 200), padding 2.0u, white tiles and cards, fun fact on the background family at 700; headings Home turf, On the menu, Fun fact! |
 | Copy limits | common 22, scientific 34, kicker 30, stats 4, stat_label 12, stat_value 11, habitat 100, diet 95, fact 115, facts 2 |
 | Photo licences | Public domain, CC0, CC BY 2.0, CC BY 2.5, CC BY 3.0, CC BY 4.0 (credited on the artwork) |
 | Image ID | `VF-{code}-{kind}-{ratio}` (e.g. `VF-26-001-ILL-1x1`) |
@@ -140,9 +178,12 @@ rendering).
 
 ## 5. Information artwork (Duolingo-style cards, owner 2026-11-16)
 - One card system in three arrangements (`INFO_LAYOUTS`), never a crop of another: chunky rounded white cards with a
-  darker lip, a kicker pill, the name in Poppins ExtraBold, the scientific name in italics with an IUCN chip in the
-  status colour, four stat tiles, "Home turf", "On the menu" and a full-colour "Fun fact!" card, and the **real
-  photograph** in a white framed card with its credit (`Photo: <author> · <licence>`).
+  darker lip and room to breathe (owner, 2026-11-16: "make it breathe"), a kicker pill, the name in Poppins
+  ExtraBold, the scientific name in italics with an IUCN chip in the status colour, four stat tiles each led by a
+  pixel-art icon badge (span, weight, heart, egg, bolt or star by the label), "Home turf", "On the menu" and a
+  full-colour "Fun fact!" card each led by an icon badge (house, apple, light bulb), the text centred in its card,
+  and the **real photograph** in a thick white frame pasted like a slightly tilted sticker, with its credit
+  (`Photo: <author> · <licence>`).
 - Content (`animal.json → info`): `kicker` (Class · family in plain English, e.g. "Mammal · Dog family"),
   `conservation` (IUCN code and status), 4 `stats` (label ≤ 12, value ≤ 11 characters), `habitat` (≤ 100), `diet`
   (≤ 95), `facts` (2, ≤ 115; the first is printed), `photo` (file, author, licence, url, centre). Every item cites

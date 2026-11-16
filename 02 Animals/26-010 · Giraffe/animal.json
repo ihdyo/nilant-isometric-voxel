@@ -10,11 +10,19 @@
       "base": "amber-100",
       "mane": "amber-800",
       "dark": "stone-800",
-      "eye": "neutral-950"
+      "eye": "neutral-950",
+      "tongue": "#4F4A6B"
     },
     "background": "sky-300",
     "accent": null,
-    "why": "A clear savanna sky, the complement of the amber patches: the tallest animal gets the sky."
+    "why": "A clear savanna sky, the complement of the amber patches: the tallest animal gets the sky.",
+    "size": {
+      "real_m": 5.0,
+      "measure": "height to the ossicones: up to 5.7 m, a typical adult about 5 m",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Mammal · Giraffe family",

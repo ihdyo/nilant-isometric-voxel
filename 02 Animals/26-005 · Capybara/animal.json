@@ -12,7 +12,14 @@
     },
     "background": "indigo-200",
     "accent": null,
-    "why": "A soft periwinkle, opposite the warm brown coat, like a calm evening sky over a river."
+    "why": "A soft periwinkle, opposite the warm brown coat, like a calm evening sky over a river.",
+    "size": {
+      "real_m": 1.2,
+      "measure": "nose to rump: 106–134 cm, mid-range",
+      "source": [
+        1
+      ]
+    }
   },
   "info": {
     "kicker": "Mammal · Guinea pig family",

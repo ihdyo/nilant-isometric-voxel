@@ -1,0 +1,161 @@
+{
+  "code": "26-020",
+  "common": "Scarlet Macaw",
+  "scientific": "Ara macao",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "red": "red-600",
+      "yellow": "amber-400",
+      "blue": "blue-600",
+      "face": "stone-50",
+      "bill": "stone-200",
+      "dark": "neutral-900",
+      "eye": "amber-100"
+    },
+    "background": "emerald-200",
+    "accent": null,
+    "why": "Rainforest mint, the complement of the scarlet feathers: the boldest contrast for the loudest bird.",
+    "size": {
+      "real_m": 0.89,
+      "measure": "bill tip to tail tip: about 89 cm, a third to a half of it tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Parrot family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Psittaciformes",
+      "family": "Psittacidae",
+      "genus": "Ara",
+      "species": "A. macao"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2022",
+      "trend": null,
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "~89 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "~1.2 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "40–50 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Eggs",
+        "value": "2–4",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Rainforest treetops from southern Mexico to the Amazon, below 1,000 m.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Fruit and nuts, even unripe ones, plus riverbank clay that helps it digest them.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Most scarlet macaws are lefties: they hold their food with the left foot.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Pairs stay together for life and preen each other's feathers.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-flying.jpg",
+      "author": "ImagePerson",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Scarlet_Macaw_(Ara_macao)_Costa_Rica_8598.jpg",
+      "centre": [
+        0.55,
+        0.42
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ara macao: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ara_macao/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "BirdLife International (2022). Ara macao. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2022-2.RLTS.T22685563A163778999.en",
+      "doi": "10.2305/IUCN.UK.2022-2.RLTS.T22685563A163778999.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "scarlet macaw",
+      "macaw",
+      "parrot",
+      "ara macao",
+      "tropical bird",
+      "rainforest",
+      "colourful bird",
+      "central america",
+      "amazon"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

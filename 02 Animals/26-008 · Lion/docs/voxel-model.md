@@ -8,27 +8,44 @@
 |---|---|---|
 | `coat` | `orange-300` | body, legs, face, ears, tail |
 | `mane` | `amber-800` | the mane and the tail tuft |
-| `muzzle` | `orange-100` | the muzzle |
+| `muzzle` | `orange-100` | the muzzle, the outer half of each eye |
 | `nose` | `stone-700` | the nose |
-| `eye` | `neutral-950` | one voxel on the face front and one on the flank |
+| `eye` | `neutral-950` | the dark inner half of each two-voxel eye on the front of the head |
 
 Background (not modelled): `violet-200`.
 
 ## Size and pose
 
-- Size: 32 × 11 × 20 voxels (L × W × H); longest side 32 (budget 16–32).
-- Pose: standing, head level, tail curving down to the tuft. Head towards +X, feet on z = 0, left flank at −Y, symmetric about y = 0.
-- Parts: legs, body, mane, head, tail.
+- Size: 47 × 21 × 28 voxels posed (L × W × H); longest side 47, budget 36–48 (target 42) from the real size 2.8 m (nose to tail tip: 2.4–3.3 m, mid-range).
+- Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
+- Parts: shin_fl, shin_fr, shin_hl, shin_hr, leg_fl, leg_fr, leg_hl, leg_hr, mane, body, head, muzzle, tail_tip, tail, ear_l, ear_r.
 
-## Proportions (inclusive voxel ranges of each part, as built)
+## Personality, pose and expression
 
-| Part | x | y | z |
-|---|---|---|---|
-| tail | -4 to 2 | -1 to 1 | 7 to 12 |
-| body | 3 to 17 | -3 to 3 | 7 to 13 |
-| legs | 4 to 16 | -3 to 3 | 0 to 6 |
-| mane | 16 to 23 | -5 to 5 | 8 to 18 |
-| head | 22 to 27 | -3 to 3 | 10 to 19 |
+- Personality: proud and confident, the king who naps a lot.
+- Pose: mid-stride, chest out, the head and its thick mane turned to the camera and raised, the tail dropping and curling up to the dark tuft.
+- Expression: steady pale eyes with the pupils to the inside under heavy brows slanting down to the middle, a calm smile, all painted flat.
+
+## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
+
+| Part | x | y | z | Pose |
+|---|---|---|---|---|
+| shin_fl | 14 to 17 | -6 to -3 | 0 to 3 | turned ry +24°; on leg_fl |
+| shin_fr | 14 to 17 | 3 to 6 | 0 to 3 | on leg_fr |
+| shin_hl | 1 to 4 | -6 to -3 | 0 to 3 | turned ry -10°; on leg_hl |
+| shin_hr | 1 to 4 | 3 to 6 | 0 to 3 | on leg_hr |
+| leg_fl | 14 to 17 | -6 to -3 | 4 to 8 | turned ry -12°; on body |
+| leg_fr | 14 to 17 | 3 to 6 | 4 to 8 | turned ry +8°; on body |
+| leg_hl | 1 to 4 | -6 to -3 | 4 to 8 | turned ry +10°; on body |
+| leg_hr | 1 to 4 | 3 to 6 | 4 to 8 | turned ry -8°; on body |
+| mane | 18 to 27 | -9 to 9 | 8 to 25 | turned rx +4°, ry -5°, rz -10°; on body |
+| body | 0 to 19 | -6 to 6 | 9 to 18 |  |
+| head | 24 to 29 | -6 to 6 | 11 to 21 | turned rx +4°; on mane |
+| muzzle | 30 to 32 | -3 to 3 | 11 to 15 | on head |
+| tail_tip | -14 to -7 | -2 to 2 | 14 to 17 | turned ry +38°; on tail |
+| tail | -6 to -1 | -1 to 1 | 15 to 16 | turned ry -24°; on body |
+| ear_l | 28 to 28 | -6 to -5 | 22 to 23 | turned rx +10°; on head |
+| ear_r | 28 to 28 | 5 to 6 | 22 to 23 | turned rx -10°; on head |
 
 ## Recognisable features (in order of importance)
 
@@ -41,9 +58,9 @@ Background (not modelled): `violet-200`.
 
 - `coat`: body, legs, face, ears, tail
 - `mane`: the mane and the tail tuft
-- `muzzle`: the muzzle
+- `muzzle`: the muzzle, the outer half of each eye
 - `nose`: the nose
-- `eye`: one voxel on the face front and one on the flank
+- `eye`: the dark inner half of each two-voxel eye on the front of the head
 
 ## Photos used
 

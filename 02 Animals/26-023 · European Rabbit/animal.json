@@ -1,0 +1,160 @@
+{
+  "code": "26-023",
+  "common": "European Rabbit",
+  "scientific": "Oryctolagus cuniculus",
+  "status": "Preview",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "stone-400",
+      "belly": "stone-200",
+      "tail": "stone-50",
+      "ear": "rose-200",
+      "nose": "rose-300",
+      "eye": "neutral-950"
+    },
+    "background": "lime-200",
+    "accent": null,
+    "why": "Fresh meadow green, the complement of the grey-brown fur: a rabbit's favourite place.",
+    "size": {
+      "real_m": 0.45,
+      "measure": "nose to tail: 38–50 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Rabbit family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Lagomorpha",
+      "family": "Leporidae",
+      "genus": "Oryctolagus",
+      "species": "O. cuniculus"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2018",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "38–50 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "1.5–2.5 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Litter",
+        "value": "5–6 young",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "~30 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Sandy fields, scrub and woods. Native to Spain, Portugal and France, now on 5 continents.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Grass, leaves and roots. It even eats some droppings to digest them twice!",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "It thumps its back feet on the ground to warn the warren that danger is near.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "It's the wild ancestor of every pet rabbit, about 80 breeds in all.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-close-up.jpg",
+      "author": "Rolf Dietrich Brecher",
+      "licence": "CC BY 2.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Wild_rabbit_(27990033777).jpg",
+      "centre": [
+        0.4,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Oryctolagus cuniculus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Oryctolagus_cuniculus/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Villafuerte, R. & Delibes-Mateos, M. (2019). Oryctolagus cuniculus (errata version published in 2020). The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2019-3.RLTS.T41291A170619657.en",
+      "doi": "10.2305/IUCN.UK.2019-3.RLTS.T41291A170619657.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "european rabbit",
+      "rabbit",
+      "bunny",
+      "oryctolagus",
+      "wild rabbit",
+      "meadow",
+      "cute animal",
+      "spain",
+      "portugal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview"
+  ]
+}

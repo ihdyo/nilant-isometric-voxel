@@ -7,26 +7,38 @@
 | Key | Token | Where |
 |---|---|---|
 | `fur` | `stone-400` | body, head, arms, legs |
-| `white` | `stone-100` | chest and the ear fringes |
+| `white` | `stone-100` | chest, the ear fronts, the outer half of each eye |
 | `nose` | `stone-800` | the nose |
-| `eye` | `neutral-950` | one voxel on the face front and one on the flank |
+| `eye` | `neutral-950` | the dark inner half of each two-voxel eye on the front of the head |
+| `paw` | `stone-600` | palms of the hands and soles of the feet, the claws |
 
 Background (not modelled): `amber-200`.
 
 ## Size and pose
 
-- Size: 10 × 15 × 22 voxels (L × W × H); longest side 22 (budget 16–32).
-- Pose: sitting upright, front paws resting on the knees. Head towards +X, feet on z = 0, left flank at −Y, symmetric about y = 0.
-- Parts: body, legs, head, ears.
+- Size: 14 × 24 × 25 voxels posed (L × W × H); longest side 25, budget 21–29 (target 25) from the real size 0.75 m (head and body 72–78 cm (sitting height with the ears)).
+- Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
+- Parts: body, leg_l, leg_r, arm_l, arm_r, head, nose, ear_l, ear_r.
 
-## Proportions (inclusive voxel ranges of each part, as built)
+## Personality, pose and expression
 
-| Part | x | y | z |
-|---|---|---|---|
-| body | 1 to 8 | -4 to 4 | 0 to 11 |
-| head | 1 to 10 | -5 to 5 | 12 to 20 |
-| ears | 3 to 6 | -7 to 7 | 17 to 21 |
-| legs | 8 to 10 | -4 to 4 | 0 to 9 |
+- Personality: sleepy and cuddly.
+- Pose: sitting, arms hanging from the sides of the body and swung forward so the dark-palmed hands rest beside the knees, feet forward with dark soles, the big head drowsily tilted, huge fluffy ears tipped out.
+- Expression: eyes closed in a sleepy curve and a tiny smile under the big nose, painted flat on the face.
+
+## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
+
+| Part | x | y | z | Pose |
+|---|---|---|---|---|
+| body | 0 to 7 | -5 to 5 | 0 to 11 |  |
+| leg_l | 5 to 10 | -5 to -3 | 0 to 3 | turned rz -10°; on body |
+| leg_r | 5 to 10 | 3 to 5 | 0 to 3 | turned rz +10°; on body |
+| arm_l | 3 to 5 | -7 to -6 | 4 to 10 | turned rx +8°, ry -28°; on body |
+| arm_r | 3 to 5 | 6 to 7 | 4 to 10 | turned rx -8°, ry -28°; on body |
+| head | -1 to 8 | -7 to 7 | 12 to 21 | turned rx +12°, ry +4°, rz -8°; on body |
+| nose | 9 to 10 | -2 to 2 | 13 to 18 | on head |
+| ear_l | 2 to 4 | -11 to -6 | 16 to 23 | turned rx +14°, ry +6°; on head |
+| ear_r | 2 to 4 | 6 to 11 | 16 to 23 | turned rx -14°, ry +6°; on head |
 
 ## Recognisable features (in order of importance)
 
@@ -39,9 +51,10 @@ Background (not modelled): `amber-200`.
 ## Colour map
 
 - `fur`: body, head, arms, legs
-- `white`: chest and the ear fringes
+- `white`: chest, the ear fronts, the outer half of each eye
 - `nose`: the nose
-- `eye`: one voxel on the face front and one on the flank
+- `eye`: the dark inner half of each two-voxel eye on the front of the head
+- `paw`: palms of the hands and soles of the feet, the claws
 
 ## Photos used
 

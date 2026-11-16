@@ -61,3 +61,21 @@ two files; commit to GitHub.
   behind the face, capybara too boxy with an invisible eye → fixed. All ten build and render; LOW previews done.
 - **Publish log:** registry gains a Publish Log sheet; `vf.py log` writes it and the markdown log (tested in a sandbox).
 - Stock packaging now defaults to the illustrations only (the information artworks carry a third-party photo).
+
+## 2026-11-16 · The blocky-mob look, three rounds, and five more animals (Claude, with the owner)
+- **Round 1** (owner: "make it have minecraft mobs vibes"): geometry `mob` (sharp boxes, matte), one box per part, the
+  face on the front of the head. A pixel-shaded texel skin was tried on the fox and dropped (owner: "keep the texture
+  flat solid"). Style rules from Blockbench's Minecraft style guide; `vf.py check` refuses game names in stock metadata.
+- **Round 2** (owner's reference images: bulky, rotated sections, flat feet): `vf_voxel` joints with parents and
+  mirrored `_l`/`_r` parts, plates, the posed animal grounded by the engine; voxels scaled to real size; `vf_color.py`
+  (hex colours, OKLCH); a pose and an expression per species; backgrounds muted ×0.55.
+- **Round 3** (owner: no holes, flat faces, "vivid but pastel", better flamingo feet, five more animals): one voxel
+  layer per part; faces painted flat; backgrounds as capped-chroma pastels (the ×0.55 mute greyed soft colours); the
+  panda moved to the hex #BFD7A7 (every Tailwind lime/green pastel sat within ΔE 30 of its white fur).
+- **Five more animals** 26-011 to 26-015: ADW accounts; IUCN DOIs found and checked on Crossref (ADW stale for the
+  elephant, EN not VU, and the hedgehog, NT since 2024); papers for the fun facts checked on Crossref; 10 photos from
+  Commons (licences re-checked at download). "Hippopotamus" did not fit the 16:9 header (type never shrinks), so the
+  folder and name are "Hippo".
+- Lessons: a white hole in a black eye patch reads as a letter (panda); two dark voxels on a muzzle read as a second
+  pair of eyes (giraffe); a straight trunk reads as a pipe, curl it up (elephant); a box bill needs a taper (toucan).
+- Owner approved the look; standards relocked as v2.0.
