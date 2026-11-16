@@ -1,4 +1,4 @@
-"""Voxel Fauna · the render menu behind render.bat (the same idea as Nilant's footage_cli: one window, offline).
+"""Voxel Fauna · the render menu behind render.bat (the look of Nilant's footage_cli: title bar, bars, coloured panels).
 
     RENDER   1 build every missing or stale .blend   2 LOW previews of every built animal
              3 ULTRA finals of every approved animal  4 one animal (build, preview or final)
@@ -10,22 +10,108 @@ Blender renders, this Python lays the information cards (Pillow). No internet. P
 closing the window: finished images are kept, and the next run skips them (it renders only what is missing or older
 than its .blend).
 """
-import datetime
-import json
 import os
+import re
 import sys
 import time
 
-os.system("")                                    # enable ANSI colours in the Windows console
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import vflib as VL  # noqa: E402
 import vf  # noqa: E402
 
 ST = VL.ST
-G, R, Y, B, M, C, D, W, END = ("\033[92m", "\033[91m", "\033[93m", "\033[94m", "\033[95m", "\033[96m", "\033[90m",
-                               "\033[97m", "\033[0m")
+W = 80                                                     # the width everything is laid out to
 
 
+def _vt():
+    """Turns on ANSI colours in the Windows console; False when the output cannot show them."""
+    if os.name != "nt":
+        return sys.stdout.isatty()
+    try:
+        import ctypes
+        k = ctypes.windll.kernel32
+        h = k.GetStdHandle(-11)
+        mode = ctypes.c_ulong()
+        if not k.GetConsoleMode(h, ctypes.byref(mode)):
+            return False
+        return bool(k.SetConsoleMode(h, mode.value | 0x0004))
+    except Exception:
+        return False
+
+
+COLOR = _vt()
+try:
+    "█░●✓▶─".encode(sys.stdout.encoding or "utf-8")
+    BLOCK, SHADE, DOT, TICK, PLAY, LINE = "█", "░", "●", "✓", "▶", "─"
+except Exception:
+    BLOCK, SHADE, DOT, TICK, PLAY, LINE = "#", ".", "o", "+", ">", "-"
+
+_CODES = {"b": "1", "red": "31", "green": "32", "yellow": "33", "blue": "34", "magenta": "35", "cyan": "36",
+          "white": "97", "grey": "90", "bgblue": "44"}
+
+
+def c(text, *styles):
+    if not COLOR or not styles:
+        return text
+    return "\x1b[" + ";".join(_CODES[s] for s in styles) + "m" + text + "\x1b[0m"
+
+
+def _plain(s):
+    return re.sub(r"\x1b\[[0-9;]*m", "", s)
+
+
+def pad(s, width):
+    """Pads coloured text to a visible width."""
+    return s + " " * max(0, width - len(_plain(s)))
+
+
+def bar(frac, width=26, colour="green"):
+    n = int(round(max(0.0, min(1.0, frac)) * width))
+    return c(BLOCK * n, colour) + c(SHADE * (width - n), "grey")
+
+
+def cls():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+def rule():
+    print("  " + c(LINE * (W - 2), "grey"))
+
+
+def say(text, colour=None):
+    print("  " + (c(text, colour) if colour else text))
+
+
+def blender_label():
+    try:
+        return os.path.basename(os.path.dirname(VL.blender_exe())).replace("blender-", "").split("-windows")[0]
+    except Exception:
+        return "Blender"
+
+
+def header(title=""):
+    cls()
+    left = "  VOXEL FAUNA  RENDER" + (f"  {PLAY}  {title}" if title else "")
+    right = f"{blender_label()}  offline  "
+    left = left[:W - len(right) - 2]                       # a long title never runs into the right-hand label
+    print(c(left.ljust(W - len(right)) + right, "b", "white", "bgblue"))
+    print()
+
+
+def ask(prompt, default=""):
+    try:
+        v = input("  " + c(prompt, "b") + " ").strip()
+    except EOFError:
+        print("\n  (no more input: quitting)")
+        raise SystemExit(0)
+    return v or default
+
+
+def wait():
+    ask(c("Enter to go back", "grey"))
+
+
+# ---- what every animal looks like right now ---------------------------------------------------------------------------
 def state(d):
     an = VL.load(d)
     has_model = os.path.exists(os.path.join(d, "blender", "model.py"))
@@ -38,120 +124,222 @@ def state(d):
 
 def colour_of(bs, low, ult, ap):
     if bs in ("missing", "no model"):
-        return D
+        return "grey"
     if bs == "stale":
-        return R
+        return "red"
     if ap.get("final") and ult == 6:
-        return G
+        return "green"
     if ap.get("preview"):
-        return Y if ult < 6 else G
-    return B if low == 6 else C
+        return "yellow" if ult < 6 else "green"
+    return "blue" if low == 6 else "cyan"
 
 
-def status(verbose=True):
-    rows = [(d, *state(d)) for d in VL.animal_dirs()]
-    n = len(rows)
+def collect():
+    return [(d, *state(d)) for d in VL.animal_dirs()]
+
+
+def pending(rows, profile):
+    """(images, seconds) still to render at a profile, from the same rule the renderer uses."""
+    n, secs = 0, 0.0
+    for d, an, bs, low, ult, ap in rows:
+        if bs != "current" or (profile == "ULTRA" and not ap.get("preview")):
+            continue
+        try:
+            ests = vf.todo_of(d, an, profile)[1]
+        except OSError:
+            continue
+        n, secs = n + len(ests), secs + sum(ests)
+    return n, secs
+
+
+def hm(sec):
+    return f"{sec / 3600:.1f} h" if sec >= 5400 else f"{max(1, round(sec / 60))} min"
+
+
+def summary(rows):
+    n = max(1, len(rows))
     built = sum(r[2] == "current" for r in rows)
     stale = sum(r[2] == "stale" for r in rows)
     prev = sum(r[3] == 6 for r in rows)
     appr = sum(bool(r[5].get("preview")) for r in rows)
     fin = sum(r[4] == 6 for r in rows)
-    print(f" {W}{n}{END} animals · {G}{built}{END} built · {R}{stale}{END} stale · {B}{prev}{END} previewed · "
-          f"{Y}{appr}{END} preview-approved · {G}{fin}{END} with all six finals")
-    if verbose:
-        print(f" {D}code    animal              .blend    LOW   approved     ULTRA  final{END}")
-        for d, an, bs, low, ult, ap in rows:
-            c = colour_of(bs, low, ult, ap)
-            print(f" {c}{an['code']}  {an['common'][:18]:<18}  {bs:<8}  {low}/6   {(ap.get('preview') or '-'):<11}  {ult}/6    "
-                  f"{ap.get('final') or '-'}{END}")
-        print(f" {D}colours: {G}done {B}LOW preview {Y}approved, final to render {R}stale (build again) "
-              f"{C}built {D}not built{END}")
-    vf.write_render_readme()
-    return rows
+    print(f"  {c('Animals', 'b')}    {bar(built / n)}  {c(f'{built} of {len(rows)}', 'b')} built"
+          + (c(f", {stale} stale: choose 1", "red", "b") if stale else ""))
+    print(f"  {c('Previews', 'b')}   {bar(prev / n, colour='blue')}  {c(f'{prev} of {len(rows)}', 'b')} with six LOW images"
+          f"  {c(f'({appr} approved)', 'grey')}")
+    print(f"  {c('Finals', 'b')}     {bar(fin / n, colour='magenta')}  {c(f'{fin} of {len(rows)}', 'b')} with six ULTRA images"
+          f"  {c('(4096 px)', 'grey')}")
+    ult_n, ult_s = pending(rows, "ULTRA")
+    if ult_n:
+        print(f"  {c('Next', 'b')}       {c(f'{ult_n} ULTRA image(s)', 'yellow')} waiting for approved animals, "
+              f"{c('roughly ' + hm(ult_s * 1.0), 'yellow')}")
+    elif appr:
+        print(f"  {c('Next', 'b')}       {c(TICK + ' every approved animal has its six ULTRA images', 'green')}")
+    else:
+        print(f"  {c('Next', 'b')}       {c('approve a preview (vf.py approve <code> preview) before an ULTRA render', 'grey')}")
+    print()
+    return ult_n, ult_s
 
 
-def eta(rows, profile):
-    secs = 0
+def legend():
+    items = (("done", "green"), ("approved, final to render", "yellow"), ("LOW preview", "blue"), ("built", "cyan"),
+             ("stale: build again", "red"), ("not built", "grey"))
+    print("  " + "   ".join(c(f"{DOT} {t}", col) for t, col in items))
+
+
+def screen_status(rows=None):
+    header("Animal status")
+    rows = rows or collect()
+    legend()
+    rule()
+    print(c(f"    {'code':<7} {'animal':<20} {'.blend':<8} {'LOW':<4} {'approved':<11} {'ULTRA'}", "grey"))
     for d, an, bs, low, ult, ap in rows:
-        if profile == "ULTRA" and not ap.get("preview"):
-            continue
-        done = ult if profile == "ULTRA" else low
-        if done < 6:
-            secs += sum(ST.PROFILES[profile]["estimate"].values()) * 2 * (6 - done) / 6
-    return secs
+        col = colour_of(bs, low, ult, ap)
+        ub = c(BLOCK * ult, "green") + c(SHADE * (6 - ult), "grey")
+        print(f"  {c(DOT, col)} {an['code']:<7} {an['common'][:20]:<20} {pad(c(bs, col), 8)} {low}/6  "
+              f"{(ap.get('preview') or '-'):<11} {ub} {ult}/6"
+              + (c(f"  final {ap['final']}", "green") if ap.get("final") else ""))
+    rule()
+    say(c("Colours show each animal's state. Choose 'One animal' for its files.", "grey"))
+    vf.write_render_readme()
 
 
+# ---- running things ---------------------------------------------------------------------------------------------------
 def run(label, fn):
     t = time.time()
     try:
         fn()
-        print(f" {G}{label}: done in {time.time() - t:.0f} s{END}")
+        say(f"{c(TICK, 'green')} {label}: done in {c(vf_hms(time.time() - t), 'b')}")
     except KeyboardInterrupt:
-        print(f"\n {Y}{label}: paused (finished images are kept; run it again to carry on){END}")
+        VL.LIVE.stop()
+        print()
+        say(f"{label}: paused (finished images are kept; run it again to carry on)", "yellow")
     except SystemExit as e:
-        print(f" {R}{label}: {e}{END}")
+        VL.LIVE.stop()
+        say(f"{label}: {e}", "red")
+
+
+def vf_hms(sec):
+    return VL.hms(sec)
 
 
 def do_build_all():
-    for d in VL.animal_dirs():
+    todo = [d for d in VL.animal_dirs() if os.path.exists(os.path.join(d, "blender", "model.py"))]
+    for i, d in enumerate(todo, 1):
         an = VL.load(d)
-        if os.path.exists(os.path.join(d, "blender", "model.py")):
-            if vf.do_build(d, an):
-                vf.advance(an, "Modelling")
-                VL.save(d, an)
-                vf.write_overview(d, an)
+        say(c(f"[{i}/{len(todo)}]", "grey") + f" {an['code']} {an['common']}")
+        if vf.do_build(d, an):
+            vf.advance(an, "Modelling")
+            VL.save(d, an)
+            vf.write_overview(d, an)
+
+
+def pick_animal():
+    code = ask("Animal code (e.g. 26-001):")
+    return VL.find(code) if code else None
 
 
 def one_animal():
-    rows = status(verbose=True)
-    code = input(f" {W}code (e.g. 26-001):{END} ").strip()
-    d = VL.find(code)
+    header("One animal")
+    rows = collect()
+    for d, an, bs, low, ult, ap in rows:
+        print(f"  {c(DOT, colour_of(bs, low, ult, ap))} {an['code']}  {an['common']}")
+    print()
+    d = pick_animal()
+    if not d:
+        return
     an = VL.load(d)
-    what = input(f" {W}b{END}uild, {W}p{END}review (LOW) or {W}f{END}inal (ULTRA)? ").strip().lower()[:1]
+    what = ask(f"{c('b', 'b')}uild, {c('p', 'b')}review (LOW) or {c('f', 'b')}inal (ULTRA)?").lower()[:1]
+    code = an["code"]
     if what == "b":
         run(f"build {code}", lambda: vf.do_build(d, an, force=True))
     elif what == "p":
         run(f"preview {code}", lambda: print("  ->", VL.rel(vf.preview(d, an))))
     elif what == "f":
-        run(f"final {code}", lambda: [print(f"  {R}{e}{END}") for e in vf.final(d, an)])
+        run(f"final {code}", lambda: [say(e, "red") for e in vf.final(d, an)])
 
 
 def files_of():
-    code = input(f" {W}code:{END} ").strip()
-    d = VL.find(code)
+    header("One animal's files")
+    d = pick_animal()
+    if not d:
+        return
     an, bs, low, ult, ap = state(d)
-    print(f" {W}{an['code']} · {an['common']}{END} ({an['scientific']}), status {an['status']}, .blend {bs}")
+    col = colour_of(bs, low, ult, ap)
+    say(f"{c(an['code'] + ' · ' + an['common'], 'b')} {c('(' + an['scientific'] + ')', 'grey')}   "
+        f"status {c(an['status'], col)}, .blend {c(bs, col)}")
+    rule()
     for t in vf.targets(an, "ULTRA", d)[0]:
         ok = os.path.exists(t["final"])
-        print(f"  {G if ok else D}{os.path.basename(t['final'])}{END}" + (f"  {D}{os.path.getsize(t['final']) // 1024} KB{END}" if ok else ""))
-    print(f"  {D}preview: {VL.rel(os.path.join(VL.CACHE, 'preview', an['code']))}{END}")
+        size = f"  {os.path.getsize(t['final']) // 1024:,} KB" if ok else ""
+        say(f"{c(TICK if ok else DOT, 'green' if ok else 'grey')} {os.path.basename(t['final'])}{c(size, 'grey')}")
+    rule()
+    say(c("LOW preview: " + VL.rel(os.path.join(VL.CACHE, "preview", an["code"])), "grey"))
+
+
+def render_all(profile):
+    return lambda: vf.cmd_render_all(type("A", (), dict(profile=profile, force=False))())
+
+
+# ---- the home screen --------------------------------------------------------------------------------------------------
+def item(key, text, on=True, colour="cyan"):
+    return f"{c('[' + key + ']', colour if on else 'grey', 'b')} {text if on else c(text, 'grey')}"
 
 
 def menu():
     while True:
-        print(f"\n {W}Voxel Fauna · render{END}  {D}{datetime.datetime.now():%Y-%m-%d %H:%M} · Blender {os.path.basename(os.path.dirname(VL.blender_exe()))}{END}")
-        rows = status(verbose=False)
-        low_eta, ult_eta = eta(rows, "LOW"), eta(rows, "ULTRA")
-        print(f"\n {C}RENDER{END}   1 Build every missing or stale .blend")
-        print(f"          2 LOW previews of every built animal {D}(~{low_eta / 60:.0f} min){END}")
-        print(f"          3 ULTRA finals of every preview-approved animal {D}(~{ult_eta / 60:.0f} min; skips finished images){END}")
-        print("          4 One animal (build, preview or final)")
-        print(f" {C}CHECK{END}    5 Status of every animal     6 One animal's files")
-        print(f" {C}CONTROL{END}  Q Quit   {D}(Ctrl+C pauses a render; run it again to carry on){END}")
-        k = input(f"\n {W}choose:{END} ").strip().lower()
+        header()
+        rows = collect()
+        ult_n, ult_s = summary(rows)
+        low_n, low_s = pending(rows, "LOW")
+        stale = any(r[2] in ("stale", "missing") for r in rows)
+        panels = [
+            ([c(PLAY + " RENDER", "b", "green"),
+              item("1", "Build missing or stale .blend", stale, "green"),
+              item("2", "LOW previews of every animal" + c(f"  ~{hm(low_s)}" if low_n else "", "grey")),
+              item("3", "ULTRA finals of approved animals" + c(f"  ~{hm(ult_s)}" if ult_n else "", "grey"), bool(ult_n), "green"),
+              item("4", "One animal")],
+             [c(PLAY + " CHECK", "b", "cyan"),
+              item("5", "Animal status"),
+              item("6", "One animal's files")]),
+            ([c(PLAY + " CONTROL", "b", "yellow"),
+              item("Q", "Quit", True, "grey")],
+             [c("Pause any time", "grey"),
+              c("Ctrl+C or close the window:", "grey"),
+              c("finished images are kept; run it again", "grey")]),
+        ]
+        for left_col, right_col in panels:
+            for i in range(max(len(left_col), len(right_col))):
+                a = left_col[i] if i < len(left_col) else ""
+                b = right_col[i] if i < len(right_col) else ""
+                print("  " + pad(a, 44) + b)
+            print()
+        k = ask("Choose:").lower()
         if k == "1":
+            header("Build")
             run("build", do_build_all)
+            wait()
         elif k == "2":
-            run("LOW previews", lambda: vf.cmd_render_all(type("A", (), dict(profile="LOW", force=False))()))
+            header("LOW previews")
+            run("LOW previews", render_all("LOW"))
+            wait()
         elif k == "3":
-            run("ULTRA finals", lambda: vf.cmd_render_all(type("A", (), dict(profile="ULTRA", force=False))()))
+            header("ULTRA finals")
+            if not ult_n:
+                say("Nothing to render: every approved animal is finished, or no preview is approved yet.", "grey")
+            else:
+                run("ULTRA finals", render_all("ULTRA"))
+            wait()
         elif k == "4":
-            run("one animal", one_animal)
+            one_animal()
+            wait()
         elif k == "5":
-            status(verbose=True)
+            screen_status(rows)
+            wait()
         elif k == "6":
-            run("files", files_of)
-        elif k in ("q", ""):
+            files_of()
+            wait()
+        elif k in ("q", "quit", "exit"):
             return
 
 
@@ -160,19 +348,19 @@ def main(argv):
         return menu()
     a = argv[0].lower()
     if a == "status":
-        status(verbose=True)
+        screen_status()
     elif a == "build":
         run("build", do_build_all)
     elif a in ("preview", "low"):
-        run("LOW previews", lambda: vf.cmd_render_all(type("A", (), dict(profile="LOW", force=False))()))
+        run("LOW previews", render_all("LOW"))
     elif a in ("final", "ultra"):
-        run("ULTRA finals", lambda: vf.cmd_render_all(type("A", (), dict(profile="ULTRA", force=False))()))
+        run("ULTRA finals", render_all("ULTRA"))
     else:
         d = VL.find(argv[0])
         an = VL.load(d)
         what = (argv[1] if len(argv) > 1 else "preview").lower()
         if what == "final":
-            run(f"final {argv[0]}", lambda: [print(f"  {R}{e}{END}") for e in vf.final(d, an)])
+            run(f"final {argv[0]}", lambda: [say(e, "red") for e in vf.final(d, an)])
         else:
             run(f"preview {argv[0]}", lambda: print("  ->", VL.rel(vf.preview(d, an))))
 
@@ -181,4 +369,5 @@ if __name__ == "__main__":
     try:
         main(sys.argv[1:])
     except KeyboardInterrupt:
-        print(f"\n {Y}stopped{END}")
+        VL.LIVE.stop()
+        print(f"\n  {c('stopped', 'yellow')}")
