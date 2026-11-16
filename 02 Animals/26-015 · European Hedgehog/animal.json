@@ -2,7 +2,7 @@
   "code": "26-015",
   "common": "European Hedgehog",
   "scientific": "Erinaceus europaeus",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -147,14 +147,16 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "7893bf5668505ed0/95d175c223b942de"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 5 animals'); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
   ]
 }

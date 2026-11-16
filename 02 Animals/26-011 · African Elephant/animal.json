@@ -2,7 +2,7 @@
   "code": "26-011",
   "common": "African Elephant",
   "scientific": "Loxodonta africana",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -156,14 +156,16 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "74741ead4fb8a139/e44f23a04d7da688"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 5 animals'); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
   ]
 }

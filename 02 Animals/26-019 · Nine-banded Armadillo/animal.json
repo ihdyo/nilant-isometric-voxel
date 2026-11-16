@@ -2,7 +2,7 @@
   "code": "26-019",
   "common": "Nine-banded Armadillo",
   "scientific": "Dasypus novemcinctus",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -145,14 +145,16 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "86aaff851260fadd/9d2f25abea7bb376"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
   ]
 }

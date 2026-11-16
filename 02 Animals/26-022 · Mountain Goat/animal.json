@@ -2,7 +2,7 @@
   "code": "26-022",
   "common": "Mountain Goat",
   "scientific": "Oreamnos americanus",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -145,14 +145,16 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "3ebb89af9bd15edc/5d48c03bb9cae95e"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
   ]
 }
