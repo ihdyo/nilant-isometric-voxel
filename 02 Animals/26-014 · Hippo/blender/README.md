@@ -11,7 +11,7 @@
 | `26-014 · Hippo · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T17:27:49
-- Animation rig: **current**, walker plan, 10 bones, rigged 2026-11-17T20:15:23
+- Build: **current**, built 2026-11-18T00:35:48
+- Animation rig: **current**, walker plan, 10 bones, rigged 2026-11-18T00:35:51
 - Model: the pose moves the lowest point to z = -0.28: the engine sets the animal back on the ground; posed size 44.8 x 21.3 x 28.1 voxels (L x W x H), 12343 voxels, colours eye, mouth, pink, skin, tusk, parts body, ear_l, ear_r, head, jaw, leg_fl, leg_fr, leg_hl, leg_hr; turned ear_l, ear_r, head, jaw, leg_fl, leg_hr
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

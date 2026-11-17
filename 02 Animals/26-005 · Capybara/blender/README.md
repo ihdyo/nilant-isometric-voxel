@@ -11,7 +11,7 @@
 | `26-005 · Capybara · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T17:23:06
-- Animation rig: **current**, walker plan, 10 bones, rigged 2026-11-17T18:44:03
+- Build: **current**, built 2026-11-18T00:34:56
+- Animation rig: **current**, walker plan, 10 bones, rigged 2026-11-18T00:34:58
 - Model: the pose moves the lowest point to z = -0.13: the engine sets the animal back on the ground; posed size 28.8 x 13.5 x 18.7 voxels (L x W x H), 3603 voxels, colours dark, eye, fur, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, snout; turned ear_l, ear_r, head, leg_fl, leg_hr
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

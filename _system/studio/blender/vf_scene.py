@@ -214,7 +214,7 @@ def animal_meshes(grid, palette, coll, geometry=None):
                 b.harden_normals = True
             except Exception:
                 pass
-        # the stacking bias: this part's stacking level on every vertex, the modifier last (vf_standards.STACK_BIAS)
+        # the stacking bias: this part's stacking level on every vertex, the modifier last (vf_standards.STACK_LEVELS)
         at = me.attributes.new(DEPTH_ATTR, "FLOAT", "POINT")
         at.data.foreach_set("value", [float(stack_level(grid, part))] * len(me.vertices))
         add_depth_bias(o)
@@ -397,20 +397,21 @@ def _animal_objects():
     return list(bpy.data.collections["Animal"].all_objects)
 
 
-# ---- the stacking depth bias (vf_standards.STACK_BIAS) ------------------------------------------------------------------
+# ---- the stacking depth bias (vf_standards.STACK_LEVELS) ------------------------------------------------------------------
 DEPTH_ATTR, BIAS_ATTR, DEPTH_MOD = "vf_depth", "vf_bias", "VF depth"
 
 
 def stack_level(grid, part):
-    """The part's stacking level (vf_standards.STACK_BIAS): 0 for a limb (a leg, shin, foot or flipper, or anything
-    hanging from one), 1 for the body (every part without a joint), 2 for every other jointed section."""
+    """How far (voxels) the part is nudged towards the camera in a loop's animal pass (vf_standards.STACK_LEVELS): a limb
+    (a leg, shin, foot or flipper, or anything hanging from one) not at all, the body (every part without a joint) a
+    hair, every other jointed section well over the body."""
     p, n = part, 0
     while p in grid.joints and n < 16:
         if p.split("_")[0] in ST.STACK_LIMBS:
-            return 0
+            return ST.STACK_LEVELS["limb"]
         p = grid.joints[p].get("parent")
         n += 1
-    return 1 if part not in grid.joints else 2
+    return ST.STACK_LEVELS["body"] if part not in grid.joints else ST.STACK_LEVELS["section"]
 
 
 def _depth_group():
@@ -434,19 +435,19 @@ def _depth_group():
 
 def add_depth_bias(o):
     """The last modifier of an animal mesh: every vertex moves towards the camera by its stacking level (the vf_depth point
-    attribute) x STACK_BIAS voxels. The offset is written per vertex (vf_bias) in the object's own axes, so call it
+    attribute, in voxels). The offset is written per vertex (vf_bias) in the object's own axes, so call it
     again whenever the object's rotation changes (the rig does, after the join). Off until depth_bias(True)."""
     me = o.data
     back = view_axes()[3]
-    local = o.matrix_world.to_3x3().inverted() @ (back * (ST.STACK_BIAS * ST.VOXEL))
+    local = o.matrix_world.to_3x3().inverted() @ (back * ST.VOXEL)      # one voxel towards the camera
     n = len(me.vertices)
     depth = [0.0] * n
     me.attributes[DEPTH_ATTR].data.foreach_get("value", depth)
     if BIAS_ATTR in me.attributes:
         me.attributes.remove(me.attributes[BIAS_ATTR])
     vec = me.attributes.new(BIAS_ATTR, "FLOAT_VECTOR", "POINT")
-    # by stacking level (legs 0, body 1, head and the rest 2): an ear moves with its head, so its shadow stays put and a
-    # far ear never jumps in front of the head it hangs behind; the legs never move, so the ground never clips them
+    # by stacking level (legs 0, body 0.05, head and the rest 2.05 voxels): an ear moves with its head, so its shadow
+    # stays put and a far ear never jumps in front of the head; the legs never move, so they keep their whole length
     vec.data.foreach_set("vector", [c * d for d in depth for c in local])
     m = o.modifiers.get(DEPTH_MOD)
     if m:

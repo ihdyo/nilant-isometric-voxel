@@ -11,7 +11,7 @@
 | `26-015 · European Hedgehog · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T17:28:27
-- Animation rig: **current**, walker plan, 7 bones, rigged 2026-11-17T20:26:00
+- Build: **current**, built 2026-11-18T00:35:54
+- Animation rig: **current**, walker plan, 7 bones, rigged 2026-11-18T00:35:56
 - Model: the pose moves the lowest point to z = -0.18: the engine sets the animal back on the ground; posed size 18.4 x 11.0 x 11.2 voxels (L x W x H), 1067 voxels, colours eye, face, feet, nose, spines, tips, parts body, head, leg_fl, leg_fr, leg_hl, leg_hr; turned head, leg_fl
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

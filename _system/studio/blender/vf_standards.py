@@ -75,15 +75,17 @@ BEVEL = dict(width=0.012, segments=4, profile=0.5)
                              # within 0.006-0.06 m, 4 segments, round. 0.012 m = 12 % of a voxel: every block reads as
                              # its own moulded cube with a thin highlight on each edge
 CULL_HIDDEN = True           # NEW: a voxel with all six neighbours in its own part is never seen and is not built
-STACK_BIAS = 2.0             # voxels per stacking level, in the animal pass of the animated loops only: the legs stay
-                             # put (level 0), the body is nudged one level towards the camera, every other jointed
-                             # section (head, tail, wings, with their ears and muzzles) two. The camera is orthographic,
-                             # so nothing moves or changes size on screen; only the depth test changes: where sections
-                             # cut into each other as they turn, the body is always drawn over the legs and the head
-                             # over the body, instead of the two cutting each other differently every frame (owner
-                             # 2026-11-18: the panda's head and legs flickered; "dont resize the legs, just make the leg
-                             # always on behind body"). The shadow pass is not nudged (the ground shadow is exact);
-                             # stills and masters are single frames and keep their approved look
+STACK_LEVELS = dict(limb=0.0, body=0.05, section=2.05)
+                             # voxels each kind of section is nudged towards the camera, in the animal pass of the
+                             # animated loops only. The camera is orthographic, so nothing moves or changes size on
+                             # screen; only the depth test changes. limb (legs, shins, feet, flippers): never moved.
+                             # body: 0.05, just enough to win where a leg's outer face lies in the plane of the body's
+                             # side (they fought for those pixels as the leg swung), too little to hide any part of a
+                             # leg that really is in front of the body (2 voxels did: the legs looked shorter; owner
+                             # 2026-11-18: "still resize the leg, just make the leg size same as body but ensure it
+                             # behind body if stacked"). section (head, tail, wings, with their ears and muzzles): 2
+                             # over the body, so a turning head never has the body cutting through it (the panda's
+                             # flicker). The shadow pass is not nudged; stills and masters keep their approved look
 STACK_LIMBS = ("leg", "shin", "foot", "flipper")   # name stems of the limb sections (level 0, behind the body)
 GEOMETRIES = {
     "block": dict(limit="NONE", bevel=True, material="plastic"),

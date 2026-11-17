@@ -11,7 +11,7 @@
 | `26-016 · Axolotl · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T17:29:07
-- Animation rig: **current**, sprawler plan, 11 bones, rigged 2026-11-17T20:35:10
+- Build: **current**, built 2026-11-18T00:36:00
+- Animation rig: **current**, sprawler plan, 11 bones, rigged 2026-11-18T00:36:02
 - Model: posed size 18.3 x 14.7 x 7.5 voxels (L x W x H), 342 voxels, colours belly, eye, gill, skin, parts body, gill_l, gill_r, head, leg_fl, leg_fr, leg_hl, leg_hr, tail, tail_tip; turned gill_l, gill_r, head, leg_fl, leg_fr, leg_hl, leg_hr, tail, tail_tip
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

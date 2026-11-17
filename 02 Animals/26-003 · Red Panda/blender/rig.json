@@ -1,10 +1,10 @@
 {
  "code": "26-003",
- "rigged": "2026-11-17T18:29:06",
+ "rigged": "2026-11-18T00:34:47",
  "blender": "5.3.0",
- "still_built": "2026-11-17T17:21:51",
+ "still_built": "2026-11-18T00:34:45",
  "motion_hash": "22d3c1a23f6e7d9f",
- "rig_engine": "a1e29b85aca32f1c",
+ "rig_engine": "05312df0b192da08",
  "plan": "walker",
  "bones": 12,
  "fps": 24,

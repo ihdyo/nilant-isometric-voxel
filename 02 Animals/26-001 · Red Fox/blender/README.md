@@ -11,7 +11,7 @@
 | `26-001 · Red Fox · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T17:17:10
-- Animation rig: **current**, walker plan, 12 bones, rigged 2026-11-17T17:20:40
+- Build: **current**, built 2026-11-18T00:34:33
+- Animation rig: **current**, walker plan, 12 bones, rigged 2026-11-18T00:34:35
 - Model: the pose moves the lowest point to z = -0.15: the engine sets the animal back on the ground; 10 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant); posed size 32.2 x 14.0 x 22.9 voxels (L x W x H), 2133 voxels, colours dark, eye, fur, white, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, snout, tail, tail_tip; turned ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, tail, tail_tip
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

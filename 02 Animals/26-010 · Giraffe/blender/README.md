@@ -11,7 +11,7 @@
 | `26-010 · Giraffe · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T17:25:38
-- Animation rig: **current**, walker plan, 15 bones, rigged 2026-11-17T19:36:26
+- Build: **current**, built 2026-11-18T00:35:25
+- Animation rig: **current**, walker plan, 15 bones, rigged 2026-11-18T00:35:27
 - Model: the pose moves the lowest point to z = -0.03: the engine sets the animal back on the ground; 220 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant); posed size 28.2 x 11.3 x 54.9 voxels (L x W x H), 3212 voxels, colours base, dark, eye, mane, patch, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, neck, shin_fl, shin_fr, shin_hl, shin_hr, tail; turned ear_l, ear_r, head, leg_fl, leg_hr, neck, shin_fl, shin_hr, tail
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

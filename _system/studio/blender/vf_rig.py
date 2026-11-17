@@ -714,7 +714,7 @@ def build_rig(grid, look_offset, motion):
     mod.object = arm
     mod.use_vertex_groups = True
     mod.use_bone_envelopes = False
-    if V.DEPTH_ATTR in mesh.data.attributes:        # the stacking bias after the deform (vf_standards.STACK_BIAS)
+    if V.DEPTH_ATTR in mesh.data.attributes:        # the stacking bias after the deform (vf_standards.STACK_LEVELS)
         V.add_depth_bias(mesh)
     for o in vl.objects:
         o.select_set(False)

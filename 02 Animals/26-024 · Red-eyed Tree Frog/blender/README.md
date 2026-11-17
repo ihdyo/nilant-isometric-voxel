@@ -11,7 +11,7 @@
 | `26-024 · Red-eyed Tree Frog · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T21:42:25
-- Animation rig: **current**, hopper plan, 11 bones, rigged 2026-11-17T21:42:27
+- Build: **current**, built 2026-11-18T00:36:43
+- Animation rig: **current**, hopper plan, 11 bones, rigged 2026-11-18T00:36:46
 - Model: posed size 16.9 x 17.0 x 10.7 voxels (L x W x H), 1011 voxels, colours belly, blue, green, pupil, red, toe, yellow, parts body, head, leg_fl, leg_fr, leg_hl, leg_hr, shin_fl, shin_fr, shin_hl, shin_hr; turned head
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0
