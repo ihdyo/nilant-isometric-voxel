@@ -17,8 +17,9 @@ The top lines count the animals: built, stale, previewed, preview-approved, with
 |---|---|---|
 | **Render** | `1` Build | Builds every animal's `.blend` from its `blender/model.py` when it is missing or stale (the model, the palette or the standards changed). Seconds per animal. |
 | | `2` LOW previews | Builds what is stale, then renders the six review compositions of every animal at LOW into `_system\cache\preview\<code>\` with a contact sheet, then rigs, checks and animates it. About 1–2 minutes per animal. |
-| | `3` ULTRA renders | Renders, for every animal **the owner approved** (`vf.py approve <code> preview`), the two master renders (4096 square, dynamic and regular blocky pose) into its `export\` and the frames of its looped animation into the cache. Rendering only: run `package.bat` afterwards. About 15 minutes per animal on the RTX 3050 (the integrated Intel GPU of the second PC cannot render ULTRA). Skips renders already finished. |
-| | `4` One animal | Pick a code, then build, preview or final for that animal only. |
+| | `3` ULTRA renders | Renders, for every animal **the owner approved** (`vf.py approve <code> preview`), the two master renders (4096 square, dynamic and regular blocky pose) into its `export\` and the frames of its looped animation into the cache. Rendering only: choose P afterwards. About 15 minutes per animal on the RTX 3050 (the integrated Intel GPU of the second PC cannot render ULTRA). Skips renders already finished. |
+| | `P` Package | After 3, offline and without Blender: the stock image, loop GIF, the two A5 cards, the stock files, the Gumroad zip and the registry rows of every rendered animal, with a progress line (steps, percent, time left). Lights up when something is waiting. |
+| | `4` One animal | Pick a code, then build, preview, final or package for that animal only. |
 | **Motion** | `R` Rig | Approved (2026-11-17). Rigs every animal from its built `.blend` (`blender\<code> · <Name> · Rig.blend` and `· Rig.glb`, the stills untouched) and renders a GIF loop of each action into `_system\cache\preview\<code>\anim\`, then the lineup GIF in `02 Animals\`. About 1–2 minutes per animal, three at a time; skips rigs that are current. |
 | **Check** | `5` Status | Every animal in the colour of its state (below). |
 | | `6` One animal's files | The export package of one animal (which items exist) and where its preview is. |
@@ -29,7 +30,7 @@ The top lines count the animals: built, stale, previewed, preview-approved, with
 | Colour | Means |
 |---|---|
 | Green | done: the whole export package built (and approved) |
-| Yellow | preview approved: the ULTRA renders wait (option 3, then package.bat) |
+| Yellow | preview approved: the ULTRA renders wait (option 3, then P) |
 | Blue | LOW preview rendered, waiting for the owner's look |
 | Cyan | built, not previewed yet |
 | Red | stale: the model, palette or standards changed since the `.blend` was built (option 1) |
@@ -42,7 +43,7 @@ is missing or older than the animal's `.blend`. Shutting the computer down is a 
 
 ## Without the menu
 
-`render.bat status`, `render.bat build`, `render.bat preview`, `render.bat final`, `render.bat 26-001 preview`,
+`render.bat status`, `render.bat build`, `render.bat preview`, `render.bat final`, `render.bat package`, `render.bat 26-001 preview`,
 `render.bat 26-001 final`. The same work from a terminal: `python _system/studio/scripts/vf.py render-all LOW|ULTRA`.
 
 ## Quality
@@ -61,17 +62,16 @@ The values live in `_system/studio/blender/vf_standards.py` (`PROFILES`) and are
 | Path | What |
 |---|---|
 | `render.bat` | the renderer (double-click) |
-| `package.bat` | the packager (double-click after render.bat): stock crop, GIF, A5 cards, stock files, zip, registry |
 | `README.md` | every animal at a glance (rewritten by `render.bat` and `vf.py render-all`) |
 | `python_path.txt` | this PC's Python (git-ignored) |
 | `Voxel Fauna · How to Render.md` | this guide |
 
-## package.bat (after render.bat)
+## Package (P, after the renders)
 
-Double-click `package.bat` (beside `render.bat`) when the ULTRA renders are done. Offline, no Blender: for every
+Choose `P` in `render.bat` (or `render.bat package`, `render.bat package 26-001` for one animal) when the ULTRA renders are done. Offline, no Blender: for every
 animal with its two masters it builds `VF-<code>-STOCK-1x1.png` (the centre 2880 square of the dynamic master),
 `VF-<code>-LOOP.gif` (1080 square, 24 fps), `VF-<code>-CARD-EN.pdf` and `VF-<code>-CARD-ID.pdf` (A5, 3 mm bleed,
 300 dpi: front the model over the real photo with the information, back the blocky model with "powered by ihdyo"),
-then the stock JPEG and CSVs, the Gumroad zip and the registry rows. `package.bat 26-001` does one animal. It needs
+then the stock JPEG and CSVs, the Gumroad zip and the registry rows. `render.bat package 26-001` does one animal. It needs
 Python with Pillow, openpyxl and PyMuPDF (`pip install pillow openpyxl pymupdf`). A card whose text does not fit
 stops with the field to shorten (`animal.json → info`, or `i18n.id` for the Indonesian card).

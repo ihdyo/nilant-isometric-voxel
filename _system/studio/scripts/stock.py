@@ -90,7 +90,7 @@ def package(folder, animal, only=None):
     masters = [PK.export_file(folder, code, s) for s, _, _ in PK.EXPORT["items"]]
     src = PK.export_file(folder, code, "STOCK-1x1")
     if not os.path.exists(src):
-        lines.append(f"skip the stock image: none yet ({VL.rel(src)}; package.bat or vf.py package {code})")
+        lines.append(f"skip the stock image: none yet ({VL.rel(src)}; render.bat, P or vf.py package {code})")
     else:
         iid = PK.export_id(code, "STOCK-1x1")
         dst = os.path.join(sdir, iid + ".jpg")

@@ -37,8 +37,8 @@ From this folder, in any terminal (`python` 3.10+ with Pillow and openpyxl; Blen
 3. `vf.py preview 26-001` (or `render.bat` → 2) → `_system/cache/preview/26-001/26-001 · preview sheet.png`; when the
    owner likes it, `vf.py approve 26-001 preview`.
 4. The card copy in `animal.json → info` (Duolingo voice) and `i18n.id` (Indonesian), then `vf.py final 26-001`
-   (or `render.bat` → 3) → the two masters and the loop; then `package.bat` → the stock image, the GIF, the cards.
-5. `package.bat` also writes the stock files, the Gumroad zip and the registry rows; upload with `05 Publish/Voxel Fauna · Publishing Checklist.md` and
+   (or `render.bat` → 3) → the two masters and the loop; then `render.bat` → P → the stock image, the GIF, the cards.
+5. `render.bat` → P also writes the stock files, the Gumroad zip and the registry rows; upload with `05 Publish/Voxel Fauna · Publishing Checklist.md` and
    record each upload with `vf.py log 26-001 "Adobe Stock" Submitted`.
 6. The owner reviews the export package; `vf.py approve 26-001 final`.
 

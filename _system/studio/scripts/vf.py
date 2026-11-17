@@ -547,7 +547,7 @@ def final_plan(folder, animal, low=False, force=False):
 def final(folder, animal, force=False, low=False):
     """The ULTRA renders of the export package (PROPOSED 2026-11-17, blender/vf_export.py): the two masters (dynamic
     and regular blocky, 4096 square, the animal in the centre safe square) into export/, their cut-outs and the frames
-    of the looped animation into the cache. Rendering only: scripts/package.py builds the rest offline (package.bat).
+    of the looped animation into the cache. Rendering only: scripts/package.py builds the rest offline (render.bat, P).
     Renders what is missing or older than the rig; low=True renders the same set at LOW into the cache (layouts)."""
     import package as PK
     code = animal["code"]
@@ -651,7 +651,7 @@ def cmd_final(a):
         out("  ERROR", e)
     dest = os.path.join(VL.CACHE, "export-low", a.code) if low else os.path.join(folder, "export")
     out(f"{a.code}: renders {'complete' if not E else 'with problems'} -> {VL.rel(dest)}; "
-        f"then vf.py package {a.code}{' --low' if low else ''} (or package.bat)")
+        f"then vf.py package {a.code}{' --low' if low else ''} (or render.bat, P)")
     return 1 if E else 0
 
 
@@ -669,8 +669,91 @@ def cmd_package(a):
     return 0
 
 
+PACKAGE_STEPS = (("stock image", 1), ("loop GIF", 15), ("card EN", 8), ("card ID", 8), ("stock files", 4))   # seconds each
+
+
+def package_state(folder, animal, low=False):
+    """'not rendered' (the masters or loop frames are missing), 'todo' (an output is missing or older than its source)
+    or 'done' for the offline package of one animal."""
+    import package as PK
+    code = animal["code"]
+    pl = PK.plates(code, low)
+    src = [PK.export_file(folder, code, "MASTER-DYN", low), PK.export_file(folder, code, "MASTER-BLOCK", low),
+           os.path.join(pl, "cut-dyn.png")]
+    if not all(os.path.exists(p) for p in src) or not os.path.isdir(os.path.join(pl, "loop")):
+        return "not rendered"
+    newest = max(os.path.getmtime(p) for p in src + [os.path.join(folder, "animal.json")])
+    outs = [PK.export_file(folder, code, s, low) for s, _, _ in PK.EXPORT["items"] if not s.startswith("MASTER")]
+    return "todo" if any(not os.path.exists(p) or os.path.getmtime(p) < newest for p in outs) else "done"
+
+
+def _package_with_steps(folder, animal):
+    """PK.package plus the stock files and the registry rows, ticking the live progress line after every step."""
+    import package as PK
+    import stock as SK
+    import registry as RG
+    saved = {k: getattr(PK, k) for k in ("stock_crop", "loop_gif", "card_pdf")}
+
+    def wrap(name):
+        def step(*a, **k):
+            VL.LIVE.set_note({"stock_crop": "stock image", "loop_gif": "loop GIF"}.get(name) or f"card {str(a[2]).upper()}")
+            r = saved[name](*a, **k)
+            VL.LIVE.item_done()
+            return r
+        return step
+    try:
+        for k in saved:
+            setattr(PK, k, wrap(k))
+        PK.package(folder, animal)
+    finally:
+        for k, f in saved.items():
+            setattr(PK, k, f)
+    VL.LIVE.set_note("stock files")
+    SK.package(folder, animal)
+    RG.upsert(folder, animal)
+    write_overview(folder, animal)
+    VL.LIVE.item_done()
+
+
+def cmd_package_pending(a):
+    """The offline package of every animal that is rendered and not packaged yet (render.bat's P), with progress."""
+    force = getattr(a, "force", False)
+    only = getattr(a, "code", None)
+    plan, skipped = [], []
+    for d in VL.animal_dirs():
+        an = VL.load(d)
+        if only and an["code"] != only:
+            continue
+        st = package_state(d, an)
+        if st == "todo" or (st == "done" and (force or only)):
+            plan.append((d, an))
+        elif st == "not rendered":
+            skipped.append(f"{an['code']} (not rendered yet)")
+    done = []
+    if plan:
+        ests = [sec for _, sec in PACKAGE_STEPS]
+        VL.LIVE.start(sum(ests) * len(plan), len(ests) * len(plan), len(plan), unit="steps")
+        try:
+            for d, an in plan:
+                VL.LIVE.begin_animal(f"{an['code']} {an['common']}", ests)
+                try:
+                    _package_with_steps(d, an)
+                    done.append(an["code"])
+                    out(f"  {VL.TICK} {an['code']} {an['common']}: stock image, loop GIF, two cards, stock files")
+                except (SystemExit, ValueError, OSError) as e:
+                    VL.LIVE.drop(sum(ests), len(ests))
+                    skipped.append(f"{an['code']} ({e})")
+        finally:
+            VL.LIVE.stop()
+    out(f"package: {len(done)} packaged ({', '.join(done) or '-'}), {sum('not rendered' in s for s in skipped)} not rendered yet")
+    for s in skipped:
+        if "not rendered" not in s:
+            out(f"  skipped {s}")
+    return 1 if any("not rendered" not in s for s in skipped) else 0
+
+
 def cmd_package_all(a):
-    """Every animal with its renders: package it, then the stock files and the registry rows (package.bat)."""
+    """Every animal with its renders: package it, then the stock files and the registry rows (render.bat, P)."""
     import package as PK
     done, skipped = [], []
     for d in VL.animal_dirs():
@@ -1156,7 +1239,7 @@ def write_overview(folder, animal):
         + (f" ({ap['preview']})" if ap.get("preview") else "")
         + (f" · sheet `{VL.rel(preview_sheet)}`" if os.path.exists(preview_sheet) else ""),
         f"- [{box(n_ex == len(items))}] Phase 4 · Export package: {n_ex} of {len(items)} (render.bat renders the "
-        "masters and the loop; package.bat builds the stock image, the GIF and the cards)",
+        "masters and the loop; render.bat, P builds the stock image, the GIF and the cards)",
         f"- [{box(animal['status'] in ('Registered', 'Approved'))}] Phase 5 · Registered in `05 Publish/Voxel Fauna · Registry.xlsx`",
         f"- [{box(bool(ap.get('final')))}] Phase 6 · Approved by the owner" + (f" ({ap['final']})" if ap.get("final") else ""), "",
         "## At a glance", "",
@@ -1560,6 +1643,9 @@ def main():
     p.add_argument("--low", action="store_true")
     p = sub.add_parser("package-all")
     p.add_argument("--low", action="store_true")
+    p = sub.add_parser("package-pending")
+    p.add_argument("--force", action="store_true")
+    p.add_argument("code", nargs="?")
     for name in ("overview", "register"):
         sub.add_parser(name).add_argument("code")
     p = sub.add_parser("render-all")

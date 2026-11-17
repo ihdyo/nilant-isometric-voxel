@@ -46,11 +46,11 @@ Six phases, two approvals by the owner. The rules behind each step are in the sk
 2. `vf.py final <code>` (or `render.bat` → `3` for every approved animal): ULTRA from the approved `.blend` into
    `export/`, about 15–20 minutes an animal; it resumes after a pause and skips finished images.
 3. Look at every item full size (the card PDFs at 100 %). Copy changes later: edit `animal.json` (`info`, and
-   `i18n.id` for the Indonesian card), then `package.bat` (no render).
+   `i18n.id` for the Indonesian card), then `render.bat` → P (no render).
 
 ## Phase 5 · Documentation and registry
 1. `vf.py overview <code>`; `vf.py register <code>` → rows in `05 Publish/Voxel Fauna · Registry.xlsx`.
-2. `package.bat` (or `vf.py stock <code>`) → the JPEG of the 1:1 stock image and upload CSVs (stock sites), the
+2. `render.bat` → P (or `vf.py stock <code>`) → the JPEG of the 1:1 stock image and upload CSVs (stock sites), the
    Gumroad zip of the whole export package.
 3. `vf.py verify`.
 

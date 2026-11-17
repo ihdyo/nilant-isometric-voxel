@@ -60,12 +60,12 @@ and expression of the animals like walking, and other animation that usualy the 
 ## Next: the export package (owner, 2026-11-17)
 - [x] The owner approved all 25 models and the motion: 25 preview approvals recorded, the motion locked (v2.2).
 - [x] `vf_export.py` (masters + loop frames from the rig, `render.bat` → 3), `package.py` (stock crop, GIF, A5 cards
-  EN and ID, `package.bat`), stock and registry on the new items, Indonesian copy for all 25 (`i18n.id`).
+  EN and ID, `render.bat` P), stock and registry on the new items, Indonesian copy for all 25 (`i18n.id`).
 - [x] Checked end to end at LOW on all 25 (`vf.py final <code> --low`, `vf.py package <code> --low`).
 - [x] **Owner:** approved the package (cards v5, masters, loop) from the LOW set, 2026-11-17; `vf_export.py` (with
   `EXPORT`) and `package.py` joined the lock (standards v2.2 + the export package).
-- [ ] ULTRA finals on the RTX 3050 (`render.bat` → 3, then `package.bat`), then the owner's `approve <code> final`.
-- [ ] **Owner, on the RTX 3050:** `render.bat` → 3 (about 15 min an animal), then `package.bat`.
+- [ ] ULTRA finals on the RTX 3050 (`render.bat` → 3, then P (package)), then the owner's `approve <code> final`.
+- [ ] **Owner, on the RTX 3050:** `render.bat` → 3 (about 15 min an animal), then P (package).
 - [ ] Optional: crop marks on the card PDF if the print shop asks; MP4 loops beside the GIF.
 
 ## Next for the engine

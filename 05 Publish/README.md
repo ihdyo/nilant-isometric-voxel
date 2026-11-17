@@ -6,7 +6,7 @@
 | `Voxel Fauna · Publish Log.md` | Every upload event, dated (the same rows as the workbook's **Publish Log** sheet), written by `vf.py log`. |
 | `Voxel Fauna · Publishing Checklist.md` | Before and after every upload. |
 | `Stock/` | `<code> · Adobe Stock.csv`, `<code> · Shutterstock.csv` (from `vf.py stock`) |
-| `Gumroad/` | `<code> · <Name> · Voxel Fauna.zip` (the export package, from `package.bat` / `vf.py stock`) |
+| `Gumroad/` | `<code> · <Name> · Voxel Fauna.zip` (the export package, from `render.bat` → P / `vf.py stock`) |
 
 `vf.py register` adds or updates rows by code and Image ID; it never duplicates a row or overwrites an amber cell.
 Close the workbook in Excel before running it.

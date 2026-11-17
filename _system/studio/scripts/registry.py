@@ -72,7 +72,7 @@ def build():
         ("Animal code", "YY-SEQ, as Nilant's video codes (26-001, 26-002, ...): the folder 02 Animals/<code> · <Common name>"),
         ("Image ID", "VF-{code}-{item}  e.g. VF-26-001-MASTER-DYN"),
         ("Items", "; ".join(f"{s} = {w}" for s, _, w in _PK().EXPORT["items"])),
-        ("File", "in the animal's export/ folder (render.bat renders the masters, package.bat builds the rest); the "
+        ("File", "in the animal's export/ folder (render.bat renders the masters, render.bat, P builds the rest); the "
                  "stock JPEG is in export/stock/"),
         ("Statuses", " → ".join(ST.STATUSES)),
         ("Platform cells", PLATFORM_STATES.replace(",", ", ")),

@@ -64,12 +64,12 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
   as standards v2.2 (`vf_standards.MOTION`, `vf_rig.py` in the lock).
 - **Export package APPROVED and locked, standards v2.2 + the export package** (owner, 2026-11-17: "i approve everything"): `blender/vf_export.py` renders the two masters and the loop
   frames from the rig (`vf.py final`, `render.bat` → 3, rendering only); `scripts/package.py` builds the stock crop,
-  the GIF and the A5 cards offline (`vf.py package`, the new `package.bat`); Indonesian copy in
+  the GIF and the A5 cards offline (`vf.py package`, `render.bat` → P); Indonesian copy in
   `animal.json → i18n.id` for all 25. Checked end to end at LOW on all 25; the ULTRA renders run on the RTX 3050
   (this second PC has an Intel UHD 730, which crashes on a 4096 ULTRA pass). The card front v5: no photo, the Nilant
   wordmark top right, the model centred on its body with its own rendered shadow, a few particles in the background's
   tints, the fun fact on a straight-edged band; `vf_export.py` (with `EXPORT`) and `package.py` are in the lock.
-- Next: the ULTRA finals on the RTX 3050 (`render.bat` → 3, then `package.bat`) and the owner's `approve <code> final`
+- Next: the ULTRA finals on the RTX 3050 (`render.bat` → 3, then P) and the owner's `approve <code> final`
   per animal; awaiting the owner: the Poppins italic download, contributor names and Gumroad licence.
 
 ## Hard rules
@@ -106,7 +106,7 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 | `03 Design/` | `DESIGN-SYSTEM.md`, `Color/` (Tailwind v4 palette), `Fonts/` (Poppins, OFL), `Logo/` (the owner's ihdyo mark, for the card back), `Reference/` (approved look sheets) |
 | `04 Library/` | licence and download log |
 | `05 Publish/` | `Voxel Fauna · Registry.xlsx` (Read Me, Animals, Images, Publish Log, Platforms), `Voxel Fauna · Publish Log.md`, `Voxel Fauna · Publishing Checklist.md`, `Stock/` (CSVs), `Gumroad/` (zips) |
-| `_system/studio/render/` | `render.bat` (double-click: build, LOW previews, ULTRA renders, offline), `package.bat` (double-click after it: stock crop, GIF, cards, stock files, zip, registry), `Voxel Fauna · How to Render.md`, `README.md` (status of every animal) |
+| `_system/studio/render/` | `render.bat` (double-click: build, LOW previews, ULTRA renders, offline), `P` in its menu packages offline: stock crop, GIF, cards, stock files, zip, registry, `Voxel Fauna · How to Render.md`, `README.md` (status of every animal) |
 | `_system/studio/blender/` | engine (bpy): `vf_standards.py`, `vf_voxel.py` (the grid), `vf_scene.py` (meshes, stage, cameras, profiles, passes, composite), `vf_job.py` (one Blender run: build, or open a .blend and render), `vf_rig.py` (the animation rig and motion library, locked), `vf_export.py` (the ULTRA export renders: masters and loop, proposed), `selftest_model.py` |
 | `_system/studio/scripts/` | `vf.py` (command line), `render_cli.py` (render.bat's menu), `vflib.py`, `infographic.py` (card system), `package.py` (stock crop, GIF, A5 cards; locked), `registry.py`, `stock.py` |
 | `_system/data/`, `_system/log/`, `_system/cache/` | standards lock + brand; WORKLOG / DECISIONS / PLAN; previews, plates, job logs (git-ignored) |
@@ -115,7 +115,7 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 ## Commands (`python _system/studio/scripts/vf.py <command>` from the project root)
 `doctor` · `list` · `new "<Common>" "<Genus species>"` · `check <code> [--strict]` · `build <code>` · `preview <code>`
 (LOW from the .blend + contact sheet, then rig and loops) · `approve <code> preview|final` (owner's word only) ·
-`final <code> [--low]` (the two masters and the loop frames; resumes) · `package <code> [--low]` · `package-all` · `render-all LOW|ULTRA` · `info <code> [--profile LOW|ULTRA]` (re-lay the cards only) ·
+`final <code> [--low]` (the two masters and the loop frames; resumes) · `package <code> [--low]` · `package-all` · `package-pending [code]` · `render-all LOW|ULTRA` · `info <code> [--profile LOW|ULTRA]` (re-lay the cards only) ·
 `overview <code>` · `register <code>` · `stock <code> [--only …]` · `log <code|Image ID> <platform> <action>` ·
 `selftest [--ultra] [--ratios 1x1] [--compare]` · `rig <code> [--force] [--no-preview]` (animation rig + GIF loops) ·
 `rig-all [--jobs 3]` (+ the motion lineup) · `rig-check [<code>]` (T-pose renders + bend test) · `verify` · `lock "<what and why>"` · `standards [--write]`.

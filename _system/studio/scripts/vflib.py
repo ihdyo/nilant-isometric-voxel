@@ -178,6 +178,11 @@ try:
     BLOCK, SHADE, SPIN = "█", "░", "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
 except Exception:
     BLOCK, SHADE, SPIN = "#", ".", "|/-\\"
+try:
+    "✓".encode(sys.stdout.encoding or "utf-8")
+    TICK = "✓"
+except Exception:
+    TICK = "+"
 _ANSI = {"b": "1", "green": "32", "yellow": "33", "magenta": "35", "cyan": "36", "grey": "90"}
 
 
@@ -195,9 +200,10 @@ class Live:
         self.on = False
         self.lock = threading.RLock()
 
-    def start(self, total_est, total_images, total_animals):
+    def start(self, total_est, total_images, total_animals, unit="images"):
         with self.lock:
             self.total, self.imgs_total, self.animals_total = max(1.0, total_est), total_images, total_animals
+            self.unit = unit
             self.done_est, self.imgs_done, self.animal_i = 0.0, 0, 0
             self.queue, self.label, self.cur_t, self.note, self.k = [], "", time.time(), "", 0
             self.t0, self.on = time.time(), True
@@ -260,7 +266,7 @@ class Live:
         fill = int(round(frac * barw))
         parts = [(f"  {SPIN[self.k % len(SPIN)]} ", "magenta"), (f"{self.label} ", "b"),
                  (BLOCK * fill, "green"), (SHADE * (barw - fill), "grey"), (f" {frac * 100:5.1f}% ", "b"),
-                 (f"{self.imgs_done}/{self.imgs_total} images", None),
+                 (f"{self.imgs_done}/{self.imgs_total} {self.unit}", None),
                  (f"  animal {min(self.animal_i, self.animals_total)}/{self.animals_total}", "cyan"),
                  (f"  {hms(now - self.t0)} / {hms(left)} left", "yellow")]
         if self.note:

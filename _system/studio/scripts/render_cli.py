@@ -2,11 +2,11 @@
 
     RENDER   1 build every missing or stale .blend   2 LOW previews of every built animal (+ rigs and loops)
              3 ULTRA renders of every approved animal: the two masters and the loop (rendering only;
-               package.bat then builds the stock image, the GIF and the cards)   4 one animal (build, preview or final)
+               P then packages the stock image, the GIF and the cards)   4 one animal (build, preview or final)
     MOTION   R rig every animal + GIF loops
     CHECK    5 status of every animal                 6 one animal's files
     CONTROL  Q quit
-Without the menu: render.bat status | build | preview | final | rig | <code> [preview|final]
+Without the menu: render.bat status | build | preview | final | package [code] | rig | <code> [preview|final]
 
 Blender renders (and Pillow lays the LOW preview cards). No internet. Pause any time with Ctrl+C or by
 closing the window: finished images are kept, and the next run skips them (it renders only what is missing or older
@@ -137,8 +137,24 @@ def colour_of(bs, low, ult, ap):
     return "blue" if low == 6 else "cyan"
 
 
-def collect():
-    return [(d, *state(d)) for d in VL.animal_dirs()]
+def collect(show=True):
+    """Every animal's state, with a 'reading' counter on one line (it takes a few seconds: it hashes the models)."""
+    dirs, rows = VL.animal_dirs(), []
+    for i, d in enumerate(dirs, 1):
+        if show:
+            sys.stdout.write(f"\r\x1b[2K  {c(VL.SPIN[i % len(VL.SPIN)], 'magenta')} {c('Reading animals', 'b')} "
+                             f"{bar(i / len(dirs), 14)} {i}/{len(dirs)}")
+            sys.stdout.flush()
+        rows.append((d, *state(d)))
+    if show:
+        sys.stdout.write("\r\x1b[2K")
+    return rows
+
+
+def package_pending(rows):
+    """(animals, seconds) the offline package still has to build: rendered, and an output missing or out of date."""
+    n = sum(vf.package_state(d, an) == "todo" for d, an, *_ in rows)
+    return n, n * sum(sec for _, sec in vf.PACKAGE_STEPS)
 
 
 def pending(rows, profile):
@@ -177,17 +193,19 @@ def summary(rows):
     print(f"  {c('Finals', 'b')}     {bar(fin / n, colour='magenta')}  {c(f'{fin} of {len(rows)}', 'b')} with the whole export package"
           f"  {c('(masters 4096 px, loop, cards)', 'grey')}")
     ult_n, ult_s = pending(rows, "ULTRA")
+    pkg_n, pkg_s = package_pending(rows)
     if ult_n:
         print(f"  {c('Next', 'b')}       {c(f'{ult_n} ULTRA render(s)', 'yellow')} waiting for approved animals, "
               f"{c('roughly ' + hm(ult_s * 1.0), 'yellow')}")
-    elif any(r[5].get("preview") and r[4] < 6 for r in rows):
-        todo_pkg = sum(bool(r[5].get("preview")) and r[4] < 6 for r in rows)
-        print(f"  {c('Next', 'b')}       {c(TICK + ' renders done', 'green')}; {c(f'{todo_pkg} animal(s) still need package.bat', 'yellow')}"
-              f" {c('(stock crop, GIF, cards)', 'grey')}")
-    elif appr:
+    elif appr and pkg_n == 0:
         print(f"  {c('Next', 'b')}       {c(TICK + ' every approved animal has its export package', 'green')}")
+    elif appr:
+        print(f"  {c('Next', 'b')}       {c(TICK + ' every approved animal is rendered', 'green')}")
     else:
         print(f"  {c('Next', 'b')}       {c('approve a preview (vf.py approve <code> preview) before an ULTRA render', 'grey')}")
+    if pkg_n:
+        print(f"  {c('Package', 'b')}    {c(f'{pkg_n} animal(s) rendered', 'yellow')}, ready for the stock image, loop GIF and cards, "
+              f"{c('roughly ' + hm(pkg_s) + ': press P', 'yellow')}")
     print()
     return ult_n, ult_s
 
@@ -260,7 +278,7 @@ def one_animal():
     if not d:
         return
     an = VL.load(d)
-    what = ask(f"{c('b', 'b')}uild, {c('p', 'b')}review (LOW) or {c('f', 'b')}inal (ULTRA)?").lower()[:1]
+    what = ask(f"{c('b', 'b')}uild, {c('p', 'b')}review (LOW), {c('f', 'b')}inal (ULTRA) or pac{c('k', 'b')}age?").lower()[:1]
     code = an["code"]
     if what == "b":
         run(f"build {code}", lambda: vf.do_build(d, an, force=True))
@@ -268,6 +286,8 @@ def one_animal():
         run(f"preview {code}", lambda: (print("  ->", VL.rel(vf.preview(d, an))), vf.do_rig(d, an)))
     elif what == "f":
         run(f"final {code}", lambda: [say(e, "red") for e in vf.final(d, an)])
+    elif what == "k":
+        run(f"package {code}", lambda: vf.cmd_package_pending(type("A", (), dict(force=True, code=code))()))
 
 
 def files_of():
@@ -309,12 +329,14 @@ def menu():
         rows = collect()
         ult_n, ult_s = summary(rows)
         low_n, low_s = pending(rows, "LOW")
+        pkg_n, pkg_s = package_pending(rows)
         stale = any(r[2] in ("stale", "missing") for r in rows)
         panels = [
             ([c(PLAY + " RENDER", "b", "green"),
               item("1", "Build missing or stale .blend", stale, "green"),
               item("2", "LOW previews + rigs and loops" + c(f"  ~{hm(low_s)}" if low_n else "", "grey")),
               item("3", "ULTRA masters + loop (approved)" + c(f"  ~{hm(ult_s)}" if ult_n else "", "grey"), bool(ult_n), "green"),
+              item("P", "Package: stock image, GIF, cards" + c(f"  ~{hm(pkg_s)}" if pkg_n else "", "grey"), bool(pkg_n), "green"),
               item("4", "One animal"),
               item("R", "Rig every animal + GIF loops")],
              [c(PLAY + " CHECK", "b", "cyan"),
@@ -325,7 +347,7 @@ def menu():
              [c("Pause any time", "grey"),
               c("Ctrl+C or close the window:", "grey"),
               c("finished images are kept; run it again", "grey"),
-              c("after 3: package.bat builds the rest", "grey")]),
+              c("after 3, press P for the rest", "grey")]),
         ]
         for left_col, right_col in panels:
             for i in range(max(len(left_col), len(right_col))):
@@ -351,6 +373,13 @@ def menu():
             wait()
         elif k == "4":
             one_animal()
+            wait()
+        elif k == "p":
+            header("Package")
+            if not pkg_n:
+                say("Nothing to package: render the masters and loops first (3), or everything is already built.", "grey")
+            else:
+                run("package", lambda: vf.cmd_package_pending(type("A", (), dict(force=False, code=None))()))
             wait()
         elif k == "r":
             header("Rig")
@@ -378,6 +407,9 @@ def main(argv):
         run("LOW previews", render_all("LOW"))
     elif a in ("final", "ultra"):
         run("ULTRA finals", render_all("ULTRA"))
+    elif a == "package":
+        code = argv[1] if len(argv) > 1 else None
+        run("package", lambda: vf.cmd_package_pending(type("A", (), dict(force=bool(code), code=code))()))
     elif a == "rig":
         run("rig", rig_all)
     else:

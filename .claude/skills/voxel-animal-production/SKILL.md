@@ -182,7 +182,7 @@ Per animal, in `export/` (the IDs `VF-<code>-<item>`; numbers in `blender/vf_exp
   motion)"): `vf.py final <code>` renders the two masters into `export/` and their cut-outs and the loop frames into
   `_system/cache/plates/<code>/ULTRA/` (`blender/vf_export.py`, from the rig `.blend`). `package.bat` (beside it)
   builds the rest offline (`scripts/package.py`): the stock crop, the GIF, both cards, the stock JPEG and CSVs, the
-  Gumroad zip and the registry rows (`vf.py package-all`, or `package.bat <code>`).
+  Gumroad zip and the registry rows (`vf.py package-pending [code]`, or `render.bat` → P).
 - **Layouts at LOW:** `vf.py final <code> --low` and `vf.py package <code> --low` build the whole package small into
   `_system/cache/export-low/<code>/` (page previews in `_system/cache/preview/<code>/card/`).
 - **Indonesian copy:** `animal.json → i18n.id` (common, kicker, stats, habitat, diet, facts): the same facts and
@@ -243,9 +243,9 @@ rendering).
    stills and the loops; **on the owner's OK only** `vf.py approve <code> preview`. `vf.py verify` fails for any
    animal with a model that is not rigged, checked and animated.
 4. **Final** — `vf.py final <code>` (or `render.bat` → 3, on the RTX 3050) renders the two masters and the loop;
-   then `package.bat` (or `vf.py package <code>`) builds the stock image, the GIF and the two cards. Look at every
+   then `render.bat` → P (or `vf.py package <code>`) builds the stock image, the GIF and the two cards. Look at every
    item full size (the card PDFs at 100 %). Copy changes later need no render: edit `animal.json`, package again.
-5. **Documentation and registry** — `package.bat` writes the stock files, the Gumroad zip, the registry rows and
+5. **Documentation and registry** — `render.bat` → P writes the stock files, the Gumroad zip, the registry rows and
    the overview (or `vf.py stock`, `vf.py register`, `vf.py overview`).
 6. **Completion** — present the export package; **on the owner's OK only** `vf.py approve <code> final`. Upload with the
    publishing checklist and record every upload event with `vf.py log`.
