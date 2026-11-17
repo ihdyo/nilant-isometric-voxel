@@ -11,7 +11,7 @@
 | `26-004 · Emperor Penguin · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-18T00:34:50
-- Animation rig: **current**, bird plan, 8 bones, rigged 2026-11-18T00:34:52
+- Build: **current**, built 2026-11-18T00:41:22
+- Animation rig: **current**, bird plan, 8 bones, rigged 2026-11-18T00:41:25
 - Model: posed size 14.7 x 20.2 x 28.0 voxels (L x W x H), 2677 voxels, colours bill, black, cream, white, yellow, parts beak, body, flipper_l, flipper_r, foot_l, foot_r, head; turned beak, flipper_l, flipper_r, foot_l, foot_r, head
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

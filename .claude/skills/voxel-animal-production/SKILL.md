@@ -162,6 +162,19 @@ and 16:9) remain the review sheets. It reuses Nilant's directory conventions and
 - **Section names matter:** the library finds sections by name, so models keep them: `head`, `neck`, `torso`, `mane`,
   `leg_fl/fr/hl/hr`, `shin_*`, `leg_l/r` + `foot_l/r` (two legs), `wing_*`, `flipper_l/r`, `flipper_hl/hr`, `arm_*`,
   `ear_*`, `tail`, `tail_tip`, `flukes`, `trunk_1…3`, `jaw`, `tongue`, `gill_*`, `snout`/`muzzle`/`nose`/`beak`.
+  The allowed stems are `vf_standards.SECTION_STEMS`; `vf.py check` (and so `verify`) rejects any other section
+  name. A genuinely new kind of section is added there first (and to `STACK_LIMBS` if it is a limb), with its motion
+  in `vf_rig.py`, never invented in one model.
+- **Stacking in the loops** (`vf_standards.STACK_LEVELS`, 2026-11-18): sections overlap whole, so a turning head cut
+  through the body and a swinging leg's face fought the body's side, differently every frame (the panda flickered).
+  In the animal pass of the loops only, each section is nudged towards the orthographic camera (nothing moves or
+  changes size on screen; only the depth test changes): limbs 0 (never moved, full length), body 0.05 voxel (wins
+  only where a leg face lies in the plane of the body side), every other section 2.05 (the head always over the
+  body). The shadow pass is not nudged; stills and masters keep their approved look. It is built per vertex
+  (`vf_depth`, `vf_bias`) and the `VF depth` Geometry Nodes modifier after the armature, so every new model gets it
+  from its section names alone; check a new kind of animal with bias off/on frames before calling it done.
+- **No halo:** the shadow factor is blurred over the open ground only (`vf_scene._smooth_shadow`); never blur it over
+  the animal's holdout, which lifts a light ring along the silhouette.
 - **Previews:** every action at 512 px, 12 fps, with the stills' two-pass shadow composite at LOW samples, into
   `_system/cache/preview/<code>/anim/VF-<code>-ANIM-<action>.gif`; `rig-all` also writes the lineup
   `02 Animals/Voxel Fauna · Twenty-five examples · motion (LOW preview).gif`.
@@ -178,11 +191,12 @@ Per animal, in `export/` (the IDs `VF-<code>-<item>`; numbers in `blender/vf_exp
 | `STOCK.jpg` | the image for stock sites: the whole dynamic master (4096 square, 16.8 MP, no crop) as an sRGB JPEG with its title and keywords, beside the package in `export/` (owner 2026-11-17: no crop, no `stock/` folder); not in the Gumroad zip |
 | `LOOP.gif` | the looped dynamic animation: the signature action (motion.signature, else the first after idle), 1080 square, 24 fps |
 | `CARD-EN.pdf`, `CARD-ID.pdf` | the A5 card (148 × 210 mm, 3 mm bleed, 300 dpi, trim box set), one per language. Front, minimal and playful, no photograph for now: the animal's pastel, the name big with the scientific name and IUCN chip, the Nilant wordmark top right, the dynamic model (its body centred) with its own rendered shadow among a few small particles (the background family's 400-600 tints, mixed shapes), four boxless stats with pixel icons, home and menu in two columns, the fun fact on a full-bleed band with a straight top edge. Back: the blocky master with "powered by" + the ihdyo mark + "ihdyo", small at the bottom, black on a light background and white on a dark one (the only place the brand appears) |
-- **Two batch files:** `render.bat` → 3 only renders (owner: "render.bat should be rendering only (2 image and 1
+- **One batch file:** `render.bat` → 3 renders (owner: "render.bat should be rendering only (2 image and 1
   motion)"): `vf.py final <code>` renders the two masters into `export/` and their cut-outs and the loop frames into
-  `_system/cache/plates/<code>/ULTRA/` (`blender/vf_export.py`, from the rig `.blend`). `package.bat` (beside it)
-  builds the rest offline (`scripts/package.py`): the stock crop, the GIF, both cards, the stock JPEG and CSVs, the
-  Gumroad zip and the registry rows (`vf.py package-pending [code]`, or `render.bat` → P).
+  `_system/cache/plates/<code>/ULTRA/` (`blender/vf_export.py`, from the rig `.blend`). Then `render.bat` → P builds
+  the rest offline (`scripts/package.py`, `stock.py`): the GIF, both cards, the stock JPEG (the whole dynamic master)
+  and its CSVs, the Gumroad zip and the registry rows (`vf.py package-pending [code]`). `export/` holds exactly the
+  five package items plus `VF-<code>-STOCK.jpg`; nothing else is written there.
 - **Layouts at LOW:** `vf.py final <code> --low` and `vf.py package <code> --low` build the whole package small into
   `_system/cache/export-low/<code>/` (page previews in `_system/cache/preview/<code>/card/`).
 - **Indonesian copy:** `animal.json → i18n.id` (common, kicker, stats, habitat, diet, facts): the same facts and

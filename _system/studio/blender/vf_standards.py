@@ -86,7 +86,14 @@ STACK_LEVELS = dict(limb=0.0, body=0.05, section=2.05)
                              # behind body if stacked"). section (head, tail, wings, with their ears and muzzles): 2
                              # over the body, so a turning head never has the body cutting through it (the panda's
                              # flicker). The shadow pass is not nudged; stills and masters keep their approved look
-STACK_LIMBS = ("leg", "shin", "foot", "flipper")   # name stems of the limb sections (level 0, behind the body)
+STACK_LIMBS = ("leg", "shin", "foot", "flipper", "arm")   # name stems of the limb sections (level 0, behind the body)
+SECTION_STEMS = ("head", "neck", "jaw", "muzzle", "snout", "nose", "beak", "ear", "horn", "tusk", "trunk", "gill",
+                 "tongue", "mane", "torso", "tail", "flukes", "wing") + STACK_LIMBS
+                             # every jointed section is named from these stems (key-prompt.md rule 5): `leg_fl`,
+                             # `shin_hl`, `tail_tip`, `trunk_2`. The rig's motions and the loop stacking go by the name
+                             # (a limb is drawn behind the body, everything else over it), so `vf.py check` rejects any
+                             # other name: a new kind of section is added here (and to STACK_LIMBS if it is a limb)
+                             # and to the motion library before a model uses it (2026-11-18)
 GEOMETRIES = {
     "block": dict(limit="NONE", bevel=True, material="plastic"),
                                          # every voxel its own bevelled cube: the grid shows on every face

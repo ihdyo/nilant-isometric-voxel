@@ -1,11 +1,11 @@
 {
  "code": "26-016",
- "built": "2026-11-18T00:36:00",
+ "built": "2026-11-18T00:42:13",
  "blender": "5.3.0",
  "model_hash": "7661e8ad21b78f92",
  "look_hash": "a9edc4ed4be12fdf",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "2e78a72fa64b8354",
+  "_system/studio/blender/vf_standards.py": "9e4578b046f3210d",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
   "_system/studio/blender/vf_scene.py": "b3028f37578ee2ae"
  },

@@ -35,6 +35,8 @@ Background (not modelled): `sky-200` (rendered muted).
   for (`howl`, `doze`, `shake`, `yawn`, `fan`, `reach`, `sniff`, or a new one added to the library in `vf_rig.py`).
 - Sections the rig needs, named as in `key-prompt.md` rule 5: `head`, the legs (`leg_fl` … with `shin_fl` … for
   knees; `leg_l` + `shin_l` + `foot_l` on two legs), `ear_l`, `tail` + `tail_tip`, `wing_l`, `flipper_l` …
+  Only the stems in `vf_standards.SECTION_STEMS` (`vf.py check` rejects others): the loops draw limbs (`leg`, `shin`,
+  `foot`, `flipper`, `arm`) behind the body and every other section over it, by name.
 - Done when `vf.py preview` (or `vf.py rig`) reports rig check PASS and the loops look right.
 
 ## Proportions (from the photos, in voxels)

@@ -11,7 +11,7 @@
 | `26-021 · Bottlenose Dolphin · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-18T00:36:27
-- Animation rig: **current**, swimmer plan, 9 bones, rigged 2026-11-18T00:36:29
+- Build: **current**, built 2026-11-18T00:42:33
+- Animation rig: **current**, swimmer plan, 9 bones, rigged 2026-11-18T00:42:36
 - Model: posed size 42.0 x 16.2 x 12.2 voxels (L x W x H), 1986 voxels, colours back, belly, eye, grey, parts beak, body, flipper_l, flipper_r, flukes, head, tail, tail_tip; turned flipper_l, flipper_r, flukes, head, tail, tail_tip
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

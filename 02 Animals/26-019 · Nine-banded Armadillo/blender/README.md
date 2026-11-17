@@ -11,7 +11,7 @@
 | `26-019 · Nine-banded Armadillo · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-18T00:36:16
-- Animation rig: **current**, walker plan, 11 bones, rigged 2026-11-18T00:36:18
+- Build: **current**, built 2026-11-18T00:42:25
+- Animation rig: **current**, walker plan, 11 bones, rigged 2026-11-18T00:42:28
 - Model: the pose moves the lowest point to z = -0.35: the engine sets the animal back on the ground; posed size 31.9 x 11.0 x 12.2 voxels (L x W x H), 1682 voxels, colours band, eye, shell, skin, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, tail, tail_tip; turned ear_l, ear_r, head, leg_fl, tail, tail_tip
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

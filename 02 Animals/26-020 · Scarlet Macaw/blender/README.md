@@ -11,7 +11,7 @@
 | `26-020 · Scarlet Macaw · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-18T00:36:22
-- Animation rig: **current**, bird plan, 10 bones, rigged 2026-11-18T00:36:24
+- Build: **current**, built 2026-11-18T00:42:29
+- Animation rig: **current**, bird plan, 10 bones, rigged 2026-11-18T00:42:32
 - Model: posed size 26.2 x 19.7 x 23.6 voxels (L x W x H), 1489 voxels, colours bill, blue, dark, eye, face, red, yellow, parts beak, body, head, leg_l, leg_r, tail, tail_tip, wing_l, wing_r; turned beak, head, tail, tail_tip, wing_l, wing_r
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

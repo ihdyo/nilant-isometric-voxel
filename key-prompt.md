@@ -75,7 +75,10 @@ colour name or hex. `part` names the Blender object the voxel lands in.
    `wing_l`, `flipper_l`, `tusk_l`, `foot_l`. Split them so they can turn; never in the middle of a colour patch.
    Eyes, brows and mouths are not parts: they are painted on the head or snout. **Use these exact names** (and
    `shin_fl`, `leg_l` for a two-legged animal, `flipper_hl`, `gill_l`, `tongue`, `torso`, `mane`, `flukes`): the
-   animation rig finds the legs, ears, tails and wings by name to make them walk, flick and flap.
+   animation rig finds the legs, ears, tails and wings by name to make them walk, flick and flap, and the loops draw
+   every limb (`leg_*`, `shin_*`, `foot_*`, `flipper_*`, `arm_*`) behind the body and every other section over it.
+   Any other name (`paw_fl`, `thigh_l`, `hoof_fl`) fails `vf.py check`: a paw or hoof is the end of its leg or foot,
+   not a part of its own.
 6. **Joints:** a pivot touches its part (within a voxel and a half of it); at most **40°** on any axis (subtle,
    believable turns, not contortions).
 7. **Symmetry:** build the left side (y ≤ 0) and the centre column, call `g.mirror()` once, then add the asymmetric
@@ -90,7 +93,7 @@ game's creature.
 
 - **Knees for long legs:** a leg longer than about 8 voxels is two sections, the upper leg (`leg_fl`) and the shin
   (`shin_fl`, parent the leg) hinged at the knee, so a lifted or striding leg can fold. Bird legs (`leg_l` + `shin_l`
-  + `foot_l`) and frog legs (thigh + shank and foot) are two parts as well.
+  + `foot_l`) and frog legs (`leg_hl` for the thigh + `shin_hl` for the shank and foot) are two parts as well.
 - **Stand on four feet:** a four-legged animal stands on all four feet, never sits (owner, 2026-11-17), so it can
   walk; show its character with the head, ears, tail and a stride instead. A big head goes high on the front of the
   body, or it hides the front legs.

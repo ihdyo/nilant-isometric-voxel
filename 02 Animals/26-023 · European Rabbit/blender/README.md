@@ -11,7 +11,7 @@
 | `26-023 · European Rabbit · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-18T00:36:38
-- Animation rig: **current**, hopper plan, 11 bones, rigged 2026-11-18T00:36:40
+- Build: **current**, built 2026-11-18T00:42:41
+- Animation rig: **current**, hopper plan, 11 bones, rigged 2026-11-18T00:42:44
 - Model: the pose moves the lowest point to z = -0.21: the engine sets the animal back on the ground; posed size 17.8 x 11.0 x 21.5 voxels (L x W x H), 922 voxels, colours belly, ear, eye, fur, nose, tail, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, shin_hl, shin_hr; turned ear_l, ear_r, head, leg_hl, leg_hr, shin_hl, shin_hr
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

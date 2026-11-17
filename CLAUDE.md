@@ -30,8 +30,13 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 5. **Every animal goes all the way to rigged and animated** (owner, 2026-11-17): `animal.json → motion` set,
    `vf.py preview` (stills, then rig, rig check and loops) or `vf.py rig`; `verify` fails for any animal with a
    model that is not rigged, checked and animated.
+6. **Sections are named from `vf_standards.SECTION_STEMS` only** (2026-11-18; `key-prompt.md` rule 5): the rig's
+   motions and the loop stacking go by the name (limbs `leg`/`shin`/`foot`/`flipper`/`arm` drawn behind the body,
+   every other section over it, `STACK_LEVELS`), and `vf.py check` rejects any other name. A new kind of section is
+   added to the standards (and the motion library) first, never invented in one model. Fix a render problem in the
+   engine for every animal, never in one animal's model or files.
 
-## Status (2026-11-17)
+## Status (2026-11-18)
 - Engine, skill, template, registry, guides, `render.bat` and `key-prompt.md` in place; rig `iso_top` approved;
   colour changed to Khronos PBR Neutral + neutral fill (owner: "the model colour is so pale").
 - **Bulky, posed blocky-mob look APPROVED and locked, standards v2.1** (owner, 2026-11-16, after three rounds: "minecraft mobs vibes", "keep the
@@ -45,7 +50,7 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
   Armadillo, 26-020 Scarlet Macaw, 26-021 Bottlenose Dolphin, 26-022 Mountain Goat, 26-023 European Rabbit, 26-024
   Red-eyed Tree Frog, 26-025 Plains Zebra: research docs with verified sources (ADW, IUCN assessments read on the
   IUCN site and their DOIs on Crossref, papers), 50 genuine photos (PD / CC0 / CC BY), voxel briefs, models, built
-  `.blend`, LOW previews in `_system/cache/preview/`. **No preview approved yet**, so no ULTRA finals.
+  `.blend`, LOW previews in `_system/cache/preview/`; all 25 previews approved (2026-11-17).
 - **Plates switched off** (owner, 2026-11-16: "disable flat pixel for now"): `vf_standards.POSE["plates"] = False`;
   every part is whole voxels. **Information cards redesigned** to breathe (pixel-art icon badges, roomier cards, the
   photo as a tilted sticker). Both approved by the owner and locked as standards v2.1 (2026-11-16).
@@ -63,14 +68,22 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 - **Owner approved all 25 models and the motion** (2026-11-17): the 25 preview approvals recorded, the motion locked
   as standards v2.2 (`vf_standards.MOTION`, `vf_rig.py` in the lock).
 - **Export package APPROVED and locked, standards v2.2 + the export package** (owner, 2026-11-17: "i approve everything"): `blender/vf_export.py` renders the two masters and the loop
-  frames from the rig (`vf.py final`, `render.bat` → 3, rendering only); `scripts/package.py` builds the stock crop,
+  frames from the rig (`vf.py final`, `render.bat` → 3, rendering only); `scripts/package.py` builds
   the GIF and the A5 cards offline (`vf.py package`, `render.bat` → P); Indonesian copy in
   `animal.json → i18n.id` for all 25. Checked end to end at LOW on all 25; the ULTRA renders run on the RTX 3050
   (this second PC has an Intel UHD 730, which crashes on a 4096 ULTRA pass). The card front v5: no photo, the Nilant
   wordmark top right, the model centred on its body with its own rendered shadow, a few particles in the background's
   tints, the fun fact on a straight-edged band; `vf_export.py` (with `EXPORT`) and `package.py` are in the lock.
-- Next: the ULTRA finals on the RTX 3050 (`render.bat` → 3, then P) and the owner's `approve <code> final`
-  per animal; awaiting the owner: the Poppins italic download, contributor names and Gumroad licence.
+- **Export trimmed** (owner, 2026-11-17): `export/` = the two masters, the loop GIF and the two cards, plus
+  `VF-<code>-STOCK.jpg` (the whole dynamic master as the stock JPEG, no crop, no `stock/` folder).
+- **Render fixes** (owner, 2026-11-18): no halo (`vf_scene._smooth_shadow`, shadow blurred over open ground only);
+  no flicker in the loops (`STACK_LEVELS`: limbs 0, body 0.05, other sections 2.05 voxels towards the camera, in
+  the loops' animal pass only; checked bias off/on on all 25); section names enforced (`SECTION_STEMS`). Every
+  `.blend` and rig rebuilt; `vf_scene`, `vf_rig`, `vf_export`, `vf_standards`, `vf_color`, `package.py` differ from
+  the lock (not relocked: the owner relocks after seeing the ULTRA results).
+- Next: the ULTRA re-render on the RTX 3050 (`render.bat` → 3, then P), the owner's relock (`vf.py lock`, then
+  `vf.py standards --write`) and `approve <code> final` per animal; awaiting the owner: the Poppins italic download,
+  contributor names and Gumroad licence.
 
 ## Hard rules
 - **One source of truth each:** numbers in `_system/studio/blender/vf_standards.py`; an animal's names, look, card copy,
@@ -106,9 +119,9 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 | `03 Design/` | `DESIGN-SYSTEM.md`, `Color/` (Tailwind v4 palette), `Fonts/` (Poppins, OFL), `Logo/` (the owner's ihdyo mark, for the card back), `Reference/` (approved look sheets) |
 | `04 Library/` | licence and download log |
 | `05 Publish/` | `Voxel Fauna · Registry.xlsx` (Read Me, Animals, Images, Publish Log, Platforms), `Voxel Fauna · Publish Log.md`, `Voxel Fauna · Publishing Checklist.md`, `Stock/` (CSVs), `Gumroad/` (zips) |
-| `_system/studio/render/` | `render.bat` (double-click: build, LOW previews, ULTRA renders, offline), `P` in its menu packages offline: stock crop, GIF, cards, stock files, zip, registry, `Voxel Fauna · How to Render.md`, `README.md` (status of every animal) |
+| `_system/studio/render/` | `render.bat` (double-click: build, LOW previews, ULTRA renders, offline), `P` in its menu packages offline: GIF, cards, stock JPEG and CSVs, zip, registry, `Voxel Fauna · How to Render.md`, `README.md` (status of every animal) |
 | `_system/studio/blender/` | engine (bpy): `vf_standards.py`, `vf_voxel.py` (the grid), `vf_scene.py` (meshes, stage, cameras, profiles, passes, composite), `vf_job.py` (one Blender run: build, or open a .blend and render), `vf_rig.py` (the animation rig and motion library, locked), `vf_export.py` (the ULTRA export renders: masters and loop, proposed), `selftest_model.py` |
-| `_system/studio/scripts/` | `vf.py` (command line), `render_cli.py` (render.bat's menu), `vflib.py`, `infographic.py` (card system), `package.py` (stock crop, GIF, A5 cards; locked), `registry.py`, `stock.py` |
+| `_system/studio/scripts/` | `vf.py` (command line), `render_cli.py` (render.bat's menu), `vflib.py`, `infographic.py` (card system), `package.py` (GIF, A5 cards; locked), `registry.py`, `stock.py` |
 | `_system/data/`, `_system/log/`, `_system/cache/` | standards lock + brand; WORKLOG / DECISIONS / PLAN; previews, plates, job logs (git-ignored) |
 | `.claude/skills/` | `voxel-animal-production` (ours, canonical); `bsk-*` generic Blender craft (MIT, from Nilant) |
 
@@ -144,6 +157,14 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 - **ULTRA needs the RTX 3050:** on the second PC (Intel UHD Graphics 730, integrated) any 4096 ULTRA pass ends in
   Vulkan `VK_ERROR_DEVICE_LOST` and empty passes ("shadow pass: almost no open ground"), on OpenGL too; LOW works.
   Check the GPU (`Get-CimInstance Win32_VideoController`) before blaming the code.
+- **Halo:** blurring the shadow factor over the animal's holdout (counted as unshadowed) lifts a light ring along the
+  silhouette; `vf_scene._smooth_shadow` blurs over the open ground only (normalised convolution). Keep it that way.
+- **Loop flicker from stacked sections:** overlapping whole sections cut through each other differently every frame
+  as they turn (the panda's head through the body, a leg's outer face in the plane of the body's side). Fixed by the
+  per-section depth nudge in the loops' animal pass (`STACK_LEVELS`); a 2-voxel nudge on the body hid the leg parts
+  in front of it and made the legs look shorter, so the body only gets 0.05. In Blender 5.3 a Geometry Nodes modifier
+  input cannot be set with `mod[identifier] = value` ("id properties not supported"): the offset is a per-vertex
+  attribute (`vf_bias`) read by a Named Attribute node. Check a new kind of animal with bias off/on frames.
 - **Animation previews:** switching `is_holdout` between passes makes EEVEE resync, so `vf_rig` renders each pass as
   one animation (about 0.75 s animal + 1.1 s shadow a frame at 512 px on the RTX 3050) and composites afterwards. In
   Blender 5.3 an action takes its keys through a slot; a new action gets one on its first key, and reassigning an

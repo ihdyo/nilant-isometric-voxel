@@ -224,6 +224,13 @@ def check_animal(folder, animal, strict=False):
             miss = [c for c in g.colors() if c not in pal]
             if miss:
                 E.append(f"model uses colour keys missing from look.palette: {miss}")
+            # section names (key-prompt.md rule 5): the rig's motions and the loop stacking (limbs behind the body,
+            # everything else over it) go by them, so a section with any other name would move and layer wrongly
+            bad = sorted(p for p in g.joints if p.split("_")[0] not in ST.SECTION_STEMS)
+            if bad:
+                E.append(f"model: section(s) {bad} not named from vf_standards.SECTION_STEMS (key-prompt.md rule 5: "
+                         f"{', '.join(ST.SECTION_STEMS)}); limbs ({', '.join(ST.STACK_LIMBS)}) are drawn behind the "
+                         "body in the loops, every other section over it")
         except Exception as ex:
             E.append(f"model.py: {type(ex).__name__}: {ex}")
     elif real:
