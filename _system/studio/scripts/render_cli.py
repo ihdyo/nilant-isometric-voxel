@@ -147,9 +147,9 @@ def pending(rows, profile):
     for d, an, bs, low, ult, ap in rows:
         if bs != "current" or (profile == "ULTRA" and not ap.get("preview")):
             continue
-        if profile == "ULTRA":                     # the two 4096 masters and the loop: ~3 x a 1x1 estimate an animal
-            if ult < 6:
-                n, secs = n + 3, secs + 3 * ST.PROFILES["ULTRA"]["estimate"]["1x1"]
+        if profile == "ULTRA":                     # the two 4096 masters and the loop, by the rule `final` uses
+            plan = vf.final_plan(d, an)
+            n, secs = n + len(plan), secs + sum(sec for _, sec in plan)
             continue
         try:
             ests = vf.todo_of(d, an, profile)[1]
@@ -180,6 +180,10 @@ def summary(rows):
     if ult_n:
         print(f"  {c('Next', 'b')}       {c(f'{ult_n} ULTRA render(s)', 'yellow')} waiting for approved animals, "
               f"{c('roughly ' + hm(ult_s * 1.0), 'yellow')}")
+    elif any(r[5].get("preview") and r[4] < 6 for r in rows):
+        todo_pkg = sum(bool(r[5].get("preview")) and r[4] < 6 for r in rows)
+        print(f"  {c('Next', 'b')}       {c(TICK + ' renders done', 'green')}; {c(f'{todo_pkg} animal(s) still need package.bat', 'yellow')}"
+              f" {c('(stock crop, GIF, cards)', 'grey')}")
     elif appr:
         print(f"  {c('Next', 'b')}       {c(TICK + ' every approved animal has its export package', 'green')}")
     else:

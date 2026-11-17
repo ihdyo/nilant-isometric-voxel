@@ -296,7 +296,7 @@ def run_blender(job, tag, script="vf_job.py"):
         for line in p.stdout:
             logf.write(line)
             if line.startswith("VF:"):
-                if LIVE.on and line[3:].strip().startswith("render "):      # one composition finished
+                if LIVE.on and line[3:].strip().startswith(("render ", "master ", "loop ")):   # one render finished
                     LIVE.item_done()
                 LIVE.message("  " + line[3:].strip())
         p.wait()

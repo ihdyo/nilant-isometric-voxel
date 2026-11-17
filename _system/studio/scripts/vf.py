@@ -504,6 +504,46 @@ def preview(folder, animal, force=False):
     return sheet
 
 
+def _export_state(folder, animal, low=False, force=False):
+    """What the export renders still have to do (needs the rig): the masters to render and whether the loop is current.
+    The one rule behind `final` and behind the progress bar and the menu's time estimates."""
+    import package as PK
+    code = animal["code"]
+    rt = os.path.getmtime(rig_paths(folder, animal)[0])
+    pl = PK.plates(code, low)
+    masters = {w: PK.export_file(folder, code, f"MASTER-{w.upper()}", low) for w in ("dyn", "block")}
+    cutouts = {w: os.path.join(pl, f"cut-{w}.png") for w in masters}
+    todo = {w: p for w, p in masters.items()
+            if force or not os.path.exists(p) or not os.path.exists(cutouts[w]) or os.path.getmtime(p) < rt}
+    r = json.load(open(os.path.join(folder, "blender", "rig.json"), encoding="utf-8"))
+    action = signature(animal, list(r.get("actions", {})))
+    n = int((r.get("actions") or {}).get(action) or 0)
+    ld = os.path.join(pl, "loop")
+    frames = sorted(f for f in os.listdir(ld) if f.endswith(".png")) if os.path.isdir(ld) else []
+    loop_ok = (not force and len(frames) == n and
+               min(os.path.getmtime(os.path.join(ld, f)) for f in frames) >= rt)
+    stamp = os.path.join(pl, "export.json")
+    if loop_ok and os.path.exists(stamp) and json.load(open(stamp, encoding="utf-8")).get("action") != action:
+        loop_ok = False
+    return dict(rt=rt, pl=pl, masters=masters, cutouts=cutouts, todo=todo, action=action, n=n, ld=ld, loop_ok=loop_ok)
+
+
+def final_plan(folder, animal, low=False, force=False):
+    """[(label, seconds)] the ULTRA (or LOW) export still has to render, in the order `final` renders it: the two
+    masters, then the loop. A rig that is missing or stale means everything. Seconds are the RTX 3050 estimates."""
+    prof = "LOW" if low else "ULTRA"
+    master_s = ST.PROFILES[prof]["estimate"]["1x1"]
+    frame_s = 0.5 if low else 2.5                              # one loop frame (both passes) at the loop size
+    try:
+        S = _export_state(folder, animal, low, force)
+        if rig_state(folder, animal)[0] != "current":
+            raise OSError("rig is stale")
+        todo, n, loop_ok = list(S["todo"]), S["n"], S["loop_ok"]
+    except (OSError, ValueError, KeyError):
+        todo, n, loop_ok = ["dyn", "block"], 24, False
+    return [(f"master {w}", master_s) for w in todo] + ([("loop", n * frame_s)] if not loop_ok else [])
+
+
 def final(folder, animal, force=False, low=False):
     """The ULTRA renders of the export package (PROPOSED 2026-11-17, blender/vf_export.py): the two masters (dynamic
     and regular blocky, 4096 square, the animal in the centre safe square) into export/, their cut-outs and the frames
@@ -526,34 +566,31 @@ def final(folder, animal, force=False, low=False):
     if rig_state(folder, animal)[0] != "current":
         do_rig(folder, animal, preview=False)
     rig_blend = rig_paths(folder, animal)[0]
-    rt = os.path.getmtime(rig_blend)
-    pl = PK.plates(code, low)
-    masters = {w: PK.export_file(folder, code, f"MASTER-{w.upper()}", low) for w in ("dyn", "block")}
-    cutouts = {w: os.path.join(pl, f"cut-{w}.png") for w in masters}
-    todo = {w: p for w, p in masters.items()
-            if force or not os.path.exists(p) or not os.path.exists(cutouts[w]) or os.path.getmtime(p) < rt}
-    r = json.load(open(os.path.join(folder, "blender", "rig.json"), encoding="utf-8"))
-    action = signature(animal, list(r.get("actions", {})))
-    n = int((r.get("actions") or {}).get(action) or 0)
-    ld = os.path.join(pl, "loop")
-    frames = sorted(f for f in os.listdir(ld) if f.endswith(".png")) if os.path.isdir(ld) else []
-    loop_ok = (not force and len(frames) == n and
-               min(os.path.getmtime(os.path.join(ld, f)) for f in frames) >= rt)
+    S = _export_state(folder, animal, low, force)
+    pl, cutouts, todo, action, n, ld, loop_ok = (S[k] for k in ("pl", "cutouts", "todo", "action", "n", "ld", "loop_ok"))
     stamp = os.path.join(pl, "export.json")
-    if loop_ok and os.path.exists(stamp) and json.load(open(stamp, encoding="utf-8")).get("action") != action:
-        loop_ok = False
-    if todo or not loop_ok:
-        prof = "LOW" if low else "ULTRA"
-        out(f"  render {code} · {animal['common']} {prof}: "
-            + ", ".join([f"master {w}" for w in todo] + ([f"loop ({action}, {n} frames)"] if not loop_ok else [])))
-        job = dict(open=rig_blend, profile=prof, masters=todo, cutouts=cutouts)
-        if not loop_ok:
-            job["loop"] = dict(action=action, dir=ld, profile="LOOP_LOW" if low else "LOOP")
-        res = VL.run_blender(job, f"{code}-export-{prof}", script="vf_export.py")
-        os.makedirs(pl, exist_ok=True)
-        json.dump(dict(code=code, profile=prof, action=action, rendered=datetime.datetime.now().isoformat(
-            timespec="seconds"), masters=res.get("masters"), loop=dict((res.get("loop") or {}), frames=n)),
-            open(stamp, "w", encoding="utf-8"), indent=1, default=str)
+    prof = "LOW" if low else "ULTRA"
+    units = ([(f"master {w}", ST.PROFILES[prof]["estimate"]["1x1"]) for w in todo]
+             + ([("loop", n * (0.5 if low else 2.5))] if not loop_ok else []))
+    own = not VL.LIVE.on                                       # one animal on its own: this call owns the progress line
+    if own and units:
+        VL.LIVE.start(sum(sec for _, sec in units), len(units), 1)
+    VL.LIVE.begin_animal(f"{code} {animal['common']}", [sec for _, sec in units])
+    try:
+        if todo or not loop_ok:
+            out(f"  render {code} · {animal['common']} {prof}: "
+                + ", ".join([f"master {w}" for w in todo] + ([f"loop ({action}, {n} frames)"] if not loop_ok else [])))
+            job = dict(open=rig_blend, profile=prof, masters=todo, cutouts=cutouts)
+            if not loop_ok:
+                job["loop"] = dict(action=action, dir=ld, profile="LOOP_LOW" if low else "LOOP")
+            res = VL.run_blender(job, f"{code}-export-{prof}", script="vf_export.py")
+            os.makedirs(pl, exist_ok=True)
+            json.dump(dict(code=code, profile=prof, action=action, rendered=datetime.datetime.now().isoformat(
+                timespec="seconds"), masters=res.get("masters"), loop=dict((res.get("loop") or {}), frames=n)),
+                open(stamp, "w", encoding="utf-8"), indent=1, default=str)
+    finally:
+        if own and units:
+            VL.LIVE.stop()
     if not low:
         advance(animal, "Final")
         VL.save(folder, animal)
@@ -669,10 +706,13 @@ def cmd_render_all(a):
         if a.profile == "ULTRA" and not (an.get("approvals") or {}).get("preview"):
             skipped.append(f"{an['code']} (no preview approval)")
             continue
-        try:
-            ests = todo_of(d, an, a.profile, a.force)[1]
-        except OSError:                                        # not built yet: assume all six compositions
-            ests = [ST.PROFILES[a.profile].get("estimate", {}).get(r, 0) for k in ST.KINDS for r in ST.RATIOS]
+        if a.profile == "ULTRA":                               # the two masters and the loop (vf_export.py)
+            ests = [sec for _, sec in final_plan(d, an, force=a.force)]
+        else:
+            try:
+                ests = todo_of(d, an, a.profile, a.force)[1]
+            except OSError:                                    # not built yet: assume all six compositions
+                ests = [ST.PROFILES[a.profile].get("estimate", {}).get(r, 0) for k in ST.KINDS for r in ST.RATIOS]
         plan.append((d, an, ests))
     VL.LIVE.start(sum(sum(e) for _, _, e in plan), sum(len(e) for _, _, e in plan), len(plan))
     try:
