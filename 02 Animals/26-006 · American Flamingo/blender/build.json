@@ -1,13 +1,13 @@
 {
  "code": "26-006",
- "built": "2026-11-18T00:23:46",
+ "built": "2026-11-18T00:30:25",
  "blender": "5.3.0",
  "model_hash": "8d89676912b95353",
  "look_hash": "43988ac604115d51",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "cb43778b35abdf2f",
+  "_system/studio/blender/vf_standards.py": "903f065b8d7d5fa5",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
-  "_system/studio/blender/vf_scene.py": "a48e2df11419008a"
+  "_system/studio/blender/vf_scene.py": "bea43dcff5ac3f02"
  },
  "standards_version": "2.2",
  "rig": "iso_top",
