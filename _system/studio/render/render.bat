@@ -61,23 +61,46 @@ rem ---- find Python with Pillow and openpyxl ----------------------------------
 set "P="
 if exist "python_path.txt" set /p P=<"python_path.txt"
 if defined P if not exist "%P%" set "P="
+if defined P ("%P%" -c "import PIL, openpyxl" >nul 2>&1 || set "P=")
 if not defined P for /f "delims=" %%F in ('where python.exe 2^>nul') do if not defined P (
   "%%F" -c "import PIL, openpyxl" >nul 2>&1 && set "P=%%F"
 )
 if not defined P for %%V in (3.12 3.13 3.11 3.10) do if not defined P (
   for /f "delims=" %%F in ('py -%%V -c "import sys, PIL, openpyxl; print(sys.executable)" 2^>nul') do set "P=%%F"
 )
-if not defined P (
+if defined P goto have_python
+set "Q="
+for /f "delims=" %%F in ('where python.exe 2^>nul') do if not defined Q echo %%F| findstr /i /c:"\WindowsApps\" >nul || if not defined Q "%%F" -c "import sys" >nul 2>&1 && set "Q=%%F"
+if not defined Q for /f "delims=" %%F in ('py -3 -c "import sys; print(sys.executable)" 2^>nul') do set "Q=%%F"
+if not defined Q (
   echo.
-  echo  %BAD%No Python with Pillow and openpyxl was found.%END%
-  echo  %DIM%Install Python 3.10+ from python.org, then in a terminal: pip install pillow openpyxl%END%
+  echo  %BAD%No Python was found.%END% Install Python 3.10+ from python.org ^(tick "Add python.exe to PATH"^), then run this again.
   pause
   exit /b 1
 )
+echo.
+echo  %BAD%Pillow and openpyxl are missing%END% for %Q%
+echo  %DIM%They lay the information cards and the registry. One-time download; renders stay offline.%END%
+set "YN="
+set /p YN=  Install them now? [Y/N]: 
+if /i not "%YN%"=="Y" goto no_install
+"%Q%" -m pip install --user pillow openpyxl
+"%Q%" -c "import PIL, openpyxl" >nul 2>&1 && set "P=%Q%"
+if defined P goto have_python
+echo.
+echo  %BAD%The install did not work ^(see above^).%END%
+pause
+exit /b 1
+:no_install
+echo  %DIM%Then run: "%Q%" -m pip install pillow openpyxl   and open this again.%END%
+pause
+exit /b 1
+:have_python
 > "python_path.txt" echo %P%
 
 rem ---- run ----------------------------------------------------------------------------------------------------
 set "BLENDER=%B%"
+echo  %DIM%Starting Voxel Fauna render...%END%
 "%P%" "%~dp0..\scripts\render_cli.py" %*
 if errorlevel 1 (
   echo.

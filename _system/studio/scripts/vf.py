@@ -61,7 +61,7 @@ PHOTO_EXT = (".jpg", ".jpeg", ".png", ".webp", ".tif", ".tiff")
 
 
 def out(*a):
-    print(*a, flush=True)
+    VL.LIVE.message(" ".join(str(x) for x in a))
 
 
 # ---- the selftest creature (placeholder copy at the longest lengths the layouts allow) ------------------------------
@@ -418,19 +418,39 @@ def targets(animal, profile, folder):
     return t, dest, plates
 
 
+def todo_of(folder, animal, profile, force=False):
+    """The compositions that still need a Blender render (missing, or older than the .blend), and their estimates."""
+    bt = os.path.getmtime(VL.blend_path(folder, animal))
+    T = targets(animal, profile, folder)[0]
+    todo = [t for t in T if force or not os.path.exists(t["raw"]) or os.path.getmtime(t["raw"]) < bt]
+    return todo, [ST.PROFILES[profile].get("estimate", {}).get(t["ratio"], 0) for t in todo]
+
+
 def render_from_blend(folder, animal, profile, force=False):
     """Renders what is missing (or older than the .blend) from the built .blend; composes the information cards."""
     blend = VL.blend_path(folder, animal)
-    bt = os.path.getmtime(blend)
     T, dest, plates = targets(animal, profile, folder)
-    todo = [t for t in T if force or not os.path.exists(t["raw"]) or os.path.getmtime(t["raw"]) < bt]
-    if todo:
-        est = sum(ST.PROFILES[profile].get("estimate", {}).get(t["ratio"], 0) for t in todo)
-        out(f"  render {animal['code']} · {animal['common']} {profile}: {len(todo)} of 6 compositions"
-            + (f", about {est / 60:.0f} min" if est > 60 else ""))
-        res = VL.run_blender(dict(open=blend, renders=[dict(scene=t["scene"], profile=profile, out=t["raw"]) for t in todo]),
-                             f"{animal['code']}-{profile}")
-        note_renders(folder, res, profile)
+    todo, ests = todo_of(folder, animal, profile, force)
+    own = not VL.LIVE.on                                       # a single animal: this call owns the progress line
+    if own:
+        VL.LIVE.start(sum(ests), len(todo), 1)
+    VL.LIVE.begin_animal(f"{animal['code']} {animal['common']}", ests)
+    try:
+        if todo:
+            est = sum(ests)
+            out(f"  render {animal['code']} · {animal['common']} {profile}: {len(todo)} of 6 compositions"
+                + (f", about {est / 60:.0f} min" if est > 60 else ""))
+            res = VL.run_blender(dict(open=blend, renders=[dict(scene=t["scene"], profile=profile, out=t["raw"]) for t in todo]),
+                                 f"{animal['code']}-{profile}")
+            note_renders(folder, res, profile)
+        VL.LIVE.set_note("laying cards")
+        return _finish_images(folder, animal, T, todo, force, dest)
+    finally:
+        if own:
+            VL.LIVE.stop()
+
+
+def _finish_images(folder, animal, T, todo, force, dest):
     from PIL import Image
     import infographic as IG
     for t in T:
@@ -641,21 +661,34 @@ def cmd_package_all(a):
 
 def cmd_render_all(a):
     done, skipped = [], []
+    plan = []                                                  # (folder, animal, estimates) of what will render
     for d in VL.animal_dirs():
         an = VL.load(d)
         if not os.path.exists(os.path.join(d, "blender", "model.py")):
             continue
+        if a.profile == "ULTRA" and not (an.get("approvals") or {}).get("preview"):
+            skipped.append(f"{an['code']} (no preview approval)")
+            continue
         try:
-            if a.profile == "LOW":
-                preview(d, an, force=a.force)
+            ests = todo_of(d, an, a.profile, a.force)[1]
+        except OSError:                                        # not built yet: assume all six compositions
+            ests = [ST.PROFILES[a.profile].get("estimate", {}).get(r, 0) for k in ST.KINDS for r in ST.RATIOS]
+        plan.append((d, an, ests))
+    VL.LIVE.start(sum(sum(e) for _, _, e in plan), sum(len(e) for _, _, e in plan), len(plan))
+    try:
+        for d, an, ests in plan:
+            try:
+                if a.profile == "LOW":
+                    VL.LIVE.set_note("building")
+                    preview(d, an, force=a.force)
+                else:
+                    final(d, an, force=a.force)
                 done.append(an["code"])
-            elif (an.get("approvals") or {}).get("preview"):
-                final(d, an, force=a.force)
-                done.append(an["code"])
-            else:
-                skipped.append(f"{an['code']} (no preview approval)")
-        except SystemExit as e:
-            skipped.append(f"{an['code']} ({e})")
+            except SystemExit as e:
+                VL.LIVE.drop(sum(ests), len(ests))
+                skipped.append(f"{an['code']} ({e})")
+    finally:
+        VL.LIVE.stop()
     out(f"render-all {a.profile}: {len(done)} done ({', '.join(done) or '-'})")
     for s in skipped:
         out(f"  skipped {s}")
@@ -1132,16 +1165,16 @@ def write_render_readme():
             state = build_state(d, an)[0]
         T, _, _ = targets(an, "LOW", d)
         low = sum(os.path.exists(t["final"]) for t in T)
-        T, _, _ = targets(an, "ULTRA", d)
-        ult = sum(os.path.exists(t["final"]) for t in T)
+        import package as PK                               # the six items of the export package
+        ult = sum(os.path.exists(PK.export_file(d, an["code"], s)) for s, _, _ in PK.EXPORT["items"])
         n_final += ult == 6
         ap = an.get("approvals") or {}
         rows.append(f"| {an['code']} | {an['common']} | {state} | {low}/6 | {ap.get('preview') or '-'} | {ult}/6 | "
                     f"{ap.get('final') or '-'} |")
     lines = ["# Voxel Fauna · render status", "",
              "> Written by `render.bat` (and `vf.py render-all`). Double-click `render.bat` to build, preview and render.", "",
-             f"- {len(rows)} animals · {n_final} with all six finals · checked {datetime.datetime.now():%Y-%m-%d %H:%M}", "",
-             "| Code | Animal | .blend | LOW | Preview approved | ULTRA | Final approved |", "|---|---|---|---|---|---|---|"]
+             f"- {len(rows)} animals · {n_final} with the whole export package · checked {datetime.datetime.now():%Y-%m-%d %H:%M}", "",
+             "| Code | Animal | .blend | LOW | Preview approved | Export | Final approved |", "|---|---|---|---|---|---|---|"]
     lines += rows
     os.makedirs(os.path.join(VL.STUDIO, "render"), exist_ok=True)
     open(os.path.join(VL.STUDIO, "render", "README.md"), "w", encoding="utf-8").write("\n".join(lines) + "\n")

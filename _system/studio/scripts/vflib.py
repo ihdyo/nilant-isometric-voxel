@@ -7,8 +7,10 @@ import glob
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import sys
+import threading
 import time
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -170,6 +172,112 @@ def blender_exe():
     raise SystemExit("Blender not found: set BLENDER or write its blender.exe path in _system/studio/blender_path.txt")
 
 
+# ---- live progress line (the look of Nilant's footage_cli: spinner, bar, percent, images, time left) ---------------------
+try:
+    "█░⠋".encode(sys.stdout.encoding or "utf-8")
+    BLOCK, SHADE, SPIN = "█", "░", "⠋⠙⠹⠸⠼⠴⠦⠧⠇⠏"
+except Exception:
+    BLOCK, SHADE, SPIN = "#", ".", "|/-\\"
+_ANSI = {"b": "1", "green": "32", "yellow": "33", "magenta": "35", "cyan": "36", "grey": "90"}
+
+
+def hms(sec):
+    sec = int(max(0, sec))
+    return f"{sec // 3600}:{sec % 3600 // 60:02d}:{sec % 60:02d}" if sec >= 3600 else f"{sec // 60}:{sec % 60:02d}"
+
+
+class Live:
+    """One line redrawn in place while Blender renders. The whole run is weighted by the profile's per-composition
+    estimates; the composition being rendered creeps the bar forward between finished images; the time left is the
+    estimate corrected by how fast this machine has actually been."""
+
+    def __init__(self):
+        self.on = False
+        self.lock = threading.RLock()
+
+    def start(self, total_est, total_images, total_animals):
+        with self.lock:
+            self.total, self.imgs_total, self.animals_total = max(1.0, total_est), total_images, total_animals
+            self.done_est, self.imgs_done, self.animal_i = 0.0, 0, 0
+            self.queue, self.label, self.cur_t, self.note, self.k = [], "", time.time(), "", 0
+            self.t0, self.on = time.time(), True
+        threading.Thread(target=self._loop, daemon=True).start()
+
+    def begin_animal(self, label, ests):
+        with self.lock:
+            self.label, self.queue, self.cur_t, self.note = label, list(ests), time.time(), ""
+            self.animal_i += 1
+
+    def set_note(self, text):
+        with self.lock:
+            self.note = text
+
+    def item_done(self):
+        with self.lock:
+            if self.queue:
+                self.done_est += self.queue.pop(0)
+            self.imgs_done += 1
+            self.cur_t = time.time()
+
+    def drop(self, est, images):
+        """An animal that was counted but will not render (skipped or failed)."""
+        with self.lock:
+            self.total = max(1.0, self.total - est)
+            self.imgs_total -= images
+
+    def message(self, text):
+        with self.lock:
+            if self.on:
+                sys.stdout.write("\r\x1b[2K")
+            print(text, flush=True)
+            if self.on:
+                self._draw()
+
+    def stop(self):
+        with self.lock:
+            if self.on:
+                self.on = False
+                sys.stdout.write("\r\x1b[2K")
+                sys.stdout.flush()
+
+    def _loop(self):
+        while self.on:
+            with self.lock:
+                if self.on:
+                    self._draw()
+            time.sleep(0.25)
+
+    def _draw(self):
+        self.k += 1
+        now = time.time()
+        cur = self.queue[0] if self.queue else 0
+        creep = min(0.95 * cur, now - self.cur_t) if cur else 0.0
+        frac = min(1.0, (self.done_est + creep) / self.total)
+        speed = (now - self.t0 - creep) / self.done_est if self.done_est >= 30 else 1.0
+        left = max(0.0, self.total - self.done_est - creep) * max(0.3, min(speed, 5.0))
+        width = shutil.get_terminal_size((100, 30)).columns - 1
+        barw = 14 if width >= 100 else 10
+        fill = int(round(frac * barw))
+        parts = [(f"  {SPIN[self.k % len(SPIN)]} ", "magenta"), (f"{self.label} ", "b"),
+                 (BLOCK * fill, "green"), (SHADE * (barw - fill), "grey"), (f" {frac * 100:5.1f}% ", "b"),
+                 (f"{self.imgs_done}/{self.imgs_total} images", None),
+                 (f"  animal {min(self.animal_i, self.animals_total)}/{self.animals_total}", "cyan"),
+                 (f"  {hms(now - self.t0)} / {hms(left)} left", "yellow")]
+        if self.note:
+            parts.insert(2, (f"{self.note} ", "grey"))
+        text, used = "", 0
+        for t, col in parts:                                  # never wider than the window: a wrapped line cannot be redrawn
+            t = t[:max(0, width - used)]
+            if t:
+                text += f"\x1b[{_ANSI[col]}m{t}\x1b[0m" if col else t
+                used += len(t)
+        sys.stdout.write("\r\x1b[2K" + text)
+        sys.stdout.flush()
+
+
+LIVE = Live()
+
+
 def run_blender(job, tag, script="vf_job.py"):
     """Write the job, run `script` (vf_job.py, or vf_rig.py for the rig) in a background Blender, stream its VF: lines,
     return the result dict."""
@@ -188,7 +296,9 @@ def run_blender(job, tag, script="vf_job.py"):
         for line in p.stdout:
             logf.write(line)
             if line.startswith("VF:"):
-                print("  " + line[3:].strip(), flush=True)
+                if LIVE.on and line[3:].strip().startswith("render "):      # one composition finished
+                    LIVE.item_done()
+                LIVE.message("  " + line[3:].strip())
         p.wait()
     if not os.path.exists(job["result"]):
         raise SystemExit(f"Blender stopped without a result (exit {p.returncode}); see {rel(os.path.join(work, 'blender.log'))}")
