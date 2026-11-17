@@ -94,7 +94,7 @@ def plastic(key, token, finish=None):
     m = bpy.data.materials.new(f"VF · {key} · {token}")
     nt = _nodes(m)
     b = next((n for n in nt.nodes if n.type == "BSDF_PRINCIPLED"), None) or nt.nodes.new("ShaderNodeBsdfPrincipled")
-    _set(b, "Base Color", rgba(token))
+    _set(b, "Base Color", rgba(VC.tone(token, **ST.ANIMAL_TONE)))    # calmed (owner 2026-11-17, standards v2.3)
     _set(b, "Roughness", P["roughness"])
     _set(b, "Specular IOR Level", P["specular"])
     _set(b, "Coat Weight", P["coat"])

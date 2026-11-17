@@ -1,26 +1,26 @@
 {
  "code": "26-001",
- "rigged": "2026-11-17T15:20:31",
+ "rigged": "2026-11-17T17:20:40",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:19:26",
+ "still_built": "2026-11-17T17:17:10",
  "motion_hash": "1a7b96e1a10f3d0f",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "a1e29b85aca32f1c",
  "plan": "walker",
  "bones": 12,
  "fps": 24,
  "actions": {
   "pose": 1,
   "idle": 48,
-  "walk": 24,
+  "walk": 48,
   "sniff": 48
  },
  "blend": "26-001 \u00b7 Red Fox \u00b7 Rig.blend",
  "glb": "26-001 \u00b7 Red Fox \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 3.808567100167305,
+  "ortho_scale": 3.8427931609860626,
   "box_size": [
-   2.6659969701171136,
-   2.2775438651442528
+   2.6899552126902435,
+   2.3020483925938606
   ]
  },
  "vertices": 1908,

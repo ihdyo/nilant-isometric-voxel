@@ -83,6 +83,14 @@ def mute(c, k):
     return from_oklch(L, C * k, h)
 
 
+def tone(c, knee, slope, scale):
+    """The animal colour as it renders (vf_standards.ANIMAL_TONE): lightness and hue kept, chroma above `knee`
+    compressed to `slope` of its excess, then x `scale`. Greys, black and white are untouched in effect."""
+    L, C, h = oklch(c)
+    C2 = (C if C <= knee else knee + (C - knee) * slope) * scale
+    return from_oklch(L, C2, h)
+
+
 def pastel(c, max_chroma, lightness):
     """A vivid pastel of the colour: its hue, its chroma capped at max_chroma (soft colours stay as they are, neon
     ones calm down), its lightness held inside the (lo, hi) band."""

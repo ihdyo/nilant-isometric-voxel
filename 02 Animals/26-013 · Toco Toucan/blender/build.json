@@ -1,13 +1,13 @@
 {
  "code": "26-013",
- "built": "2026-11-17T15:19:54",
+ "built": "2026-11-17T17:27:16",
  "blender": "5.3.0",
  "model_hash": "4761eb159a03685e",
  "look_hash": "4baaad353bc6e5b8",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "ff985f934e6babaf",
+  "_system/studio/blender/vf_standards.py": "4a342f2b1504d2ae",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
-  "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
+  "_system/studio/blender/vf_scene.py": "5f674e31369c01f6"
  },
  "standards_version": "2.2",
  "rig": "iso_top",
@@ -92,5 +92,56 @@
    ]
   }
  },
- "renders": {}
+ "renders": {
+  "LOW": {
+   "ILL 1x1": {
+    "seconds": 6.3,
+    "size": [
+     1024,
+     1024
+    ],
+    "at": "2026-11-17"
+   },
+   "ILL 9x16": {
+    "seconds": 4.6,
+    "size": [
+     576,
+     1024
+    ],
+    "at": "2026-11-17"
+   },
+   "ILL 16x9": {
+    "seconds": 2.9,
+    "size": [
+     1024,
+     576
+    ],
+    "at": "2026-11-17"
+   },
+   "INF 1x1": {
+    "seconds": 2.7,
+    "size": [
+     1024,
+     1024
+    ],
+    "at": "2026-11-17"
+   },
+   "INF 9x16": {
+    "seconds": 3.0,
+    "size": [
+     576,
+     1024
+    ],
+    "at": "2026-11-17"
+   },
+   "INF 16x9": {
+    "seconds": 2.3,
+    "size": [
+     1024,
+     576
+    ],
+    "at": "2026-11-17"
+   }
+  }
+ }
 }

@@ -46,15 +46,24 @@ POSE = dict(max_angle=40.0, plate=0.2, plates=False)
 # actions from the motion library, each frame grounded on its posed voxels. The numbers that shape the motion:
 MOTION = dict(
     fps=24,
-    frames=dict(pose=1, idle=48, walk=24, walk_large=32, flap=24, hop=24, swim=32, waddle=24, howl=48, doze=48,
+    frames=dict(pose=1, idle=48, walk=48, walk_large=64, flap=48, hop=48, swim=32, waddle=48, howl=48, doze=48,
                 shake=24, yawn=48, fan=48, reach=48, sniff=48),
+    cycles=dict(walk=2, flap=2, hop=2, waddle=2),
+                             # v2 (owner 2026-11-17: "really dynamic"): two strides (flaps, hops) a loop, so the head
+                             # can look around at half the stride's pace and the loop never feels like a metronome
     large=40,                # posed length (voxels) from which an animal walks with the slower cycle
-    leg_swing=22.0,          # degrees each way, a stiff leg (block-game mobs walk on stiff legs)
-    leg_swing_knee=17.0,     # degrees each way, an upper leg with a shin under it
+    leg_swing=26.0,          # degrees each way, a stiff leg (block-game mobs walk on stiff legs); v1 22
+    leg_swing_knee=20.0,     # degrees each way, an upper leg with a shin under it; v1 17
     knee_fold=34.0,          # degrees the shin folds back while its leg swings forward
-    leg_swing_biped=20.0,    # two legs (birds): degrees each way
+    leg_swing_biped=24.0,    # two legs (birds): degrees each way; v1 20
     knee_fold_biped=45.0,    # two legs: degrees the lower leg folds back on the swing
     hop_height=0.22,         # of the posed length, voxels
+    life=dict(look=16.0, look_bias=0.3, tilt=9.0, nod=4.0, ear=14.0, ear_tilt=9.0, tail=10.0, wing=12.0,
+              wing_flap=26.0, sway=2.5, roll=2.0),
+                             # v2: the life layer on every action (degrees): the head looks around (yaw, biased away
+                             # from the camera's side), tilts (roll) and nods; each ear perks and droops on its own
+                             # beat; tails wag; folded wings flutter, with one fuller flap a loop; the body sways and
+                             # rolls with the stride
     bone=(1.5, 10.0),        # bone display length, voxels
     preview_step=2,          # previews keep every 2nd frame: 12 fps
     preview_scale=0.125,     # of the 4096 px square: 512 px (the LOW profile at half its scale)
@@ -105,6 +114,12 @@ FACING = "+X"                # NEW: every animal is modelled with its head towar
 # the blue sky greying warm colours: the same face renders (241,123,40). Compare sheet:
 # 03 Design/Reference/look · 2026-11-16 · colour fidelity.png. Nilant's values were AgX/"AgX - Base Contrast", blue-300.
 COLOR = dict(view="Khronos PBR Neutral", look="None", exposure=0.0)
+ANIMAL_TONE = dict(knee=0.09, slope=0.5, scale=0.95)
+                             # v2 (owner 2026-11-17: "edit all the animal model color to not that vibrant", with a
+                             # reference sheet whose brightest faces sit near OKLCH chroma 0.12-0.15): every animal
+                             # colour keeps its lightness and hue; its chroma up to `knee` stays, above it only `slope`
+                             # of the excess remains, then x `scale`. orange-600 0.217 -> 0.146, blue-600 0.246 -> 0.160,
+                             # a brown at 0.09 -> 0.086: the loud colours calm down, the soft ones barely move
 SKY = dict(token="slate-100", strength=0.5)
 SUN_MIN_ANGLE = 0.12         # NILANT: intro_overhaul.polish_set widens every sun to at least 0.12 rad for soft edges
 RIG_TURN = 45.0              # ADAPTED: Nilant's suns are fixed for cameras looking from -Y (azimuth 0); the rig turns

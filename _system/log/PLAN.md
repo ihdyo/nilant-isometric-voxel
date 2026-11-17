@@ -75,3 +75,6 @@ and expression of the animals like walking, and other animation that usualy the 
   owner-taken photos so information artworks can go to stock sites too.
 - Verify the two "general knowledge, to verify" lines (koala's Australian listing; red panda false thumb; giraffe
   species split) against primary sources before those animals' finals.
+
+## Open: standards v2.3 (owner, 2026-11-17)
+- [ ] **Owner:** OK the calmer colours and motion v2 from the before/after sheets; then `vf.py lock`, `vf.py standards --write`, and `vf.py approve <code> preview` for the 25 again (the rebuild changed every model key).

@@ -11,7 +11,7 @@
 | `26-012 · Bengal Tiger · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T15:19:52
-- Animation rig: **current**, walker plan, 16 bones, rigged 2026-11-17T15:20:53
+- Build: **current**, built 2026-11-17T17:26:43
+- Animation rig: **stale** (the still .blend was rebuilt, vf_rig.py changed), walker plan, 16 bones, rigged 2026-11-17T15:20:53
 - Model: the pose moves the lowest point to z = -0.18: the engine sets the animal back on the ground; posed size 43.0 x 16.1 x 25.6 voxels (L x W x H), 4244 voxels, colours eye, fur, nose, pupil, stripe, white, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, muzzle, shin_fl, shin_fr, shin_hl, shin_hr, tail, tail_tip; turned ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, shin_fl, shin_hl, tail, tail_tip
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

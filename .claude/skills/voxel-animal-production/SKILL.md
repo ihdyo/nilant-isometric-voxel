@@ -131,6 +131,7 @@ and 16:9) remain the review sheets. It reuses Nilant's directory conventions and
   strength 0.65 over the exact background hex in linear light. Open background = exactly the token's hex.
 
 ### Animation rig and motion (APPROVED and locked 2026-11-17, standards v2.2)
+- **Motion v2 (PROPOSED 2026-11-17, owner: "really dynamic ... tilt the head, ear, etc ... not blindly look at camera"):** every action carries the life layer `_alive()` (`MOTION.life`): the head looks around (yaw biased away from the camera), tilts and nods, shared with the neck; each ear perks and tips on its own beat; tails wag; folded wings flutter with one fuller flap a loop (the flamingo flaps a little as it walks); the body sways and rolls with the stride. Walk, flap, hop and waddle run two cycles a loop (`MOTION.cycles`, 48 frames), and the legs swing wider (26°, 20° with a knee, 24° on two legs). Every term is a whole number of cycles a loop, so loops stay seamless.
 - `vf.py rig <code>` (or `vf.py rig-all --jobs 3`) opens the built still `.blend` and saves a rigged copy beside it,
   `blender/<code> · <Name> · Rig.blend`, plus `· Rig.glb` (glTF binary, Y up, one animation per action) and the stamp
   `blender/rig.json`. The still `.blend` and the stills are never touched. A rig is stale when the still is rebuilt,

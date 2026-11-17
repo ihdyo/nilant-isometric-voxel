@@ -1,26 +1,26 @@
 {
  "code": "26-006",
- "rigged": "2026-11-17T15:20:39",
+ "rigged": "2026-11-17T17:17:05",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:19:37",
+ "still_built": "2026-11-17T17:13:37",
  "motion_hash": "16bd6a06f8b89da9",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "a1e29b85aca32f1c",
  "plan": "bird",
  "bones": 13,
  "fps": 24,
  "actions": {
   "pose": 1,
   "idle": 48,
-  "walk": 24,
-  "flap": 24
+  "walk": 48,
+  "flap": 48
  },
  "blend": "26-006 \u00b7 American Flamingo \u00b7 Rig.blend",
  "glb": "26-006 \u00b7 American Flamingo \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 4.558190256357193,
+  "ortho_scale": 4.649244759763991,
   "box_size": [
-   1.9836721252847695,
-   3.190733179450035
+   2.108348922125458,
+   3.254471331834793
   ]
  },
  "vertices": 1268,

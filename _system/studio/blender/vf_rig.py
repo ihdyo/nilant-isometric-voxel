@@ -105,6 +105,7 @@ class Ctx:
         self.Euler, self.Matrix, self.Vector = Euler, Matrix, Vector
         self.I3 = Matrix.Identity(3)
         self.info, self.plan, self.N, self.base = info, plan, n, base
+        self.cyc, self.length = 1, 0.0
 
     def has(self, b):
         return b in self.info
@@ -166,6 +167,44 @@ def _ears_idle(C, P, t):
             C.add(P, b, C.toward(b, (-1, 0, 0), 5 * sn(t, C.N, 2, 0.3)))
 
 
+def _alive(C, P, t, amt=1.0, head=True, ears=True, wings=True, tail=True):
+    """The life layer (v2, owner 2026-11-17: "tilt the head, ear, etc ... so the animation looks lively and not blindly
+    look at camera"): over the whole loop the head looks around (yaw biased away from the camera's side, +Y), tilts and
+    nods, shared with the neck; each ear perks and tips on its own beat; the tail wags; folded wings flutter with one
+    fuller flap. Every term is a whole number of cycles a loop, so the loop stays seamless."""
+    L, N = RIG["life"], C.N
+    if head:
+        yaw = L["look"] * (L["look_bias"] + 0.7 * sn(t, N, 1, 0.15) + 0.3 * sn(t, N, 2, 0.55))
+        tilt = L["tilt"] * sn(t, N, 1, 0.4)
+        nod = L["nod"] * sn(t, N, 2, 0.05)
+        share = (("neck", 0.4), ("head", 0.6)) if C.has("neck") else (("head", 1.0),)
+        for b, k in share:
+            C.add(P, b, C.E(b, tilt * k * amt, nod * k * amt, yaw * k * amt))
+        if C.has("mane"):
+            C.add(P, "mane", C.E("mane", 0.4 * tilt * amt, 0, 0.3 * yaw * amt))
+    if ears:
+        for b in C.pair("ear"):
+            ph = 0.0 if C.info[b]["side"] == "l" else 0.37
+            if C.info[b]["c"].length > 4.0:                  # big ears (elephant): a slow fan, the two out of step
+                C.add(P, b, C.E(b, 0, 0, 0.8 * L["ear"] * amt * sn(t, N, 2, ph)))
+                continue
+            C.add(P, b, C.toward(b, (-1, 0, 0), L["ear"] * amt * sn(t, N, 2, ph)))        # perk forward, tip back
+            C.add(P, b, C.toward(b, (0, -1, 0), L["ear_tilt"] * amt * sn(t, N, 1, ph + 0.2)))   # tip outward
+    if tail:
+        for i, b in enumerate(b for b in ("tail", "tail_tip") if C.has(b)):
+            C.add(P, b, C.toward(b, (0, 1, 0), (L["tail"] + 4 * i) * amt * sn(t, N, 2, -0.1 * i)))
+    if wings:
+        for b in C.pair("wing"):
+            if C.spread(b):
+                C.add(P, b, C.toward(b, (0, 0, 1), 0.5 * L["wing"] * amt * sn(t, N, 2)))
+            else:
+                ph = 0.0 if C.info[b]["side"] == "l" else 0.06
+                flut = L["wing"] * (0.5 + 0.5 * sn(t, N, 4, ph)) + L["wing_flap"] * bump(t, 0.55 * N, 0.07 * N)
+                C.add(P, b, C.toward(b, (0, -1, 0.6), flut * amt))
+    for b in C.pair("gill"):
+        C.add(P, b, C.E(b, 0.6 * L["ear"] * amt * sn(t, N, 4, 0.1), 0, 0))
+
+
 def _tail(C, P, t, amp, k=1.0, lag=0.12, d=(0, 1, 0)):
     for i, b in enumerate(b for b in ("tail", "tail_tip", "flukes") if C.has(b)):
         C.add(P, b, C.toward(b, d, (amp + 5 * i) * sn(t, C.N, k, -lag * i)))
@@ -173,10 +212,6 @@ def _tail(C, P, t, amp, k=1.0, lag=0.12, d=(0, 1, 0)):
 
 def a_idle(C, t):
     P, N = Pose(C.I3), C.N
-    yaw, nod = -10 * sn(t, N), 5 * sn(t, N, 2, 0.1)
-    for b, k in (("head", 1.0), ("neck", 0.5), ("mane", 0.4)):
-        if C.has(b):
-            C.add(P, b, C.E(b, 0, nod * k, yaw * k))
     if C.has("torso"):
         C.add(P, "torso", C.E("torso", 0, 1.2 * sn(t, N, 2), 0))
     _ears_idle(C, P, t)
@@ -186,8 +221,6 @@ def a_idle(C, t):
             C.add(P, b, C.E(b, 0, (3 + 3 * i) * sn(t, N, 1, -0.1 * i), (2 + 2 * i) * sn(t, N, 1, 0.25 - 0.1 * i)))
     if C.has("jaw"):
         C.add(P, "jaw", C.E("jaw", 0, -7 * (0.5 + 0.5 * sn(t, N, 2)), 0))
-    for b in C.pair("gill"):
-        C.add(P, b, C.E(b, 18 * sn(t, N, 4), 0, 0))
     if C.has("tongue"):
         C.add(P, "tongue", C.E("tongue", 0, 0, 12 * sn(t, N, 3)))
     for b in ("muzzle", "snout", "nose"):
@@ -204,23 +237,25 @@ def a_idle(C, t):
         C.add(P, b, C.toward(b, (0, 0, 1), 5 * sn(t, N, 1, 0.3)))
     for b in C.pair("arm"):
         C.add(P, b, C.toward(b, (0, 0, 1), 2 * sn(t, N, 2)))
+    _alive(C, P, t, 1.0, wings=False)
     return P
 
 
 def _sprawl(C, t):
     P, N = Pose(C.I3), C.N
+    S = C.cyc
     ph = {"leg_fl": 0.0, "leg_hr": 0.0, "leg_fr": 0.5, "leg_hl": 0.5}
     for b in C.legs():
-        th = TAU * (t / N + ph[b])
+        th = TAU * (S * t / N + ph[b])
         C.add(P, b, C.E(b, 0, 0, 22 * math.sin(th)))
         C.add(P, b, C.toward(b, (0, 0, 1), 10 * max(0.0, math.cos(th))))
-    th0 = TAU * t / N
-    P.body = C.Eb(0, 0, 6 * math.sin(th0))
+    th0 = TAU * S * t / N
+    P.body = C.Eb(RIG["life"]["roll"] * math.sin(th0), 0, 6 * math.sin(th0))
     if C.has("head"):
         C.add(P, "head", C.E("head", 0, 0, -5 * math.sin(th0)))
-    _tail(C, P, t, -12, lag=0.1)
-    for b in C.pair("gill"):
-        C.add(P, b, C.E(b, 16 * sn(t, N, 2), 0, 0))
+    for i, b in enumerate(b for b in ("tail", "tail_tip", "flukes") if C.has(b)):
+        C.add(P, b, C.toward(b, (0, 1, 0), (-12 - 5 * i) * math.sin(th0 - 0.6 * (i + 1))))
+    _alive(C, P, t, 0.8, tail=False)
     return P
 
 
@@ -228,8 +263,9 @@ def _biped(C, t):
     """Two legs (a bird): the upper legs swing in turn, the lower leg folds back while its leg swings forward, the feet
     kept flat; the body sways onto the standing foot and the head bobs with each step."""
     P, N = Pose(C.I3), C.N
+    S = C.cyc
     for side, ph in (("l", 0.0), ("r", 0.5)):
-        th = TAU * (t / N + ph)
+        th = TAU * (S * t / N + ph)
         a = RIG["leg_swing_biped"] * math.sin(th)                   # + forward
         fold = RIG["knee_fold_biped"] * max(0.0, math.cos(th)) ** 1.5
         leg, shin, foot = f"leg_{side}", f"shin_{side}", f"foot_{side}"
@@ -239,16 +275,18 @@ def _biped(C, t):
             C.abs(P, shin, C.E(shin, 0, fold, 0))
         if C.has(foot):
             C.abs(P, foot, C.E(foot, 0, a - fold, 0))            # flat: the leg's and the shin's pitch undone
-    th0 = TAU * t / N
-    P.body = C.Eb(3 * math.sin(th0), 0, 2 * math.sin(th0))
-    if C.has("neck"):
-        C.add(P, "neck", C.E("neck", 0, 5 * math.sin(2 * th0), 0))
+    th0 = TAU * S * t / N
+    P.body = C.Eb(4 * math.sin(th0), 0, 3 * math.sin(th0))
+    if C.has("neck"):                                              # the bird's head bob: neck forward, head back
+        C.add(P, "neck", C.E("neck", 0, 7 * math.sin(2 * th0), 0))
     if C.has("head"):
-        C.add(P, "head", C.E("head", 0, -4 * math.sin(2 * th0), 0))
-    for b in C.pair("wing"):
-        C.add(P, b, C.toward(b, (0, -1, 0.6), 4 * (0.5 + 0.5 * math.sin(2 * th0))))
+        C.add(P, "head", C.E("head", 0, -5 * math.sin(2 * th0), 0))
+    for b in C.pair("wing"):                                       # the wings lift a little with every step
+        lift = 0.5 + 0.5 * math.sin(2 * th0 + (0.0 if C.info[b]["side"] == "l" else 0.4))
+        C.add(P, b, C.toward(b, (0, -1, 0.6), 10 * lift))
     if C.has("tail"):
-        C.add(P, "tail", C.toward("tail", (0, 0, 1), 4 * math.sin(2 * th0)))
+        C.add(P, "tail", C.toward("tail", (0, 0, 1), 5 * math.sin(2 * th0)))
+    _alive(C, P, t, 0.8)
     return P
 
 
@@ -260,17 +298,20 @@ def a_walk(C, t):
     P, N = Pose(C.I3), C.N
     knees = any(C.has(f"shin_{k}") for k in ("fl", "fr", "hl", "hr"))
     A = RIG["leg_swing_knee"] if knees else RIG["leg_swing"]
+    S = C.cyc
     ph = {"fl": 0.0, "hr": 0.0, "fr": 0.5, "hl": 0.5}          # diagonal pairs, like a block-game mob
     for k, p in ph.items():
         b = f"leg_{k}"
         if not C.has(b):
             continue
-        th = TAU * (t / N + p)
+        th = TAU * (S * t / N + p)
         C.abs(P, b, C.E(b, 0, -A * math.sin(th), 0))           # + forward: -Y pitch brings the foot forward
         s = f"shin_{k}"
         if C.has(s):
             C.abs(P, s, C.E(s, 0, RIG["knee_fold"] * max(0.0, math.cos(th)) ** 1.5, 0))
-    th0 = TAU * t / N
+    th0 = TAU * S * t / N
+    Lf = RIG["life"]
+    P.body = C.Eb(Lf["roll"] * math.sin(th0), 1.0 * math.sin(2 * th0), Lf["sway"] * math.sin(th0))
     if C.has("head"):
         C.add(P, "head", C.E("head", 0, 5 * math.sin(2 * th0 + 0.4), -3 * math.sin(th0)))
     if C.has("neck"):
@@ -279,18 +320,22 @@ def a_walk(C, t):
         C.add(P, "mane", C.E("mane", 0, 0, 2 * math.sin(th0)))
     if C.has("torso"):                                            # an upper body rolls with the stride (bear)
         C.add(P, "torso", C.E("torso", 0, 1.5 * math.sin(2 * th0), 3 * math.sin(th0)))
-    _tail(C, P, t, 9, lag=0.08)
-    for b in C.pair("ear"):
-        C.add(P, b, C.toward(b, (-1, 0, 0), 8 * math.sin(2 * th0 + 0.8)))
+    for i, b in enumerate(b for b in ("tail", "tail_tip", "flukes") if C.has(b)):
+        C.add(P, b, C.toward(b, (0, 1, 0), (9 + 5 * i) * math.sin(th0 - 0.5 * (i + 1))))
+    for b in C.pair("ear"):                                        # ears bounce with each footfall
+        C.add(P, b, C.toward(b, (-1, 0, 0), 6 * math.sin(2 * th0 + 0.8)))
     for i, b in enumerate(("trunk_1", "trunk_2", "trunk_3")):
         if C.has(b):
-            C.add(P, b, C.E(b, 0, 0, (3 + 3 * i) * math.sin(th0 - 0.4 * i)))
+            C.add(P, b, C.E(b, 0, 2 * i * math.sin(2 * th0 - 0.4 * i), (4 + 4 * i) * math.sin(th0 - 0.4 * i)))
+    if C.has("jaw"):
+        C.add(P, "jaw", C.E("jaw", 0, -5 * (0.5 + 0.5 * math.sin(2 * th0)), 0))
+    _alive(C, P, t, 0.8, tail=False)
     return P
 
 
 def a_flap(C, t):
     P, N = Pose(C.I3), C.N
-    th = TAU * t / N
+    th = TAU * C.cyc * t / N
     lift = 0.5 - 0.5 * math.cos(th)
     for b in C.pair("wing"):
         if C.spread(b):
@@ -300,15 +345,21 @@ def a_flap(C, t):
     for b in C.pair("flipper"):
         C.add(P, b, C.toward(b, (0, -1, 0.3), 34 * (0.5 - 0.5 * math.cos(2 * th))))
     P.hop = 0.6 * lift
-    _tail(C, P, t, 6, d=(0, 0, 1))
+    for b in ("tail", "tail_tip"):
+        if C.has(b):
+            C.add(P, b, C.toward(b, (0, 0, 1), 8 * math.sin(th - 0.6)))
     if C.has("head"):
-        C.add(P, "head", C.E("head", 0, -3 * math.sin(th), 0))
+        C.add(P, "head", C.E("head", 0, -4 * math.sin(th), 0))
+    P.body = C.Eb(0, -3 * lift, 0)
+    _alive(C, P, t, 0.7, wings=False, tail=False)
     return P
 
 
 def a_hop(C, t):
     P, N = Pose(C.I3), C.N
     s = 24.0 / N
+    t0 = t
+    t = (t * C.cyc) % N                                             # the hop runs C.cyc times a loop
     u = (t * s - 6.0) / 12.0
     air = 4 * u * (1 - u) if 0.0 <= u <= 1.0 else 0.0
     push = curve(t * s, [(0, 0), (3, -0.25), (7, 1), (13, 0.5), (18, 0), (24, 0)])
@@ -336,6 +387,7 @@ def a_hop(C, t):
         C.add(P, "tail", C.toward("tail", (0, 0, 1), 10 * air))
     if C.has("head"):
         C.add(P, "head", C.E("head", 0, 4 * air, 0))
+    _alive(C, P, t0, 0.7)
     return P
 
 
@@ -361,13 +413,15 @@ def a_swim(C, t):
         if C.has("head"):
             C.add(P, "head", C.E("head", 0, 3 * math.sin(2 * th), 0))
         P.hop = 0.5 * (0.5 + 0.5 * math.sin(th - 0.5))
+        P.body = C.Eb(RIG["life"]["roll"] * math.sin(th), 0, 0)
+    _alive(C, P, t, 0.6, wings=False, tail=False)
     return P
 
 
 def a_waddle(C, t):
     P, N = Pose(C.I3), C.N
-    th = TAU * t / N
-    P.body = C.Eb(7 * math.sin(th), 0, 4 * math.sin(th))
+    th = TAU * C.cyc * t / N
+    P.body = C.Eb(8 * math.sin(th), 0, 5 * math.sin(th))
     for b in C.pair("foot"):
         up = max(0.0, math.sin(th) * (1 if C.info[b]["side"] == "r" else -1))
         C.add(P, b, C.E(b, 0, -14 * up, 0))
@@ -376,6 +430,7 @@ def a_waddle(C, t):
         C.add(P, b, C.toward(b, (0, -1, 0.2), 14 * out))
     if C.has("head"):
         C.add(P, "head", C.E("head", -4 * math.sin(th), 0, 0))
+    _alive(C, P, t, 0.8)
     return P
 
 
@@ -692,6 +747,7 @@ def build_rig(grid, look_offset, motion):
                 base[b] = Euler(tuple(math.radians(a) for a in e), "XYZ").to_matrix()
         C = Ctx(info, plan, n, base)
         C.length = length
+        C.cyc = int(RIG.get("cycles", {}).get(name, 1))
         act = bpy.data.actions.new(name)
         act.use_fake_user = True
         arm.animation_data.action = act

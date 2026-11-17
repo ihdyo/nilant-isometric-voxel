@@ -11,7 +11,7 @@
 | `26-003 · Red Panda · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T15:19:31
-- Animation rig: **current**, walker plan, 12 bones, rigged 2026-11-17T15:20:31
+- Build: **current**, built 2026-11-17T17:21:51
+- Animation rig: **stale** (the still .blend was rebuilt, vf_rig.py changed), walker plan, 12 bones, rigged 2026-11-17T15:20:31
 - Model: the pose moves the lowest point to z = -0.13: the engine sets the animal back on the ground; posed size 31.8 x 14.9 x 20.4 voxels (L x W x H), 1821 voxels, colours dark, eye, fur, ring, white, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, muzzle, tail, tail_tip; turned ear_l, ear_r, head, leg_fl, leg_hl, leg_hr, tail, tail_tip
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

@@ -11,7 +11,7 @@
 | `26-013 · Toco Toucan · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
-- Build: **current**, built 2026-11-17T15:19:54
-- Animation rig: **current**, bird plan, 11 bones, rigged 2026-11-17T15:20:55
+- Build: **current**, built 2026-11-17T17:27:16
+- Animation rig: **stale** (the still .blend was rebuilt, vf_rig.py changed), bird plan, 11 bones, rigged 2026-11-17T15:20:55
 - Model: posed size 22.8 x 10.6 x 21.4 voxels (L x W x H), 1129 voxels, colours bill, body, eye, feet, ring, throat, vent, parts beak, body, foot_l, foot_r, head, leg_l, leg_r, tail, wing_l, wing_r; turned beak, head, tail, wing_l
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0
