@@ -39,8 +39,6 @@ EXPORT = dict(
     safe=2304,               # px: the centre square that a centred 1:1, 9:16 (2304 x 4096) and 16:9 (4096 x 2304) crop
                              # all keep (2304 = 4096 x 9/16): the animal lives inside it
     fill=0.86,               # of the safe square, on the binding side, that the animal's projected box takes
-    stock=2880,              # px: the 1:1 stock image, the centre square of the dynamic master (the animal fills about
-                             # 0.69 of it, like the approved 1:1 illustration's 0.70); 8.3 MP, over every site's minimum
     loop=dict(size=1080,     # px, square GIF (owner, 2026-11-17: "GIF 1080 x 1080")
               fill=0.72,     # of the frame that everything the loop does takes
               samples=64, shadow_samples=32, rt_resolution="2", fast_gi_resolution="2",
@@ -49,10 +47,11 @@ EXPORT = dict(
               fps=24),
     card=dict(trim_mm=(148.0, 210.0),       # A5 portrait (owner: "card in a5 size in pdf")
               bleed_mm=3.0, dpi=300),
-    items=(                  # the export folder, by Image ID suffix: (suffix, extension, what)
+    items=(                  # the export folder, by Image ID suffix: (suffix, extension, what). Owner 2026-11-17: only the
+                             # two masters, the GIF and the two cards; the stock image is the dynamic master itself as
+                             # a JPEG beside them (VF-<code>-STOCK.jpg, scripts/stock.py), no crop, no stock/ folder
         ("MASTER-DYN", "png", "master render, dynamic pose, 4096 square (crops to 1:1, 9:16, 16:9)"),
         ("MASTER-BLOCK", "png", "master render, regular blocky pose, 4096 square (crops to 1:1, 9:16, 16:9)"),
-        ("STOCK-1x1", "png", "1:1 dynamic for stock sites, the centre square of the dynamic master"),
         ("LOOP", "gif", "looped dynamic animation, 1080 square"),
         ("CARD-EN", "pdf", "A5 card, English: front the dynamic pose over the photo with the info, back the blocky pose"),
         ("CARD-ID", "pdf", "A5 card, Bahasa Indonesia: the same card in Indonesian"),
@@ -137,7 +136,7 @@ def _flat(A, S, bg_hex, dither=True):
     ok = sa > 0.01
     s[ok] = np.clip(La[ok] / g0, 0.0, 1.0)
     r = max(1, round(ST.SHADOW["smooth"] * min(s.shape[:2])))
-    s = V._blur(V._blur(s, r), r)
+    s = V._smooth_shadow(s, np.where(ok, sa, 0.0), r)        # no halo along the silhouette (vf_scene)
     t = ST.SHADOW["deadzone"]
     d = np.clip(((1.0 - s) - t) / (1.0 - t), 0.0, 1.0)
     s = 1.0 - ST.SHADOW["strength"] * d
@@ -252,7 +251,11 @@ def loop(arm, mesh, scene, action, out_dir, profile, work):
             scene.view_settings.view_transform, scene.view_settings.look = "Standard", "None"
             scene.eevee.taa_render_samples = P.get("shadow_samples", P["eevee"]["taa_render_samples"])
         scene.render.filepath = os.path.join(tmp, f"{kind}_####")
-        bpy.ops.render.render(animation=True, scene=scene.name)
+        V.depth_bias(kind == "a")                # stacked sections over their parents; the shadow pass exact
+        try:
+            bpy.ops.render.render(animation=True, scene=scene.name)
+        finally:
+            V.depth_bias(False)
     ground.is_holdout = False
     for o in animal:
         o.is_holdout = False

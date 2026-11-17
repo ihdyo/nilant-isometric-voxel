@@ -73,7 +73,7 @@ def build():
         ("Image ID", "VF-{code}-{item}  e.g. VF-26-001-MASTER-DYN"),
         ("Items", "; ".join(f"{s} = {w}" for s, _, w in _PK().EXPORT["items"])),
         ("File", "in the animal's export/ folder (render.bat renders the masters, render.bat, P builds the rest); the "
-                 "stock JPEG is in export/stock/"),
+                 "stock image VF-{code}-STOCK.jpg (the whole dynamic master as a JPEG) is beside them"),
         ("Statuses", " → ".join(ST.STATUSES)),
         ("Platform cells", PLATFORM_STATES.replace(",", ", ")),
         (None, None),
@@ -170,12 +170,18 @@ def upsert(folder, animal):
     E = PK.EXPORT
     shape = {"MASTER-DYN": ("Master", "1x1", f"{E['master']}x{E['master']}"),
              "MASTER-BLOCK": ("Master", "1x1", f"{E['master']}x{E['master']}"),
-             "STOCK-1x1": ("Stock", "1x1", f"{E['stock']}x{E['stock']}"),
              "LOOP": ("Loop GIF", "1x1", f"{E['loop']['size']}x{E['loop']['size']}"),
              "CARD-EN": ("Card PDF", "A5", "148x210 mm"), "CARD-ID": ("Card PDF", "A5", "148x210 mm")}
-    for suffix, _, what in E["items"]:
+    import stock as SK
+    rows = [(s, PK.export_file(folder, code, s), w) for s, _, w in E["items"]] + [
+        (SK.STOCK, SK.stock_file(folder, code), "the stock image: the dynamic master as an sRGB JPEG, for stock sites")]
+    shape[SK.STOCK] = ("Stock", "1x1", f"{E['master']}x{E['master']}")
+    old = PK.export_id(code, "STOCK-1x1")                 # the cropped stock PNG (dropped 2026-11-17): its row goes
+    for rr in range(ws.max_row, 1, -1):
+        if ws.cell(row=rr, column=1).value == old:
+            ws.delete_rows(rr)
+    for suffix, path, what in rows:
         iid = PK.export_id(code, suffix)
-        path = PK.export_file(folder, code, suffix)
         kname, ratio, size = shape.get(suffix, (suffix, "", ""))
         r = _row_of(ws, iid)
         _write(ws, r, IMAGES, [iid, code, animal["common"], animal["scientific"], kname, ratio, size,

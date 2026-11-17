@@ -1,10 +1,11 @@
-"""Voxel Fauna · stock packaging: upload-ready JPEGs and CSVs from an animal's six PNG masters.
+"""Voxel Fauna · stock packaging: the stock JPEG, the upload CSVs and the Gumroad zip.
 
     package(folder, animal, only=None)
-      export/stock/<Image ID>.jpg   sRGB (ICC embedded), quality 95, 4:4:4, 300 ppi, title/description/keywords in XMP
+      export/VF-<code>-STOCK.jpg    the whole dynamic master (4096 square, no crop; owner 2026-11-17) as an sRGB JPEG
+                                    (ICC embedded), quality 95, 4:4:4, 300 ppi, title/description/keywords in XMP
       05 Publish/Stock/<code> · Adobe Stock.csv     Filename, Title, Keywords, Category, Releases
       05 Publish/Stock/<code> · Shutterstock.csv    Filename, Description, Keywords, Categories, Illustration, ...
-      05 Publish/Gumroad/<code> · <Common name>.zip the six PNG masters
+      05 Publish/Gumroad/<code> · <Common name>.zip the export package: two masters, the loop GIF, the two cards
 
 Titles and keywords come from animal.json -> stock (title, keywords); missing ones are built from the names.
 Platform rules (01 Guide/Voxel Fauna · Stock Platforms.md): Adobe Stock 4-100 MP, 45 MB, up to 49 keywords.
@@ -73,27 +74,32 @@ def _xmp(title, keywords):
             '<?xpacket end="w"?>').encode("utf-8")
 
 
+STOCK = "STOCK"            # the stock image's Image ID suffix: VF-<code>-STOCK.jpg in export/
+
+
+def stock_file(folder, code):
+    import package as PK
+    return os.path.join(folder, "export", PK.export_id(code, STOCK) + ".jpg")
+
+
 def package(folder, animal, only=None):
-    """The stock JPEG and the upload CSVs for the 1:1 dynamic stock image (VF-<code>-STOCK-1x1, cropped from the
-    dynamic master by package.py; owner, 2026-11-17: "1:1 dynamic (this pic is for stock image)"); the cards carry a
-    third-party photograph, so stock sites get the stock image only. The Gumroad zip holds the whole export package
-    (the two masters, the stock image, the loop GIF and the English and Indonesian cards). `only` is kept for the
-    command line and ignored: there is one stock image per animal."""
+    """The stock JPEG (the whole dynamic master, no crop, in export/ beside the package; owner 2026-11-17: "keep stock
+    but dont crop it from master") and its upload CSVs; the cards carry a third-party photograph, so stock sites get
+    the stock image only. The Gumroad zip holds the export package (the two masters, the loop GIF and the English and
+    Indonesian cards). `only` is kept for the command line and ignored: there is one stock image per animal."""
     import package as PK
     code = animal["code"]
     icc = ImageCms.ImageCmsProfile(ImageCms.createProfile("sRGB")).tobytes()
-    sdir = os.path.join(folder, "export", "stock")
     pdir = os.path.join(VL.PUBLISH, "Stock")
-    os.makedirs(sdir, exist_ok=True)
     os.makedirs(pdir, exist_ok=True)
     adobe, shutter, lines = [], [], []
     masters = [PK.export_file(folder, code, s) for s, _, _ in PK.EXPORT["items"]]
-    src = PK.export_file(folder, code, "STOCK-1x1")
+    src = PK.export_file(folder, code, "MASTER-DYN")
     if not os.path.exists(src):
-        lines.append(f"skip the stock image: none yet ({VL.rel(src)}; render.bat, P or vf.py package {code})")
+        lines.append(f"skip the stock image: no dynamic master yet ({VL.rel(src)}; render.bat, 3)")
     else:
-        iid = PK.export_id(code, "STOCK-1x1")
-        dst = os.path.join(sdir, iid + ".jpg")
+        iid = PK.export_id(code, STOCK)
+        dst = stock_file(folder, code)
         title, kws = _titles(animal, "ILL"), _keywords(animal, "ILL")
         with Image.open(src) as im:
             im = im.convert("RGB")

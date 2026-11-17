@@ -2,7 +2,7 @@
 
 **Voxel Fauna** is a Nilant side collection: isometric voxel animal illustrations made in Blender code, each species
 delivered as an export package (owner, 2026-11-17): two 4096 master renders (the dynamic pose and the regular
-blocky pose, each cropping to 1:1, 9:16 and 16:9), a 1:1 stock image, a looped animation (GIF) and an A5 card PDF
+blocky pose, each cropping to 1:1, 9:16 and 16:9), a looped animation (GIF) and an A5 card PDF
 in English and in Bahasa Indonesia (front: minimal and playful, the model and the info, no photo for now; back:
 the blocky model, "powered by ihdyo"), sold on **Gumroad** and stock sites (**Adobe Stock** first, then Shutterstock, Freepik and
 others; see `01 Guide/Voxel Fauna · Stock Platforms.md`). The owner is ihdyo, who also runs Nilant (sibling folder
@@ -82,7 +82,7 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 - **No AI-generated images, ever** (animals, references, backgrounds, photos on the artwork).
 - **Photos:** genuine, public domain, CC0 or CC BY only (never BY-SA, NC, ND), logged in the animal's
   `docs/references.md` with author, licence and URL, credited on the information artwork. Stock sites get the
-  1:1 stock image only (the cards carry a third-party photo); Gumroad gets the whole export package.
+  stock image only (`STOCK.jpg`, the dynamic master; the cards carry a third-party photo); Gumroad gets the whole export package.
 - **No brand in the exports** (owner, 2026-11-15): no logo, watermark, signature or URL in the masters, the stock
   image or the loop. The one exception (owner, 2026-11-17): the back of the A5 card carries "powered by" + the
   ihdyo mark + "ihdyo", small, black on a light background and white on a dark one (`03 Design/Logo/`); and the front of the card carries the
@@ -102,7 +102,7 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 | `key-prompt.md` | attach it with one animal's `docs/voxel-model.md` to Claude Sonnet (browser) to write that animal's `model.py` |
 | `00 TODO/` | the owner's brief and scratch prompts (not part of the pipeline) |
 | `01 Guide/` | `Voxel Fauna · Production Workflow`, `· Stock Platforms`, `· Prerequisites` |
-| `02 Animals/` | `_Template/` and one folder per species `YY-SEQ · Common Name/`: `overview.md` (generated), `animal.json`, `docs/animal-info.md`, `docs/references.md`, `docs/voxel-model.md`, `assets/photos/`, `blender/model.py` + the built `.blend` + `build.json` + `README.md` (+ the animation rig `· Rig.blend`, `· Rig.glb`, `rig.json`), `export/` (the export package: `VF-<code>-MASTER-DYN.png`, `-MASTER-BLOCK.png`, `-STOCK-1x1.png`, `-LOOP.gif`, `-CARD-EN.pdf`, `-CARD-ID.pdf`; `stock/` JPEG) |
+| `02 Animals/` | `_Template/` and one folder per species `YY-SEQ · Common Name/`: `overview.md` (generated), `animal.json`, `docs/animal-info.md`, `docs/references.md`, `docs/voxel-model.md`, `assets/photos/`, `blender/model.py` + the built `.blend` + `build.json` + `README.md` (+ the animation rig `· Rig.blend`, `· Rig.glb`, `rig.json`), `export/` (the export package: `VF-<code>-MASTER-DYN.png`, `-MASTER-BLOCK.png`, `-LOOP.gif`, `-CARD-EN.pdf`, `-CARD-ID.pdf`; beside them `-STOCK.jpg`, the dynamic master as the stock JPEG, no crop) |
 | `03 Design/` | `DESIGN-SYSTEM.md`, `Color/` (Tailwind v4 palette), `Fonts/` (Poppins, OFL), `Logo/` (the owner's ihdyo mark, for the card back), `Reference/` (approved look sheets) |
 | `04 Library/` | licence and download log |
 | `05 Publish/` | `Voxel Fauna · Registry.xlsx` (Read Me, Animals, Images, Publish Log, Platforms), `Voxel Fauna · Publish Log.md`, `Voxel Fauna · Publishing Checklist.md`, `Stock/` (CSVs), `Gumroad/` (zips) |

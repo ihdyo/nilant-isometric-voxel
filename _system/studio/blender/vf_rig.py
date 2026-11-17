@@ -714,6 +714,8 @@ def build_rig(grid, look_offset, motion):
     mod.object = arm
     mod.use_vertex_groups = True
     mod.use_bone_envelopes = False
+    if V.DEPTH_ATTR in mesh.data.attributes:        # the stacking bias after the deform (vf_standards.STACK_BIAS)
+        V.add_depth_bias(mesh)
     for o in vl.objects:
         o.select_set(False)
     vl.update()
@@ -1028,7 +1030,7 @@ def _composite(pa, ps, bg_hex, out_png):
     ok = sa > 0.01
     s[ok] = np.clip(La[ok] / g0, 0.0, 1.0)
     r = max(1, round(ST.SHADOW["smooth"] * min(s.shape[:2])))
-    s = V._blur(V._blur(s, r), r)
+    s = V._smooth_shadow(s, np.where(ok, sa, 0.0), r)        # no halo along the silhouette (vf_scene)
     t = ST.SHADOW["deadzone"]
     d = np.clip(((1.0 - s) - t) / (1.0 - t), 0.0, 1.0)
     s = 1.0 - ST.SHADOW["strength"] * d
@@ -1084,7 +1086,11 @@ def render_frames(arm, scene, action, out_dir, step, work):
             scene.view_settings.view_transform, scene.view_settings.look = "Standard", "None"
             scene.eevee.taa_render_samples = P.get("shadow_samples", P["eevee"]["taa_render_samples"])
         scene.render.filepath = os.path.join(tmp, f"{kind}_####")
-        bpy.ops.render.render(animation=True, scene=scene.name)
+        V.depth_bias(kind == "a")                # stacked sections over their parents; the shadow pass exact
+        try:
+            bpy.ops.render.render(animation=True, scene=scene.name)
+        finally:
+            V.depth_bias(False)
     ground.is_holdout = False
     for o in animal:
         o.is_holdout = False

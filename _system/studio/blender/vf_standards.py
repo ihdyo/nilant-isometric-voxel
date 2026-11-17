@@ -75,6 +75,14 @@ BEVEL = dict(width=0.012, segments=4, profile=0.5)
                              # within 0.006-0.06 m, 4 segments, round. 0.012 m = 12 % of a voxel: every block reads as
                              # its own moulded cube with a thin highlight on each edge
 CULL_HIDDEN = True           # NEW: a voxel with all six neighbours in its own part is never seen and is not built
+STACK_BIAS = 2.0             # voxels: in the animal pass of the animated loops only, every jointed section (head, legs,
+                             # tail, and with them their ears and muzzles, one level, not one per level) is nudged this
+                             # far towards the camera. The camera is orthographic, so nothing moves on screen; only the
+                             # depth test changes, and a section that turns into the body (the head's corners, a leg's
+                             # top through the belly) is always drawn over it instead of the two cutting each other
+                             # differently every frame (owner 2026-11-18: the panda's head and legs flickered). The
+                             # shadow pass is not nudged (the ground shadow is exact); stills and masters are single
+                             # frames and keep their approved look. 2 voxels covers a 16 deg turn of a 12-voxel head
 GEOMETRIES = {
     "block": dict(limit="NONE", bevel=True, material="plastic"),
                                          # every voxel its own bevelled cube: the grid shows on every face

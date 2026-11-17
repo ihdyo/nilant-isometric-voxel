@@ -1,10 +1,10 @@
 {
  "code": "26-018",
- "rigged": "2026-11-17T15:21:05",
+ "rigged": "2026-11-17T20:53:02",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:20:06",
+ "still_built": "2026-11-17T17:30:26",
  "motion_hash": "afa3c43ee4f77ad9",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "a1e29b85aca32f1c",
  "plan": "swimmer",
  "bones": 7,
  "fps": 24,
@@ -16,10 +16,10 @@
  "blend": "26-018 \u00b7 Green Sea Turtle \u00b7 Rig.blend",
  "glb": "26-018 \u00b7 Green Sea Turtle \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 4.1936465709250585,
+  "ortho_scale": 4.1986413654505474,
   "box_size": [
-   2.935552599647541,
-   1.877926081418991
+   2.939048955815383,
+   1.9071803987026215
   ]
  },
  "vertices": 1474,

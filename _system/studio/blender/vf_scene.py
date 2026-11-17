@@ -214,6 +214,10 @@ def animal_meshes(grid, palette, coll, geometry=None):
                 b.harden_normals = True
             except Exception:
                 pass
+        # the stacking bias: this part's nesting on every vertex, the modifier last (vf_standards.STACK_BIAS)
+        at = me.attributes.new(DEPTH_ATTR, "FLOAT", "POINT")
+        at.data.foreach_set("value", [float(nesting(grid, part))] * len(me.vertices))
+        add_depth_bias(o)
         objs.append(o)
     turned = sum(1 for jj in grid.joints.values() if any(abs(a) > 0.01 for a in jj["rotate"]))
     log(f"model: {len(objs)} parts ({geometry}), {len(grid.v)} voxels, {culled} hidden voxels not built, "
@@ -393,6 +397,72 @@ def _animal_objects():
     return list(bpy.data.collections["Animal"].all_objects)
 
 
+# ---- the stacking depth bias (vf_standards.STACK_BIAS) ------------------------------------------------------------------
+DEPTH_ATTR, BIAS_ATTR, DEPTH_MOD = "vf_depth", "vf_bias", "VF depth"
+
+
+def nesting(grid, part):
+    """How deep a part sits in the joint tree: 0 for the body (and every part without a joint), 1 for the head, 2 for
+    an ear on the head."""
+    d, p = 0, part
+    while p in grid.joints and d < 16:
+        d += 1
+        p = grid.joints[p].get("parent")
+    return d
+
+
+def _depth_group():
+    ng = bpy.data.node_groups.get("VF · depth bias")
+    if ng:
+        return ng
+    ng = bpy.data.node_groups.new("VF · depth bias", "GeometryNodeTree")
+    ng.interface.new_socket(name="Geometry", in_out="INPUT", socket_type="NodeSocketGeometry")
+    ng.interface.new_socket(name="Geometry", in_out="OUTPUT", socket_type="NodeSocketGeometry")
+    N, L = ng.nodes, ng.links
+    gi, go = N.new("NodeGroupInput"), N.new("NodeGroupOutput")
+    na = N.new("GeometryNodeInputNamedAttribute")
+    na.data_type = "FLOAT_VECTOR"
+    na.inputs["Name"].default_value = BIAS_ATTR
+    sp = N.new("GeometryNodeSetPosition")
+    L.new(gi.outputs["Geometry"], sp.inputs["Geometry"])
+    L.new(na.outputs["Attribute"], sp.inputs["Offset"])
+    L.new(sp.outputs["Geometry"], go.inputs["Geometry"])
+    return ng
+
+
+def add_depth_bias(o):
+    """The last modifier of an animal mesh: every vertex moves towards the camera by its nesting (the vf_depth point
+    attribute) x STACK_BIAS voxels. The offset is written per vertex (vf_bias) in the object's own axes, so call it
+    again whenever the object's rotation changes (the rig does, after the join). Off until depth_bias(True)."""
+    me = o.data
+    back = view_axes()[3]
+    local = o.matrix_world.to_3x3().inverted() @ (back * (ST.STACK_BIAS * ST.VOXEL))
+    n = len(me.vertices)
+    depth = [0.0] * n
+    me.attributes[DEPTH_ATTR].data.foreach_get("value", depth)
+    if BIAS_ATTR in me.attributes:
+        me.attributes.remove(me.attributes[BIAS_ATTR])
+    vec = me.attributes.new(BIAS_ATTR, "FLOAT_VECTOR", "POINT")
+    # one level for every jointed section (not one per level of nesting): head and legs over the body, while an ear
+    # moves with its head, so its shadow stays put and a far ear never jumps in front of the head it hangs behind
+    vec.data.foreach_set("vector", [c * min(d, 1.0) for d in depth for c in local])
+    m = o.modifiers.get(DEPTH_MOD)
+    if m:
+        o.modifiers.remove(m)
+    m = o.modifiers.new(DEPTH_MOD, "NODES")
+    m.node_group = _depth_group()
+    m.show_viewport = m.show_render = False
+    return m
+
+
+def depth_bias(on):
+    """Turn the stacking bias on (the animal pass) or off (the shadow pass, the saved file)."""
+    for o in _animal_objects():
+        m = o.modifiers.get(DEPTH_MOD)
+        if m:
+            m.show_render = m.show_viewport = on
+
+
 def _ground():
     return bpy.data.objects["VF · ground"]
 
@@ -430,6 +500,17 @@ def _blur(a, r):
     return a
 
 
+def _smooth_shadow(s, w, r):
+    """The shadow factor blurred over the open ground only (normalised convolution, weights = the ground's coverage in
+    the shadow pass). The animal is a holdout there, so its pixels carry no ground; counted as unshadowed (1.0) the blur
+    lifted the shadow all along the silhouette into a light halo and washed out the contact shadow under the feet
+    (owner 2026-11-18: "the halo effect around the model ... feels ugly")."""
+    w = np.clip(w, 0.0, 1.0).astype(np.float32)[..., None]
+    num = _blur(_blur(s * w, r), r)
+    den = _blur(_blur(w, r), r)
+    return np.where(den > 1e-4, num / np.maximum(den, 1e-4), 1.0).astype(np.float32)
+
+
 def _pass(scene, kind, path):
     ground, animal = _ground(), _animal_objects()
     if kind == "animal":
@@ -444,7 +525,7 @@ def _pass(scene, kind, path):
             o.is_holdout = True
         scene.view_settings.view_transform = "Standard"
         scene.view_settings.look = "None"
-    scene.render.film_transparent = True
+    scene.render.film_transparent = True         # stills keep their approved look: no stacking bias (loops only)
     scene.render.filepath = path
     t = time.time()
     bpy.ops.render.render(write_still=True, scene=scene.name)
@@ -481,7 +562,7 @@ def render(scene_name, profile, out_png, work_dir):
     ok = sa > 0.01
     s[ok] = np.clip(La[ok] / g0, 0.0, 1.0)
     r = max(1, round(ST.SHADOW["smooth"] * min(s.shape[:2])))
-    s = _blur(_blur(s, r), r)
+    s = _smooth_shadow(s, np.where(ok, sa, 0.0), r)
     t = ST.SHADOW["deadzone"]
     d = np.clip(((1.0 - s) - t) / (1.0 - t), 0.0, 1.0)          # darkening past the dead zone, ramping from 0
     s = 1.0 - ST.SHADOW["strength"] * d

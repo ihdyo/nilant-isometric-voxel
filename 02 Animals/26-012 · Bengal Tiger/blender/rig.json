@@ -1,25 +1,25 @@
 {
  "code": "26-012",
- "rigged": "2026-11-17T15:20:53",
+ "rigged": "2026-11-17T19:56:39",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:19:52",
+ "still_built": "2026-11-17T17:26:43",
  "motion_hash": "22d3c1a23f6e7d9f",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "a1e29b85aca32f1c",
  "plan": "walker",
  "bones": 16,
  "fps": 24,
  "actions": {
   "pose": 1,
   "idle": 48,
-  "walk": 32
+  "walk": 64
  },
  "blend": "26-012 \u00b7 Bengal Tiger \u00b7 Rig.blend",
  "glb": "26-012 \u00b7 Bengal Tiger \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 5.049544606113525,
+  "ortho_scale": 5.159349770354882,
   "box_size": [
-   3.534681224279467,
-   3.365255977958441
+   3.611544839248417,
+   3.387417054735124
   ]
  },
  "vertices": 3082,

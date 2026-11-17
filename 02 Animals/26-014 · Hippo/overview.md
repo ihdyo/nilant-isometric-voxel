@@ -1,6 +1,6 @@
 # 26-014 · Hippo
 
-*Hippopotamus amphibius* · Voxel Fauna · status **Preview approved**
+*Hippopotamus amphibius* · Voxel Fauna · status **Final**
 
 > Written by `python _system/studio/scripts/vf.py overview 26-014` (also after build, preview, final, approve, register). Edit `animal.json`, the docs and `blender/model.py`, never this page.
 
@@ -9,7 +9,7 @@
 - [x] Phase 1 · Research: `docs/animal-info.md`, `docs/references.md`, 2 photo(s) in `assets/photos/`
 - [x] Phase 2 · Modelling: `docs/voxel-model.md`, `blender/model.py`, .blend **current**
 - [x] Phase 3 · LOW preview approved by the owner (2026-11-17) · sheet `_system/cache/preview/26-014/26-014 · preview sheet.png`
-- [ ] Phase 4 · Export package: 0 of 6 (render.bat renders the masters and the loop; package.bat builds the stock image, the GIF and the cards)
+- [ ] Phase 4 · Export package: 2 of 6 (render.bat renders the masters and the loop; package.bat builds the stock image, the GIF and the cards)
 - [ ] Phase 5 · Registered in `05 Publish/Voxel Fauna · Registry.xlsx`
 - [ ] Phase 6 · Approved by the owner
 
@@ -29,8 +29,8 @@
 
 | ID | What | File |
 |---|---|---|
-| `VF-26-014-MASTER-DYN` | master render, dynamic pose, 4096 square (crops to 1:1, 9:16, 16:9) | not built yet |
-| `VF-26-014-MASTER-BLOCK` | master render, regular blocky pose, 4096 square (crops to 1:1, 9:16, 16:9) | not built yet |
+| `VF-26-014-MASTER-DYN` | master render, dynamic pose, 4096 square (crops to 1:1, 9:16, 16:9) | `export/VF-26-014-MASTER-DYN.png` |
+| `VF-26-014-MASTER-BLOCK` | master render, regular blocky pose, 4096 square (crops to 1:1, 9:16, 16:9) | `export/VF-26-014-MASTER-BLOCK.png` |
 | `VF-26-014-STOCK-1x1` | 1:1 dynamic for stock sites, the centre square of the dynamic master | not built yet |
 | `VF-26-014-LOOP` | looped dynamic animation, 1080 square | not built yet |
 | `VF-26-014-CARD-EN` | A5 card, English: front the dynamic pose over the photo with the info, back the blocky pose | not built yet |

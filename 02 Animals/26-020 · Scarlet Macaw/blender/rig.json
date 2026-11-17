@@ -1,25 +1,25 @@
 {
  "code": "26-020",
- "rigged": "2026-11-17T15:21:11",
+ "rigged": "2026-11-17T21:09:45",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:20:11",
+ "still_built": "2026-11-17T21:09:43",
  "motion_hash": "edd7d980c6a4792c",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "a1e29b85aca32f1c",
  "plan": "bird",
  "bones": 10,
  "fps": 24,
  "actions": {
   "pose": 1,
   "idle": 48,
-  "flap": 24
+  "flap": 48
  },
  "blend": "26-020 \u00b7 Scarlet Macaw \u00b7 Rig.blend",
  "glb": "26-020 \u00b7 Scarlet Macaw \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 3.6058473381259177,
+  "ortho_scale": 3.644933163808842,
   "box_size": [
-   2.5240931366881423,
-   2.4470171481370926
+   2.5514532146661892,
+   2.503831870853901
   ]
  },
  "vertices": 1624,

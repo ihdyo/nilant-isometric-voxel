@@ -7,11 +7,11 @@
 | `model.py` | the voxel model: `build(g)` on the grid of `_system/studio/blender/vf_voxel.py` (source of truth) |
 | `26-005 · Capybara.blend` | the editable project, built from `model.py`: collections Animal / Stage / Lights, six scenes (ILL and INF × 1x1, 9x16, 16x9) with framed orthographic cameras |
 | `build.json` | the stamp: when, which Blender, the model, look and standards hashes, framing, render times |
-| `26-005 · Capybara · Rig.blend` | the animation rig (`vf.py rig`, approved motion): armature `VF · armature` from the joints, mesh `VF · animal` skinned with rigid weights, actions pose (1 f), idle (48 f), walk (24 f), sniff (48 f) at 24 fps, scene `ANIM 1x1` |
+| `26-005 · Capybara · Rig.blend` | the animation rig (`vf.py rig`, approved motion): armature `VF · armature` from the joints, mesh `VF · animal` skinned with rigid weights, actions pose (1 f), idle (48 f), walk (48 f), sniff (48 f) at 24 fps, scene `ANIM 1x1` |
 | `26-005 · Capybara · Rig.glb` | the same rig and actions as glTF binary (Y up, one animation per action) |
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
 - Build: **current**, built 2026-11-17T17:23:06
-- Animation rig: **stale** (the still .blend was rebuilt, vf_rig.py changed), walker plan, 10 bones, rigged 2026-11-17T15:20:39
+- Animation rig: **current**, walker plan, 10 bones, rigged 2026-11-17T18:44:03
 - Model: the pose moves the lowest point to z = -0.13: the engine sets the animal back on the ground; posed size 28.8 x 13.5 x 18.7 voxels (L x W x H), 3603 voxels, colours dark, eye, fur, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, snout; turned ear_l, ear_r, head, leg_fl, leg_hr
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

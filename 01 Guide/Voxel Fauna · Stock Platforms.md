@@ -5,9 +5,8 @@ check each platform's contributor page before a big batch. Read on 2026-11-15.
 
 ## What we deliver per animal
 - The export package (owner, 2026-11-17) in `02 Animals/<code> · <Name>/export/`: two 4096 × 4096 master renders
-  (dynamic and regular blocky pose; each crops to 1:1, 9:16 2304×4096 and 16:9 4096×2304), the 1:1 stock image
-  (`STOCK-1x1`, 2880×2880, 8.3 MP), the loop GIF (1080 square) and the A5 card PDFs (English, Indonesian).
-- `vf.py stock <code>`: sRGB JPEGs (quality 95, 4:4:4, ICC embedded, XMP title/description/keywords) in `export/stock/`,
+  (dynamic and regular blocky pose; each crops to 1:1, 9:16 2304×4096 and 16:9 4096×2304), the loop GIF (1080 square) and the A5 card PDFs (English, Indonesian).
+- `vf.py stock <code>`: sRGB JPEGs (quality 95, 4:4:4, ICC embedded, XMP title/description/keywords) as `export/VF-<code>-STOCK.jpg` (the whole dynamic master, 4096×4096, 16.8 MP, no crop),
   `05 Publish/Stock/<code> · Adobe Stock.csv` and `· Shutterstock.csv`, and a Gumroad zip of the PNG masters in
   `05 Publish/Gumroad/`.
 - No logo, watermark, signature or URL in any image (owner, 2026-11-15).
@@ -18,7 +17,7 @@ The information artworks carry a real photograph of the species by a third party
 credited on the artwork). Stock sites license your content as your own work: Adobe Stock and Shutterstock contributors
 must own all rights in what they submit, and third-party photos, even free ones, are a reason for refusal or a later
 takedown. So:
-- **Stock sites get the 1:1 stock image only** (`vf.py stock` does this).
+- **Stock sites get the stock image only** (`STOCK.jpg`) (`vf.py stock` does this).
 - **Gumroad gets the whole package**: selling a design that includes a CC BY photo is allowed with the credit, which
   is printed on the card; public domain and CC0 need none. Keep the licence table of `docs/references.md` in the listing or
   the zip's notes if you want to be thorough.

@@ -4,7 +4,6 @@ PROPOSED 2026-11-17 (owner: "render.bat should be rendering only (2 image and 1 
 offlinely build the cards, crop 1:1 to stock, etc etc."). APPROVED 2026-11-17 and locked (v2.2 + the export package) with vf_export.EXPORT.
 
 From the renders of blender/vf_export.py (the two masters in export/, the cut-outs and the loop frames in the cache):
-  stock_crop   VF-<code>-STOCK-1x1.png: the centre EXPORT.stock square of the dynamic master (the image for stock sites)
   loop_gif     VF-<code>-LOOP.gif: the looped dynamic animation, EXPORT.loop.size square, 24 fps, plays forever
   card_pdf     VF-<code>-CARD-EN.pdf and -CARD-ID.pdf: A5 portrait with a 3 mm bleed at 300 dpi, two pages:
                  front  minimal and playful, no photograph (owner, 2026-11-17): the animal's own pastel, the kicker,
@@ -85,17 +84,7 @@ def plates(code, low=False):
     return os.path.join(VL.CACHE, "plates", code, "LOW" if low else "ULTRA")
 
 
-# ---- the stock crop and the loop --------------------------------------------------------------------------------------
-def stock_crop(master_png, out_png):
-    """The centre EXPORT.stock square of the dynamic master (scaled with the master: a LOW master gives a LOW crop)."""
-    with Image.open(master_png) as im:
-        im = im.convert("RGB")
-        s = round(im.width * EXPORT["stock"] / EXPORT["master"])
-        o = (im.width - s) // 2
-        im.crop((o, o, o + s, o + s)).save(out_png, optimize=True, dpi=(300, 300))
-    return out_png
-
-
+# ---- the loop ---------------------------------------------------------------------------------------------------------
 def loop_gif(frames, out_gif, fps):
     ims = [Image.open(p).convert("RGB").quantize(colors=255, method=Image.Quantize.MEDIANCUT,
                                                  dither=Image.Dither.NONE) for p in frames]
@@ -499,7 +488,7 @@ def card_pdf(animal, folder, lang, cut_dyn, master_block, out_pdf, strict=True):
 
 # ---- one animal ---------------------------------------------------------------------------------------------------------
 def package(folder, animal, low=False, strict=True):
-    """Everything offline for one animal, from its renders: the stock crop, the GIF and the two cards."""
+    """Everything offline for one animal, from its renders: the GIF and the two cards (the stock JPEG: stock.py)."""
     code = animal["code"]
     pl = plates(code, low)
     mdyn, mblock = export_file(folder, code, "MASTER-DYN", low), export_file(folder, code, "MASTER-BLOCK", low)
@@ -508,7 +497,7 @@ def package(folder, animal, low=False, strict=True):
     if missing:
         raise SystemExit(f"{code}: render first (vf.py final {code}{' --low' if low else ''}): missing "
                          + ", ".join(VL.rel(p) for p in missing))
-    out = dict(stock=stock_crop(mdyn, export_file(folder, code, "STOCK-1x1", low)))
+    out = {}
     frames = sorted(os.path.join(pl, "loop", f) for f in os.listdir(os.path.join(pl, "loop")) if f.endswith(".png")) \
         if os.path.isdir(os.path.join(pl, "loop")) else []
     if not frames:

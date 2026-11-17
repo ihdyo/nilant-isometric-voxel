@@ -4,11 +4,11 @@ rem  Voxel Fauna - render. Double-click it. (Ported from Nilant's render.bat, 20
 rem
 rem  Builds every animal's .blend from its model.py, renders LOW previews, and the ULTRA renders of every
 rem  approved animal (the two master renders and the frames of the looped animation), offline: no internet, no
-rem  Claude. Rendering, then P packages the stock image, the GIF and the cards.
+rem  Claude. Rendering, then P packages the GIF, the cards and the stock JPEG.
 rem  The colour-coded menu runs from ..\scripts\render_cli.py:
 rem    RENDER   1 build missing or stale .blend . 2 LOW previews of every built animal
 rem             3 ULTRA renders (two masters + the loop) of every preview-approved animal . 4 one animal
-rem             P package: stock image, loop GIF, A5 cards, stock files, zip, registry (offline, after 3)
+rem             P package: loop GIF, A5 cards, stock JPEG and CSVs, zip, registry (offline, after 3)
 rem    CHECK    5 status of every animal . 6 one animal's files
 rem    CONTROL  Q quit
 rem  Pause any time: Ctrl+C or close the window (finished images are kept); open it again and choose the same option.

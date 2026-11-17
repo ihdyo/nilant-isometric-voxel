@@ -175,7 +175,7 @@ Per animal, in `export/` (the IDs `VF-<code>-<item>`; numbers in `blender/vf_exp
 |---|---|
 | `MASTER-DYN.png` | the master render, dynamic pose (the action `pose`, the approved still): 4096 square on the animal's background with the composited shadow; the animal inside the centre 2304 safe square, so a centred 1:1, 9:16 (2304 × 4096) or 16:9 (4096 × 2304) crop never cuts it |
 | `MASTER-BLOCK.png` | the same for the regular blocky pose (the rest pose, every joint straight, set on the ground) |
-| `STOCK-1x1.png` | the 1:1 image for stock sites: the centre 2880 square of the dynamic master (8.3 MP) |
+| `STOCK.jpg` | the image for stock sites: the whole dynamic master (4096 square, 16.8 MP, no crop) as an sRGB JPEG with its title and keywords, beside the package in `export/` (owner 2026-11-17: no crop, no `stock/` folder); not in the Gumroad zip |
 | `LOOP.gif` | the looped dynamic animation: the signature action (motion.signature, else the first after idle), 1080 square, 24 fps |
 | `CARD-EN.pdf`, `CARD-ID.pdf` | the A5 card (148 × 210 mm, 3 mm bleed, 300 dpi, trim box set), one per language. Front, minimal and playful, no photograph for now: the animal's pastel, the name big with the scientific name and IUCN chip, the Nilant wordmark top right, the dynamic model (its body centred) with its own rendered shadow among a few small particles (the background family's 400-600 tints, mixed shapes), four boxless stats with pixel icons, home and menu in two columns, the fun fact on a full-bleed band with a straight top edge. Back: the blocky master with "powered by" + the ihdyo mark + "ihdyo", small at the bottom, black on a light background and white on a dark one (the only place the brand appears) |
 - **Two batch files:** `render.bat` → 3 only renders (owner: "render.bat should be rendering only (2 image and 1
@@ -281,7 +281,7 @@ rendering).
   appends a dated row to the registry's Publish Log sheet and to `05 Publish/Voxel Fauna · Publish Log.md`, and sets
   the image's platform cell. Actions: Submitted, Accepted, Rejected, Live, Removed, Updated.
 - **Stock vs Gumroad:** the cards carry a third-party photograph, which stock sites' contributor terms do not let
-  you license as your own work, so `vf.py stock` packages **only the 1:1 stock image** (`STOCK-1x1`) for Adobe
+  you license as your own work, so `vf.py stock` packages **only the stock image** (`STOCK.jpg`, the dynamic master) for Adobe
   Stock and Shutterstock (JPEG, sRGB, XMP metadata, CSVs) and puts **the whole export package** in the Gumroad zip,
   where the photo credit on the card satisfies CC BY. The generative-AI box stays unticked. Details: `01 Guide/Voxel Fauna · Stock Platforms.md`.
 

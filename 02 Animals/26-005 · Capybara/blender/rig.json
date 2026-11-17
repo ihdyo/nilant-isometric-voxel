@@ -1,26 +1,26 @@
 {
  "code": "26-005",
- "rigged": "2026-11-17T15:20:39",
+ "rigged": "2026-11-17T18:44:03",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:19:35",
+ "still_built": "2026-11-17T17:23:06",
  "motion_hash": "1a7b96e1a10f3d0f",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "a1e29b85aca32f1c",
  "plan": "walker",
  "bones": 10,
  "fps": 24,
  "actions": {
   "pose": 1,
   "idle": 48,
-  "walk": 24,
+  "walk": 48,
   "sniff": 48
  },
  "blend": "26-005 \u00b7 Capybara \u00b7 Rig.blend",
  "glb": "26-005 \u00b7 Capybara \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 4.008363227023823,
+  "ortho_scale": 4.0948859497533,
   "box_size": [
-   2.8058542589166757,
-   2.430842876434326
+   2.8664201648273098,
+   2.457411538809538
   ]
  },
  "vertices": 2180,

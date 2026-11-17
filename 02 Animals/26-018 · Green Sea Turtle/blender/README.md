@@ -12,6 +12,6 @@
 | `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |
 
 - Build: **current**, built 2026-11-17T17:30:26
-- Animation rig: **stale** (the still .blend was rebuilt, vf_rig.py changed), swimmer plan, 7 bones, rigged 2026-11-17T15:21:05
+- Animation rig: **current**, swimmer plan, 7 bones, rigged 2026-11-17T20:53:02
 - Model: posed size 26.8 x 30.8 x 7.4 voxels (L x W x H), 2151 voxels, colours belly, eye, seam, shell, skin, parts body, flipper_hl, flipper_hr, flipper_l, flipper_r, head; turned flipper_hl, flipper_hr, flipper_l, flipper_r, head
 - Standards 2.2, rig `iso_top`, geometry `mob`, Blender 5.3.0

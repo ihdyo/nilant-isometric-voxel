@@ -50,7 +50,7 @@ Six phases, two approvals by the owner. The rules behind each step are in the sk
 
 ## Phase 5 · Documentation and registry
 1. `vf.py overview <code>`; `vf.py register <code>` → rows in `05 Publish/Voxel Fauna · Registry.xlsx`.
-2. `render.bat` → P (or `vf.py stock <code>`) → the JPEG of the 1:1 stock image and upload CSVs (stock sites), the
+2. `render.bat` → P (or `vf.py stock <code>`) → the stock JPEG (the whole dynamic master, in `export/`) and upload CSVs (stock sites), the
    Gumroad zip of the whole export package.
 3. `vf.py verify`.
 

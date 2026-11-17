@@ -23,7 +23,7 @@
   overview <code>             rewrites overview.md from animal.json and the files
   register <code>             adds or updates the animal and its six images in 05 Publish/Voxel Fauna · Registry.xlsx
   stock <code> [--only ILL-1x1,ILL-16x9]
-                              stock JPEGs in export/stock/, upload CSVs in 05 Publish/Stock/ (illustrations only by
+                              the stock JPEG in export/, upload CSVs in 05 Publish/Stock/ (illustrations only by
                               default: the information artworks carry a third-party photo), the Gumroad zip (all six)
   log <code|Image ID> <platform> <action> [--kinds ILL] [--link URL] [--note "..."]
                               records an upload event in the Publish Log (registry sheet + markdown), like Nilant's log
@@ -605,7 +605,7 @@ def package_one(folder, animal, low=False):
     import package as PK
     res = PK.package(folder, animal, low=low)
     out(f"  package {animal['code']} · {animal['common']}{' (LOW)' if low else ''}: "
-        + ", ".join(VL.rel(p) for p in [res["stock"], res["loop"]] + [c["pdf"] for c in res["cards"].values()]))
+        + ", ".join(VL.rel(p) for p in [res["loop"]] + [c["pdf"] for c in res["cards"].values()]))
     return res
 
 
@@ -669,7 +669,7 @@ def cmd_package(a):
     return 0
 
 
-PACKAGE_STEPS = (("stock image", 1), ("loop GIF", 15), ("card EN", 8), ("card ID", 8), ("stock files", 4))   # seconds each
+PACKAGE_STEPS = (("loop GIF", 15), ("card EN", 8), ("card ID", 8), ("stock files", 4))   # seconds each
 
 
 def package_state(folder, animal, low=False):
@@ -684,6 +684,9 @@ def package_state(folder, animal, low=False):
         return "not rendered"
     newest = max(os.path.getmtime(p) for p in src + [os.path.join(folder, "animal.json")])
     outs = [PK.export_file(folder, code, s, low) for s, _, _ in PK.EXPORT["items"] if not s.startswith("MASTER")]
+    if not low:                                            # the stock JPEG beside the package (stock.py)
+        import stock as SK
+        outs.append(SK.stock_file(folder, code))
     return "todo" if any(not os.path.exists(p) or os.path.getmtime(p) < newest for p in outs) else "done"
 
 
@@ -692,11 +695,11 @@ def _package_with_steps(folder, animal):
     import package as PK
     import stock as SK
     import registry as RG
-    saved = {k: getattr(PK, k) for k in ("stock_crop", "loop_gif", "card_pdf")}
+    saved = {k: getattr(PK, k) for k in ("loop_gif", "card_pdf")}
 
     def wrap(name):
         def step(*a, **k):
-            VL.LIVE.set_note({"stock_crop": "stock image", "loop_gif": "loop GIF"}.get(name) or f"card {str(a[2]).upper()}")
+            VL.LIVE.set_note({"loop_gif": "loop GIF"}.get(name) or f"card {str(a[2]).upper()}")
             r = saved[name](*a, **k)
             VL.LIVE.item_done()
             return r
@@ -708,7 +711,7 @@ def _package_with_steps(folder, animal):
     finally:
         for k, f in saved.items():
             setattr(PK, k, f)
-    VL.LIVE.set_note("stock files")
+    VL.LIVE.set_note("stock image")
     SK.package(folder, animal)
     RG.upsert(folder, animal)
     write_overview(folder, animal)
@@ -739,7 +742,7 @@ def cmd_package_pending(a):
                 try:
                     _package_with_steps(d, an)
                     done.append(an["code"])
-                    out(f"  {VL.TICK} {an['code']} {an['common']}: stock image, loop GIF, two cards, stock files")
+                    out(f"  {VL.TICK} {an['code']} {an['common']}: loop GIF, two cards, stock image")
                 except (SystemExit, ValueError, OSError) as e:
                     VL.LIVE.drop(sum(ests), len(ests))
                     skipped.append(f"{an['code']} ({e})")
@@ -1239,7 +1242,7 @@ def write_overview(folder, animal):
         + (f" ({ap['preview']})" if ap.get("preview") else "")
         + (f" · sheet `{VL.rel(preview_sheet)}`" if os.path.exists(preview_sheet) else ""),
         f"- [{box(n_ex == len(items))}] Phase 4 · Export package: {n_ex} of {len(items)} (render.bat renders the "
-        "masters and the loop; render.bat, P builds the stock image, the GIF and the cards)",
+        "masters and the loop; render.bat, P builds the GIF, the cards and the stock JPEG)",
         f"- [{box(animal['status'] in ('Registered', 'Approved'))}] Phase 5 · Registered in `05 Publish/Voxel Fauna · Registry.xlsx`",
         f"- [{box(bool(ap.get('final')))}] Phase 6 · Approved by the owner" + (f" ({ap['final']})" if ap.get("final") else ""), "",
         "## At a glance", "",
@@ -1288,11 +1291,12 @@ def write_render_readme():
             state = build_state(d, an)[0]
         T, _, _ = targets(an, "LOW", d)
         low = sum(os.path.exists(t["final"]) for t in T)
-        import package as PK                               # the six items of the export package
+        import package as PK                               # the items of the export package
+        n_items = len(PK.EXPORT["items"])
         ult = sum(os.path.exists(PK.export_file(d, an["code"], s)) for s, _, _ in PK.EXPORT["items"])
-        n_final += ult == 6
+        n_final += ult == n_items
         ap = an.get("approvals") or {}
-        rows.append(f"| {an['code']} | {an['common']} | {state} | {low}/6 | {ap.get('preview') or '-'} | {ult}/6 | "
+        rows.append(f"| {an['code']} | {an['common']} | {state} | {low}/6 | {ap.get('preview') or '-'} | {ult}/{n_items} | "
                     f"{ap.get('final') or '-'} |")
     lines = ["# Voxel Fauna · render status", "",
              "> Written by `render.bat` (and `vf.py render-all`). Double-click `render.bat` to build, preview and render.", "",

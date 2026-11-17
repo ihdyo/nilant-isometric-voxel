@@ -1,26 +1,26 @@
 {
  "code": "26-015",
- "rigged": "2026-11-17T15:21:00",
+ "rigged": "2026-11-17T20:26:00",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:19:59",
+ "still_built": "2026-11-17T17:28:27",
  "motion_hash": "1a7b96e1a10f3d0f",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "a1e29b85aca32f1c",
  "plan": "walker",
  "bones": 7,
  "fps": 24,
  "actions": {
   "pose": 1,
   "idle": 48,
-  "walk": 24,
+  "walk": 48,
   "sniff": 48
  },
  "blend": "26-015 \u00b7 European Hedgehog \u00b7 Rig.blend",
  "glb": "26-015 \u00b7 European Hedgehog \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 2.4734903454583193,
+  "ortho_scale": 2.5455094228502215,
   "box_size": [
-   1.7314432418208234,
-   1.5913253128528595
+   1.781856595995155,
+   1.6121978461742401
   ]
  },
  "vertices": 1012,

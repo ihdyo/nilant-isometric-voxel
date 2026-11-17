@@ -2,7 +2,7 @@
   "code": "26-015",
   "common": "European Hedgehog",
   "scientific": "Erinaceus europaeus",
-  "status": "Preview approved",
+  "status": "Final",
   "facing": "+X",
   "look": {
     "palette": {
@@ -157,7 +157,8 @@
   "history": [
     "2026-11-16 Research (folder created)",
     "2026-11-16 Preview",
-    "2026-11-17 Preview approved"
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final"
   ],
   "motion": {
     "plan": "walker",

@@ -2,7 +2,7 @@
 
     RENDER   1 build every missing or stale .blend   2 LOW previews of every built animal (+ rigs and loops)
              3 ULTRA renders of every approved animal: the two masters and the loop (rendering only;
-               P then packages the stock image, the GIF and the cards)   4 one animal (build, preview or final)
+               P then packages the GIF, the cards and the stock JPEG)   4 one animal (build, preview or final)
     MOTION   R rig every animal + GIF loops
     CHECK    5 status of every animal                 6 one animal's files
     CONTROL  Q quit
@@ -121,8 +121,13 @@ def state(d):
     low = sum(os.path.exists(t["final"]) for t in vf.targets(an, "LOW", d)[0])
     import package as PK
     ult = sum(os.path.exists(PK.export_file(d, an["code"], s)) for s, _, _ in PK.EXPORT["items"])
-    ap = an.get("approvals") or {}                 # ult: the six items of the export package
+    ap = an.get("approvals") or {}                 # ult: the items of the export package (masters, GIF, cards)
     return an, bs, low, ult, ap
+
+
+def n_items():
+    import package as PK
+    return len(PK.EXPORT["items"])
 
 
 def colour_of(bs, low, ult, ap):
@@ -130,10 +135,10 @@ def colour_of(bs, low, ult, ap):
         return "grey"
     if bs == "stale":
         return "red"
-    if ap.get("final") and ult == 6:
+    if ap.get("final") and ult == n_items():
         return "green"
     if ap.get("preview"):
-        return "yellow" if ult < 6 else "green"
+        return "yellow" if ult < n_items() else "green"
     return "blue" if low == 6 else "cyan"
 
 
@@ -185,7 +190,7 @@ def summary(rows):
     stale = sum(r[2] == "stale" for r in rows)
     prev = sum(r[3] == 6 for r in rows)
     appr = sum(bool(r[5].get("preview")) for r in rows)
-    fin = sum(r[4] == 6 for r in rows)
+    fin = sum(r[4] == n_items() for r in rows)
     print(f"  {c('Animals', 'b')}    {bar(built / n)}  {c(f'{built} of {len(rows)}', 'b')} built"
           + (c(f", {stale} stale: choose 1", "red", "b") if stale else ""))
     print(f"  {c('Previews', 'b')}   {bar(prev / n, colour='blue')}  {c(f'{prev} of {len(rows)}', 'b')} with six LOW images"
@@ -204,7 +209,7 @@ def summary(rows):
     else:
         print(f"  {c('Next', 'b')}       {c('approve a preview (vf.py approve <code> preview) before an ULTRA render', 'grey')}")
     if pkg_n:
-        print(f"  {c('Package', 'b')}    {c(f'{pkg_n} animal(s) rendered', 'yellow')}, ready for the stock image, loop GIF and cards, "
+        print(f"  {c('Package', 'b')}    {c(f'{pkg_n} animal(s) rendered', 'yellow')}, ready for the loop GIF, cards and stock JPEG, "
               f"{c('roughly ' + hm(pkg_s) + ': press P', 'yellow')}")
     print()
     return ult_n, ult_s
@@ -224,9 +229,9 @@ def screen_status(rows=None):
     print(c(f"    {'code':<7} {'animal':<20} {'.blend':<8} {'LOW':<4} {'approved':<11} {'export'}", "grey"))
     for d, an, bs, low, ult, ap in rows:
         col = colour_of(bs, low, ult, ap)
-        ub = c(BLOCK * ult, "green") + c(SHADE * (6 - ult), "grey")
+        ub = c(BLOCK * ult, "green") + c(SHADE * (n_items() - ult), "grey")
         print(f"  {c(DOT, col)} {an['code']:<7} {an['common'][:20]:<20} {pad(c(bs, col), 8)} {low}/6  "
-              f"{(ap.get('preview') or '-'):<11} {ub} {ult}/6"
+              f"{(ap.get('preview') or '-'):<11} {ub} {ult}/{n_items()}"
               + (c(f"  final {ap['final']}", "green") if ap.get("final") else ""))
     rule()
     say(c("Colours show each animal's state. Choose 'One animal' for its files.", "grey"))
@@ -336,7 +341,7 @@ def menu():
               item("1", "Build missing or stale .blend", stale, "green"),
               item("2", "LOW previews + rigs and loops" + c(f"  ~{hm(low_s)}" if low_n else "", "grey")),
               item("3", "ULTRA masters + loop (approved)" + c(f"  ~{hm(ult_s)}" if ult_n else "", "grey"), bool(ult_n), "green"),
-              item("P", "Package: stock image, GIF, cards" + c(f"  ~{hm(pkg_s)}" if pkg_n else "", "grey"), bool(pkg_n), "green"),
+              item("P", "Package: GIF, cards, stock JPEG" + c(f"  ~{hm(pkg_s)}" if pkg_n else "", "grey"), bool(pkg_n), "green"),
               item("4", "One animal"),
               item("R", "Rig every animal + GIF loops")],
              [c(PLAY + " CHECK", "b", "cyan"),

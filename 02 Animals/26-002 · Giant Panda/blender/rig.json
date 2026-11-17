@@ -1,25 +1,25 @@
 {
  "code": "26-002",
- "rigged": "2026-11-17T15:20:31",
+ "rigged": "2026-11-18T00:26:15",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:19:28",
+ "still_built": "2026-11-18T00:26:13",
  "motion_hash": "22d3c1a23f6e7d9f",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "362ec15815ae71cd",
  "plan": "walker",
  "bones": 10,
  "fps": 24,
  "actions": {
   "pose": 1,
   "idle": 48,
-  "walk": 24
+  "walk": 48
  },
  "blend": "26-002 \u00b7 Giant Panda \u00b7 Rig.blend",
  "glb": "26-002 \u00b7 Giant Panda \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 4.246248808600656,
+  "ortho_scale": 4.298449785786646,
   "box_size": [
-   2.972374166020459,
-   2.717291295528412
+   3.008914850050652,
+   2.743982834741473
   ]
  },
  "vertices": 2714,

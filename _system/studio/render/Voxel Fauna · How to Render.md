@@ -69,9 +69,8 @@ The values live in `_system/studio/blender/vf_standards.py` (`PROFILES`) and are
 ## Package (P, after the renders)
 
 Choose `P` in `render.bat` (or `render.bat package`, `render.bat package 26-001` for one animal) when the ULTRA renders are done. Offline, no Blender: for every
-animal with its two masters it builds `VF-<code>-STOCK-1x1.png` (the centre 2880 square of the dynamic master),
-`VF-<code>-LOOP.gif` (1080 square, 24 fps), `VF-<code>-CARD-EN.pdf` and `VF-<code>-CARD-ID.pdf` (A5, 3 mm bleed,
+animal with its two masters it builds `VF-<code>-LOOP.gif` (1080 square, 24 fps), `VF-<code>-CARD-EN.pdf` and `VF-<code>-CARD-ID.pdf` (A5, 3 mm bleed,
 300 dpi: front the model over the real photo with the information, back the blocky model with "powered by ihdyo"),
-then the stock JPEG and CSVs, the Gumroad zip and the registry rows. `render.bat package 26-001` does one animal. It needs
+then `VF-<code>-STOCK.jpg` (the whole dynamic master as the stock JPEG, no crop) and its CSVs, the Gumroad zip and the registry rows. `render.bat package 26-001` does one animal. It needs
 Python with Pillow, openpyxl and PyMuPDF (`pip install pillow openpyxl pymupdf`). A card whose text does not fit
 stops with the field to shorten (`animal.json → info`, or `i18n.id` for the Indonesian card).

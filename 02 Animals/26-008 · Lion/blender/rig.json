@@ -1,26 +1,26 @@
 {
  "code": "26-008",
- "rigged": "2026-11-17T15:20:46",
+ "rigged": "2026-11-17T19:17:32",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:19:42",
+ "still_built": "2026-11-17T17:24:27",
  "motion_hash": "83529e5c29bfddf9",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "a1e29b85aca32f1c",
  "plan": "walker",
  "bones": 17,
  "fps": 24,
  "actions": {
   "pose": 1,
   "idle": 48,
-  "walk": 32,
+  "walk": 64,
   "shake": 24
  },
  "blend": "26-008 \u00b7 Lion \u00b7 Rig.blend",
  "glb": "26-008 \u00b7 Lion \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 5.767268512042167,
+  "ortho_scale": 5.8259464717680185,
   "box_size": [
-   4.037087958429517,
-   3.161396810784936
+   4.078162530237613,
+   3.2100536916404963
   ]
  },
  "vertices": 4440,

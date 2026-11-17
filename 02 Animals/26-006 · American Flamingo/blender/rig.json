@@ -1,10 +1,10 @@
 {
  "code": "26-006",
- "rigged": "2026-11-17T17:17:05",
+ "rigged": "2026-11-18T00:23:48",
  "blender": "5.3.0",
- "still_built": "2026-11-17T17:13:37",
+ "still_built": "2026-11-18T00:23:46",
  "motion_hash": "16bd6a06f8b89da9",
- "rig_engine": "a1e29b85aca32f1c",
+ "rig_engine": "362ec15815ae71cd",
  "plan": "bird",
  "bones": 13,
  "fps": 24,

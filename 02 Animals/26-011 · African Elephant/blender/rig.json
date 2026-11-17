@@ -1,26 +1,26 @@
 {
  "code": "26-011",
- "rigged": "2026-11-17T15:20:53",
+ "rigged": "2026-11-18T00:26:38",
  "blender": "5.3.0",
- "still_built": "2026-11-17T15:19:50",
+ "still_built": "2026-11-18T00:26:36",
  "motion_hash": "027bce984a8bc782",
- "rig_engine": "2ae7404b96e5b6c3",
+ "rig_engine": "362ec15815ae71cd",
  "plan": "walker",
  "bones": 19,
  "fps": 24,
  "actions": {
   "pose": 1,
   "idle": 48,
-  "walk": 32,
+  "walk": 64,
   "fan": 48
  },
  "blend": "26-011 \u00b7 African Elephant \u00b7 Rig.blend",
  "glb": "26-011 \u00b7 African Elephant \u00b7 Rig.glb",
  "frame": {
-  "ortho_scale": 6.885897288986812,
+  "ortho_scale": 7.07157969614114,
   "box_size": [
-   4.820128102290768,
-   4.650590315461159
+   4.9501057872987975,
+   4.68634388409555
   ]
  },
  "vertices": 7464,

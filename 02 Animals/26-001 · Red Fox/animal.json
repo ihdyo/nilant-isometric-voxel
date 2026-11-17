@@ -2,7 +2,7 @@
   "code": "26-001",
   "common": "Red Fox",
   "scientific": "Vulpes vulpes",
-  "status": "Preview approved",
+  "status": "Registered",
   "facing": "+X",
   "look": {
     "palette": {
@@ -163,7 +163,9 @@
   "history": [
     "2026-11-16 Research (folder created)",
     "2026-11-16 Preview",
-    "2026-11-17 Preview approved"
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final",
+    "2026-11-17 Registered"
   ],
   "motion": {
     "plan": "walker",
