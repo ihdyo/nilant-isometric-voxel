@@ -1,147 +1,97 @@
 {
  "code": "26-007",
- "built": "2026-11-16T17:08:01",
+ "built": "2026-11-17T15:19:40",
  "blender": "5.3.0",
- "model_hash": "aa6e380b19997ca1",
+ "model_hash": "9e9b8c0ec6a0670c",
  "look_hash": "88e029a8259fe2c3",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_standards.py": "ff985f934e6babaf",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
   "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
  },
- "standards_version": "2.1",
+ "standards_version": "2.2",
  "rig": "iso_top",
  "geometry": "mob",
  "model": {
   "errors": [],
   "notes": [
-   "posed size 13.6 x 24.4 x 25.3 voxels (L x W x H), 2988 voxels, colours eye, fur, nose, paw, white, parts arm_l, arm_r, body, ear_l, ear_r, head, leg_l, leg_r, nose; turned arm_l, arm_r, ear_l, ear_r, head, leg_l, leg_r"
+   "the pose moves the lowest point to z = -0.18: the engine sets the animal back on the ground",
+   "posed size 22.2 x 22.4 x 22.1 voxels (L x W x H), 2594 voxels, colours eye, fur, nose, paw, white, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, nose; turned ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr"
   ],
   "size": [
-   12,
-   23,
-   24
+   22,
+   21,
+   21
   ],
-  "voxels": 2988
+  "voxels": 2594
  },
  "frames": {
   "ILL 1x1": {
-   "ortho_scale": 4.235804144825255,
+   "ortho_scale": 3.422288988306296,
    "view": [
-    4.235804144825255,
-    4.235804144825255
+    3.422288988306296,
+    3.422288988306296
    ],
    "box_size": [
-    2.1487629194950344,
-    2.965062901377678
+    2.395602291814407,
+    2.191453840583563
    ]
   },
   "ILL 9x16": {
-   "ortho_scale": 4.658564595111185,
+   "ortho_scale": 5.193717705830693,
    "view": [
-    2.620442584750042,
-    4.658564595111185
+    2.9214662095297648,
+    5.193717705830693
    ],
    "box_size": [
-    2.1487629194950344,
-    2.965062901377678
+    2.395602291814407,
+    2.191453840583563
    ]
   },
   "ILL 16x9": {
-   "ortho_scale": 7.75179843497432,
+   "ortho_scale": 5.729291086492974,
    "view": [
-    7.75179843497432,
-    4.360386619673055
+    5.729291086492974,
+    3.222726236152298
    ],
    "box_size": [
-    2.1487629194950344,
-    2.965062901377678
+    2.395602291814407,
+    2.191453840583563
    ]
   },
   "INF 1x1": {
-   "ortho_scale": 8.088005732072228,
+   "ortho_scale": 5.977779161439071,
    "view": [
-    8.088005732072228,
-    8.088005732072228
+    5.977779161439071,
+    5.977779161439071
    ],
    "box_size": [
-    2.1487629194950344,
-    2.965062901377678
+    2.395602291814407,
+    2.191453840583563
    ]
   },
   "INF 9x16": {
-   "ortho_scale": 12.132008598108339,
+   "ortho_scale": 8.966668742158603,
    "view": [
-    6.824254836435941,
-    12.132008598108339
+    5.043751167464214,
+    8.966668742158603
    ],
    "box_size": [
-    2.1487629194950344,
-    2.965062901377678
+    2.395602291814407,
+    2.191453840583563
    ]
   },
   "INF 16x9": {
-   "ortho_scale": 6.732085486312309,
+   "ortho_scale": 5.7864789657352835,
    "view": [
-    6.732085486312309,
-    3.7867980860506743
+    5.7864789657352835,
+    3.254894418226097
    ],
    "box_size": [
-    2.1487629194950344,
-    2.965062901377678
+    2.395602291814407,
+    2.191453840583563
    ]
   }
  },
- "renders": {
-  "LOW": {
-   "ILL 1x1": {
-    "seconds": 5.2,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 9x16": {
-    "seconds": 3.1,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 16x9": {
-    "seconds": 3.7,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 1x1": {
-    "seconds": 4.5,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 9x16": {
-    "seconds": 3.4,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 16x9": {
-    "seconds": 2.8,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   }
-  }
- }
+ "renders": {}
 }

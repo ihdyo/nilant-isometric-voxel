@@ -1,0 +1,43 @@
+{
+ "code": "26-021",
+ "rigged": "2026-11-17T15:21:12",
+ "blender": "5.3.0",
+ "still_built": "2026-11-17T15:20:13",
+ "motion_hash": "322080fd75f0f409",
+ "rig_engine": "2ae7404b96e5b6c3",
+ "plan": "swimmer",
+ "bones": 9,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "swim": 32
+ },
+ "blend": "26-021 \u00b7 Bottlenose Dolphin \u00b7 Rig.blend",
+ "glb": "26-021 \u00b7 Bottlenose Dolphin \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 5.198582396559257,
+  "box_size": [
+   3.6390076775914793,
+   3.096760794520378
+  ]
+ },
+ "vertices": 1682,
+ "groups": [
+  "beak",
+  "body",
+  "flipper_l",
+  "flipper_r",
+  "flukes",
+  "head",
+  "tail",
+  "tail_tip"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

@@ -2,7 +2,7 @@
   "code": "26-012",
   "common": "Bengal Tiger",
   "scientific": "Panthera tigris tigris",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -155,14 +155,56 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "314e41cf73d92f3e/7c1ea3df55b4a141"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 5 animals'); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Harimau Benggala",
+      "kicker": "Mamalia · Keluarga kucing",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "hingga 3 m"
+        },
+        {
+          "label": "Berat",
+          "value": "maks 225 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "≤15 tahun"
+        },
+        {
+          "label": "Taring",
+          "value": "7,5–10 cm"
+        }
+      ],
+      "habitat": "Hutan, bakau, rawa, dan rumput tinggi di India, Bangladesh, Nepal, Bhutan, dan Myanmar.",
+      "diet": "Rusa, babi hutan, antelop, dan kerbau, diintai di balik rumput. Sekali makan bisa 40 kg!",
+      "facts": [
+        "Harimau perenang hebat: satu tercatat menyeberangi 29 km air!",
+        "Taringnya terpanjang di antara kucing besar: hingga 10 cm, sepanjang jarimu."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

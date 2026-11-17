@@ -1,8 +1,8 @@
 """26-025 · Plains Zebra (Equus quagga) · voxel model, bulky blocky-mob style.
 Built from docs/voxel-model.md. Palette keys: white, stripe, muzzle. Size: 33 x 12 x 39 voxels posed.
 Personality: lively, sociable and a little cheeky. Pose: trotting with one front leg lifted, the head held high and
-turned to the camera, the short mane bristling, the tail swishing. Expression: a big dark eye with a white glint and a
-cheeky smirk, painted flat."""
+turned to the camera, the short mane bristling along the top and down the back of the neck, the tail swishing.
+Expression: a big dark eye with a white glint and a cheeky smirk, painted flat."""
 
 
 def build(g):
@@ -27,12 +27,15 @@ def build(g):
     g.box((-1, 0, 17), (-1, 0, 23), "white", part="tail")
     g.box((-1, -1, 13), (-1, 1, 16), "stripe", part="tail")
     g.joint("tail", pivot=(-0.5, 0.5, 23.5), rotate=(-20, 0, 0), parent="body")
-    # neck: raised, vertical stripes, the short upright striped mane along its top
-    g.box((18, -3, 25), (22, 3, 32), "white", part="neck")
+    # neck: raised, a little narrower than the head, vertical stripes; the short upright striped mane, a brush three
+    # voxels wide, runs along its top and down the back of the neck to the withers
+    g.box((18, -2, 25), (22, 2, 32), "white", part="neck")
     for x in (19, 21):
-        g.paint((x, -3, 25), (x, 3, 32), "stripe", of="neck")
+        g.paint((x, -2, 25), (x, 2, 32), "stripe", of="neck")
     for x in range(17, 23):
-        g.box((x, 0, 33), (x, 0, 34), "stripe" if x % 2 else "white", part="neck")
+        g.box((x, -1, 33), (x, 1, 34), "stripe" if x % 2 else "white", part="neck")
+    for z in range(25, 35):
+        g.box((15, -1, z), (17, 1, z), "stripe" if z % 2 else "white", part="neck")
     g.joint("neck", pivot=(20, 0.5, 24.5), rotate=(0, -6, -10), parent="body")
     # head: a long box held high, stripes across the forehead, the dark muzzle
     g.box((22, -3, 30), (29, 3, 35), "white", part="head")

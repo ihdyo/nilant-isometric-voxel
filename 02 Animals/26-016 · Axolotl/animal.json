@@ -2,7 +2,7 @@
   "code": "26-016",
   "common": "Axolotl",
   "scientific": "Ambystoma mexicanum",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -145,14 +145,56 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "7661e8ad21b78f92/a9edc4ed4be12fdf"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "sprawler",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Aksolotl",
+      "kicker": "Amfibi · Keluarga salamander",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "~23 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "60–110 g"
+        },
+        {
+          "label": "Telur",
+          "value": "100–300"
+        },
+        {
+          "label": "Usia",
+          "value": "≤15 tahun"
+        }
+      ],
+      "habitat": "Kanal Danau Xochimilco di Kota Meksiko, tinggi di pegunungan. Danau lainnya sudah kering.",
+      "diet": "Siput, cacing, serangga, ikan kecil, bahkan aksolotl lain!",
+      "facts": [
+        "Insang bayinya yang berbulu bertahan seumur hidup, dan ia bisa menumbuhkan lagi anggota tubuh.",
+        "Hampir semua aksolotl lab berasal dari 33 ekor yang dikirim dari Meksiko ke Paris pada 1864!"
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

@@ -75,4 +75,4 @@ The lifespan figure is a recorded maximum, not an average [1].
 
 ## Modelling notes (from the photographs)
 
-See `docs/voxel-model.md`. Key features: the domed shell with its pattern of plates; big paddle flippers; a small rounded head; a pale yellow underside; olive skin.
+See `docs/voxel-model.md`. Key features: the low shell with its pattern of plates; big paddle flippers; a small rounded head; a pale yellow underside; olive skin.

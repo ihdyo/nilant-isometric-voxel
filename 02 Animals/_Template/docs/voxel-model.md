@@ -28,6 +28,15 @@ Background (not modelled): `sky-200` (rendered muted).
 - Expression: eyes (2 × 2 with a glint, a closed line, a smug tilt), brows or lids (tilted plates), mouth (a smile,
   a smirk, a surprised dot).
 
+## Motion (every animal is rigged and animated; set in `animal.json → motion`)
+
+- Plan: walker, sitter, bird, swimmer, sprawler or hopper (four-legged animals stand on four feet and walk).
+- Actions: `pose`, `idle`, the gait (`walk`, `flap`, `hop`, `swim`, `waddle`) and the species specials it is known
+  for (`howl`, `doze`, `shake`, `yawn`, `fan`, `reach`, `sniff`, or a new one added to the library in `vf_rig.py`).
+- Sections the rig needs, named as in `key-prompt.md` rule 5: `head`, the legs (`leg_fl` … with `shin_fl` … for
+  knees; `leg_l` + `shin_l` + `foot_l` on two legs), `ear_l`, `tail` + `tail_tip`, `wing_l`, `flipper_l` …
+- Done when `vf.py preview` (or `vf.py rig`) reports rig check PASS and the loops look right.
+
 ## Proportions (from the photos, in voxels)
 
 | Part | x from–to | y half-width | z from–to | Notes |

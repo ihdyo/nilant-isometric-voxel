@@ -2,7 +2,7 @@
   "code": "26-011",
   "common": "African Elephant",
   "scientific": "Loxodonta africana",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -156,14 +156,57 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "74741ead4fb8a139/e44f23a04d7da688"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 5 animals'); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "fan"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Gajah Afrika",
+      "kicker": "Mamalia · Keluarga gajah",
+      "stats": [
+        {
+          "label": "Bahu",
+          "value": "2,2–4 m"
+        },
+        {
+          "label": "Berat",
+          "value": "2–6,1 t"
+        },
+        {
+          "label": "Usia",
+          "value": "60–70 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "22 bulan"
+        }
+      ],
+      "habitat": "Sabana, hutan, bahkan gurun di seluruh Afrika, dari tepi laut hingga 4.000 m.",
+      "diet": "Daun, rumput, buah, kulit kayu, dan akar, dikunyah hampir seharian. Plus 190 liter air!",
+      "facts": [
+        "Gajah tampaknya saling memanggil nama: studi 2024 menemukan geraman khusus untuk satu gajah.",
+        "Kawanan dipimpin betina terbesar, dan hingga 70 anggota keluarga mengikutinya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

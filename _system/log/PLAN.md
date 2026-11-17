@@ -25,26 +25,48 @@
 
 ## Next: rigging and animation (owner, 2026-11-16: "add the todo to rig the animal and provide the dynamic animation
 and expression of the animals like walking, and other animation that usualy the animal doing")
-- [ ] **Rig from the joints.** Every `g.joint` section already has its own Blender object with its origin on the
-  hinge and a parent chain (body → leg → shin, head → ear …). Turn that into an armature in `vf_scene`: one bone per
-  section, parented like the joints, each section bone-parented (rigid, no skinning: the blocky look stays crisp). The
-  model's rest pose is the bind pose; today's still pose becomes one named pose among several.
-- [ ] **Knees everywhere a gait needs them:** the long-legged animals have upper leg + shin since 2026-11-16; give
-  the short-legged ones (fox, red panda, panda, capybara, armadillo, wolf front legs) knees too before walk cycles.
-- [ ] **Animation library by body plan,** keyed on the bones, looping, 24 or 30 fps:
-  quadruped walk, trot and run (diagonal leg pairs, knees folding, head bob, tail sway); idle (breathing scale on
-  the body, ear flicks, slow head turns, blinks); sit / lie down / get up; sniff and graze; bird hop, wing flap,
-  preen; swimmer glide and leap; hopper hop.
-- [ ] **Species specials:** wolf howl, flamingo one-leg balance and leg swap, frog hop and eye flash, dolphin leap
-  and splash-free arc, toucan fruit toss, elephant trunk swing and ear fan, hippo yawn, hedgehog curl into a ball,
-  rabbit thump, giraffe neck reach, penguin waddle, koala doze, lion head shake, tiger prowl, macaw wing show.
+- [x] **Rig from the joints** (2026-11-17, PROPOSED): in a new `vf_rig.py` rather than `vf_scene`, so the stills and
+  their `.blend` stay untouched: `vf.py rig` saves `<code> · <Name> · Rig.blend` + `· Rig.glb` beside the still.
+  Armature `VF · armature`: root → body → one bone per joint section; the sections skinned to one mesh with rigid
+  weights (owner, 2026-11-17: the bone-parented first version did not read as rigged); rest pose = the model as
+  drawn (T-pose), action `pose` = the approved still. All twenty-five rigged; `vf.py rig-check` passes on all.
+- [x] **Every new animal goes all the way** (owner, 2026-11-17): `motion` required by `check` once a model exists,
+  `vf.py preview` and `render.bat` 2 rig, check and animate after the stills, `verify` fails otherwise; the template
+  has a motion block and a Motion section in the brief.
+- [ ] **Approve the motion** (owner): the GIF loops in `_system/cache/preview/<code>/anim/` and the lineup
+  `02 Animals/Voxel Fauna · Twenty-five examples · motion (LOW preview).gif`. On the OK: `vf_rig.RIG` → 
+  `vf_standards.py`, `vf_rig.py` into `vflib.LOCKED_FILES`, `vf.py lock "…"`, `vf.py standards --write`.
+- [ ] **Knees everywhere a gait needs them:** upper leg + shin on the lion, polar bear, giraffe, elephant, tiger,
+  goat, zebra (2026-11-16) and the wolf, flamingo, frog and rabbit hind feet (2026-11-17); the short-legged ones
+  (fox, red panda, panda, capybara, armadillo, koala, hedgehog, hippo) walk on stiff legs, like a block-game mob;
+  add knees if the owner wants a softer gait.
+- [~] **Animation library by body plan,** keyed on the bones, looping, 24 fps. Done: idle (head look, ear flick,
+  tail, trunk, jaw, gills), walk (diagonal pairs, shins fold, head bob, tail sway; sprawl walk for the axolotl), flap,
+  hop, swim, waddle, every frame grounded on its posed voxels. Open: trot and run; sit / lie down / get up; graze;
+  preen; swimmer leap; breathing.
+- [~] **Species specials.** Done: wolf howl, koala doze, lion head shake, hippo yawn, elephant ear fan and trunk
+  swing, giraffe neck reach, penguin waddle, toucan hop, sniff (fox, capybara, polar bear, hedgehog, armadillo).
+  Open: flamingo leg swap, frog eye flash, dolphin leap, toucan fruit toss, hedgehog curl, rabbit thump, tiger
+  prowl, macaw wing show.
 - [ ] **Expressions:** the face is painted on the head voxels, so expressions are paint states swapped in time:
   eyes open / closed / happy arcs / sleepy lines / surprised, brows, mouth shapes (smile, open, O, smirk), blinks
   every few seconds; store them per species beside the model (e.g. `blender/faces.py`) and key them with the actions.
-- [ ] **Output:** short loops (MP4 and GIF previews, square and vertical) rendered with Nilant's video profiles
-  (motion blur back on for video), through `render.bat`; stills and the information artworks stay as they are.
+- [~] **Output:** GIF previews done (512 px square, 12 fps, LOW samples, the stills' shadow composite). Open: MP4
+  loops (square and vertical) with Nilant's video profiles (motion blur back on for video), through `render.bat`;
+  stills and the information artworks stay as they are.
 - [ ] **Owner to decide:** which formats and lengths (social loops, stock video, Gumroad bonus), and which animals
   first.
+
+## Next: the export package (owner, 2026-11-17)
+- [x] The owner approved all 25 models and the motion: 25 preview approvals recorded, the motion locked (v2.2).
+- [x] `vf_export.py` (masters + loop frames from the rig, `render.bat` → 3), `package.py` (stock crop, GIF, A5 cards
+  EN and ID, `package.bat`), stock and registry on the new items, Indonesian copy for all 25 (`i18n.id`).
+- [x] Checked end to end at LOW on all 25 (`vf.py final <code> --low`, `vf.py package <code> --low`).
+- [x] **Owner:** approved the package (cards v5, masters, loop) from the LOW set, 2026-11-17; `vf_export.py` (with
+  `EXPORT`) and `package.py` joined the lock (standards v2.2 + the export package).
+- [ ] ULTRA finals on the RTX 3050 (`render.bat` → 3, then `package.bat`), then the owner's `approve <code> final`.
+- [ ] **Owner, on the RTX 3050:** `render.bat` → 3 (about 15 min an animal), then `package.bat`.
+- [ ] Optional: crop marks on the card PDF if the print shop asks; MP4 loops beside the GIF.
 
 ## Next for the engine
 - Judge the first ULTRA finals at full size (seams on `merged` parts, shadow strength, card type at 100 %).

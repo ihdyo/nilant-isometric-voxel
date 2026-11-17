@@ -2,7 +2,7 @@
   "code": "26-025",
   "common": "Plains Zebra",
   "scientific": "Equus quagga",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -153,14 +153,56 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "cece3dc7f3eadc8c/6f760c4949ce9a9e"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Zebra Dataran",
+      "kicker": "Mamalia · Keluarga kuda",
+      "stats": [
+        {
+          "label": "Bahu",
+          "value": "1,1–1,45 m"
+        },
+        {
+          "label": "Berat",
+          "value": "175–385 kg"
+        },
+        {
+          "label": "Hamil",
+          "value": "~12 bulan"
+        },
+        {
+          "label": "Jalan harian",
+          "value": "hingga 13 km"
+        }
+      ],
+      "habitat": "Sabana terbuka dan padang rumput Afrika timur dan selatan, hingga 4.400 m.",
+      "diet": "Kebanyakan batang rumput, sekitar 90% makanannya, plus sesekali herba, daun, atau ranting.",
+      "facts": [
+        "Lalat penggigit sulit hinggap di belang, jadi zebra lebih jarang digigit daripada kuda!",
+        "Tak ada dua zebra dengan belang yang sama, seperti sidik jari."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

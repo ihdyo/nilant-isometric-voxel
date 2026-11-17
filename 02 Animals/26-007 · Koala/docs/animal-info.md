@@ -75,4 +75,4 @@ IUCN lists Vulnerable (2016) [2]; Australian listings differ by state and change
 
 ## Modelling notes (from the photographs)
 
-See `docs/voxel-model.md`. Key features: the big dark nose; large round ears with white fluffy fringes; a big round head on a compact body; the white chest; the sitting teddy-bear pose.
+See `docs/voxel-model.md`. Key features: the big dark nose; large round ears with white fluffy fringes; a big round head on a compact body; the white chest; standing on four short, thick legs.

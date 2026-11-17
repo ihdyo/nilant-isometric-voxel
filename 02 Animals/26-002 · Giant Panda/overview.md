@@ -1,6 +1,6 @@
 # 26-002 · Giant Panda
 
-*Ailuropoda melanoleuca* · Voxel Fauna · status **Preview**
+*Ailuropoda melanoleuca* · Voxel Fauna · status **Preview approved**
 
 > Written by `python _system/studio/scripts/vf.py overview 26-002` (also after build, preview, final, approve, register). Edit `animal.json`, the docs and `blender/model.py`, never this page.
 
@@ -8,8 +8,8 @@
 
 - [x] Phase 1 · Research: `docs/animal-info.md`, `docs/references.md`, 2 photo(s) in `assets/photos/`
 - [x] Phase 2 · Modelling: `docs/voxel-model.md`, `blender/model.py`, .blend **current**
-- [ ] Phase 3 · LOW preview approved by the owner · sheet `_system/cache/preview/26-002/26-002 · preview sheet.png`
-- [ ] Phase 4 · ULTRA exports: 0 of 6
+- [x] Phase 3 · LOW preview approved by the owner (2026-11-17) · sheet `_system/cache/preview/26-002/26-002 · preview sheet.png`
+- [ ] Phase 4 · Export package: 0 of 6 (render.bat renders the masters and the loop; package.bat builds the stock image, the GIF and the cards)
 - [ ] Phase 5 · Registered in `05 Publish/Voxel Fauna · Registry.xlsx`
 - [ ] Phase 6 · Approved by the owner
 
@@ -25,16 +25,16 @@
 - Fun fact: That 'thumb' isn't a finger. It's a pad over a wrist bone, perfect for gripping bamboo.
 - Fun fact: A newborn panda weighs just 85 to 140 g. That's lighter than an apple!
 
-## Deliverables
+## Deliverables (the export package)
 
-| Image ID | Composition | File |
+| ID | What | File |
 |---|---|---|
-| `VF-26-002-ILL-1x1` | Illustration 1:1 (4096×4096) | not rendered |
-| `VF-26-002-ILL-9x16` | Illustration 9:16 (2304×4096) | not rendered |
-| `VF-26-002-ILL-16x9` | Illustration 16:9 (4096×2304) | not rendered |
-| `VF-26-002-INF-1x1` | Information 1:1 (4096×4096) | not rendered |
-| `VF-26-002-INF-9x16` | Information 9:16 (2304×4096) | not rendered |
-| `VF-26-002-INF-16x9` | Information 16:9 (4096×2304) | not rendered |
+| `VF-26-002-MASTER-DYN` | master render, dynamic pose, 4096 square (crops to 1:1, 9:16, 16:9) | not built yet |
+| `VF-26-002-MASTER-BLOCK` | master render, regular blocky pose, 4096 square (crops to 1:1, 9:16, 16:9) | not built yet |
+| `VF-26-002-STOCK-1x1` | 1:1 dynamic for stock sites, the centre square of the dynamic master | not built yet |
+| `VF-26-002-LOOP` | looped dynamic animation, 1080 square | not built yet |
+| `VF-26-002-CARD-EN` | A5 card, English: front the dynamic pose over the photo with the info, back the blocky pose | not built yet |
+| `VF-26-002-CARD-ID` | A5 card, Bahasa Indonesia: the same card in Indonesian | not built yet |
 
 ## Look
 
@@ -54,7 +54,7 @@
 | `blender/model.py` | the voxel model (source of truth for the .blend) |
 | `blender/26-002 · Giant Panda.blend` | the editable Blender project, built from model.py |
 | `blender/build.json`, `blender/README.md` | the build stamp and its summary |
-| `export/` | the six final images (+ `stock/` JPEGs) |
+| `export/` | the export package (+ the `stock/` JPEG) |
 
 ## Notes
 

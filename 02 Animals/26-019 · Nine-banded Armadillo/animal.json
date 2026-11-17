@@ -2,7 +2,7 @@
   "code": "26-019",
   "common": "Nine-banded Armadillo",
   "scientific": "Dasypus novemcinctus",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -145,14 +145,57 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "86aaff851260fadd/9d2f25abea7bb376"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "sniff"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Armadilo Sembilan Pita",
+      "kicker": "Mamalia · Keluarga armadilo",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "62–80 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "3,6–7,7 kg"
+        },
+        {
+          "label": "Pita",
+          "value": "8–11"
+        },
+        {
+          "label": "Bayi",
+          "value": "4 kembar"
+        }
+      ],
+      "habitat": "Hutan, sabana, semak, dan padang rumput di seluruh Amerika Selatan.",
+      "diet": "Kumbang, semut, rayap, dan cacing, diendus hingga 20 cm di bawah tanah!",
+      "facts": [
+        "Hampir selalu lahir kembar empat identik: satu telur terbelah jadi empat bayi!",
+        "Ia bisa menahan napas 6 menit dan menelan udara untuk mengapung menyeberangi sungai."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

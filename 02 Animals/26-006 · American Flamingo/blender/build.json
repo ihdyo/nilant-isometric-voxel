@@ -1,148 +1,96 @@
 {
  "code": "26-006",
- "built": "2026-11-16T17:07:27",
+ "built": "2026-11-17T15:19:37",
  "blender": "5.3.0",
- "model_hash": "8362754ecacc1eed",
+ "model_hash": "8d89676912b95353",
  "look_hash": "43988ac604115d51",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_standards.py": "ff985f934e6babaf",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
   "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
  },
- "standards_version": "2.1",
+ "standards_version": "2.2",
  "rig": "iso_top",
  "geometry": "mob",
  "model": {
   "errors": [],
   "notes": [
-   "27 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant)",
-   "posed size 17.7 x 11.0 x 34.3 voxels (L x W x H), 1062 voxels, colours bill, black, eye, feet, legs, light, pink, parts beak, body, foot_l, foot_r, head, leg_l, leg_r, neck, wing_l, wing_r; turned beak, foot_r, head, leg_l, neck, wing_l, wing_r"
+   "posed size 16.2 x 11.0 x 34.3 voxels (L x W x H), 1059 voxels, colours bill, black, eye, feet, legs, light, pink, parts beak, body, foot_l, foot_r, head, leg_l, leg_r, neck, shin_l, shin_r, wing_l, wing_r; turned beak, foot_l, foot_r, head, leg_l, neck, shin_l, wing_l, wing_r"
   ],
   "size": [
-   18,
+   17,
    11,
    33
   ],
-  "voxels": 1062
+  "voxels": 1059
  },
  "frames": {
   "ILL 1x1": {
-   "ortho_scale": 4.191008256748319,
+   "ortho_scale": 4.396604874304363,
    "view": [
-    4.191008256748319,
-    4.191008256748319
+    4.396604874304363,
+    4.396604874304363
    ],
    "box_size": [
     1.6062617771752201,
-    2.933705779723823
+    3.077623412013054
    ]
   },
   "ILL 9x16": {
-   "ortho_scale": 3.577689975272955,
+   "ortho_scale": 3.7531992829427487,
    "view": [
-    2.012450611091037,
-    3.577689975272955
+    2.111174596655296,
+    3.7531992829427487
    ],
    "box_size": [
     1.6062617771752201,
-    2.933705779723823
+    3.077623412013054
    ]
   },
   "ILL 16x9": {
-   "ortho_scale": 7.669819031957707,
+   "ortho_scale": 8.046074279772688,
    "view": [
-    7.669819031957707,
-    4.31427320547621
+    8.046074279772688,
+    4.525916782372137
    ],
    "box_size": [
     1.6062617771752201,
-    2.933705779723823
+    3.077623412013054
    ]
   },
   "INF 1x1": {
-   "ortho_scale": 8.00247075756635,
+   "ortho_scale": 8.395044768175271,
    "view": [
-    8.00247075756635,
-    8.00247075756635
+    8.395044768175271,
+    8.395044768175271
    ],
    "box_size": [
     1.6062617771752201,
-    2.933705779723823
+    3.077623412013054
    ]
   },
   "INF 9x16": {
-   "ortho_scale": 12.003706136349521,
+   "ortho_scale": 12.592567152262903,
    "view": [
-    6.752084701696606,
-    12.003706136349521
+    7.083319023147883,
+    12.592567152262903
    ],
    "box_size": [
     1.6062617771752201,
-    2.933705779723823
+    3.077623412013054
    ]
   },
   "INF 16x9": {
-   "ortho_scale": 6.66089009161078,
+   "ortho_scale": 6.987650715511403,
    "view": [
-    6.66089009161078,
-    3.7467506765310636
+    6.987650715511403,
+    3.9305535274751646
    ],
    "box_size": [
     1.6062617771752201,
-    2.933705779723823
+    3.077623412013054
    ]
   }
  },
- "renders": {
-  "LOW": {
-   "ILL 1x1": {
-    "seconds": 4.7,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 9x16": {
-    "seconds": 3.9,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 16x9": {
-    "seconds": 3.1,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 1x1": {
-    "seconds": 5.0,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 9x16": {
-    "seconds": 2.6,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 16x9": {
-    "seconds": 2.5,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   }
-  }
- }
+ "renders": {}
 }

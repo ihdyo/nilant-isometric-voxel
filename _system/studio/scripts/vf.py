@@ -9,12 +9,15 @@
   check <code> [--strict]     everything the files can prove: animal.json, sources behind every fact, photo licence and
                               log, palette and background rules, the voxel brief, the voxel model, type fits, exports
   build <code>                model.py -> the editable .blend (+ blender/build.json); only when missing or stale
-  preview <code>              LOW: builds if needed, renders all six compositions from the .blend into
-                              _system/cache/preview/<code>/ with a contact sheet (Phase 3)
+  preview <code> [--stills]   LOW: builds if needed, renders all six compositions from the .blend into
+                              _system/cache/preview/<code>/ with a contact sheet, then rigs, checks and animates the
+                              animal (vf.py rig); --stills for the six stills only while iterating (Phase 3)
   approve <code> preview|final
                               records the OWNER's approval (only when the owner says so)
   final <code> [--force]      ULTRA from the approved .blend into export/ (Phase 4); resumes, skips finished images
-  render-all LOW|ULTRA        every built animal (LOW) or every approved one (ULTRA): what render.bat runs
+  render-all LOW|ULTRA [--stills]
+                              every built animal (LOW, then every rig and loop) or every approved one (ULTRA): what
+                              render.bat runs
   info <code> [--profile LOW|ULTRA]
                               re-lays the cards of the three information artworks on their cached plates
   overview <code>             rewrites overview.md from animal.json and the files
@@ -26,6 +29,15 @@
                               records an upload event in the Publish Log (registry sheet + markdown), like Nilant's log
   selftest [--ultra] [--ratios 1x1] [--compare]
                               the engine end to end on a placeholder creature -> _system/cache/selftest/
+  rig <code> [--force] [--no-preview]
+                              the still .blend -> "<code> · <Name> · Rig.blend" (armature from the joints, one action
+                              per motion.actions) + "· Rig.glb", and GIF loops in _system/cache/preview/<code>/anim/
+                              (the motion APPROVED by the owner 2026-11-17, vf_rig.py in the standards lock)
+  rig-all [--force] [--no-preview] [--jobs 3]
+                              every animal, then the rig-check sheet and the motion lineup GIF in 02 Animals/
+  rig-check [<code>]          the rig check again on built rigs: every vertex fully weighted to one bone, each bone
+                              bent in turn moves its section and everything below it and nothing else; T-pose and
+                              bent renders, sections coloured by bone, bones on top -> anim/VF-<code>-RIG-check.png
   verify                      standards lock, the skill's standards table, every animal's check and build
   lock "<what and why>"       re-fingerprint the standards after the owner's OK (logs a DECISIONS row)
   standards [--write]         the standards table (--write puts it into the skill)
@@ -34,6 +46,7 @@ import argparse
 import datetime
 import hashlib
 import json
+import math
 import os
 import re
 import shutil
@@ -253,17 +266,46 @@ def check_animal(folder, animal, strict=False):
     except Exception as ex:
         E.append(f"information artwork: {ex}")
     # exports
+    # motion (the animation rig): every animal with a model is rigged and animated (owner, 2026-11-17: "for future
+    # generation of animals, ensure it have everything until it rigged and animated"), so the plan and the actions
+    # are required once model.py exists; a known plan and actions from the library
+    mo = animal.get("motion")
+    if folder and os.path.exists(os.path.join(folder, "blender", "model.py")) and \
+            not ((mo or {}).get("plan") and (mo or {}).get("actions")):
+        E.append("motion: choose motion.plan (walker, sitter, bird, swimmer, sprawler, hopper) and motion.actions "
+                 "(pose, idle, the gait, the species specials) in animal.json")
+    if mo is not None:
+        import vf_rig as VR
+        if mo.get("plan") and mo["plan"] not in VR.PLANS:
+            E.append(f"motion.plan '{mo['plan']}' is not one of {', '.join(VR.PLANS)}")
+        bad = [x for x in (mo.get("actions") or []) + list(mo.get("frames") or {}) + list(mo.get("base") or {})
+               if x not in VR.ACTIONS]
+        if bad:
+            E.append(f"motion: unknown actions {bad} (library: {', '.join(VR.ACTIONS)})")
+    # the Indonesian card copy (owner, 2026-11-17: "provide the english and bahasa indonesia for animal info"): needed
+    # for the ID card once the owner approved the preview
+    if (animal.get("approvals") or {}).get("preview"):
+        tid = ((animal.get("i18n") or {}).get("id")) or {}
+        miss = [k for k in ("common", "kicker", "stats", "habitat", "diet", "facts") if not tid.get(k)]
+        if miss:
+            E.append(f"i18n.id: missing {', '.join(miss)} (the Indonesian card copy, the same facts as info)")
+        elif len(tid["stats"]) != len(info.get("stats", [])) or len(tid["facts"]) != len(info.get("facts", [])):
+            E.append("i18n.id: stats and facts must match info one for one")
+    # the export package (PROPOSED 2026-11-17): the two masters once Final; everything once Registered or Approved
     if folder and (strict or animal["status"] in ("Final", "Registered", "Approved")):
         from PIL import Image
-        for kind in ST.KINDS:
-            for r in ST.RATIOS:
-                p = VL.export_path(folder, animal["code"], kind, r)
-                if not os.path.exists(p):
-                    E.append(f"export missing: {VL.rel(p)}")
-                else:
-                    with Image.open(p) as im:
-                        if im.size != tuple(ST.SIZES[r]):
-                            E.append(f"{os.path.basename(p)} is {im.size}, expected {ST.SIZES[r]}")
+        import package as PK
+        full = animal["status"] in ("Registered", "Approved")
+        for suffix, ext, _ in PK.EXPORT["items"]:
+            if not (full or suffix.startswith("MASTER")):
+                continue
+            p = PK.export_file(folder, animal["code"], suffix)
+            if not os.path.exists(p):
+                E.append(f"export missing: {VL.rel(p)}")
+            elif suffix.startswith("MASTER"):
+                with Image.open(p) as im:
+                    if im.size != (PK.EXPORT["master"],) * 2:
+                        E.append(f"{os.path.basename(p)} is {im.size}, expected {PK.EXPORT['master']} square")
     return E, W
 
 
@@ -442,26 +484,72 @@ def preview(folder, animal, force=False):
     return sheet
 
 
-def final(folder, animal, force=False):
+def final(folder, animal, force=False, low=False):
+    """The ULTRA renders of the export package (PROPOSED 2026-11-17, blender/vf_export.py): the two masters (dynamic
+    and regular blocky, 4096 square, the animal in the centre safe square) into export/, their cut-outs and the frames
+    of the looped animation into the cache. Rendering only: scripts/package.py builds the rest offline (package.bat).
+    Renders what is missing or older than the rig; low=True renders the same set at LOW into the cache (layouts)."""
+    import package as PK
+    code = animal["code"]
     ap = animal.get("approvals") or {}
-    if not ap.get("preview"):
-        raise SystemExit(f"{animal['code']}: no preview approval yet (owner: vf.py approve {animal['code']} preview)")
-    state, why = build_state(folder, animal)
-    if state != "current":
-        raise SystemExit(f"{animal['code']}: the .blend is {state} ({', '.join(why)}): run a new preview for the owner")
-    if ap.get("preview_key") and ap["preview_key"] != model_key(folder, animal):
-        raise SystemExit(f"{animal['code']}: the model or look changed after the owner approved the preview: "
-                         "preview again and get a new approval")
+    if not low:
+        if not ap.get("preview"):
+            raise SystemExit(f"{code}: no preview approval yet (owner: vf.py approve {code} preview)")
+        if ap.get("preview_key") and ap["preview_key"] != model_key(folder, animal):
+            raise SystemExit(f"{code}: the model or look changed after the owner approved the preview: "
+                             "preview again and get a new approval")
     E, _ = check_animal(folder, animal)
     E = [e for e in E if not e.startswith("export missing")]
     if E:
-        raise SystemExit(f"{animal['code']}: " + "; ".join(E))
-    render_from_blend(folder, animal, "ULTRA", force)
-    advance(animal, "Final")
-    VL.save(folder, animal)
-    write_overview(folder, animal)
-    E, _ = check_animal(folder, animal, strict=True)
-    return E
+        raise SystemExit(f"{code}: " + "; ".join(E))
+    do_build(folder, animal)
+    if rig_state(folder, animal)[0] != "current":
+        do_rig(folder, animal, preview=False)
+    rig_blend = rig_paths(folder, animal)[0]
+    rt = os.path.getmtime(rig_blend)
+    pl = PK.plates(code, low)
+    masters = {w: PK.export_file(folder, code, f"MASTER-{w.upper()}", low) for w in ("dyn", "block")}
+    cutouts = {w: os.path.join(pl, f"cut-{w}.png") for w in masters}
+    todo = {w: p for w, p in masters.items()
+            if force or not os.path.exists(p) or not os.path.exists(cutouts[w]) or os.path.getmtime(p) < rt}
+    r = json.load(open(os.path.join(folder, "blender", "rig.json"), encoding="utf-8"))
+    action = signature(animal, list(r.get("actions", {})))
+    n = int((r.get("actions") or {}).get(action) or 0)
+    ld = os.path.join(pl, "loop")
+    frames = sorted(f for f in os.listdir(ld) if f.endswith(".png")) if os.path.isdir(ld) else []
+    loop_ok = (not force and len(frames) == n and
+               min(os.path.getmtime(os.path.join(ld, f)) for f in frames) >= rt)
+    stamp = os.path.join(pl, "export.json")
+    if loop_ok and os.path.exists(stamp) and json.load(open(stamp, encoding="utf-8")).get("action") != action:
+        loop_ok = False
+    if todo or not loop_ok:
+        prof = "LOW" if low else "ULTRA"
+        out(f"  render {code} · {animal['common']} {prof}: "
+            + ", ".join([f"master {w}" for w in todo] + ([f"loop ({action}, {n} frames)"] if not loop_ok else [])))
+        job = dict(open=rig_blend, profile=prof, masters=todo, cutouts=cutouts)
+        if not loop_ok:
+            job["loop"] = dict(action=action, dir=ld, profile="LOOP_LOW" if low else "LOOP")
+        res = VL.run_blender(job, f"{code}-export-{prof}", script="vf_export.py")
+        os.makedirs(pl, exist_ok=True)
+        json.dump(dict(code=code, profile=prof, action=action, rendered=datetime.datetime.now().isoformat(
+            timespec="seconds"), masters=res.get("masters"), loop=dict((res.get("loop") or {}), frames=n)),
+            open(stamp, "w", encoding="utf-8"), indent=1, default=str)
+    if not low:
+        advance(animal, "Final")
+        VL.save(folder, animal)
+        write_overview(folder, animal)
+        E, _ = check_animal(folder, animal, strict=True)
+        return E
+    return []
+
+
+def package_one(folder, animal, low=False):
+    """The offline half of the export (scripts/package.py): stock crop, loop GIF, the English and Indonesian cards."""
+    import package as PK
+    res = PK.package(folder, animal, low=low)
+    out(f"  package {animal['code']} · {animal['common']}{' (LOW)' if low else ''}: "
+        + ", ".join(VL.rel(p) for p in [res["stock"], res["loop"]] + [c["pdf"] for c in res["cards"].values()]))
+    return res
 
 
 def cmd_build(a):
@@ -489,17 +577,66 @@ def cmd_preview(a):
         return 1
     sheet = preview(folder, animal, force=a.force)
     out(f"-> {VL.rel(sheet)}")
+    if not getattr(a, "stills", False):              # every animal goes all the way: rigged, checked and animated
+        do_rig(folder, animal)
+        r = json.load(open(os.path.join(folder, "blender", "rig.json"), encoding="utf-8"))
+        out(f"-> rig: {VL.rel(rig_paths(folder, animal)[0])} ({r.get('bones')} bones, rig check "
+            f"{'PASS' if (r.get('check') or {}).get('ok') else 'FAIL'}), loops in {VL.rel(anim_dir(a.code))}")
     out(f"Review it with the owner; on their OK: vf.py approve {a.code} preview")
     return 0
 
 
 def cmd_final(a):
     folder = VL.find(a.code)
-    E = final(folder, VL.load(folder), force=a.force)
+    low = getattr(a, "low", False)
+    E = final(folder, VL.load(folder), force=a.force, low=low)
     for e in E:
         out("  ERROR", e)
-    out(f"{a.code}: final {'complete' if not E else 'with problems'} -> {VL.rel(os.path.join(folder, 'export'))}")
+    dest = os.path.join(VL.CACHE, "export-low", a.code) if low else os.path.join(folder, "export")
+    out(f"{a.code}: renders {'complete' if not E else 'with problems'} -> {VL.rel(dest)}; "
+        f"then vf.py package {a.code}{' --low' if low else ''} (or package.bat)")
     return 1 if E else 0
+
+
+def cmd_package(a):
+    folder = VL.find(a.code)
+    an = VL.load(folder)
+    package_one(folder, an, low=a.low)
+    if not a.low:                              # the stock JPEG and CSVs, the Gumroad zip, the registry rows
+        import stock as SK
+        import registry as RG
+        for line in SK.package(folder, an):
+            out("    " + line)
+        RG.upsert(folder, an)
+        write_overview(folder, an)
+    return 0
+
+
+def cmd_package_all(a):
+    """Every animal with its renders: package it, then the stock files and the registry rows (package.bat)."""
+    import package as PK
+    done, skipped = [], []
+    for d in VL.animal_dirs():
+        an = VL.load(d)
+        if not os.path.exists(PK.export_file(d, an["code"], "MASTER-DYN", a.low)):
+            skipped.append(f"{an['code']} (not rendered yet)")
+            continue
+        try:
+            package_one(d, an, low=a.low)
+            if not a.low:                      # the stock JPEG and CSVs, the Gumroad zip, the registry rows
+                import stock as SK
+                import registry as RG
+                for line in SK.package(d, an):
+                    out("    " + line)
+                RG.upsert(d, an)
+                write_overview(d, an)
+            done.append(an["code"])
+        except (SystemExit, ValueError) as e:
+            skipped.append(f"{an['code']} ({e})")
+    out(f"package-all: {len(done)} packaged ({', '.join(done) or '-'})")
+    for s in skipped:
+        out(f"  skipped {s}")
+    return 1 if any("not rendered" not in s for s in skipped) else 0
 
 
 def cmd_render_all(a):
@@ -523,6 +660,8 @@ def cmd_render_all(a):
     for s in skipped:
         out(f"  skipped {s}")
     write_render_readme()
+    if a.profile == "LOW" and not getattr(a, "stills", False):     # previews include the rig and the loops
+        return cmd_rig_all(type("A", (), dict(force=False, no_preview=False, jobs=getattr(a, "jobs", 3)))())
     return 0
 
 
@@ -552,6 +691,328 @@ def cmd_info(a):
     return 0
 
 
+# ---- rig and motion -------------------------------------------------------------------------------------------------
+# APPROVED by the owner 2026-11-17. blender/vf_rig.py turns the built still .blend into a rigged copy with looping
+# actions and a .glb; the stills and their .blend are untouched. vf_rig.py is in the standards lock and its numbers
+# are vf_standards.MOTION.
+RIG_ENGINE = "_system/studio/blender/vf_rig.py"
+
+
+def rig_paths(folder, animal):
+    base = os.path.splitext(VL.blend_path(folder, animal))[0]
+    return base + " · Rig.blend", base + " · Rig.glb"
+
+
+def motion_hash(animal):
+    return hashlib.sha256(json.dumps(animal.get("motion") or {}, sort_keys=True).encode()).hexdigest()[:16]
+
+
+def rig_state(folder, animal):
+    """('missing' | 'stale' | 'current', reasons)."""
+    blend, glb = rig_paths(folder, animal)
+    rj = os.path.join(folder, "blender", "rig.json")
+    if not os.path.exists(blend) or not os.path.exists(rj):
+        return "missing", ["no rig yet"]
+    r = json.load(open(rj, encoding="utf-8"))
+    why = []
+    if build_state(folder, animal)[0] != "current":
+        why.append("the still .blend is not current")
+    elif r.get("still_built") != json.load(open(os.path.join(folder, "blender", "build.json"),
+                                                encoding="utf-8")).get("built"):
+        why.append("the still .blend was rebuilt")
+    if r.get("motion_hash") != motion_hash(animal):
+        why.append("motion changed")
+    if r.get("rig_engine") != VL.file_hash(os.path.join(VL.ROOT, RIG_ENGINE)):
+        why.append("vf_rig.py changed")
+    if not os.path.exists(glb):
+        why.append("no .glb")
+    return ("stale" if why else "current"), why
+
+
+def anim_dir(code):
+    return os.path.join(VL.CACHE, "preview", code, "anim")
+
+
+def gif_path(code, action):
+    return os.path.join(anim_dir(code), f"VF-{code}-ANIM-{action}.gif")
+
+
+def write_gif(frames, target, fps):
+    from PIL import Image
+    ims = [Image.open(p).convert("RGB").quantize(colors=255, method=Image.Quantize.MEDIANCUT,
+                                                 dither=Image.Dither.NONE) for p in frames]
+    os.makedirs(os.path.dirname(target), exist_ok=True)
+    ims[0].save(target, save_all=True, append_images=ims[1:], duration=round(1000 / fps), loop=0, disposal=1)
+    return target
+
+
+def rig_readme(animal):
+    return (f"{ST.COLLECTION} · {animal['code']} · {animal['common']} ({animal['scientific']}) · rig\n\n"
+            "Built by `python _system/studio/scripts/vf.py rig <code>` from the still .blend beside it (never edit by\n"
+            "hand: change model.py or animal.json -> motion and rig again). The motion is approved (owner, 2026-11-17).\n\n"
+            "Armature 'VF · armature': root (on the ground, carries grounding and hops) -> body -> one bone per jointed\n"
+            "section on its hinge, parented like the joints in model.py. Mesh 'VF · animal': every section, each\n"
+            "vertex weighted 1.0 to its bone (vertex groups), Armature modifier. Rest pose = the model as drawn\n"
+            "(T-pose); the action 'pose' is the approved still.\n"
+            "Actions (24 fps, looping): see the armature's custom property vf_actions. Pick one in the Action\n"
+            "editor and play; the scene 'ANIM 1x1' is framed on everything every action does.\n")
+
+
+def do_rig(folder, animal, force=False, preview=True):
+    """Still .blend (if stale) -> rig .blend + .glb -> GIF loops of every action. Returns {action: gif} or None."""
+    code = animal["code"]
+    do_build(folder, animal)
+    state, why = rig_state(folder, animal)
+    rj = os.path.join(folder, "blender", "rig.json")
+    have = json.load(open(rj, encoding="utf-8")).get("actions", {}) if os.path.exists(rj) else {}
+    gifs_ok = bool(have) and all(os.path.exists(gif_path(code, n)) for n in have if n != "pose")
+    if state == "current" and not force and (gifs_ok or not preview):
+        out(f"  rig {code} · {animal['common']}: current")
+        return None
+    out(f"  rig {code} · {animal['common']}: {', '.join(why) if state != 'current' else 'previews'}")
+    blend, glb = rig_paths(folder, animal)
+    job = dict(open=VL.blend_path(folder, animal), model=os.path.join(folder, "blender", "model.py"),
+               motion=animal.get("motion") or {}, readme=rig_readme(animal), blend=blend, glb=glb,
+               check=dict(dir=check_dir(code)))
+    if preview:
+        job["preview"] = dict(dir=os.path.join(anim_dir(code), "frames"), step=2)
+    res = VL.run_blender(job, f"{code}-rig", script="vf_rig.py")
+    chk = res.get("check") or {}
+    sheet = check_sheet(animal, chk)
+    out(f"  rig check {code}: {'PASS' if chk.get('ok') else 'FAIL'} -> {VL.rel(sheet)}")
+    b = json.load(open(os.path.join(folder, "blender", "build.json"), encoding="utf-8"))
+    rig = res.get("rig") or {}
+    data = dict(code=code, rigged=datetime.datetime.now().isoformat(timespec="seconds"), blender=res.get("blender"),
+                still_built=b.get("built"), motion_hash=motion_hash(animal),
+                rig_engine=VL.file_hash(os.path.join(VL.ROOT, RIG_ENGINE)), plan=rig.get("plan"),
+                bones=rig.get("bones"), fps=res.get("fps"),
+                actions={n: v.get("frames") for n, v in (rig.get("actions") or {}).items()},
+                blend=os.path.basename(blend), glb=os.path.basename(glb), frame=res.get("frame"),
+                vertices=rig.get("vertices"), groups=rig.get("groups"),
+                check=dict(ok=chk.get("ok"), weights_ok=chk.get("weights_ok"), missing=chk.get("missing"),
+                           failing=[r["bone"] for r in chk.get("rows", []) if not r.get("ok")]),
+                status="APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked")
+    json.dump(data, open(rj, "w", encoding="utf-8"), indent=1, default=str)
+    gifs = {}
+    step = res.get("step") or 2
+    for name, frames in (res.get("renders") or {}).items():
+        gifs[name] = write_gif(frames, gif_path(code, name), (res.get("fps") or 24) / step)
+    write_blender_readme(folder, animal)
+    return gifs
+
+
+def signature(animal, actions):
+    """The action that shows an animal best in a lineup: motion.signature, else the first after pose and idle."""
+    m = animal.get("motion") or {}
+    if m.get("signature") in actions:
+        return m["signature"]
+    rest = [a for a in actions if a not in ("pose", "idle")]
+    return rest[0] if rest else "idle"
+
+
+def motion_lineup(target, cell=216, cols=5):
+    """Every rigged animal's signature loop in one GIF grid (each cell loops on its own length)."""
+    from PIL import Image, ImageDraw, ImageFont
+    cells = []
+    for d in VL.animal_dirs():
+        an = VL.load(d)
+        rj = os.path.join(d, "blender", "rig.json")
+        if not os.path.exists(rj):
+            continue
+        acts = list(json.load(open(rj, encoding="utf-8")).get("actions", {}))
+        act = signature(an, acts)
+        fd = os.path.join(anim_dir(an["code"]), "frames", act)
+        fs = sorted(os.path.join(fd, f) for f in os.listdir(fd) if f.endswith(".png")) if os.path.isdir(fd) else []
+        if fs:
+            cells.append((f"{an['code']} · {an['common']} · {act}", fs))
+    if not cells:
+        raise SystemExit("no rigged animal with previews yet (vf.py rig-all)")
+    n = 1
+    for _, fs in cells:
+        n = n * len(fs) // math.gcd(n, len(fs))
+    n = min(n, 96)
+    head = 30
+    rows = (len(cells) + cols - 1) // cols
+    font = ImageFont.truetype(os.path.join(VL.FONTS, "Poppins-SemiBold.ttf"), 14)
+    cache = {}
+
+    def tile(p):
+        if p not in cache:
+            im = Image.open(p).convert("RGB")
+            m = round(im.width * 0.06)
+            cache[p] = im.crop((m, m, im.width - m, im.height - m)).resize((cell, cell), Image.LANCZOS)
+        return cache[p]
+
+    frames = []
+    for i in range(n):
+        sheet = Image.new("RGB", (cols * cell, rows * (cell + head)), "white")
+        dr = ImageDraw.Draw(sheet)
+        for k, (label, fs) in enumerate(cells):
+            x, y = (k % cols) * cell, (k // cols) * (cell + head)
+            dr.text((x + 8, y + 7), label, font=font, fill="black")
+            sheet.paste(tile(fs[i % len(fs)]), (x, y + head))
+        frames.append(sheet.quantize(colors=255, method=Image.Quantize.MEDIANCUT, dither=Image.Dither.NONE))
+    frames[0].save(target, save_all=True, append_images=frames[1:], duration=round(1000 / 12), loop=0, disposal=1)
+    return target
+
+
+LINEUP_GIF = os.path.join(VL.ANIMALS, "Voxel Fauna · Twenty-five examples · motion (LOW preview).gif")
+CHECK_LINEUP = os.path.join(VL.ANIMALS, "Voxel Fauna · Twenty-five examples · rig check (T-pose).jpg")
+
+
+def check_dir(code):
+    return os.path.join(anim_dir(code), "check")
+
+
+def check_sheet_path(code):
+    return os.path.join(anim_dir(code), f"VF-{code}-RIG-check.png")
+
+
+def _check_tile(d, state):
+    """The section pass (coloured by bone) with the bone pass laid over it at 80 %."""
+    from PIL import Image
+    a = Image.open(os.path.join(d, f"{state}-animal.png")).convert("RGBA")
+    b = Image.open(os.path.join(d, f"{state}-bones.png")).convert("RGBA")
+    bg = Image.new("RGBA", a.size, (255, 255, 255, 255))
+    bg.alpha_composite(a)
+    b.putalpha(b.getchannel("A").point(lambda v: int(v * 0.92)))
+    bg.alpha_composite(b)
+    return bg.convert("RGB")
+
+
+def check_sheet(animal, chk):
+    """One animal's rig check: the T-pose (rest) and every bone bent, side by side, and the bone legend."""
+    from PIL import Image, ImageDraw, ImageFont
+    code = animal["code"]
+    d = check_dir(code)
+    rest, bent = _check_tile(d, "rest"), _check_tile(d, "bent")
+    w, h = rest.size
+    rows = chk.get("rows", [])
+    fb = ImageFont.truetype(os.path.join(VL.FONTS, "Poppins-SemiBold.ttf"), 26)
+    f = ImageFont.truetype(os.path.join(VL.FONTS, "Poppins-Medium.ttf"), 19)
+    head, leg_w, line = 96, 470, 30
+    H = max(h, 70 + line * (len(rows) + 2)) + head
+    sheet = Image.new("RGB", (2 * w + leg_w, H), "white")
+    dr = ImageDraw.Draw(sheet)
+    verdict = "PASS" if chk.get("ok") else "FAIL"
+    dr.text((24, 16), f"{code} · {animal['common']} · rig check: {verdict}", font=fb,
+            fill=(21, 128, 61) if chk.get("ok") else (185, 28, 28))
+    dr.text((24, 54), "left: rest pose (T-pose), each section coloured by its bone, bones drawn on top · right: every "
+            "bone bent ±24° at once", font=f, fill=(71, 85, 105))
+    sheet.paste(rest, (0, head))
+    sheet.paste(bent, (w, head))
+    x0, y = 2 * w + 10, head + 10
+    dr.text((x0, y), "bone (parent) · vertices · bend test", font=f, fill=(71, 85, 105))
+    y += line + 6
+    for r in rows:
+        c = chk.get("colours", {}).get(r["bone"])
+        if c:
+            dr.rectangle((x0, y + 5, x0 + 20, y + 25), fill=c, outline="black")
+        mark = "ok" if r.get("ok") else "FAIL"
+        dr.text((x0 + 30, y), f"{r['bone']} ({r.get('parent') or '-'}) · {r.get('verts', 0)} · {mark}", font=f,
+                fill="black" if r.get("ok") else (185, 28, 28))
+        y += line
+    if not chk.get("weights_ok", True):
+        dr.text((x0, y + 10), "vertices without exactly one full weight", font=f, fill=(185, 28, 28))
+    target = check_sheet_path(code)
+    os.makedirs(os.path.dirname(target), exist_ok=True)
+    sheet.save(target)
+    return target
+
+
+def check_lineup(target, cell=360, cols=5):
+    """Every rigged animal's T-pose with its bones, PASS or FAIL, in one sheet."""
+    from PIL import Image, ImageDraw, ImageFont
+    cells = []
+    for d in VL.animal_dirs():
+        an = VL.load(d)
+        rj = os.path.join(d, "blender", "rig.json")
+        cd = check_dir(an["code"])
+        if os.path.exists(rj) and os.path.exists(os.path.join(cd, "rest-animal.png")):
+            r = json.load(open(rj, encoding="utf-8"))
+            cells.append((an, (r.get("check") or {}), r.get("bones"), _check_tile(cd, "rest")))
+    if not cells:
+        raise SystemExit("no rig checks yet (vf.py rig-all)")
+    head = 34
+    rows = (len(cells) + cols - 1) // cols
+    sheet = Image.new("RGB", (cols * cell, rows * (cell + head)), "white")
+    dr = ImageDraw.Draw(sheet)
+    f = ImageFont.truetype(os.path.join(VL.FONTS, "Poppins-SemiBold.ttf"), 16)
+    for k, (an, chk, nb, im) in enumerate(cells):
+        x, y = (k % cols) * cell, (k // cols) * (cell + head)
+        ok = chk.get("ok")
+        dr.text((x + 8, y + 8), f"{an['code']} · {an['common']} · {nb} bones · {'PASS' if ok else 'FAIL'}", font=f,
+                fill=(21, 128, 61) if ok else (185, 28, 28))
+        m = round(im.width * 0.08)
+        sheet.paste(im.crop((m, m, im.width - m, im.height - m)).resize((cell, cell), Image.LANCZOS), (x, y + head))
+    sheet.save(target, quality=90)
+    return target
+
+
+def cmd_rig_check(a):
+    """Re-checks built rigs without rebuilding them (one code, or every rigged animal)."""
+    dirs = [VL.find(a.code)] if a.code else VL.animal_dirs()
+    bad = []
+    for d in dirs:
+        an = VL.load(d)
+        blend, _ = rig_paths(d, an)
+        if not os.path.exists(blend):
+            continue
+        res = VL.run_blender(dict(open_rig=blend, check=dict(dir=check_dir(an["code"]))), f"{an['code']}-rigcheck",
+                             script="vf_rig.py")
+        chk = res.get("check") or {}
+        rj = os.path.join(d, "blender", "rig.json")
+        if os.path.exists(rj):
+            r = json.load(open(rj, encoding="utf-8"))
+            r["check"] = dict(ok=chk.get("ok"), weights_ok=chk.get("weights_ok"), missing=chk.get("missing"),
+                              failing=[x["bone"] for x in chk.get("rows", []) if not x.get("ok")])
+            json.dump(r, open(rj, "w", encoding="utf-8"), indent=1, default=str)
+        out(f"  {an['code']} · {an['common']}: {'PASS' if chk.get('ok') else 'FAIL'} -> "
+            f"{VL.rel(check_sheet(an, chk))}")
+        if not chk.get("ok"):
+            bad.append(an["code"])
+    if not a.code:
+        out(f"-> {VL.rel(check_lineup(CHECK_LINEUP))}")
+    out(f"rig-check: {len(bad)} failing" + (f" ({', '.join(bad)})" if bad else ""))
+    return 1 if bad else 0
+
+
+def cmd_rig(a):
+    folder = VL.find(a.code)
+    animal = VL.load(folder)
+    gifs = do_rig(folder, animal, force=a.force, preview=not a.no_preview)
+    blend, glb = rig_paths(folder, animal)
+    out(f"{a.code}: {VL.rel(blend)}, {VL.rel(glb)}")
+    for name, g in (gifs or {}).items():
+        out(f"  {name}: {VL.rel(g)}")
+    return 0
+
+
+def cmd_rig_all(a):
+    from concurrent.futures import ThreadPoolExecutor
+    todo = [d for d in VL.animal_dirs() if os.path.exists(os.path.join(d, "blender", "model.py"))]
+    for d in todo:                               # stills first, one at a time (cheap when current)
+        do_build(d, VL.load(d))
+    errors = []
+
+    def one(d):
+        an = VL.load(d)
+        try:
+            do_rig(d, an, force=a.force, preview=not a.no_preview)
+        except SystemExit as e:
+            errors.append(f"{an['code']}: {e}")
+
+    with ThreadPoolExecutor(max_workers=max(1, a.jobs)) as ex:
+        list(ex.map(one, todo))
+    for e in errors:
+        out("  ERROR", e)
+    out(f"-> {VL.rel(check_lineup(CHECK_LINEUP))}")
+    if not a.no_preview and not errors:
+        out(f"-> {VL.rel(motion_lineup(LINEUP_GIF))}")
+    out(f"rig-all: {len(todo) - len(errors)} rigged, {len(errors)} failed")
+    return 1 if errors else 0
+
+
 # ---- generated pages ------------------------------------------------------------------------------------------------
 def write_blender_readme(folder, animal):
     state, why = build_state(folder, animal)
@@ -565,8 +1026,24 @@ def write_blender_readme(folder, animal):
              "| `model.py` | the voxel model: `build(g)` on the grid of `_system/studio/blender/vf_voxel.py` (source of truth) |",
              f"| `{os.path.basename(VL.blend_path(folder, animal))}` | the editable project, built from `model.py`: "
              "collections Animal / Stage / Lights, six scenes (ILL and INF × 1x1, 9x16, 16x9) with framed orthographic cameras |",
-             "| `build.json` | the stamp: when, which Blender, the model, look and standards hashes, framing, render times |", "",
+             "| `build.json` | the stamp: when, which Blender, the model, look and standards hashes, framing, render times |"]
+    rblend, rglb = rig_paths(folder, animal)
+    rj = os.path.join(folder, "blender", "rig.json")
+    r = json.load(open(rj, encoding="utf-8")) if os.path.exists(rj) else None
+    rig_line = []
+    if r:
+        rs, rwhy = rig_state(folder, animal)
+        acts = ", ".join(f"{k} ({v} f)" for k, v in r.get("actions", {}).items())
+        lines += [f"| `{os.path.basename(rblend)}` | the animation rig (`vf.py rig`, approved motion): armature "
+                  f"`VF · armature` from the joints, mesh `VF · animal` skinned with rigid weights, actions {acts} at {r.get('fps')} fps, "
+                  "scene `ANIM 1x1` |",
+                  f"| `{os.path.basename(rglb)}` | the same rig and actions as glTF binary (Y up, one animation per action) |",
+                  "| `rig.json` | the rig's stamp: plan, bones, actions, the still and motion hashes |"]
+        rig_line = [f"- Animation rig: **{rs}**" + (f" ({', '.join(rwhy)})" if rwhy else "")
+                    + f", {r.get('plan')} plan, {r.get('bones')} bones, rigged {r.get('rigged')}"]
+    lines += ["",
              f"- Build: **{state}**" + (f" ({', '.join(why)})" if why else "") + (f", built {b.get('built')}" if b else ""),
+             *rig_line,
              f"- Model: {'; '.join(model.get('notes', [])) or '-'}",
              f"- Standards {b.get('standards_version', '?')}, rig `{b.get('rig', '?')}`, geometry `{b.get('geometry', '?')}`, "
              f"Blender {b.get('blender', '?')}", ""]
@@ -575,7 +1052,8 @@ def write_blender_readme(folder, animal):
 
 def write_overview(folder, animal):
     code = animal["code"]
-    ex = lambda k, r: VL.export_path(folder, code, k, r)  # noqa: E731
+    import package as PK
+    items = PK.EXPORT["items"]
     model = os.path.join(folder, "blender", "model.py")
     blend = VL.blend_path(folder, animal)
     nphotos = len(_photos(folder))
@@ -583,7 +1061,7 @@ def write_overview(folder, animal):
     doc_ok = os.path.exists(doc) and "{{" not in open(doc, encoding="utf-8").read()
     preview_sheet = os.path.join(VL.CACHE, "preview", code, f"{code} · preview sheet.png")
     ap = animal.get("approvals") or {}
-    n_ex = sum(os.path.exists(ex(k, r)) for k in ST.KINDS for r in ST.RATIOS)
+    n_ex = sum(os.path.exists(PK.export_file(folder, code, s)) for s, _, _ in items)
     state, why = build_state(folder, animal) if os.path.exists(model) else ("missing", ["no model.py"])
     info = animal.get("info", {})
     look = animal.get("look", {})
@@ -604,7 +1082,8 @@ def write_overview(folder, animal):
         f"- [{box(bool(ap.get('preview')))}] Phase 3 · LOW preview approved by the owner"
         + (f" ({ap['preview']})" if ap.get("preview") else "")
         + (f" · sheet `{VL.rel(preview_sheet)}`" if os.path.exists(preview_sheet) else ""),
-        f"- [{box(n_ex == 6)}] Phase 4 · ULTRA exports: {n_ex} of 6",
+        f"- [{box(n_ex == len(items))}] Phase 4 · Export package: {n_ex} of {len(items)} (render.bat renders the "
+        "masters and the loop; package.bat builds the stock image, the GIF and the cards)",
         f"- [{box(animal['status'] in ('Registered', 'Approved'))}] Phase 5 · Registered in `05 Publish/Voxel Fauna · Registry.xlsx`",
         f"- [{box(bool(ap.get('final')))}] Phase 6 · Approved by the owner" + (f" ({ap['final']})" if ap.get("final") else ""), "",
         "## At a glance", "",
@@ -617,13 +1096,11 @@ def write_overview(folder, animal):
     for f in info.get("facts", []):
         if _text(f):
             lines.append(f"- Fun fact: {_text(f)}")
-    lines += ["", "## Deliverables", "", "| Image ID | Composition | File |", "|---|---|---|"]
-    for k, kname in ST.KINDS.items():
-        for r in ST.RATIOS:
-            p = ex(k, r)
-            w, h = ST.SIZES[r]
-            lines.append(f"| `{VL.image_id(code, k, r)}` | {kname} {r.replace('x', ':')} ({w}×{h}) | "
-                         + (f"`export/{os.path.basename(p)}`" if os.path.exists(p) else "not rendered") + " |")
+    lines += ["", "## Deliverables (the export package)", "", "| ID | What | File |", "|---|---|---|"]
+    for suffix, _, what in items:
+        p = PK.export_file(folder, code, suffix)
+        lines.append(f"| `{PK.export_id(code, suffix)}` | {what} | "
+                     + (f"`export/{os.path.basename(p)}`" if os.path.exists(p) else "not built yet") + " |")
     lines += ["", "## Look", "",
               f"- Background: `{look.get('background')}`" + (f": {look['why']}" if look.get("why") else ""),
               "- Palette: " + ", ".join(f"{k} `{v}`" for k, v in (look.get("palette") or {}).items()),
@@ -637,7 +1114,7 @@ def write_overview(folder, animal):
               "| `blender/model.py` | the voxel model (source of truth for the .blend) |",
               f"| `blender/{os.path.basename(blend)}` | the editable Blender project, built from model.py |",
               "| `blender/build.json`, `blender/README.md` | the build stamp and its summary |",
-              "| `export/` | the six final images (+ `stock/` JPEGs) |", ""]
+              "| `export/` | the export package (+ the `stock/` JPEG) |", ""]
     if animal.get("notes"):
         lines += ["## Notes", ""] + [f"- {n}" for n in animal["notes"]] + [""]
     open(os.path.join(folder, "overview.md"), "w", encoding="utf-8").write("\n".join(lines))
@@ -839,6 +1316,12 @@ def standards_md():
         f"| Pose | sections turn at their joints, at most {ST.POSE['max_angle']:g}° on any axis, ears, snout and jaw "
         f"follow their parent; plates (flat surfaces) {'allowed, ' + str(ST.POSE['plate']) + ' voxel thick' if ST.POSE['plates'] else 'switched off for now: whole voxels only'}; "
         f"the face is painted flat; the posed animal is set on z = 0 |",
+        f"| Motion | armature from the joints, sections skinned with rigid weights, rest pose = the model as drawn, "
+        f"action `pose` = the still; {ST.MOTION['fps']} fps; idle {ST.MOTION['frames']['idle']} frames, walk "
+        f"{ST.MOTION['frames']['walk']} ({ST.MOTION['frames']['walk_large']} from {ST.MOTION['large']} voxels long); "
+        f"legs swing {ST.MOTION['leg_swing']:g}° stiff, {ST.MOTION['leg_swing_knee']:g}° over a knee folding "
+        f"{ST.MOTION['knee_fold']:g}°, two legs {ST.MOTION['leg_swing_biped']:g}° folding "
+        f"{ST.MOTION['knee_fold_biped']:g}°; hops {ST.MOTION['hop_height']:g} of the length; every frame grounded |",
         (f"| Bevel | {ST.BEVEL['width']} m, {ST.BEVEL['segments']} segments, profile {ST.BEVEL['profile']} (round); "
          f"`{ST.GEOMETRY}` geometry (bevel limit {ST.GEOMETRIES[ST.GEOMETRY]['limit']}, {ST.BEVEL_ANGLE}°) |"
          if ST.GEOMETRIES[ST.GEOMETRY]["bevel"] else
@@ -917,6 +1400,22 @@ def cmd_verify(a):
             if state != "current":
                 (fails if an["status"] in ("Final", "Registered", "Approved") else notes).append(
                     f"{an['code']}: .blend {state} ({', '.join(why)})")
+            # every animal with a model is rigged, passes the rig check and has a loop of every action (owner,
+            # 2026-11-17); a missing or stale rig is a problem
+            rs, rwhy = rig_state(d, an)
+            if rs != "current":
+                fails.append(f"{an['code']}: animation rig {rs} ({', '.join(rwhy)}): vf.py rig {an['code']}")
+            else:
+                r = json.load(open(os.path.join(d, "blender", "rig.json"), encoding="utf-8"))
+                if not (r.get("check") or {}).get("ok"):
+                    fails.append(f"{an['code']}: rig check FAIL ({', '.join((r.get('check') or {}).get('failing') or [])}):"
+                                 f" see {VL.rel(check_sheet_path(an['code']))}")
+                if len(r.get("actions", {})) < 2:
+                    fails.append(f"{an['code']}: the rig has no actions besides the still pose")
+                missing = [n for n in r.get("actions", {}) if n != "pose" and not os.path.exists(gif_path(an["code"], n))]
+                if missing:                      # the GIF loops live in the git-ignored cache: a note, they rebuild
+                    notes.append(f"{an['code']}: no preview loop for {', '.join(missing)} on this PC: "
+                                 f"vf.py rig {an['code']} --force")
     for f in fails:
         out("  FAIL", f)
     for f in notes:
@@ -978,11 +1477,23 @@ def main():
         p = sub.add_parser(name)
         p.add_argument("code")
         p.add_argument("--force", action="store_true")
+        if name == "preview":
+            p.add_argument("--stills", action="store_true", help="the six stills only (quick model iteration); "
+                           "without it the preview also rigs, checks and animates the animal")
+        if name == "final":
+            p.add_argument("--low", action="store_true", help="the same renders at LOW into the cache (layouts)")
+    p = sub.add_parser("package")
+    p.add_argument("code")
+    p.add_argument("--low", action="store_true")
+    p = sub.add_parser("package-all")
+    p.add_argument("--low", action="store_true")
     for name in ("overview", "register"):
         sub.add_parser(name).add_argument("code")
     p = sub.add_parser("render-all")
     p.add_argument("profile", choices=("LOW", "ULTRA"))
     p.add_argument("--force", action="store_true")
+    p.add_argument("--stills", action="store_true", help="LOW: the stills only, no rigs and loops")
+    p.add_argument("--jobs", type=int, default=3)
     p = sub.add_parser("approve")
     p.add_argument("code")
     p.add_argument("stage", choices=("preview", "final"))
@@ -1003,6 +1514,16 @@ def main():
     p.add_argument("--ultra", action="store_true")
     p.add_argument("--compare", action="store_true")
     p.add_argument("--ratios")
+    p = sub.add_parser("rig")
+    p.add_argument("code")
+    p.add_argument("--force", action="store_true")
+    p.add_argument("--no-preview", action="store_true")
+    p = sub.add_parser("rig-all")
+    p.add_argument("--force", action="store_true")
+    p.add_argument("--no-preview", action="store_true")
+    p.add_argument("--jobs", type=int, default=3, help="Blender runs at once (default 3)")
+    p = sub.add_parser("rig-check")
+    p.add_argument("code", nargs="?")
     sub.add_parser("verify")
     p = sub.add_parser("lock")
     p.add_argument("reason")

@@ -2,7 +2,7 @@
   "code": "26-020",
   "common": "Scarlet Macaw",
   "scientific": "Ara macao",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -148,14 +148,56 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "7b33faefb458357b/4e0d73f06b7d763c"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "bird",
+    "actions": [
+      "pose",
+      "idle",
+      "flap"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Makau Merah",
+      "kicker": "Burung · Keluarga nuri",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "~89 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "~1,2 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "40–50 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "2–4"
+        }
+      ],
+      "habitat": "Puncak pohon hutan hujan dari Meksiko selatan hingga Amazon, di bawah 1.000 m.",
+      "diet": "Buah dan kacang, bahkan yang belum matang, plus tanah liat tepi sungai untuk mencernanya.",
+      "facts": [
+        "Kebanyakan makau merah kidal: mereka memegang makanan dengan kaki kiri.",
+        "Pasangan setia seumur hidup dan saling merapikan bulu."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

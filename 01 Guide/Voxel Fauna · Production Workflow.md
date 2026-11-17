@@ -24,29 +24,38 @@ Six phases, two approvals by the owner. The rules behind each step are in the sk
    part, the 3–5 recognisable features, colour map, photos used).
 3. `blender/model.py`: write it yourself, or attach **`key-prompt.md`** + `docs/voxel-model.md` to Claude Sonnet (high
    effort) in a browser and save its answer.
-4. `vf.py check <code>` until it reports no errors (budget, ground, one piece, palette keys, brief vs palette).
+4. `animal.json → motion`: the body plan and the actions (pose, idle, the gait, the species specials); the brief's
+   Motion section says which. Four-legged animals stand on four feet so they can walk.
+5. `vf.py check <code>` until it reports no errors (budget, ground, one piece, palette keys, brief vs palette, motion).
 
-## Phase 3 · Preview and review
+## Phase 3 · Preview, rig and review (every animal goes all the way to rigged and animated)
 1. `vf.py preview <code>` (or `render.bat` → `2` for every animal): builds the `.blend` if needed and renders all six
-   compositions at LOW from it into `_system/cache/preview/<code>/`, with `<code> · preview sheet.png`.
+   compositions at LOW from it into `_system/cache/preview/<code>/`, with `<code> · preview sheet.png`; then rigs the
+   animal (`blender/<code> · <Name> · Rig.blend` + `· Rig.glb`), runs the rig check (T-pose and bent renders, every
+   bone moving exactly its sections) and renders a GIF loop of every action into `_system/cache/preview/<code>/anim/`.
+   While iterating on the model, `vf.py preview <code> --stills` renders the stills only.
 2. Judge against the checklist (skill, section 8): species recognisable at thumbnail size, proportions against the
-   photos, eyes visible, colours vivid, background complementary, the cards fit and read well.
-3. Fix and repeat. Show the owner. On the owner's OK: `vf.py approve <code> preview`.
+   photos, eyes visible, colours vivid, background complementary, the cards fit and read well; the rig check PASS and
+   every loop moving the way the species does.
+3. Fix and repeat. Show the owner the stills and the loops. On the owner's OK: `vf.py approve <code> preview`.
+   `vf.py verify` fails for any animal that is not rigged, checked and animated.
 
 ## Phase 4 · Final production
 1. The card copy in `animal.json → info` (Duolingo voice; every item cites source ids; `vf.py check` says if a text is
    too long for any layout). The photo: `info.photo` (file, author, licence, url, centre).
 2. `vf.py final <code>` (or `render.bat` → `3` for every approved animal): ULTRA from the approved `.blend` into
    `export/`, about 15–20 minutes an animal; it resumes after a pause and skips finished images.
-3. Look at all six at full size. Copy changes later: edit `animal.json`, then `vf.py info <code>` (no render).
+3. Look at every item full size (the card PDFs at 100 %). Copy changes later: edit `animal.json` (`info`, and
+   `i18n.id` for the Indonesian card), then `package.bat` (no render).
 
 ## Phase 5 · Documentation and registry
 1. `vf.py overview <code>`; `vf.py register <code>` → rows in `05 Publish/Voxel Fauna · Registry.xlsx`.
-2. `vf.py stock <code>` → JPEGs of the illustrations and upload CSVs (stock sites), the Gumroad zip of all six.
+2. `package.bat` (or `vf.py stock <code>`) → the JPEG of the 1:1 stock image and upload CSVs (stock sites), the
+   Gumroad zip of the whole export package.
 3. `vf.py verify`.
 
 ## Phase 6 · Completion and publishing
-1. Present the folder and the six exports to the owner. On the owner's OK: `vf.py approve <code> final`.
+1. Present the folder and the export package to the owner. On the owner's OK: `vf.py approve <code> final`.
 2. Upload with `05 Publish/Voxel Fauna · Publishing Checklist.md`; record every event:
    `vf.py log <code> "Adobe Stock" Submitted --kinds ILL`, later `vf.py log VF-26-001-ILL-1x1 "Adobe Stock" Accepted --link <url>`.
 

@@ -11,24 +11,25 @@ internet, no Claude). Blender builds and renders; Python (with Pillow and openpy
 
 ## The home screen
 
-The top lines count the animals: built, stale, previewed, preview-approved, with all six finals. The menu:
+The top lines count the animals: built, stale, previewed, preview-approved, with the whole export package. The menu:
 
 | Group | Key | What it does |
 |---|---|---|
 | **Render** | `1` Build | Builds every animal's `.blend` from its `blender/model.py` when it is missing or stale (the model, the palette or the standards changed). Seconds per animal. |
-| | `2` LOW previews | Builds what is stale, then renders the six compositions of every animal at LOW into `_system\cache\preview\<code>\` with a contact sheet. Seconds per animal. |
-| | `3` ULTRA finals | Renders the six final images (4096 px) of every animal **the owner approved** (`vf.py approve <code> preview`) into its `export\`. About 15–20 minutes per animal on the RTX 3050. Skips images already finished. |
+| | `2` LOW previews | Builds what is stale, then renders the six review compositions of every animal at LOW into `_system\cache\preview\<code>\` with a contact sheet, then rigs, checks and animates it. About 1–2 minutes per animal. |
+| | `3` ULTRA renders | Renders, for every animal **the owner approved** (`vf.py approve <code> preview`), the two master renders (4096 square, dynamic and regular blocky pose) into its `export\` and the frames of its looped animation into the cache. Rendering only: run `package.bat` afterwards. About 15 minutes per animal on the RTX 3050 (the integrated Intel GPU of the second PC cannot render ULTRA). Skips renders already finished. |
 | | `4` One animal | Pick a code, then build, preview or final for that animal only. |
+| **Motion** | `R` Rig | Approved (2026-11-17). Rigs every animal from its built `.blend` (`blender\<code> · <Name> · Rig.blend` and `· Rig.glb`, the stills untouched) and renders a GIF loop of each action into `_system\cache\preview\<code>\anim\`, then the lineup GIF in `02 Animals\`. About 1–2 minutes per animal, three at a time; skips rigs that are current. |
 | **Check** | `5` Status | Every animal in the colour of its state (below). |
-| | `6` One animal's files | The six final files of one animal and where its preview is. |
+| | `6` One animal's files | The export package of one animal (which items exist) and where its preview is. |
 | **Control** | `Q` Quit | |
 
 ### The colours
 
 | Colour | Means |
 |---|---|
-| Green | done: all six finals rendered (and approved) |
-| Yellow | preview approved: the finals are waiting to render (option 3) |
+| Green | done: the whole export package built (and approved) |
+| Yellow | preview approved: the ULTRA renders wait (option 3, then package.bat) |
 | Blue | LOW preview rendered, waiting for the owner's look |
 | Cyan | built, not previewed yet |
 | Red | stale: the model, palette or standards changed since the `.blend` was built (option 1) |
@@ -60,6 +61,17 @@ The values live in `_system/studio/blender/vf_standards.py` (`PROFILES`) and are
 | Path | What |
 |---|---|
 | `render.bat` | the renderer (double-click) |
+| `package.bat` | the packager (double-click after render.bat): stock crop, GIF, A5 cards, stock files, zip, registry |
 | `README.md` | every animal at a glance (rewritten by `render.bat` and `vf.py render-all`) |
 | `python_path.txt` | this PC's Python (git-ignored) |
 | `Voxel Fauna · How to Render.md` | this guide |
+
+## package.bat (after render.bat)
+
+Double-click `package.bat` (beside `render.bat`) when the ULTRA renders are done. Offline, no Blender: for every
+animal with its two masters it builds `VF-<code>-STOCK-1x1.png` (the centre 2880 square of the dynamic master),
+`VF-<code>-LOOP.gif` (1080 square, 24 fps), `VF-<code>-CARD-EN.pdf` and `VF-<code>-CARD-ID.pdf` (A5, 3 mm bleed,
+300 dpi: front the model over the real photo with the information, back the blocky model with "powered by ihdyo"),
+then the stock JPEG and CSVs, the Gumroad zip and the registry rows. `package.bat 26-001` does one animal. It needs
+Python with Pillow, openpyxl and PyMuPDF (`pip install pillow openpyxl pymupdf`). A card whose text does not fit
+stops with the field to shorten (`animal.json → info`, or `i18n.id` for the Indonesian card).

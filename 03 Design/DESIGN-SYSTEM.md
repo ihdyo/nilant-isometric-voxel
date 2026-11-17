@@ -63,6 +63,17 @@ need a stronger shade to stay ΔE 30 away), rabbit lime-200, tree frog pink-200.
 | Voice | short, warm, concrete, a surprising bit first, everyday comparisons, at most one exclamation per card; no AI-slop words (majestic, fascinating, crucial role, truly, delve); hypotheses said as such |
 | Fit | type never shrinks; too much text is an error naming the field; numbers stay with their unit when lines wrap |
 
+## The A5 card (APPROVED and locked 2026-11-17, standards v2.2 + the export package; owner: "the animal and info size should be built in card in a5 size in pdf")
+
+| Element | Rule |
+|---|---|
+| Size | A5 portrait, 148 × 210 mm, 3 mm bleed on every side, 300 dpi; PDF pages with the trim box set; one card per language (`CARD-EN`, `CARD-ID`) |
+| Units | u = 1 % of the trim width (1.48 mm); a 6u margin keeps everything clear of the trim |
+| Front | v3, minimal and playful, no photograph, laid out by principle (owner, 2026-11-17: "push the limit of design. use best practice of design to judge them"): hierarchy name, model, numbers, words, fun fact; one left edge at an 8u margin; a 2u spacing rhythm; one type scale (ratio 1.25 from 1.6u = 6.7 pt: 1.6, 2.0, 2.5, 3.1, title 9.5); groups separated by space, not lines; nothing readable within 4.2u (6.2 mm) of the trim; contrast checked in code (4.5:1 body, 3:1 large). Top line: the kicker left (no collection number), the Nilant wordmark right ("nilant" alone, no head; 2.2u tall, the dark-type version on a light background, the white on a dark one; owner 2026-11-17: "add nilant logo ... on top right", then "remove the nilant icon so it show the nilant text only"). The name, the scientific name with the IUCN chip. The hero (v4, owner 2026-11-17: "remove the circle, scatter more particles ... keep the model shadow"): no circle; the model, its body centred horizontally on the card (the shadow trails off to the side; owner 2026-11-17), with its own rendered shadow, taken from the dynamic master (shadow = master / background, multiplied onto the card, so it falls on the particles too); 12 small particles around it, never on the animal, in the background family's 400/500/600 tints (no near-white ones; owner 2026-11-17: "make the particle less occur, remove white particle") and five shapes (square, dot, ring, triangle, plus), seeded by the code so a card always comes out the same. Two by two stats (pixel icon badge, label over value). Home and menu in two columns on the same edges. The base: the fun fact on a full-bleed band in the family's 700 with a straight top edge (v4) |
+| Back | the regular blocky master cropped to the card on the animal's background; "powered by" + the ihdyo mark + "ihdyo" centred at the bottom, small, in black on a light background and white on a dark one (owner, 2026-11-17); the only brand anywhere |
+| Indonesian | the same layout; headings "Rumahnya", "Menu makan", "Fakta seru!", IUCN names in Indonesian (Risiko Rendah, Hampir Terancam, Rentan, Genting, Kritis …), the copy from `animal.json → i18n.id` |
+| Type | the card system's fonts and colours; sizes in u: title 7.2, scientific 3.0, kicker 1.9, stat value 3.0, body 2.15, fun fact 2.2, credit 1.15; type never shrinks (too long = an error naming the field) |
+
 ## Files
 `Color/tailwind-v4-palette.json` (copy of Nilant's), `Fonts/` (Poppins, OFL), `Reference/` (approved look sheets:
 rig and geometry 2026-11-15, colour fidelity 2026-11-16, blocky mob before-after, bulky posed before-after and flat faces before-after 2026-11-16; the last is the approved

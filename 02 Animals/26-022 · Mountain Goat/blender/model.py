@@ -14,9 +14,8 @@ def build(g):
         g.paint((x, -5, 2), (x + 3, -5, 4), "shade", of=shin)
         g.joint(leg, pivot=(x + 2, -3.5, 11), parent="body")
         g.joint(shin, pivot=(x + 2, -3.5, 6), parent=leg)
-    # body: one shaggy box, the hump of thick fur over the shoulders, shaded underneath; a stub of a tail
+    # body: one shaggy box with a flat back, shaded underneath; a stub of a tail
     g.box((0, -6, 11), (19, 6, 20), "coat", part="body")
-    g.box((12, -5, 21), (18, 5, 22), "coat", part="body")
     g.paint((1, -6, 11), (18, 6, 11), "shade", of="body")
     g.box((-1, -1, 18), (-1, 1, 19), "coat", part="body")
     # head: a long box, the chin lifted and turned to the camera; the white beard hanging under the jaw

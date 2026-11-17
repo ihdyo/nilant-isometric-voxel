@@ -1,7 +1,7 @@
 """26-010 · Giraffe (Giraffa camelopardalis) · voxel model, bulky blocky-mob style.
-Built from docs/voxel-model.md. Palette keys: patch, base, mane, dark, eye, tongue. Size: 28 x 11 x 55 voxels posed.
+Built from docs/voxel-model.md. Palette keys: patch, base, mane, dark, eye. Size: 28 x 11 x 55 voxels posed.
 Personality: gentle, curious and a little goofy. Pose: the long neck leaning forward and turned to the camera, the
-head cocked, ears out, the tail swishing, the long dark tongue poking out of the side of the mouth. Expression: big
+head cocked, ears out, the tail swishing. Expression: big
 friendly dark eyes with a cream glint under a row of long lashes, painted flat."""
 
 PATCHED = ("body", "neck", "leg_fl", "leg_hl", "leg_fr", "leg_hr")
@@ -57,9 +57,6 @@ def build(g):
             a, b = (x, z) if side else (y, z) if front else (x, y) if top else (x, z)
             if net(a, b):
                 g.set(x, y, z, "patch", part=p)
-    # the long dark tongue poking out of the left side of the mouth (one side only)
-    g.box((22, -3, 46), (24, -3, 46), "tongue", part="tongue")
-    g.joint("tongue", pivot=(22, -2.5, 46.5), rotate=(0, 18, -10), parent="head")
     g.joint("leg_fl", pivot=(14.5, -3, 20), rotate=(0, -8, 0), parent="body")
     g.joint("leg_hr", pivot=(2.5, 4, 20), rotate=(0, 6, 0), parent="body")
     # the knees: the stepping front foot folds back, the hind hock flexes

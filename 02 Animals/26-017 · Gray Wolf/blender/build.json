@@ -1,147 +1,97 @@
 {
  "code": "26-017",
- "built": "2026-11-16T17:14:21",
+ "built": "2026-11-17T15:20:04",
  "blender": "5.3.0",
- "model_hash": "89f63e1e0d58175f",
+ "model_hash": "2efcba9411cbb0d6",
  "look_hash": "02fd0ad5419f09ee",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_standards.py": "ff985f934e6babaf",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
   "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
  },
- "standards_version": "2.1",
+ "standards_version": "2.2",
  "rig": "iso_top",
  "geometry": "mob",
  "model": {
   "errors": [],
   "notes": [
-   "posed size 28.7 x 15.0 x 26.4 voxels (L x W x H), 3127 voxels, colours back, fur, light, nose, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, snout, tail, tail_tip, torso; turned ear_l, ear_r, head, tail, tail_tip, torso"
+   "the pose moves the lowest point to z = -0.14: the engine sets the animal back on the ground",
+   "posed size 33.1 x 13.1 x 30.1 voxels (L x W x H), 2911 voxels, colours back, fur, light, nose, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, neck, shin_fl, shin_fr, shin_hl, shin_hr, snout, tail, tail_tip; turned ear_l, ear_r, head, leg_fl, leg_hr, neck, tail, tail_tip"
   ],
   "size": [
-   37,
-   15,
-   19
+   36,
+   11,
+   29
   ],
-  "voxels": 3127
+  "voxels": 2911
  },
  "frames": {
   "ILL 1x1": {
-   "ortho_scale": 4.049900472164154,
+   "ortho_scale": 4.2893361539712975,
    "view": [
-    4.049900472164154,
-    4.049900472164154
+    4.2893361539712975,
+    4.2893361539712975
    ],
    "box_size": [
-    2.412931552359254,
-    2.834930330514908
+    2.6555432336867426,
+    3.002535307779908
    ]
   },
   "ILL 9x16": {
-   "ortho_scale": 5.231287918394047,
+   "ortho_scale": 5.757275303385892,
    "view": [
-    2.9425994540966514,
-    5.231287918394047
+    3.2384673581545647,
+    5.757275303385892
    ],
    "box_size": [
-    2.412931552359254,
-    2.834930330514908
+    2.6555432336867426,
+    3.002535307779908
    ]
   },
   "ILL 16x9": {
-   "ortho_scale": 7.411582563437666,
+   "ortho_scale": 7.849765510535707,
    "view": [
-    7.411582563437666,
-    4.1690151919336875
+    7.849765510535707,
+    4.415493099676335
    ],
    "box_size": [
-    2.412931552359254,
-    2.834930330514908
+    2.6555432336867426,
+    3.002535307779908
    ]
   },
   "INF 1x1": {
-   "ortho_scale": 7.733034180346177,
+   "ortho_scale": 8.190221788815899,
    "view": [
-    7.733034180346177,
-    7.733034180346177
+    8.190221788815899,
+    8.190221788815899
    ],
    "box_size": [
-    2.412931552359254,
-    2.834930330514908
+    2.6555432336867426,
+    3.002535307779908
    ]
   },
   "INF 9x16": {
-   "ortho_scale": 11.599551270519262,
+   "ortho_scale": 12.285332683223846,
    "view": [
-    6.524747589667085,
-    11.599551270519262
+    6.910499634313413,
+    12.285332683223846
    ],
    "box_size": [
-    2.412931552359254,
-    2.834930330514908
+    2.6555432336867426,
+    3.002535307779908
    ]
   },
   "INF 16x9": {
-   "ortho_scale": 6.436623426740248,
+   "ortho_scale": 6.817165449762811,
    "view": [
-    6.436623426740248,
-    3.6206006775413893
+    6.817165449762811,
+    3.8346555654915813
    ],
    "box_size": [
-    2.412931552359254,
-    2.834930330514908
+    2.6555432336867426,
+    3.002535307779908
    ]
   }
  },
- "renders": {
-  "LOW": {
-   "ILL 1x1": {
-    "seconds": 4.5,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 9x16": {
-    "seconds": 3.1,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 16x9": {
-    "seconds": 4.1,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 1x1": {
-    "seconds": 5.1,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 9x16": {
-    "seconds": 2.8,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 16x9": {
-    "seconds": 3.8,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   }
-  }
- }
+ "renders": {}
 }

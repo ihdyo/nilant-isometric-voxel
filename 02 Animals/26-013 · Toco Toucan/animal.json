@@ -2,7 +2,7 @@
   "code": "26-013",
   "common": "Toco Toucan",
   "scientific": "Ramphastos toco",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -157,14 +157,57 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "4761eb159a03685e/4baaad353bc6e5b8"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 5 animals'); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "bird",
+    "actions": [
+      "pose",
+      "idle",
+      "hop",
+      "flap"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Tukan Toko",
+      "kicker": "Burung · Keluarga tukan",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "~61 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "592–760 g"
+        },
+        {
+          "label": "Usia",
+          "value": "~20 tahun"
+        },
+        {
+          "label": "Paruh",
+          "value": "1/3 panjang"
+        }
+      ],
+      "habitat": "Hutan terbuka, sabana, dan kebun di Amerika Selatan, kebanyakan dataran rendah Brasil.",
+      "diet": "Kebanyakan buah, dilempar ke atas lalu ditelan bulat, plus serangga dan sesekali telur.",
+      "facts": [
+        "Paruh besarnya itu pendingin: tukan mengalirkan darah hangat ke sana saat hari panas.",
+        "Paruh terbesar untuk ukurannya di antara burung: sepertiga panjangnya, cuma 1/20 beratnya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

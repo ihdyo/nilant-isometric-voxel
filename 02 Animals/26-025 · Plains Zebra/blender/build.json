@@ -1,40 +1,40 @@
 {
  "code": "26-025",
- "built": "2026-11-16T17:19:25",
+ "built": "2026-11-17T15:20:22",
  "blender": "5.3.0",
- "model_hash": "0219bef2ec49adc6",
+ "model_hash": "cece3dc7f3eadc8c",
  "look_hash": "6f760c4949ce9a9e",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_standards.py": "ff985f934e6babaf",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
   "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
  },
- "standards_version": "2.1",
+ "standards_version": "2.2",
  "rig": "iso_top",
  "geometry": "mob",
  "model": {
   "errors": [],
   "notes": [
    "2 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant)",
-   "posed size 33.4 x 12.0 x 39.5 voxels (L x W x H), 3668 voxels, colours muzzle, stripe, white, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, muzzle, neck, shin_fl, shin_fr, shin_hl, shin_hr, tail; turned ear_l, ear_r, head, leg_fl, leg_hr, neck, shin_fl, shin_hr, tail"
+   "posed size 33.4 x 12.0 x 39.5 voxels (L x W x H), 3698 voxels, colours muzzle, stripe, white, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, muzzle, neck, shin_fl, shin_fr, shin_hl, shin_hr, tail; turned ear_l, ear_r, head, leg_fl, leg_hr, neck, shin_fl, shin_hr, tail"
   ],
   "size": [
    34,
    11,
    39
   ],
-  "voxels": 3668
+  "voxels": 3698
  },
  "frames": {
   "ILL 1x1": {
-   "ortho_scale": 4.858012406953744,
+   "ortho_scale": 4.888142427163465,
    "view": [
-    4.858012406953744,
-    4.858012406953744
+    4.888142427163465,
+    4.888142427163465
    ],
    "box_size": [
     2.647426891208319,
-    3.4006086848676205
+    3.4216996990144253
    ]
   },
   "ILL 9x16": {
@@ -45,104 +45,53 @@
    ],
    "box_size": [
     2.647426891208319,
-    3.4006086848676205
+    3.4216996990144253
    ]
   },
   "ILL 16x9": {
-   "ortho_scale": 8.890480221876132,
+   "ortho_scale": 8.945620128142286,
    "view": [
-    8.890480221876132,
-    5.000895124805324
+    8.945620128142286,
+    5.031911322080036
    ],
    "box_size": [
     2.647426891208319,
-    3.4006086848676205
+    3.4216996990144253
    ]
   },
   "INF 1x1": {
-   "ortho_scale": 9.27607388125374,
+   "ortho_scale": 9.333605289182831,
    "view": [
-    9.27607388125374,
-    9.27607388125374
+    9.333605289182831,
+    9.333605289182831
    ],
    "box_size": [
     2.647426891208319,
-    3.4006086848676205
+    3.4216996990144253
    ]
   },
   "INF 9x16": {
-   "ortho_scale": 13.914110821880607,
+   "ortho_scale": 14.000407933774245,
    "view": [
-    7.826687337307842,
-    13.914110821880607
+    7.875229462748012,
+    14.000407933774245
    ],
    "box_size": [
     2.647426891208319,
-    3.4006086848676205
+    3.4216996990144253
    ]
   },
   "INF 16x9": {
-   "ortho_scale": 7.720978992178504,
+   "ortho_scale": 7.768865500813226,
    "view": [
-    7.720978992178504,
-    4.343050683100409
+    7.768865500813226,
+    4.36998684420744
    ],
    "box_size": [
     2.647426891208319,
-    3.4006086848676205
+    3.4216996990144253
    ]
   }
  },
- "renders": {
-  "LOW": {
-   "ILL 1x1": {
-    "seconds": 5.8,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 9x16": {
-    "seconds": 3.8,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 16x9": {
-    "seconds": 2.8,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 1x1": {
-    "seconds": 4.9,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 9x16": {
-    "seconds": 2.6,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 16x9": {
-    "seconds": 2.3,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   }
-  }
- }
+ "renders": {}
 }

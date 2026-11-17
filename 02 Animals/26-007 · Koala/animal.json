@@ -2,7 +2,7 @@
   "code": "26-007",
   "common": "Koala",
   "scientific": "Phascolarctos cinereus",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -145,14 +145,57 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "9e9b8c0ec6a0670c/88e029a8259fe2c3"
   },
   "notes": [
     "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "doze"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Koala",
+      "kicker": "Marsupial · Keluarga koala",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "72–78 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "5–12 kg"
+        },
+        {
+          "label": "Tidur",
+          "value": "18 jam/hari"
+        },
+        {
+          "label": "Usia",
+          "value": "10+ tahun"
+        }
+      ],
+      "habitat": "Hutan eukaliptus di Australia timur dan tenggara, kebanyakan di bawah 600 m.",
+      "diet": "Daun eukaliptus, sekitar 500 g sehari, dari segelintir jenis pohon favoritnya.",
+      "facts": [
+        "Ia tidur hingga 18 jam sehari. Makanan daun yang rendah energi butuh banyak istirahat!",
+        "Tak punya kelenjar keringat? Tak masalah: ia mendinginkan diri dengan menjilat lengannya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

@@ -15,32 +15,36 @@ Background (not modelled): `indigo-200` (rendered as a calm pastel).
 
 ## Size and pose
 
-- Size: 29 × 15 × 26 voxels posed (L × W × H); longest side 29, budget 29–39 (target 34) from the real size 1.6 m (nose to tail tip: head and body 0.87–1.3 m plus a 0.35–0.52 m tail).
+- Size: 33 × 13 × 30 voxels posed (L × W × H); longest side 33, budget 29–39 (target 34) from the real size 1.6 m (nose to tail tip: head and body 0.87–1.3 m plus a 0.35–0.52 m tail).
 - Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
-- Parts: body, leg_fl, leg_fr, leg_hl, leg_hr, tail, tail_tip, torso, head, snout, ear_l, ear_r.
+- Parts: shin_fl, shin_fr, shin_hl, shin_hr, leg_fl, leg_fr, leg_hl, leg_hr, body, tail, tail_tip, neck, head, snout, ear_l, ear_r.
 
 ## Personality, pose and expression
 
 - Personality: loyal and a little dramatic, the pack's singer.
-- Pose: sitting on its haunches, the back sloping up from the hips to the shoulders, the front legs straight, the head thrown back to howl at the sky, the ears laid back, the bushy tail curled round on the ground.
+- Pose: standing four-square on long legs with knees, the thick neck ruff raised and the head thrown back to howl at the sky, turned to the camera, the ears laid back, the bushy tail hanging low.
 - Expression: eyes shut tight and a round open mouth, mid-howl, painted flat.
 
 ## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
 
 | Part | x | y | z | Pose |
 |---|---|---|---|---|
-| body | 0 to 9 | -6 to 6 | 0 to 7 |  |
-| leg_fl | 12 to 14 | -5 to -3 | 0 to 12 | on body |
-| leg_fr | 12 to 14 | 3 to 5 | 0 to 12 | on body |
-| leg_hl | 1 to 11 | -7 to -6 | 0 to 6 | on body |
-| leg_hr | 1 to 11 | 6 to 7 | 0 to 6 | on body |
-| tail | -6 to -1 | -2 to 2 | 0 to 2 | turned rz +18°; on body |
-| tail_tip | -10 to -7 | -2 to 2 | 0 to 2 | turned rz +30°; on tail |
-| torso | 3 to 17 | -5 to 5 | 3 to 11 | turned ry -34°; on body |
-| head | 15 to 22 | -5 to 5 | 9 to 15 | turned rx +6°, ry -12°, rz -12°; on torso |
-| snout | 23 to 26 | -2 to 2 | 9 to 12 | on head |
-| ear_l | 16 to 17 | -5 to -3 | 16 to 18 | turned rx +10°, ry -14°; on head |
-| ear_r | 16 to 17 | 3 to 5 | 16 to 18 | turned rx -10°, ry -14°; on head |
+| shin_fl | 12 to 14 | -5 to -3 | 0 to 4 | on leg_fl |
+| shin_fr | 12 to 14 | 3 to 5 | 0 to 4 | on leg_fr |
+| shin_hl | 1 to 3 | -5 to -3 | 0 to 4 | on leg_hl |
+| shin_hr | 1 to 3 | 3 to 5 | 0 to 4 | on leg_hr |
+| leg_fl | 12 to 14 | -5 to -3 | 5 to 8 | turned ry -6°; on body |
+| leg_fr | 12 to 14 | 3 to 5 | 5 to 8 | on body |
+| leg_hl | 0 to 3 | -5 to -3 | 5 to 8 | on body |
+| leg_hr | 0 to 3 | 3 to 5 | 5 to 8 | turned ry +5°; on body |
+| body | 0 to 15 | -5 to 5 | 9 to 17 |  |
+| tail | -5 to -1 | -2 to 2 | 12 to 15 | turned ry -28°, rz +8°; on body |
+| tail_tip | -9 to -6 | -2 to 2 | 12 to 15 | turned ry -12°, rz +6°; on tail |
+| neck | 14 to 17 | -4 to 4 | 14 to 20 | turned ry -20°, rz -6°; on body |
+| head | 16 to 22 | -5 to 5 | 19 to 25 | turned rx +6°, ry -22°, rz -10°; on neck |
+| snout | 23 to 26 | -2 to 2 | 19 to 22 | on head |
+| ear_l | 17 to 18 | -5 to -3 | 26 to 28 | turned rx +10°, ry -14°; on head |
+| ear_r | 17 to 18 | 3 to 5 | 26 to 28 | turned rx -10°, ry -14°; on head |
 
 ## Recognisable features (in order of importance)
 

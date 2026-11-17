@@ -6,7 +6,7 @@
 
 | Key | Colour (Tailwind token or #hex) | Where |
 |---|---|---|
-| `shell` | `amber-800` | the domed shell |
+| `shell` | `amber-800` | the low shell |
 | `seam` | `amber-500` | the lines between the shell plates |
 | `skin` | `lime-800` | the head, the flippers and the tail |
 | `belly` | `amber-100` | the pale underside and the jaw |
@@ -16,7 +16,7 @@ Background (not modelled): `sky-200` (rendered as a calm pastel).
 
 ## Size and pose
 
-- Size: 27 × 31 × 8 voxels posed (L × W × H); longest side 31, budget 26–36 (target 31) from the real size 1.3 m (beak to tail with the flippers: a 1–1.2 m shell).
+- Size: 27 × 31 × 7 voxels posed (L × W × H); longest side 31, budget 26–36 (target 31) from the real size 1.3 m (beak to tail with the flippers: a 1–1.2 m shell).
 - Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
 - Parts: body, flipper_hl, flipper_hr, head, flipper_l, flipper_r.
 
@@ -30,7 +30,7 @@ Background (not modelled): `sky-200` (rendered as a calm pastel).
 
 | Part | x | y | z | Pose |
 |---|---|---|---|---|
-| body | -1 to 19 | -7 to 7 | 0 to 7 |  |
+| body | -1 to 19 | -7 to 7 | 0 to 6 |  |
 | flipper_hl | 1 to 3 | -10 to -8 | 1 to 1 | turned rz -20°; on body |
 | flipper_hr | 1 to 3 | 8 to 10 | 1 to 1 | turned rz +20°; on body |
 | head | 20 to 24 | -2 to 2 | 1 to 5 | turned rx +6°, ry -14°, rz -16°; on body |
@@ -39,7 +39,7 @@ Background (not modelled): `sky-200` (rendered as a calm pastel).
 
 ## Recognisable features (in order of importance)
 
-1. the domed shell with its pattern of plates
+1. the low shell in two steps with its pattern of plates
 2. big paddle flippers
 3. a small rounded head
 4. a pale yellow underside
@@ -47,7 +47,7 @@ Background (not modelled): `sky-200` (rendered as a calm pastel).
 
 ## Colour map
 
-- `shell`: the domed shell
+- `shell`: the low shell
 - `seam`: the lines between the shell plates
 - `skin`: the head, the flippers and the tail
 - `belly`: the pale underside and the jaw

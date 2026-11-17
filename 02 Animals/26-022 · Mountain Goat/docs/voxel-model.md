@@ -7,7 +7,7 @@
 | Key | Colour (Tailwind token or #hex) | Where |
 |---|---|---|
 | `coat` | `stone-50` | the shaggy white coat |
-| `shade` | `stone-200` | the beard, the shoulder hump and the leg shading |
+| `shade` | `stone-200` | the beard and the leg shading |
 | `horn` | `neutral-900` | the horns, the hooves, the eyes and the mouth |
 | `nose` | `stone-700` | the nose |
 
@@ -37,7 +37,7 @@ Background (not modelled): `violet-300` (rendered as a calm pastel).
 | leg_fr | 14 to 17 | 2 to 5 | 6 to 10 | on body |
 | leg_hl | 2 to 5 | -5 to -2 | 6 to 10 | on body |
 | leg_hr | 2 to 5 | 2 to 5 | 6 to 10 | on body |
-| body | -1 to 19 | -6 to 6 | 11 to 22 |  |
+| body | -1 to 19 | -6 to 6 | 11 to 20 |  |
 | head | 19 to 25 | -3 to 3 | 13 to 23 | turned rx +6°, ry -10°, rz -18°; on body |
 | muzzle | 26 to 28 | -2 to 2 | 17 to 20 | on head |
 | ear_l | 20 to 21 | -5 to -4 | 22 to 23 | turned rx +14°; on head |
@@ -51,12 +51,12 @@ Background (not modelled): `violet-300` (rendered as a calm pastel).
 2. short black dagger horns
 3. a white beard
 4. black hooves
-5. a hump of thick fur at the shoulders
+5. a long, straight back (the shoulder hump left out; owner, 2026-11-17)
 
 ## Colour map
 
 - `coat`: the shaggy white coat
-- `shade`: the beard, the shoulder hump and the leg shading
+- `shade`: the beard and the leg shading
 - `horn`: the horns, the hooves, the eyes and the mouth
 - `nose`: the nose
 

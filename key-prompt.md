@@ -73,7 +73,9 @@ colour name or hex. `part` names the Blender object the voxel lands in.
 5. **Parts:** one part per section a toy would have as its own piece: `body`, `head`, `snout` / `muzzle` / `beak` /
    `jaw`, `neck`, `tail` (+ `tail_tip`), `trunk_1`…, `leg_fl`, `leg_hl` (front and hind left), `arm_l`, `ear_l`,
    `wing_l`, `flipper_l`, `tusk_l`, `foot_l`. Split them so they can turn; never in the middle of a colour patch.
-   Eyes, brows and mouths are not parts: they are painted on the head or snout.
+   Eyes, brows and mouths are not parts: they are painted on the head or snout. **Use these exact names** (and
+   `shin_fl`, `leg_l` for a two-legged animal, `flipper_hl`, `gill_l`, `tongue`, `torso`, `mane`, `flukes`): the
+   animation rig finds the legs, ears, tails and wings by name to make them walk, flick and flap.
 6. **Joints:** a pivot touches its part (within a voxel and a half of it); at most **40°** on any axis (subtle,
    believable turns, not contortions).
 7. **Symmetry:** build the left side (y ≤ 0) and the centre column, call `g.mirror()` once, then add the asymmetric
@@ -87,10 +89,13 @@ face drawn on the front of the head. Make it our own animal from the brief and t
 game's creature.
 
 - **Knees for long legs:** a leg longer than about 8 voxels is two sections, the upper leg (`leg_fl`) and the shin
-  (`shin_fl`, parent the leg) hinged at the knee, so a lifted or striding leg can fold.
-- **Sitting animals:** the haunches are the `body` on the ground; the torso is its own section rising from them
-  (turned about its back-bottom edge, about 30–40°), the front legs are straight pillars from the ground into the
-  chest (parent `body`), the head sits on the torso.
+  (`shin_fl`, parent the leg) hinged at the knee, so a lifted or striding leg can fold. Bird legs (`leg_l` + `shin_l`
+  + `foot_l`) and frog legs (thigh + shank and foot) are two parts as well.
+- **Stand on four feet:** a four-legged animal stands on all four feet, never sits (owner, 2026-11-17), so it can
+  walk; show its character with the head, ears, tail and a stride instead. A big head goes high on the front of the
+  body, or it hides the front legs.
+- **Long bodies in two sections:** a heavy, long body can be the lower body (`body`, the hindquarters) and the upper
+  body (`torso`, the shoulders, parent `body`, hinged at the waist) with the front legs and the head on the torso.
 - **Bulky sections.** Body = one big box (wide: about half its length or more); head = one big box, often as wide as
   the body or wider; legs = thick pillars (3 × 3 for most mammals, 4 × 4 or 5 × 5 for heavy ones, 1 × 1 for long bird
   legs); tail = one or two blocks; ears = small blocks or plates. A second box only for a real feature (a bear's

@@ -1,0 +1,42 @@
+{
+ "code": "26-015",
+ "rigged": "2026-11-17T15:21:00",
+ "blender": "5.3.0",
+ "still_built": "2026-11-17T15:19:59",
+ "motion_hash": "1a7b96e1a10f3d0f",
+ "rig_engine": "2ae7404b96e5b6c3",
+ "plan": "walker",
+ "bones": 7,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "walk": 24,
+  "sniff": 48
+ },
+ "blend": "26-015 \u00b7 European Hedgehog \u00b7 Rig.blend",
+ "glb": "26-015 \u00b7 European Hedgehog \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 2.4734903454583193,
+  "box_size": [
+   1.7314432418208234,
+   1.5913253128528595
+  ]
+ },
+ "vertices": 1012,
+ "groups": [
+  "body",
+  "head",
+  "leg_fl",
+  "leg_fr",
+  "leg_hl",
+  "leg_hr"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

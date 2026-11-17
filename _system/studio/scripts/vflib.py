@@ -37,7 +37,10 @@ DEFAULT_BLENDER = r"C:\Users\ihdyo\AppData\Local\Programs\Blender 5.3.0\blender-
 # the files whose content is the approved look: a change to any of them needs the owner's OK and a relock
 LOCKED_FILES = ["_system/studio/blender/vf_standards.py", "_system/studio/blender/vf_voxel.py",
                 "_system/studio/blender/vf_scene.py", "_system/studio/blender/vf_job.py",
-                "_system/studio/blender/vf_color.py", "_system/studio/scripts/infographic.py"]
+                "_system/studio/blender/vf_color.py", "_system/studio/scripts/infographic.py",
+                "_system/studio/blender/vf_rig.py",           # the motion, APPROVED by the owner 2026-11-17
+                "_system/studio/blender/vf_export.py",        # the export package, APPROVED by the owner 2026-11-17
+                "_system/studio/scripts/package.py"]
 
 
 def rel(path):
@@ -167,8 +170,9 @@ def blender_exe():
     raise SystemExit("Blender not found: set BLENDER or write its blender.exe path in _system/studio/blender_path.txt")
 
 
-def run_blender(job, tag):
-    """Write the job, run vf_job.py in a background Blender, stream its VF: lines, return the result dict."""
+def run_blender(job, tag, script="vf_job.py"):
+    """Write the job, run `script` (vf_job.py, or vf_rig.py for the rig) in a background Blender, stream its VF: lines,
+    return the result dict."""
     work = os.path.join(CACHE, "jobs", tag)
     os.makedirs(work, exist_ok=True)
     job = dict(job, work=os.path.join(work, "passes"), result=os.path.join(work, "result.json"))
@@ -176,7 +180,7 @@ def run_blender(job, tag):
         os.remove(job["result"])
     jp = os.path.join(work, "job.json")
     json.dump(job, open(jp, "w", encoding="utf-8"), indent=1)
-    cmd = [blender_exe(), "-b", "--factory-startup", "--python", os.path.join(BLENDER_DIR, "vf_job.py"), "--", jp]
+    cmd = [blender_exe(), "-b", "--factory-startup", "--python", os.path.join(BLENDER_DIR, script), "--", jp]
     t = time.time()
     with open(os.path.join(work, "blender.log"), "w", encoding="utf-8", errors="replace") as logf:
         p = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True, encoding="utf-8",

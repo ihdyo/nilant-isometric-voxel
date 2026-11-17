@@ -1,19 +1,18 @@
 """26-018 · Green Sea Turtle (Chelonia mydas) · voxel model, bulky blocky-mob style.
-Built from docs/voxel-model.md. Palette keys: shell, seam, skin, belly, eye. Size: 27 x 31 x 8 voxels posed.
+Built from docs/voxel-model.md. Palette keys: shell, seam, skin, belly, eye. Size: 27 x 31 x 7 voxels posed.
 Personality: calm, wise and unhurried. Pose: crawling up the beach: the front flippers raised mid-stroke, one higher
 than the other, the head lifted and turned to the camera, the back flippers splayed. Expression: content, half-closed
 eyes and a small smile, painted flat."""
 
 
 def build(g):
-    # body: the pale underside on the ground and the domed shell in three steps, the plate seams on top
+    # body: the pale underside on the ground and the low domed shell in two steps, the plate seams on top
     g.box((1, -6, 0), (18, 6, 0), "belly", part="body")
     g.box((0, -7, 1), (19, 7, 5), "shell", part="body")
     g.box((2, -6, 6), (17, 6, 6), "shell", part="body")
-    g.box((4, -4, 7), (15, 4, 7), "shell", part="body")
     for x in (6, 10, 14):
-        g.paint((x, -6, 6), (x, 6, 7), "seam", of="body")
-    g.paint((2, -3, 6), (17, -3, 7), "seam", of="body")
+        g.paint((x, -6, 6), (x, 6, 6), "seam", of="body")
+    g.paint((2, -3, 6), (17, -3, 6), "seam", of="body")
     g.paint((0, -7, 1), (19, 7, 1), "seam", of="body")
     g.box((-1, 0, 1), (-1, 0, 2), "skin", part="body")
     # head: a rounded box on a short neck, the pale jaw, lifted and turned to the camera

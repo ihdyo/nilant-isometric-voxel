@@ -11,7 +11,6 @@
 | `mane` | `amber-800` | the mane along the back of the neck |
 | `dark` | `stone-800` | hooves, ossicone tufts, tail tuft |
 | `eye` | `neutral-950` | one voxel on each front corner of the head (seen from the front and the flank) |
-| `tongue` | `#4F4A6B` | the long dark blue-purple tongue poking out (a hex colour: no Tailwind token is that blue-grey) |
 
 Background (not modelled): `sky-300`.
 
@@ -19,12 +18,12 @@ Background (not modelled): `sky-300`.
 
 - Size: 28 × 11 × 55 voxels posed (L × W × H); longest side 55, budget 45–56 (target 53) from the real size 5.0 m (height to the ossicones: up to 5.7 m, a typical adult about 5 m).
 - Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
-- Parts: shin_fl, shin_fr, shin_hl, shin_hr, leg_fl, leg_fr, leg_hl, leg_hr, tail, body, neck, head, tongue, ear_l, ear_r.
+- Parts: shin_fl, shin_fr, shin_hl, shin_hr, leg_fl, leg_fr, leg_hl, leg_hr, tail, body, neck, head, ear_l, ear_r.
 
 ## Personality, pose and expression
 
 - Personality: gentle, curious and a little goofy.
-- Pose: the long neck leaning forward and turned to the camera, the head cocked, ears out, the tail swishing, the long dark tongue poking out of the side of the mouth.
+- Pose: the long neck leaning forward and turned to the camera, the head cocked, ears out, the tail swishing.
 - Expression: big friendly dark eyes with a cream glint under a row of long lashes, painted flat.
 
 ## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
@@ -43,7 +42,6 @@ Background (not modelled): `sky-300`.
 | body | 0 to 16 | -4 to 4 | 20 to 31 |  |
 | neck | 11 to 16 | -2 to 2 | 32 to 45 | turned ry +10°, rz -8°; on body |
 | head | 12 to 23 | -3 to 3 | 46 to 54 | turned rx +14°, ry +6°; on neck |
-| tongue | 22 to 24 | -3 to -3 | 46 to 46 | turned ry +18°, rz -10°; on head |
 | ear_l | 15 to 17 | -4 to -4 | 49 to 50 | turned rx +20°; on head |
 | ear_r | 15 to 17 | 4 to 4 | 49 to 50 | turned rx -20°; on head |
 
@@ -62,7 +60,6 @@ Background (not modelled): `sky-300`.
 - `mane`: the mane along the back of the neck
 - `dark`: hooves, ossicone tufts, tail tuft
 - `eye`: one voxel on each front corner of the head (seen from the front and the flank)
-- `tongue`: the long dark blue-purple tongue poking out (a hex colour: no Tailwind token is that blue-grey)
 
 ## Photos used
 

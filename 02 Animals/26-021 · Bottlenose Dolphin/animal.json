@@ -2,7 +2,7 @@
   "code": "26-021",
   "common": "Bottlenose Dolphin",
   "scientific": "Tursiops truncatus",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -145,14 +145,56 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "b26b897a9c2e7c19/3a3941e36dc4747b"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Lumba-lumba Hidung Botol",
+      "kicker": "Mamalia · Keluarga lumba-lumba",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "2,3–3,8 m"
+        },
+        {
+          "label": "Berat",
+          "value": "250–500 kg"
+        },
+        {
+          "label": "Kecepatan",
+          "value": "30 km/jam"
+        },
+        {
+          "label": "Tahan napas",
+          "value": "4,5 menit"
+        }
+      ],
+      "habitat": "Laut hangat dan sedang di seluruh dunia, dari teluk dan muara hingga laut lepas.",
+      "diet": "Ikan dan cumi, ditemukan dengan ekolokasi. Hingga 16 kg makanan sehari!",
+      "facts": [
+        "Tiap lumba-lumba punya siulan khas, mirip nama, dan memakainya seumur hidup.",
+        "Ia tidur dengan separuh otak bergantian, jadi tak pernah lupa bernapas."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

@@ -1,30 +1,30 @@
 {
  "code": "26-010",
- "built": "2026-11-16T17:09:55",
+ "built": "2026-11-17T16:47:44",
  "blender": "5.3.0",
- "model_hash": "3c8f5c1ebc5a881b",
- "look_hash": "060165ca3dda2c5e",
+ "model_hash": "4a0ef6a4b3cedc19",
+ "look_hash": "ad175b578b6da947",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_standards.py": "ff985f934e6babaf",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
   "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
  },
- "standards_version": "2.1",
+ "standards_version": "2.2",
  "rig": "iso_top",
  "geometry": "mob",
  "model": {
   "errors": [],
   "notes": [
    "the pose moves the lowest point to z = -0.03: the engine sets the animal back on the ground",
-   "223 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant)",
-   "posed size 28.2 x 11.3 x 54.9 voxels (L x W x H), 3215 voxels, colours base, dark, eye, mane, patch, tongue, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, neck, shin_fl, shin_fr, shin_hl, shin_hr, tail, tongue; turned ear_l, ear_r, head, leg_fl, leg_hr, neck, shin_fl, shin_hr, tail, tongue"
+   "220 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant)",
+   "posed size 28.2 x 11.3 x 54.9 voxels (L x W x H), 3212 voxels, colours base, dark, eye, mane, patch, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, neck, shin_fl, shin_fr, shin_hl, shin_hr, tail; turned ear_l, ear_r, head, leg_fl, leg_hr, neck, shin_fl, shin_hr, tail"
   ],
   "size": [
-   26,
+   25,
    9,
    55
   ],
-  "voxels": 3215
+  "voxels": 3212
  },
  "frames": {
   "ILL 1x1": {
@@ -97,52 +97,52 @@
  "renders": {
   "LOW": {
    "ILL 1x1": {
-    "seconds": 6.0,
+    "seconds": 7.7,
     "size": [
      1024,
      1024
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-17"
    },
    "ILL 9x16": {
-    "seconds": 4.1,
+    "seconds": 6.2,
     "size": [
      576,
      1024
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-17"
    },
    "ILL 16x9": {
-    "seconds": 2.8,
+    "seconds": 4.8,
     "size": [
      1024,
      576
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-17"
    },
    "INF 1x1": {
-    "seconds": 4.6,
+    "seconds": 8.4,
     "size": [
      1024,
      1024
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-17"
    },
    "INF 9x16": {
-    "seconds": 3.3,
+    "seconds": 3.9,
     "size": [
      576,
      1024
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-17"
    },
    "INF 16x9": {
-    "seconds": 2.7,
+    "seconds": 4.8,
     "size": [
      1024,
      576
     ],
-    "at": "2026-11-16"
+    "at": "2026-11-17"
    }
   }
  }

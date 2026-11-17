@@ -9,7 +9,7 @@ Folders follow the production flow: read the guide → make an animal → design
 | Folder | Contents | When to open |
 |---|---|---|
 | **01 Guide** | `Voxel Fauna · Production Workflow`, `· Stock Platforms` (Adobe Stock, Shutterstock, Gumroad and the others), `· Prerequisites`. | At the start, then as a reference. |
-| **02 Animals** | `_Template/` and one folder per species, `YY-SEQ · Common Name` (e.g. `26-001 · Red Fox`): `overview.md` (front page), `animal.json` (names, look, card copy, photo, sources, approvals), `docs/` (animal information, references, the voxel brief), `assets/photos/` (genuine photos), `blender/` (`model.py`, the built `.blend`, its stamp), `export/` (the six images). | Every animal. |
+| **02 Animals** | `_Template/` and one folder per species, `YY-SEQ · Common Name` (e.g. `26-001 · Red Fox`): `overview.md` (front page), `animal.json` (names, look, card copy, photo, sources, approvals), `docs/` (animal information, references, the voxel brief), `assets/photos/` (genuine photos), `blender/` (`model.py`, the built `.blend`, its stamp), `export/` (the export package: two masters, the stock image, the loop GIF, the A5 cards). | Every animal. |
 | **03 Design** | `DESIGN-SYSTEM.md` (the look in one page), the Tailwind palette, Poppins, approved reference stills. | When judging or changing the look. |
 | **04 Library** | Licence and download log. | When something is downloaded. |
 | **05 Publish** | `Voxel Fauna · Registry.xlsx` (animals, image IDs, publish log, platforms), `Voxel Fauna · Publish Log.md`, the publishing checklist, upload CSVs, Gumroad zips. | Uploading and tracking. |
@@ -36,11 +36,11 @@ From this folder, in any terminal (`python` 3.10+ with Pillow and openpyxl; Blen
    or with `key-prompt.md`), `vf.py check 26-001`.
 3. `vf.py preview 26-001` (or `render.bat` → 2) → `_system/cache/preview/26-001/26-001 · preview sheet.png`; when the
    owner likes it, `vf.py approve 26-001 preview`.
-4. The card copy in `animal.json → info` (Duolingo voice), then `vf.py final 26-001` (or `render.bat` → 3) → the six
-   PNGs in `export/`.
-5. `vf.py register 26-001`, `vf.py stock 26-001`; upload with `05 Publish/Voxel Fauna · Publishing Checklist.md` and
+4. The card copy in `animal.json → info` (Duolingo voice) and `i18n.id` (Indonesian), then `vf.py final 26-001`
+   (or `render.bat` → 3) → the two masters and the loop; then `package.bat` → the stock image, the GIF, the cards.
+5. `package.bat` also writes the stock files, the Gumroad zip and the registry rows; upload with `05 Publish/Voxel Fauna · Publishing Checklist.md` and
    record each upload with `vf.py log 26-001 "Adobe Stock" Submitted`.
-6. The owner reviews the six images; `vf.py approve 26-001 final`.
+6. The owner reviews the export package; `vf.py approve 26-001 final`.
 
 Ten example animals are in `02 Animals/` (26-001 Red Fox … 26-010 Giraffe). Full detail:
 `01 Guide/Voxel Fauna · Production Workflow.md`. Check the setup with `vf.py doctor`, everything with `vf.py verify`.

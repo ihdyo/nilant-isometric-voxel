@@ -1,13 +1,15 @@
 ---
 name: voxel-animal-production
-description: The single source of truth for producing Voxel Fauna animals - isometric voxel animal illustrations made in Blender code for Gumroad, Adobe Stock and other stock sites. Covers the visual standards (true-isometric orthographic camera, large voxels, vivid solid Tailwind colours under Khronos PBR Neutral, one complementary flat background per species, composited shadow), the modelling standards (the voxel brief docs/voxel-model.md, key-prompt.md, the voxel grid in model.py), building and rendering (.blend from model.py, render.bat, ULTRA and LOW profiles adapted from Nilant), the six compositions, the Duolingo-style information artwork with a real photograph, research and sources, the registry and publish log, stock packaging, and the two owner approvals per animal. Use before creating, modelling, rendering, documenting or registering any animal, when asked to start the next animal, change the look, write card copy, render a preview or final, or prepare uploads.
+description: The single source of truth for producing Voxel Fauna animals - isometric voxel animal illustrations made in Blender code for Gumroad, Adobe Stock and other stock sites. Covers the visual standards (true-isometric orthographic camera, large voxels, vivid solid Tailwind colours under Khronos PBR Neutral, one complementary flat background per species, composited shadow), the modelling standards (the voxel brief docs/voxel-model.md, key-prompt.md, the voxel grid in model.py), building and rendering (.blend from model.py, render.bat, ULTRA and LOW profiles adapted from Nilant), the LOW review compositions, the export package (two master renders, the stock image, the loop GIF, the A5 card in English and Indonesian), the Duolingo-style card system with a real photograph, research and sources, the registry and publish log, stock packaging, and the two owner approvals per animal. Use before creating, modelling, rendering, documenting or registering any animal, when asked to start the next animal, change the look, write card copy, render a preview or final, or prepare uploads.
 ---
 
 # Voxel Fauna · voxel animal production
 
-A collection of isometric voxel animal illustrations, one species per folder, each in six images: three
-illustrations and three information artworks (1:1, 9:16, 16:9, 4096 px on the long side), sold on Gumroad and stock
-sites (Adobe Stock first). It reuses Nilant's directory conventions and Blender render configuration
+A collection of isometric voxel animal illustrations, one species per folder, each delivered as an export package
+(owner, 2026-11-17): two 4096 master renders (the dynamic pose and the regular blocky pose, each cropping to 1:1,
+9:16 and 16:9), a 1:1 stock image, a looped animation and an A5 card in English and Indonesian; sold on Gumroad
+and stock sites (Adobe Stock first). The six LOW compositions (illustrations and information artworks at 1:1, 9:16
+and 16:9) remain the review sheets. It reuses Nilant's directory conventions and Blender render configuration
 (`A:\WORK!!\_startup\Nilant`), adapted for still images. **Never rely on conversation history: this skill,
 `CLAUDE.md` and the files are the instructions.**
 
@@ -98,8 +100,12 @@ sites (Adobe Stock first). It reuses Nilant's directory conventions and Blender 
   voxel inside an ear reads as an extra eye on the front, keep ears one colour or rimmed (fox, red panda); two dark
   voxels on a muzzle's top corners read as a second pair of eyes (giraffe); black flippers on a black body vanish,
   hold them out over a white flank (penguin); long legs need a knee (upper leg + shin) or a stride looks stiff (lion,
-  zebra, giraffe); a sitting animal reads when the torso is its own section rising from the haunches and the front
-  legs go straight down (wolf, rabbit); a hippo's muzzle is wider than its skull and the open jaw hinges under it.
+  zebra, giraffe), and two-part legs read on birds and frogs too (flamingo, frog: upper and lower part), built the
+  same on both sides so the animal can walk on them (a leg drawn folded never reaches the ground); four-legged
+  animals stand on all four feet, never sit (owner, 2026-11-17: koala, wolf, rabbit), so every one can walk; a big
+  head goes high on the front of the body or it hides the front legs (koala); a long body can be two sections, upper
+  and lower, turning at the waist, with the head straight on the shoulders (polar bear); a hippo's muzzle is wider
+  than its skull and the open jaw hinges under it.
 - Scene organisation (built by the engine): collections `Animal`, `Stage` (the ground), `Lights` (key and rim suns);
   six scenes `ILL 1x1` … `INF 16x9` linking them, each with its own orthographic camera `CAM · <scene>` and the ULTRA
   settings; a `README` text block. `blender/build.json` stamps the build (model, look and standards hashes).
@@ -124,14 +130,75 @@ sites (Adobe Stock first). It reuses Nilant's directory conventions and Blender 
   (animal as holdout, grey ground, Standard view); the shadow factor is blurred, given a 3 % dead zone and laid at
   strength 0.65 over the exact background hex in linear light. Open background = exactly the token's hex.
 
+### Animation rig and motion (APPROVED and locked 2026-11-17, standards v2.2)
+- `vf.py rig <code>` (or `vf.py rig-all --jobs 3`) opens the built still `.blend` and saves a rigged copy beside it,
+  `blender/<code> · <Name> · Rig.blend`, plus `· Rig.glb` (glTF binary, Y up, one animation per action) and the stamp
+  `blender/rig.json`. The still `.blend` and the stills are never touched. A rig is stale when the still is rebuilt,
+  `animal.json → motion` changes or `vf_rig.py` changes; `verify` fails until it is rigged again (owner, 2026-11-17).
+- **Armature `VF · armature`** ("rig" alone in this project means the light rig `iso_top`): `root` on the ground under
+  the body (grounding and hops) → `body` (every section without a joint) → one bone per `g.joint` section on its
+  hinge, parented like the joints. **Skin:** the sections joined into one mesh `VF · animal`, every vertex weighted
+  1.0 to its section's bone (a vertex group per bone) and deformed by an Armature modifier: rigid, so the blocks
+  stay crisp, and it reads as rigged in any tool (weight paint, glTF skin). The rest pose is the model as drawn (the
+  T-pose); the action `pose` is the approved still (matches it to a few micrometres, vertex by vertex).
+- **Rig check** (`vf.py rig-check [<code>]`, also run by every `rig`): every vertex carries exactly one full
+  weight; each bone bent in turn moves its own section and everything below it, and nothing else; renders of the
+  T-pose and of every bone bent, sections coloured by bone, bones in yellow on top, with the bone list →
+  `_system/cache/preview/<code>/anim/VF-<code>-RIG-check.png` and the sheet of all
+  `02 Animals/Voxel Fauna · Twenty-five examples · rig check (T-pose).jpg`. A FAIL names the bone, and `verify`
+  fails until it passes.
+- **Motion library** (`_system/studio/blender/vf_rig.py`): every action is the still plus offsets, so a loop starts
+  and ends on the approved look; walking legs replace their still angles. Each frame is grounded on its posed voxels
+  (lowest corner on z = 0), so planted feet stay planted without foot targets; a hop adds its height. Actions: `idle`
+  (head look, ear flick, tail, trunk, jaw, gills, tongue), `walk` (diagonal pairs on stiff legs like a block-game mob,
+  shins fold on the swing; a `sprawler` sweeps its legs about the vertical and bends its body; a two-legged bird
+  steps leg over leg, the lower leg folding on the swing and the feet kept flat), `flap`, `hop`, `swim`,
+  `waddle`, and the specials `howl`, `doze`, `shake`, `yawn`, `fan`, `reach`, `sniff`. 24 fps; idle 48 frames, walk 24
+  (32 from 40 voxels long).
+- **Per animal** (`animal.json → motion`): `plan` (walker, sitter, bird, swimmer, sprawler, hopper), `actions`,
+  optional `frames` per action, `base` (still angles replaced in one action: the hippo walks with its jaw shut) and
+  `signature` (the loop shown in the lineup; default the first after `idle`).
+- **Section names matter:** the library finds sections by name, so models keep them: `head`, `neck`, `torso`, `mane`,
+  `leg_fl/fr/hl/hr`, `shin_*`, `leg_l/r` + `foot_l/r` (two legs), `wing_*`, `flipper_l/r`, `flipper_hl/hr`, `arm_*`,
+  `ear_*`, `tail`, `tail_tip`, `flukes`, `trunk_1…3`, `jaw`, `tongue`, `gill_*`, `snout`/`muzzle`/`nose`/`beak`.
+- **Previews:** every action at 512 px, 12 fps, with the stills' two-pass shadow composite at LOW samples, into
+  `_system/cache/preview/<code>/anim/VF-<code>-ANIM-<action>.gif`; `rig-all` also writes the lineup
+  `02 Animals/Voxel Fauna · Twenty-five examples · motion (LOW preview).gif`.
+- **On the owner's approval of the motion:** move `RIG` into `vf_standards.py`, add `vf_rig.py` to
+  `vflib.LOCKED_FILES`, `vf.py lock`. Still to do (PLAN.md): expressions (blinks, mouth states), video exports (MP4
+  loops through render.bat), knees for the short-legged walkers.
+
+### The export package (APPROVED and locked 2026-11-17, standards v2.2 + the export package: the masters, the stock image, the loop and the card)
+Per animal, in `export/` (the IDs `VF-<code>-<item>`; numbers in `blender/vf_export.py → EXPORT`, locked with the file):
+| Item | What |
+|---|---|
+| `MASTER-DYN.png` | the master render, dynamic pose (the action `pose`, the approved still): 4096 square on the animal's background with the composited shadow; the animal inside the centre 2304 safe square, so a centred 1:1, 9:16 (2304 × 4096) or 16:9 (4096 × 2304) crop never cuts it |
+| `MASTER-BLOCK.png` | the same for the regular blocky pose (the rest pose, every joint straight, set on the ground) |
+| `STOCK-1x1.png` | the 1:1 image for stock sites: the centre 2880 square of the dynamic master (8.3 MP) |
+| `LOOP.gif` | the looped dynamic animation: the signature action (motion.signature, else the first after idle), 1080 square, 24 fps |
+| `CARD-EN.pdf`, `CARD-ID.pdf` | the A5 card (148 × 210 mm, 3 mm bleed, 300 dpi, trim box set), one per language. Front, minimal and playful, no photograph for now: the animal's pastel, the name big with the scientific name and IUCN chip, the Nilant wordmark top right, the dynamic model (its body centred) with its own rendered shadow among a few small particles (the background family's 400-600 tints, mixed shapes), four boxless stats with pixel icons, home and menu in two columns, the fun fact on a full-bleed band with a straight top edge. Back: the blocky master with "powered by" + the ihdyo mark + "ihdyo", small at the bottom, black on a light background and white on a dark one (the only place the brand appears) |
+- **Two batch files:** `render.bat` → 3 only renders (owner: "render.bat should be rendering only (2 image and 1
+  motion)"): `vf.py final <code>` renders the two masters into `export/` and their cut-outs and the loop frames into
+  `_system/cache/plates/<code>/ULTRA/` (`blender/vf_export.py`, from the rig `.blend`). `package.bat` (beside it)
+  builds the rest offline (`scripts/package.py`): the stock crop, the GIF, both cards, the stock JPEG and CSVs, the
+  Gumroad zip and the registry rows (`vf.py package-all`, or `package.bat <code>`).
+- **Layouts at LOW:** `vf.py final <code> --low` and `vf.py package <code> --low` build the whole package small into
+  `_system/cache/export-low/<code>/` (page previews in `_system/cache/preview/<code>/card/`).
+- **Indonesian copy:** `animal.json → i18n.id` (common, kicker, stats, habitat, diet, facts): the same facts and
+  sources as `info`, translated; numbers in Indonesian style (1,5–1,8 m; 1.200 m); `check` requires it once the
+  preview is approved. Type never shrinks: the packager names the text to shorten.
+- **ULTRA needs the RTX 3050:** a 4096 ULTRA pass crashes an integrated GPU (Vulkan "device lost"; the Intel UHD 730
+  of the second PC); LOW and the packaging run anywhere.
+
 ### The locked values
 <!-- standards:begin -->
-Standards version 2.1 · rig `iso_top` · geometry `mob` (generated from `vf_standards.py` by `vf.py standards --write`; do not edit by hand)
+Standards version 2.2 · rig `iso_top` · geometry `mob` (generated from `vf_standards.py` by `vf.py standards --write`; do not edit by hand)
 
 | Area | Value |
 |---|---|
 | Voxel | 0.1 m; posed longest side 16–56 voxels: target 28 × (real longest dimension in m)^0.4 ± 15%; smallest feature 1 voxel |
 | Pose | sections turn at their joints, at most 40° on any axis, ears, snout and jaw follow their parent; plates (flat surfaces) switched off for now: whole voxels only; the face is painted flat; the posed animal is set on z = 0 |
+| Motion | armature from the joints, sections skinned with rigid weights, rest pose = the model as drawn, action `pose` = the still; 24 fps; idle 48 frames, walk 24 (32 from 40 voxels long); legs swing 22° stiff, 17° over a knee folding 34°, two legs 20° folding 45°; hops 0.22 of the length; every frame grounded |
 | Geometry | `mob`: one part's faces merge into flat planes; sharp box edges (no bevel), flat shading, flat solid colours; one voxel layer per part, so overlapping sections stack whole (no holes) |
 | Camera | ORTHO, azimuth 45.0°, elevation 35.264° (true isometric), distance 40.0 m, clip 0.1–200.0 m, no depth of field |
 | Facing | head towards +X, back up, left flank at −Y (head lower right in frame) |
@@ -154,7 +221,7 @@ Standards version 2.1 · rig `iso_top` · geometry `mob` (generated from `vf_sta
 | Image ID | `VF-{code}-{kind}-{ratio}` (e.g. `VF-26-001-ILL-1x1`) |
 <!-- standards:end -->
 
-## 4. Production workflow (one animal, six phases, two approvals)
+## 4. Production workflow (one animal, six phases, two approvals; every animal rigged and animated)
 All commands: `python _system/studio/scripts/vf.py …` from the project root (or `render.bat` for building and
 rendering).
 
@@ -166,14 +233,20 @@ rendering).
    at least two angles, logged with author, licence and page URL; downloads need the owner's OK of the batch.
 2. **Modelling** — choose `look.palette` and `look.background` (write `look.why`), write `docs/voxel-model.md`, then
    `model.py` (yourself, or by attaching `key-prompt.md` + `docs/voxel-model.md` to Claude Sonnet in a browser),
-   `vf.py check <code>` until clean.
-3. **Preview** — `vf.py preview <code>` (or `render.bat` → 2) → `_system/cache/preview/<code>/<code> · preview
-   sheet.png`. Judge with the checklist (section 8), fix, repeat; show the owner; **on the owner's OK only**
-   `vf.py approve <code> preview`.
-4. **Final** — `vf.py final <code>` (or `render.bat` → 3) → the six PNGs in `export/`. Look at every image full size.
-   Copy changes later need no render: edit `animal.json`, then `vf.py info <code>`.
-5. **Documentation and registry** — `vf.py overview <code>`, `vf.py register <code>`, `vf.py stock <code>`.
-6. **Completion** — present the six exports; **on the owner's OK only** `vf.py approve <code> final`. Upload with the
+   set `animal.json → motion` (plan and actions, section 3), `vf.py check <code>` until clean.
+3. **Preview, rig and motion** — every animal goes all the way to rigged and animated (owner, 2026-11-17: "for
+   future generation of animals, ensure it have everything until it rigged and animated"). `vf.py preview <code>`
+   (or `render.bat` → 2) renders the six stills → `_system/cache/preview/<code>/<code> · preview sheet.png`, then
+   rigs the animal, runs the rig check and renders a loop of every action → `.../anim/` (`--stills` skips the
+   motion while iterating on the model). Judge with the checklist (section 8), fix, repeat; show the owner the
+   stills and the loops; **on the owner's OK only** `vf.py approve <code> preview`. `vf.py verify` fails for any
+   animal with a model that is not rigged, checked and animated.
+4. **Final** — `vf.py final <code>` (or `render.bat` → 3, on the RTX 3050) renders the two masters and the loop;
+   then `package.bat` (or `vf.py package <code>`) builds the stock image, the GIF and the two cards. Look at every
+   item full size (the card PDFs at 100 %). Copy changes later need no render: edit `animal.json`, package again.
+5. **Documentation and registry** — `package.bat` writes the stock files, the Gumroad zip, the registry rows and
+   the overview (or `vf.py stock`, `vf.py register`, `vf.py overview`).
+6. **Completion** — present the export package; **on the owner's OK only** `vf.py approve <code> final`. Upload with the
    publishing checklist and record every upload event with `vf.py log`.
 
 ## 5. Information artwork (Duolingo-style cards, owner 2026-11-16)
@@ -206,11 +279,10 @@ rendering).
 - **Publish log** (as Nilant records each upload): `vf.py log <code|Image ID> <platform> <action> [--link] [--note]`
   appends a dated row to the registry's Publish Log sheet and to `05 Publish/Voxel Fauna · Publish Log.md`, and sets
   the image's platform cell. Actions: Submitted, Accepted, Rejected, Live, Removed, Updated.
-- **Stock vs Gumroad:** the information artworks carry a third-party photograph, which stock sites' contributor terms
-  do not let you license as your own work, so `vf.py stock` packages **only the three illustrations** for Adobe Stock
-  and Shutterstock (JPEG, sRGB, XMP metadata, CSVs) and puts **all six** PNGs in the Gumroad zip, where the photo
-  credit on the artwork satisfies CC BY. Start Adobe with ILL 1:1 and 16:9 (similar-content refusals); the
-  generative-AI box stays unticked. Details: `01 Guide/Voxel Fauna · Stock Platforms.md`.
+- **Stock vs Gumroad:** the cards carry a third-party photograph, which stock sites' contributor terms do not let
+  you license as your own work, so `vf.py stock` packages **only the 1:1 stock image** (`STOCK-1x1`) for Adobe
+  Stock and Shutterstock (JPEG, sRGB, XMP metadata, CSVs) and puts **the whole export package** in the Gumroad zip,
+  where the photo credit on the card satisfies CC BY. The generative-AI box stays unticked. Details: `01 Guide/Voxel Fauna · Stock Platforms.md`.
 
 ## 7. Key files
 `key-prompt.md` (writes model.py) · `_system/studio/render/render.bat` (builds and renders offline) ·
@@ -234,7 +306,7 @@ rendering).
 ## 9. Cross-session rules
 1. Read this skill before creating or modifying any animal. 2. Inspect the finished animals. 3. Reuse the engine and
 the standards. 4. Same voxel, colour and material standards. 5. Three-quarter isometric view. 6. Large voxels.
-7. An individual complementary background per species. 8. All six compositions. 9. Update the docs, the registry and
+7. An individual complementary background per species. 8. The whole export package, rigged and animated. 9. Update the docs, the registry and
 the publish log. 10. Never change a standard without documenting it (`DECISIONS.md`) and the owner's approval
 (`vf.py lock`).
 

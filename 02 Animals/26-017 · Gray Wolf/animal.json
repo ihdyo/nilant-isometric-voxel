@@ -2,7 +2,7 @@
   "code": "26-017",
   "common": "Gray Wolf",
   "scientific": "Canis lupus",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -145,14 +145,71 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "2efcba9411cbb0d6/02fd0ad5419f09ee"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "howl"
+    ],
+    "base": {
+      "walk": {
+        "neck": [
+          0,
+          -4,
+          -6
+        ],
+        "head": [
+          6,
+          -2,
+          -10
+        ]
+      }
+    },
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Serigala Abu-abu",
+      "kicker": "Mamalia · Keluarga anjing",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "0,9–1,3 m"
+        },
+        {
+          "label": "Berat",
+          "value": "23–80 kg"
+        },
+        {
+          "label": "Kawanan",
+          "value": "5–9 ekor"
+        },
+        {
+          "label": "Kecepatan",
+          "value": "55–70 km/jam"
+        }
+      ],
+      "habitat": "Tundra, hutan, padang rumput, dan tanah kering di Amerika Utara, Eropa, dan Asia.",
+      "diet": "Moose, elk, bison, dan rusa, diburu bersama. Satu serigala bisa makan 9 kg sekali makan!",
+      "facts": [
+        "Setiap anjing peliharaan di Bumi, dari Chihuahua sampai Great Dane, keturunan serigala abu-abu.",
+        "Lolongan membantu kawanan saling menemukan dan memberi tahu kawanan lain: wilayah ini milik kami!"
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

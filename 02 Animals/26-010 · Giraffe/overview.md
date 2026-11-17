@@ -1,6 +1,6 @@
 # 26-010 · Giraffe
 
-*Giraffa camelopardalis* · Voxel Fauna · status **Preview**
+*Giraffa camelopardalis* · Voxel Fauna · status **Preview approved**
 
 > Written by `python _system/studio/scripts/vf.py overview 26-010` (also after build, preview, final, approve, register). Edit `animal.json`, the docs and `blender/model.py`, never this page.
 
@@ -8,8 +8,8 @@
 
 - [x] Phase 1 · Research: `docs/animal-info.md`, `docs/references.md`, 2 photo(s) in `assets/photos/`
 - [x] Phase 2 · Modelling: `docs/voxel-model.md`, `blender/model.py`, .blend **current**
-- [ ] Phase 3 · LOW preview approved by the owner · sheet `_system/cache/preview/26-010/26-010 · preview sheet.png`
-- [ ] Phase 4 · ULTRA exports: 0 of 6
+- [x] Phase 3 · LOW preview approved by the owner (2026-11-17) · sheet `_system/cache/preview/26-010/26-010 · preview sheet.png`
+- [ ] Phase 4 · Export package: 0 of 6 (render.bat renders the masters and the loop; package.bat builds the stock image, the GIF and the cards)
 - [ ] Phase 5 · Registered in `05 Publish/Voxel Fauna · Registry.xlsx`
 - [ ] Phase 6 · Approved by the owner
 
@@ -25,21 +25,21 @@
 - Fun fact: That huge neck has just 7 bones, the same number as yours!
 - Fun fact: Calves drop about 2 m to the ground at birth. Welcome to the world!
 
-## Deliverables
+## Deliverables (the export package)
 
-| Image ID | Composition | File |
+| ID | What | File |
 |---|---|---|
-| `VF-26-010-ILL-1x1` | Illustration 1:1 (4096×4096) | not rendered |
-| `VF-26-010-ILL-9x16` | Illustration 9:16 (2304×4096) | not rendered |
-| `VF-26-010-ILL-16x9` | Illustration 16:9 (4096×2304) | not rendered |
-| `VF-26-010-INF-1x1` | Information 1:1 (4096×4096) | not rendered |
-| `VF-26-010-INF-9x16` | Information 9:16 (2304×4096) | not rendered |
-| `VF-26-010-INF-16x9` | Information 16:9 (4096×2304) | not rendered |
+| `VF-26-010-MASTER-DYN` | master render, dynamic pose, 4096 square (crops to 1:1, 9:16, 16:9) | not built yet |
+| `VF-26-010-MASTER-BLOCK` | master render, regular blocky pose, 4096 square (crops to 1:1, 9:16, 16:9) | not built yet |
+| `VF-26-010-STOCK-1x1` | 1:1 dynamic for stock sites, the centre square of the dynamic master | not built yet |
+| `VF-26-010-LOOP` | looped dynamic animation, 1080 square | not built yet |
+| `VF-26-010-CARD-EN` | A5 card, English: front the dynamic pose over the photo with the info, back the blocky pose | not built yet |
+| `VF-26-010-CARD-ID` | A5 card, Bahasa Indonesia: the same card in Indonesian | not built yet |
 
 ## Look
 
 - Background: `sky-300`: A clear savanna sky, the complement of the amber patches: the tallest animal gets the sky.
-- Palette: patch `amber-700`, base `amber-100`, mane `amber-800`, dark `stone-800`, eye `neutral-950`, tongue `#4F4A6B`
+- Palette: patch `amber-700`, base `amber-100`, mane `amber-800`, dark `stone-800`, eye `neutral-950`
 - Photo on the information artwork: `assets/photos/01-standing.jpg` (flowcomm, CC BY 2.0)
 
 ## Files
@@ -54,7 +54,7 @@
 | `blender/model.py` | the voxel model (source of truth for the .blend) |
 | `blender/26-010 · Giraffe.blend` | the editable Blender project, built from model.py |
 | `blender/build.json`, `blender/README.md` | the build stamp and its summary |
-| `export/` | the six final images (+ `stock/` JPEGs) |
+| `export/` | the export package (+ the `stock/` JPEG) |
 
 ## Notes
 

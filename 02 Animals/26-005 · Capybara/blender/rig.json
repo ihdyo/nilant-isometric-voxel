@@ -1,0 +1,45 @@
+{
+ "code": "26-005",
+ "rigged": "2026-11-17T15:20:39",
+ "blender": "5.3.0",
+ "still_built": "2026-11-17T15:19:35",
+ "motion_hash": "1a7b96e1a10f3d0f",
+ "rig_engine": "2ae7404b96e5b6c3",
+ "plan": "walker",
+ "bones": 10,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "walk": 24,
+  "sniff": 48
+ },
+ "blend": "26-005 \u00b7 Capybara \u00b7 Rig.blend",
+ "glb": "26-005 \u00b7 Capybara \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 4.008363227023823,
+  "box_size": [
+   2.8058542589166757,
+   2.430842876434326
+  ]
+ },
+ "vertices": 2180,
+ "groups": [
+  "body",
+  "ear_l",
+  "ear_r",
+  "head",
+  "leg_fl",
+  "leg_fr",
+  "leg_hl",
+  "leg_hr",
+  "snout"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

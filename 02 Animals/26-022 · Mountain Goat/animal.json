@@ -2,7 +2,7 @@
   "code": "26-022",
   "common": "Mountain Goat",
   "scientific": "Oreamnos americanus",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -145,14 +145,56 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "73b9aa2b0ff07e9d/5d48c03bb9cae95e"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kambing Gunung",
+      "kicker": "Mamalia · Keluarga sapi",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1,2–1,8 m"
+        },
+        {
+          "label": "Berat",
+          "value": "57–82 kg"
+        },
+        {
+          "label": "Tanduk",
+          "value": "20–30 cm"
+        },
+        {
+          "label": "Hidup hingga",
+          "value": "5.000 m"
+        }
+      ],
+      "habitat": "Tebing curam berbatu tinggi di pegunungan, dari Alaska hingga Washington dan Idaho.",
+      "diet": "Rumput, lumut, liken, dan semak. Sebagian besar airnya dari makanan dan salju!",
+      "facts": [
+        "Kukunya punya telapak kenyal yang mencengkeram batu seperti sepatu panjat.",
+        "Hitung cincin di tanduknya untuk tahu umurnya, persis seperti pohon!"
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

@@ -79,3 +79,45 @@ two files; commit to GitHub.
 - Lessons: a white hole in a black eye patch reads as a letter (panda); two dark voxels on a muzzle read as a second
   pair of eyes (giraffe); a straight trunk reads as a pipe, curl it up (elephant); a box bill needs a taper (toucan).
 - Owner approved the look; standards relocked as v2.0.
+
+## 2026-11-17 · The animation rig and motion library, proposed (Claude)
+- Owner: "rig the animal now" (the rigging plan added on 2026-11-16).
+- **`vf_rig.py`** (new, not in the lock): opens the built still `.blend`, adds the armature `VF · armature` (root on
+  the ground → body → one bone per `g.joint` section on its hinge, parented like the joints), puts every section
+  back in the model's drawn pose and skins it (see below), keys the actions, frames a scene `ANIM 1x1` on
+  everything every action does, saves `<code> · <Name> · Rig.blend` and exports `· Rig.glb`. The action `pose`
+  reproduces the still to 1.4 µm (fox, checked section by section against the still `.blend`).
+- **Motion library:** every action is the still plus offsets in each section's own axes, converted to the bone's
+  frame; walking legs replace their still angles; each frame is grounded on its posed voxel corners (numpy), so
+  planted feet stay planted and the walk gets its bob for free. Actions per animal in `animal.json → motion`.
+- **Previews:** the stills' two-pass shadow composite at 512 px and LOW samples, each pass rendered as one animation
+  (switching holdouts per frame made EEVEE resync: 2.5 s a frame before, about 1.9 s after), GIFs at 12 fps.
+- **Commands:** `vf.py rig <code>`, `vf.py rig-all --jobs 3` (three Blender runs at once, ~1.75× faster on the RTX
+  3050), render.bat `R`; `verify` notes stale rigs; `check` validates `motion`. Docs: skill section 3, CLAUDE.md,
+  PLAN.md, key-prompt.md (section names the rig relies on), How to Render.
+- **Owner: "the rig still not rigging all the armature, the head for most animal still not rigged, the ear and gills
+  also, the dolphin tail ... check whether the animal is rigged properly or not yet at T posed render".** The first
+  version bone-parented each section: the parts followed their bones, but the mesh had no Armature modifier and no
+  weights (nothing shows as rigged in weight paint or the modifier stack), and the head and ear motion was too small
+  to read. Now the sections are joined into one mesh `VF · animal`, a vertex group per bone at weight 1.0, deformed by
+  an Armature modifier; head turns doubled (±10°), ear flicks 26°, gills ±18°.
+- **`vf.py rig-check`** (also inside every `rig`): one full weight per vertex; each bone bent 30° in turn must move its
+  section and everything below it and nothing else; Workbench renders of the T-pose and of every bone bent, sections
+  coloured by bone, bones drawn on top in yellow. All twenty-five PASS (7 to 19 bones each). The skinned `pose` action
+  matches the still vertex by vertex to 5 µm (fox, elephant, axolotl, wolf, dolphin).
+- **Six models reworked** (owner's list): polar bear (no neck; `body` + `torso` at the waist, front legs and head on the torso), flamingo (`leg` + `shin` + `foot` both sides, the folded leg bent at the knee), frog (thigh + shank-and-foot, upper arm + forearm-and-hand), koala, wolf and rabbit standing on four feet (koala: body raised on longer legs and the head lifted, the first try hid the front legs; wolf: knees, a neck ruff, the howl standing with neck and head raised 20° + 22°). Motion: the hop drives the lower legs, the walk rolls an upper body, the howl lifts the neck. All six pass `vf.py check` and the rig check; lineups refreshed.
+- **Rabbit and frog after the owner's reference images, flamingo feet:** the rabbit and frog rebuilt (the frog first came out 19.4 voxels long, over its 16–18 budget: body and feet one voxel shorter, head turn eased); the folded flamingo foot drawn with the same `foot()` as the standing one (`d = -1`, toes back). All three pass the rig check; their loops re-rendered.
+- **Every animal all the way to rigged and animated** (owner): `check` requires `motion`, `preview` and render.bat 2 rig and animate after the stills, `verify` fails without a current, passing rig; template and brief updated.
+- **Turtle, rabbit, frog, flamingo, goat, zebra** (owner's list): the shell and the rabbit's rump lose their top layer, the rabbit's front legs grow to 6 voxels and its hind feet flatten to 1, the frog's feet sit under the thighs, the goat's hump goes, the zebra's mane runs down the back of the neck (the first, one-voxel mane hid behind the 7-wide neck from the camera: neck narrowed to 5, mane 3 wide and 3 deep). The flamingo's folded leg was drawn folded, so it could not walk: both legs are now built the same and the still lifts one within the 40° joints; `vf_rig` gains a two-legged walk (`_biped`, RIG leg_swing_biped 20°, knee_fold_biped 45°), the flamingo's actions are pose, idle, walk, flap.
+- **Flamingo feet smaller** (owner): `foot()` now 3 × 3 on both legs; re-previewed, rigged (check PASS) and looped; lineups refreshed.
+
+## 2026-11-17 · Approvals, the motion lock and the export package (Claude, with the owner)
+- Owner: all 25 models good; answers: approve previews + motion, 4096 masters, GIF loop 1080, two cards (one per language), render.bat renders only and a second bat packages offline. 25 preview approvals recorded; `RIG` moved to `vf_standards.MOTION`, `vf_rig.py` added to the lock, `vf.py lock` (v2.2), stills and rigs rebuilt (verify clean).
+- `blender/vf_export.py`: the two masters from the rig (`pose` action / rest pose grounded), framed in the centre safe square (FRAMING MASTER at run time), the stills' two-pass composite with dither, the animal pass kept as the card cut-out; the loop's frames at a LOOP profile (64 samples, 1080). `scripts/package.py`: stock crop, GIF, A5 card PDF via PyMuPDF (trim and bleed boxes) on the approved card system (infographic.Pen), Indonesian through a language context (headings, IUCN names) and `animal.json → i18n.id`; the ihdyo mark rendered from its SVG by PyMuPDF.
+- `vf.py final` renders the package (resumes), `--low` for layouts; `vf.py package` / `package-all`; stock.py (the stock image only; the Gumroad zip of the package), registry.py (the six package items), check (the masters once Final; `i18n.id` once approved), overview, render_cli (option 3), `package.bat`.
+- The first ULTRA test crashed the GPU (Vulkan device lost, empty passes), on OpenGL too, and the approved stills pipeline the same way: this PC has an Intel UHD 730. ULTRA runs on the RTX 3050; LOW validated everything here.
+- **Card redesign** (owner): front without the photo, minimal and playful (package.py `_front`); the footer ink by background luminance (`ink_on`). All 25 cards fit in English and Indonesian at LOW.
+- **Card v3** (owner: push the design, judge by best practice): audit of v2 (no clear second focal point, eight unrelated sizes, 5.7 pt labels, cramped bottom, divider noise, random confetti, no contrast check), then the rebuild; the circle sized from the larger of the model's width and 0.66 of its height so tall animals (giraffe, flamingo) get one too. All 25 pass in both languages.
+- **Card v4** (owner): `_front` reads the shadow factor from the dynamic master (master / background; under the animal's edge the darkest ground nearby, so no halo), particles drawn before the shadow; FRONT.particles. **Giraffe** without the tongue: model.py, animal.json palette, voxel brief; rebuilt, rigged, loops, preview re-approved on the owner's word, LOW masters re-rendered.
+- **Card v5** (owner): `_front` centres the animal's alpha box and scales so the wider half (with the shadow) fits; FRONT.particles count 12, shades 400-600; `_nilant()` places the Nilant logo by `ink_on`. All 25 repackaged at LOW; sheets `02 Animals/Voxel Fauna · Twenty-five examples · cards (EN|ID).jpg`.
+- **Card v5 final** (owner): the Nilant head removed, the wordmark SVG alone (`_nilant()` renders it with PyMuPDF); all 25 repackaged at LOW. **Export package approved and locked** as standards v2.2 + the export package (`vf_export.py`, `package.py` in `LOCKED_FILES`).

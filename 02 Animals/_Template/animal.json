@@ -14,31 +14,105 @@
     "background": "sky-200",
     "accent": null,
     "why": "Why this background complements the species (hue opposite the main coat colour, soft shade).",
-    "size": {"real_m": null, "measure": "the real longest dimension: nose to tail tip, or height for upright and long-necked species", "source": []}
+    "size": {
+      "real_m": null,
+      "measure": "the real longest dimension: nose to tail tip, or height for upright and long-necked species",
+      "source": []
+    }
+  },
+  "motion": {
+    "plan": "",
+    "actions": [],
+    "note": "every animal is rigged and animated (vf.py preview / vf.py rig): plan = walker | sitter | bird | swimmer | sprawler | hopper; actions = pose, idle, the gait (walk, flap, hop, swim, waddle) and the species specials (howl, doze, shake, yawn, fan, reach, sniff); optional frames {action: n} and base {action: {bone: [rx, ry, rz]}}"
   },
   "info": {
     "kicker": "Class · Family (plain English)",
-    "classification": {"kingdom": "Animalia", "phylum": "", "class": "", "order": "", "family": "", "genus": "", "species": ""},
-    "conservation": {"status": "", "code": "", "assessed": "", "trend": "", "source": []},
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "",
+      "class": "",
+      "order": "",
+      "family": "",
+      "genus": "",
+      "species": ""
+    },
+    "conservation": {
+      "status": "",
+      "code": "",
+      "assessed": "",
+      "trend": "",
+      "source": []
+    },
     "stats": [
-      {"label": "Length", "value": "", "source": []},
-      {"label": "Weight", "value": "", "source": []},
-      {"label": "Lifespan", "value": "", "source": []},
-      {"label": "", "value": "", "source": []}
+      {
+        "label": "Length",
+        "value": "",
+        "source": []
+      },
+      {
+        "label": "Weight",
+        "value": "",
+        "source": []
+      },
+      {
+        "label": "Lifespan",
+        "value": "",
+        "source": []
+      },
+      {
+        "label": "",
+        "value": "",
+        "source": []
+      }
     ],
-    "habitat": {"text": "", "source": []},
-    "diet": {"text": "", "source": []},
+    "habitat": {
+      "text": "",
+      "source": []
+    },
+    "diet": {
+      "text": "",
+      "source": []
+    },
     "facts": [
-      {"text": "", "source": []},
-      {"text": "", "source": []}
+      {
+        "text": "",
+        "source": []
+      },
+      {
+        "text": "",
+        "source": []
+      }
     ],
-    "photo": {"file": "", "author": "", "licence": "", "source": "Wikimedia Commons", "url": "", "centre": [0.5, 0.5]}
+    "photo": {
+      "file": "",
+      "author": "",
+      "licence": "",
+      "source": "Wikimedia Commons",
+      "url": "",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
   },
   "sources": [
-    {"id": 1, "title": "", "publisher": "", "url": "", "accessed": ""}
+    {
+      "id": 1,
+      "title": "",
+      "publisher": "",
+      "url": "",
+      "accessed": ""
+    }
   ],
-  "stock": {"title": null, "info_title": null, "keywords": []},
-  "approvals": {"preview": null, "final": null},
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": []
+  },
+  "approvals": {
+    "preview": null,
+    "final": null
+  },
   "notes": [],
   "history": []
 }

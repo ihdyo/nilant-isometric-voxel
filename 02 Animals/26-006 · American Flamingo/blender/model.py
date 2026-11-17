@@ -1,18 +1,19 @@
 """26-006 · American Flamingo (Phoenicopterus ruber) · voxel model, bulky blocky-mob style.
-Built from docs/voxel-model.md. Palette keys: pink, light, black, bill, legs, feet, eye. Size: 18 x 11 x 34 voxels posed.
-Personality: elegant and a little snooty. Pose: standing on one leg, the other folded up and tucked back under the
-body on the camera side, a long straight neck rising from the front of a bulky body, chin up, the big bill bent down,
-wings lifted at the back, a webbed foot one voxel thick on the ground. Expression: a half-lidded amber eye, the pink lid painted
-over its top half."""
+Built from docs/voxel-model.md. Palette keys: pink, light, black, bill, legs, feet, eye. Size: 16 x 11 x 34 voxels posed.
+Personality: elegant and a little snooty. Pose: standing on one leg, the other (the camera side) lifted and bent at
+the knee with the toes curled down, both legs built the same (an upper and a lower part on a webbed foot one voxel
+thick) so it can walk on them, a long straight neck rising from the front of a bulky body, chin up, the big bill bent
+down, wings lifted at the back. Expression: a half-lidded amber eye, the pink lid painted over its top half."""
 
 
-def foot(g, part, cx, cy, z):
-    """A webbed flamingo foot, one voxel thick: the heel under the leg, the web spreading forward to three toes."""
-    g.set(cx - 1, cy, z, "feet", part=part)
+def foot(g, part, cx, cy, z, d=1):
+    """A small webbed flamingo foot, one voxel thick, 3 x 3: the heel at cx - d, the web under the leg and three short
+    toes towards +X (d = 1) or, folded back, towards -X (d = -1). Both feet are this one shape (owner, 2026-11-17: the
+    5-wide foot was too big)."""
+    g.set(cx - d, cy, z, "feet", part=part)
     g.box((cx, cy - 1, z), (cx, cy + 1, z), "feet", part=part)
-    g.box((cx + 1, cy - 2, z), (cx + 1, cy + 2, z), "feet", part=part)
-    for dy in (-2, 0, 2):
-        g.set(cx + 2, cy + dy, z, "feet", part=part)
+    for dy in (-1, 0, 1):
+        g.set(cx + d, cy + dy, z, "feet", part=part)
 
 
 def build(g):
@@ -38,15 +39,18 @@ def build(g):
     g.box((15, -1, 27), (16, 1, 29), "black", part="beak")
     g.joint("beak", pivot=(13, 0.5, 30.5), rotate=(0, 24, 0), parent="head")
     g.mirror()
-    # standing leg (right): a thin straight pillar on a webbed foot
-    g.box((6, 2, 1), (6, 2, 11), "legs", part="leg_r")
-    g.joint("leg_r", pivot=(6.5, 2.5, 12), parent="body")
-    foot(g, "foot_r", 6, 2, 0)
-    g.joint("foot_r", pivot=(6.5, 2.5, 1), rotate=(0, 0, 8), parent="leg_r")
-    # folded leg (left, the camera side): the shin hangs from the body, the foot runs back from the ankle, the
-    # whole leg swung back so the foot tucks up under the tail; the webbed foot folded flat at its end
-    g.box((6, -2, 7), (6, -2, 11), "legs", part="leg_l")
-    g.box((1, -2, 7), (5, -2, 7), "legs", part="leg_l")
-    g.joint("leg_l", pivot=(6.5, -1.5, 12), rotate=(0, 28, 0), parent="body")
-    g.box((-1, -3, 7), (0, -1, 7), "feet", part="foot_l")
-    g.joint("foot_l", pivot=(0.5, -1.5, 7.5), parent="leg_l")
+    # legs, both the same: a thin pillar in two parts, the upper leg and the lower leg hinged at the knee (the joint
+    # that bends backwards), on a webbed foot, so the flamingo can walk on them
+    for side, y in (("l", -2), ("r", 2)):
+        g.box((6, y, 6), (6, y, 11), "legs", part=f"leg_{side}")
+        g.joint(f"leg_{side}", pivot=(6.5, y + 0.5, 12), parent="body")
+        g.box((6, y, 1), (6, y, 5), "legs", part=f"shin_{side}")
+        g.joint(f"shin_{side}", pivot=(6.5, y + 0.5, 6), parent=f"leg_{side}")
+        foot(g, f"foot_{side}", 6, y, 0)
+        g.joint(f"foot_{side}", pivot=(6.5, y + 0.5, 1), parent=f"shin_{side}")
+    # standing on the right leg, its foot turned out a little; the left leg (the camera side) lifted and bent: the
+    # knee swung forward, the lower leg folded back, the toes curled down
+    g.joint("foot_r", pivot=(6.5, 2.5, 1), rotate=(0, 0, 8), parent="shin_r")
+    g.joint("leg_l", pivot=(6.5, -1.5, 12), rotate=(0, -38, 0), parent="body")
+    g.joint("shin_l", pivot=(6.5, -1.5, 6), rotate=(0, 40, 0), parent="leg_l")
+    g.joint("foot_l", pivot=(6.5, -1.5, 1), rotate=(0, 34, 0), parent="shin_l")

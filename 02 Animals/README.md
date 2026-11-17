@@ -40,7 +40,7 @@ live state; each folder's `overview.md` shows its stage.
 
 | Path | Contents |
 |---|---|
-| `overview.md` | The front page: progress through the six phases, the six deliverables with their Image IDs, the look, the files. Written by `vf.py overview` (and after preview, final, approve, register). |
+| `overview.md` | The front page: progress through the six phases, the export package with its IDs, the look, the files. Written by `vf.py overview` (and after preview, final, approve, register). |
 | `animal.json` | The source of truth: names, status, `look` (palette, background, why), `info` (what the information artwork prints, every item citing a source id), `sources`, `stock` (titles, keywords), `approvals`, `notes`, `history`. |
 | `docs/animal-info.md` | The full biological documentation, every statement numbered to a source. |
 | `docs/references.md` | The numbered sources and every photograph (what it shows, author, licence, URL, use). |

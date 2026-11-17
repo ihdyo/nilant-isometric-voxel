@@ -16,29 +16,29 @@ Background (not modelled): `amber-200`.
 
 ## Size and pose
 
-- Size: 14 × 24 × 25 voxels posed (L × W × H); longest side 25, budget 21–29 (target 25) from the real size 0.75 m (head and body 72–78 cm (sitting height with the ears)).
+- Size: 22 × 22 × 22 voxels posed (L × W × H); longest side 22, budget 21–29 (target 25) from the real size 0.75 m (head and body 72–78 cm (sitting height with the ears)).
 - Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
-- Parts: body, leg_l, leg_r, arm_l, arm_r, head, nose, ear_l, ear_r.
+- Parts: leg_fl, leg_fr, leg_hl, leg_hr, body, head, nose, ear_l, ear_r.
 
 ## Personality, pose and expression
 
 - Personality: sleepy and cuddly.
-- Pose: sitting, arms hanging from the sides of the body and swung forward so the dark-palmed hands rest beside the knees, feet forward with dark soles, the big head drowsily tilted, huge fluffy ears tipped out.
+- Pose: standing on all four short, thick legs in a slow amble (the front left paw reaching forward), the round body low, the big head held up on its front, drowsily tilted and turned to the camera, huge fluffy ears tipped out.
 - Expression: eyes closed in a sleepy curve and a tiny smile under the big nose, painted flat on the face.
 
 ## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
 
 | Part | x | y | z | Pose |
 |---|---|---|---|---|
-| body | 0 to 7 | -5 to 5 | 0 to 11 |  |
-| leg_l | 5 to 10 | -5 to -3 | 0 to 3 | turned rz -10°; on body |
-| leg_r | 5 to 10 | 3 to 5 | 0 to 3 | turned rz +10°; on body |
-| arm_l | 3 to 5 | -7 to -6 | 4 to 10 | turned rx +8°, ry -28°; on body |
-| arm_r | 3 to 5 | 6 to 7 | 4 to 10 | turned rx -8°, ry -28°; on body |
-| head | -1 to 8 | -7 to 7 | 12 to 21 | turned rx +12°, ry +4°, rz -8°; on body |
-| nose | 9 to 10 | -2 to 2 | 13 to 18 | on head |
-| ear_l | 2 to 4 | -11 to -6 | 16 to 23 | turned rx +14°, ry +6°; on head |
-| ear_r | 2 to 4 | 6 to 11 | 16 to 23 | turned rx -14°, ry +6°; on head |
+| leg_fl | 9 to 11 | -5 to -3 | 0 to 5 | turned ry -12°; on body |
+| leg_fr | 9 to 11 | 3 to 5 | 0 to 5 | turned ry +8°; on body |
+| leg_hl | 1 to 3 | -5 to -3 | 0 to 5 | turned ry +10°; on body |
+| leg_hr | 1 to 3 | 3 to 5 | 0 to 5 | turned ry -8°; on body |
+| body | 0 to 12 | -5 to 5 | 6 to 14 |  |
+| head | 12 to 19 | -6 to 6 | 10 to 18 | turned rx +10°, ry +4°, rz -10°; on body |
+| nose | 20 to 21 | -1 to 1 | 11 to 15 | on head |
+| ear_l | 14 to 16 | -10 to -6 | 14 to 20 | turned rx +14°, ry +6°; on head |
+| ear_r | 14 to 16 | 6 to 10 | 14 to 20 | turned rx -14°, ry +6°; on head |
 
 ## Recognisable features (in order of importance)
 
@@ -46,7 +46,7 @@ Background (not modelled): `amber-200`.
 2. large round ears with white fluffy fringes
 3. a big round head on a compact body
 4. the white chest
-5. the sitting teddy-bear pose
+5. standing on four short, thick legs, the big head held up
 
 ## Colour map
 

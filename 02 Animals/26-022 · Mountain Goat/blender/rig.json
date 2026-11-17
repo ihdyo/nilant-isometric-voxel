@@ -1,0 +1,50 @@
+{
+ "code": "26-022",
+ "rigged": "2026-11-17T15:21:15",
+ "blender": "5.3.0",
+ "still_built": "2026-11-17T15:20:16",
+ "motion_hash": "22d3c1a23f6e7d9f",
+ "rig_engine": "2ae7404b96e5b6c3",
+ "plan": "walker",
+ "bones": 16,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "walk": 24
+ },
+ "blend": "26-022 \u00b7 Mountain Goat \u00b7 Rig.blend",
+ "glb": "26-022 \u00b7 Mountain Goat \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 4.288087460611548,
+  "box_size": [
+   2.702111132406582,
+   3.0016612224280834
+  ]
+ },
+ "vertices": 2768,
+ "groups": [
+  "body",
+  "ear_l",
+  "ear_r",
+  "head",
+  "horn_l",
+  "horn_r",
+  "leg_fl",
+  "leg_fr",
+  "leg_hl",
+  "leg_hr",
+  "muzzle",
+  "shin_fl",
+  "shin_fr",
+  "shin_hl",
+  "shin_hr"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

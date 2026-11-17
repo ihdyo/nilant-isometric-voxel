@@ -2,7 +2,7 @@
   "code": "26-018",
   "common": "Green Sea Turtle",
   "scientific": "Chelonia mydas",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -146,14 +146,59 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "b7e234962ff522fd/bb6621a25cf5736f"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim"
+    ],
+    "frames": {
+      "swim": 48
+    },
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Penyu Hijau",
+      "kicker": "Reptil · Keluarga penyu",
+      "stats": [
+        {
+          "label": "Tempurung",
+          "value": "1–1,2 m"
+        },
+        {
+          "label": "Berat",
+          "value": "150–200 kg"
+        },
+        {
+          "label": "Telur",
+          "value": "75–200"
+        },
+        {
+          "label": "Usia",
+          "value": "≤75 tahun"
+        }
+      ],
+      "habitat": "Pantai hangat dan padang lamun di laut tropis seluruh dunia. Bertelur di pantai berpasir.",
+      "diet": "Penyu dewasa merumput lamun dan alga seperti sapi bawah air. Tukik juga makan hewan kecil.",
+      "facts": [
+        "Namanya dari lemak hijau di bawah tempurungnya, bukan dari tempurungnya!",
+        "Sarang hangat kebanyakan menetaskan betina, sarang sejuk kebanyakan jantan."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

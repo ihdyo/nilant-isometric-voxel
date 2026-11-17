@@ -11,7 +11,8 @@ nilant_takes.LENSES["iso"]) as read on 2026-11-15. Values marked ADAPTED change 
 the reason beside them. Values marked NEW have no Nilant equivalent.
 """
 
-STANDARDS_VERSION = "2.1"         # 2.0 (2026-11-16): the bulky, posed blocky-mob look; 2.1: plates off, cards redesigned
+STANDARDS_VERSION = "2.2"         # 2.0 (2026-11-16): the bulky, posed blocky-mob look; 2.1: plates off, cards
+                                  # redesigned; 2.2 (2026-11-17): the motion (rig and loops) approved
 COLLECTION = "Voxel Fauna"
 
 # ---- Voxel geometry ---------------------------------------------------------------------------------------------------
@@ -40,7 +41,25 @@ def size_budget(real_m):
 # Plates are switched OFF, APPROVED by the owner 2026-11-16 (owner: "disable flat pixel for now, maybe it is exist in future, but not for
 # current animals"): every part is made of whole voxels; vf_voxel.plate() stays for later, `vf.py check` refuses it.
 POSE = dict(max_angle=40.0, plate=0.2, plates=False)
-MIN_FEATURE = 1              # NEW: the smallest feature is one whole voxel (an eye, a claw row); never a sub-voxel
+# The animation rig and its motion (vf_rig.py), APPROVED by the owner 2026-11-17 ("i confirmed all of them, all model is
+# good", then "Previews + motion"): an armature from the joints, the sections skinned with rigid weights, looping
+# actions from the motion library, each frame grounded on its posed voxels. The numbers that shape the motion:
+MOTION = dict(
+    fps=24,
+    frames=dict(pose=1, idle=48, walk=24, walk_large=32, flap=24, hop=24, swim=32, waddle=24, howl=48, doze=48,
+                shake=24, yawn=48, fan=48, reach=48, sniff=48),
+    large=40,                # posed length (voxels) from which an animal walks with the slower cycle
+    leg_swing=22.0,          # degrees each way, a stiff leg (block-game mobs walk on stiff legs)
+    leg_swing_knee=17.0,     # degrees each way, an upper leg with a shin under it
+    knee_fold=34.0,          # degrees the shin folds back while its leg swings forward
+    leg_swing_biped=20.0,    # two legs (birds): degrees each way
+    knee_fold_biped=45.0,    # two legs: degrees the lower leg folds back on the swing
+    hop_height=0.22,         # of the posed length, voxels
+    bone=(1.5, 10.0),        # bone display length, voxels
+    preview_step=2,          # previews keep every 2nd frame: 12 fps
+    preview_scale=0.125,     # of the 4096 px square: 512 px (the LOW profile at half its scale)
+)
+MIN_FEATURE = 1             # NEW: the smallest feature is one whole voxel (an eye, a claw row); never a sub-voxel
 BEVEL = dict(width=0.012, segments=4, profile=0.5)
                              # ADAPTED from nilant_look: Nilant's finish makes a bevel BEVEL_SCALE 0.5 of its modelled
                              # width, at most BEVEL_SHARE 0.18 of the piece's smallest side (0.018 m on a 0.1 m voxel),

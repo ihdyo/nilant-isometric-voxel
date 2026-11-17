@@ -75,4 +75,4 @@ ADW gives two breeding seasons (late October to November, or late November to ea
 
 ## Modelling notes (from the photographs)
 
-See `docs/voxel-model.md`. Key features: the shaggy white coat; short black dagger horns; a white beard; black hooves; a hump of thick fur at the shoulders.
+See `docs/voxel-model.md`. Key features: the shaggy white coat; short black dagger horns; a white beard; black hooves; a long, straight back.

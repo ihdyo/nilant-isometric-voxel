@@ -21,7 +21,7 @@ Background (not modelled): `orange-300` (rendered as a calm pastel).
 ## Personality, pose and expression
 
 - Personality: lively, sociable and a little cheeky.
-- Pose: trotting with one front leg lifted, the head held high and turned to the camera, the short mane bristling, the tail swishing.
+- Pose: trotting with one front leg lifted, the head held high and turned to the camera, the short mane bristling along the top and down the back of the neck, the tail swishing.
 - Expression: a big dark eye with a white glint and a cheeky smirk, painted flat.
 
 ## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
@@ -38,7 +38,7 @@ Background (not modelled): `orange-300` (rendered as a calm pastel).
 | leg_hr | 2 to 4 | 3 to 5 | 8 to 14 | turned ry +14°; on body |
 | tail | -1 to -1 | -1 to 1 | 13 to 23 | turned rx -20°; on body |
 | body | 0 to 21 | -5 to 5 | 15 to 24 |  |
-| neck | 17 to 22 | -3 to 3 | 25 to 34 | turned ry -6°, rz -10°; on body |
+| neck | 15 to 22 | -2 to 2 | 25 to 34 | turned ry -6°, rz -10°; on body |
 | head | 22 to 29 | -3 to 3 | 30 to 35 | turned rx +6°, ry +8°, rz -8°; on neck |
 | muzzle | 30 to 32 | -2 to 2 | 30 to 33 | on head |
 | ear_l | 24 to 25 | -3 to -2 | 36 to 38 | turned rx +10°; on head |
@@ -47,7 +47,7 @@ Background (not modelled): `orange-300` (rendered as a calm pastel).
 ## Recognisable features (in order of importance)
 
 1. bold black-and-white stripes, vertical on the neck and horizontal on the rump
-2. a short upright striped mane
+2. a short upright striped mane along the top and down the back of the neck
 3. a dark muzzle
 4. a tufted tail
 5. stripes running down the legs

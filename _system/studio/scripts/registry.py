@@ -65,15 +65,15 @@ def build():
     rm.title = "Read Me"
     rows = [
         (f"{ST.COLLECTION} · Registry", None),
-        ("Every animal of the collection and its six images, with where each one is published. Amber cells are yours "
+        ("Every animal of the collection and its export package, with where each item is published. Amber cells are yours "
          "to type in; every other cell is written by `python _system/studio/scripts/vf.py register <code>`.", None),
         (None, None),
         ("Convention", "Value"),
         ("Animal code", "YY-SEQ, as Nilant's video codes (26-001, 26-002, ...): the folder 02 Animals/<code> · <Common name>"),
-        ("Image ID", ST.IMAGE_ID + "  e.g. " + VL.image_id("26-001", "ILL", "1x1")),
-        ("Kinds", "ILL = illustration, INF = information artwork"),
-        ("Ratios", ", ".join(ST.RATIOS) + " (" + ", ".join(f"{w}x{h}" for w, h in ST.SIZES.values()) + " px)"),
-        ("File", "the PNG master in the animal's export/ folder; stock JPEGs are in export/stock/ (vf.py stock)"),
+        ("Image ID", "VF-{code}-{item}  e.g. VF-26-001-MASTER-DYN"),
+        ("Items", "; ".join(f"{s} = {w}" for s, _, w in _PK().EXPORT["items"])),
+        ("File", "in the animal's export/ folder (render.bat renders the masters, package.bat builds the rest); the "
+                 "stock JPEG is in export/stock/"),
         ("Statuses", " → ".join(ST.STATUSES)),
         ("Platform cells", PLATFORM_STATES.replace(",", ", ")),
         (None, None),
@@ -148,6 +148,11 @@ def _write(ws, r, cols, values):
         cell.font = Font(name="Arial", size=10)
 
 
+def _PK():
+    import package
+    return package
+
+
 def upsert(folder, animal):
     if not os.path.exists(VL.REGISTRY):
         build()
@@ -161,16 +166,22 @@ def upsert(folder, animal):
                             ap.get("preview"), ap.get("final"), f'=COUNTIF(Images!$B$2:$B$2000,A{r})', None])
     ws = wb["Images"]
     n = 0
-    for kind, kname in ST.KINDS.items():
-        for ratio in ST.RATIOS:
-            iid = VL.image_id(code, kind, ratio)
-            path = VL.export_path(folder, code, kind, ratio)
-            w, h = ST.SIZES[ratio]
-            r = _row_of(ws, iid)
-            _write(ws, r, IMAGES, [iid, code, animal["common"], animal["scientific"], kname, ratio, f"{w}x{h}",
-                                   VL.rel(path), "Final" if os.path.exists(path) else "Missing",
-                                   "Not submitted", "Not submitted", "Not submitted", None, None])
-            n += 1
+    PK = _PK()
+    E = PK.EXPORT
+    shape = {"MASTER-DYN": ("Master", "1x1", f"{E['master']}x{E['master']}"),
+             "MASTER-BLOCK": ("Master", "1x1", f"{E['master']}x{E['master']}"),
+             "STOCK-1x1": ("Stock", "1x1", f"{E['stock']}x{E['stock']}"),
+             "LOOP": ("Loop GIF", "1x1", f"{E['loop']['size']}x{E['loop']['size']}"),
+             "CARD-EN": ("Card PDF", "A5", "148x210 mm"), "CARD-ID": ("Card PDF", "A5", "148x210 mm")}
+    for suffix, _, what in E["items"]:
+        iid = PK.export_id(code, suffix)
+        path = PK.export_file(folder, code, suffix)
+        kname, ratio, size = shape.get(suffix, (suffix, "", ""))
+        r = _row_of(ws, iid)
+        _write(ws, r, IMAGES, [iid, code, animal["common"], animal["scientific"], kname, ratio, size,
+                               VL.rel(path), "Final" if os.path.exists(path) else "Missing",
+                               "Not submitted", "Not submitted", "Not submitted", None, what])
+        n += 1
     wb.save(VL.REGISTRY)
     return n + 1
 

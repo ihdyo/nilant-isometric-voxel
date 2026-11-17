@@ -75,4 +75,4 @@ Vulnerable on the IUCN Red List (2015); the global population trend is listed as
 
 ## Modelling notes (from the photographs)
 
-See `docs/voxel-model.md`. Key features: the long neck and long narrow head carried low; thick pillar legs with big paws; a long heavy body, highest at the hips; small round ears; the black nose and eyes on cream fur.
+See `docs/voxel-model.md`. Key features: the long narrow head carried low on the front of the shoulders; thick pillar legs with big paws; a long heavy body, highest at the hips; small round ears; the black nose and eyes on cream fur.

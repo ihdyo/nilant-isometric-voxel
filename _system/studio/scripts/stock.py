@@ -74,41 +74,37 @@ def _xmp(title, keywords):
 
 
 def package(folder, animal, only=None):
-    """Stock JPEGs and CSVs for `only` (default: the three illustrations: the information artworks carry a
-    third-party photograph, which stock sites' contributor terms do not allow to be licensed as your own work);
-    the Gumroad zip always holds all six PNGs (the photo's credit is on the artwork)."""
+    """The stock JPEG and the upload CSVs for the 1:1 dynamic stock image (VF-<code>-STOCK-1x1, cropped from the
+    dynamic master by package.py; owner, 2026-11-17: "1:1 dynamic (this pic is for stock image)"); the cards carry a
+    third-party photograph, so stock sites get the stock image only. The Gumroad zip holds the whole export package
+    (the two masters, the stock image, the loop GIF and the English and Indonesian cards). `only` is kept for the
+    command line and ignored: there is one stock image per animal."""
+    import package as PK
     code = animal["code"]
-    if only is None:
-        only = [f"ILL-{r}" for r in ST.RATIOS]
     icc = ImageCms.ImageCmsProfile(ImageCms.createProfile("sRGB")).tobytes()
     sdir = os.path.join(folder, "export", "stock")
     pdir = os.path.join(VL.PUBLISH, "Stock")
     os.makedirs(sdir, exist_ok=True)
     os.makedirs(pdir, exist_ok=True)
-    adobe, shutter, lines, masters = [], [], [], []
-    for kind in ST.KINDS:
-        for ratio in ST.RATIOS:
-            key = f"{kind}-{ratio}"
-            src = VL.export_path(folder, code, kind, ratio)
-            if not os.path.exists(src):
-                lines.append(f"skip {key}: no export yet ({VL.rel(src)})")
-                continue
-            masters.append(src)
-            if only and key not in only:
-                continue
-            iid = VL.image_id(code, kind, ratio)
-            dst = os.path.join(sdir, iid + ".jpg")
-            title, kws = _titles(animal, kind), _keywords(animal, kind)
-            with Image.open(src) as im:
-                im = im.convert("RGB")
-                mp = im.width * im.height / 1e6
-                im.save(dst, "JPEG", quality=95, subsampling=0, optimize=True, dpi=(300, 300), icc_profile=icc,
-                        xmp=_xmp(title, kws))
-            mb = os.path.getsize(dst) / 1e6
-            ok = 4 <= mp <= 100 and mb <= 45
-            lines.append(f"{iid}.jpg  {mp:.1f} MP  {mb:.1f} MB  {'ok' if ok else 'OUTSIDE ADOBE LIMITS'}")
-            adobe.append([iid + ".jpg", title[:200], ", ".join(kws), ADOBE_ANIMALS, ""])
-            shutter.append([iid + ".jpg", title[:200], ",".join(kws[:50]), "Animals/Wildlife", "yes", "no", "no"])
+    adobe, shutter, lines = [], [], []
+    masters = [PK.export_file(folder, code, s) for s, _, _ in PK.EXPORT["items"]]
+    src = PK.export_file(folder, code, "STOCK-1x1")
+    if not os.path.exists(src):
+        lines.append(f"skip the stock image: none yet ({VL.rel(src)}; package.bat or vf.py package {code})")
+    else:
+        iid = PK.export_id(code, "STOCK-1x1")
+        dst = os.path.join(sdir, iid + ".jpg")
+        title, kws = _titles(animal, "ILL"), _keywords(animal, "ILL")
+        with Image.open(src) as im:
+            im = im.convert("RGB")
+            mp = im.width * im.height / 1e6
+            im.save(dst, "JPEG", quality=95, subsampling=0, optimize=True, dpi=(300, 300), icc_profile=icc,
+                    xmp=_xmp(title, kws))
+        mb = os.path.getsize(dst) / 1e6
+        ok = 4 <= mp <= 100 and mb <= 45
+        lines.append(f"{iid}.jpg  {mp:.1f} MP  {mb:.1f} MB  {'ok' if ok else 'OUTSIDE ADOBE LIMITS'}")
+        adobe.append([iid + ".jpg", title[:200], ", ".join(kws), ADOBE_ANIMALS, ""])
+        shutter.append([iid + ".jpg", title[:200], ",".join(kws[:50]), "Animals/Wildlife", "yes", "no", "no"])
     if adobe:
         p = os.path.join(pdir, f"{code} · Adobe Stock.csv")
         with open(p, "w", newline="", encoding="utf-8") as f:
@@ -122,12 +118,15 @@ def package(folder, animal, only=None):
             w.writerow(["Filename", "Description", "Keywords", "Categories", "Illustration", "Mature content", "Editorial"])
             w.writerows(shutter)
         lines.append(f"-> {VL.rel(p)}")
-    if len(masters) == 6:
+    missing = [m for m in masters if not os.path.exists(m)]
+    if not missing:
         gdir = os.path.join(VL.PUBLISH, "Gumroad")
         os.makedirs(gdir, exist_ok=True)
         z = os.path.join(gdir, f"{code} · {animal['common']} · {ST.COLLECTION}.zip")
-        with zipfile.ZipFile(z, "w", zipfile.ZIP_STORED) as zf:      # PNGs are already compressed
+        with zipfile.ZipFile(z, "w", zipfile.ZIP_STORED) as zf:      # PNG, GIF and PDF are already compressed
             for m in masters:
                 zf.write(m, os.path.basename(m))
-        lines.append(f"-> {VL.rel(z)} (six PNG masters; add the licence and cover yourself)")
+        lines.append(f"-> {VL.rel(z)} (the export package: {len(masters)} files; add the licence and cover yourself)")
+    else:
+        lines.append(f"no Gumroad zip yet: missing {', '.join(os.path.basename(m) for m in missing)}")
     return lines

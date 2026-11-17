@@ -1,12 +1,14 @@
 """Voxel Fauna · the render menu behind render.bat (the same idea as Nilant's footage_cli: one window, offline).
 
-    RENDER   1 build every missing or stale .blend   2 LOW previews of every built animal
-             3 ULTRA finals of every approved animal  4 one animal (build, preview or final)
+    RENDER   1 build every missing or stale .blend   2 LOW previews of every built animal (+ rigs and loops)
+             3 ULTRA renders of every approved animal: the two masters and the loop (rendering only;
+               package.bat then builds the stock image, the GIF and the cards)   4 one animal (build, preview or final)
+    MOTION   R rig every animal + GIF loops
     CHECK    5 status of every animal                 6 one animal's files
     CONTROL  Q quit
-Without the menu: render.bat status | build | preview | final | <code> [preview|final]
+Without the menu: render.bat status | build | preview | final | rig | <code> [preview|final]
 
-Blender renders, this Python lays the information cards (Pillow). No internet. Pause any time with Ctrl+C or by
+Blender renders (and Pillow lays the LOW preview cards). No internet. Pause any time with Ctrl+C or by
 closing the window: finished images are kept, and the next run skips them (it renders only what is missing or older
 than its .blend).
 """
@@ -31,7 +33,8 @@ def state(d):
     has_model = os.path.exists(os.path.join(d, "blender", "model.py"))
     bs = vf.build_state(d, an)[0] if has_model else "no model"
     low = sum(os.path.exists(t["final"]) for t in vf.targets(an, "LOW", d)[0])
-    ult = sum(os.path.exists(t["final"]) for t in vf.targets(an, "ULTRA", d)[0])
+    import package as PK
+    ult = sum(os.path.exists(PK.export_file(d, an["code"], s)) for s, _, _ in PK.EXPORT["items"])
     ap = an.get("approvals") or {}
     return an, bs, low, ult, ap
 
@@ -41,7 +44,7 @@ def colour_of(bs, low, ult, ap):
         return D
     if bs == "stale":
         return R
-    if ap.get("final") and ult == 6:
+    if ap.get("final") and ult == 6:                 # the six items of the export package
         return G
     if ap.get("preview"):
         return Y if ult < 6 else G
@@ -57,9 +60,9 @@ def status(verbose=True):
     appr = sum(bool(r[5].get("preview")) for r in rows)
     fin = sum(r[4] == 6 for r in rows)
     print(f" {W}{n}{END} animals · {G}{built}{END} built · {R}{stale}{END} stale · {B}{prev}{END} previewed · "
-          f"{Y}{appr}{END} preview-approved · {G}{fin}{END} with all six finals")
+          f"{Y}{appr}{END} preview-approved · {G}{fin}{END} with the whole export package")
     if verbose:
-        print(f" {D}code    animal              .blend    LOW   approved     ULTRA  final{END}")
+        print(f" {D}code    animal              .blend    LOW   approved     export final{END}")
         for d, an, bs, low, ult, ap in rows:
             c = colour_of(bs, low, ult, ap)
             print(f" {c}{an['code']}  {an['common'][:18]:<18}  {bs:<8}  {low}/6   {(ap.get('preview') or '-'):<11}  {ult}/6    "
@@ -77,7 +80,9 @@ def eta(rows, profile):
             continue
         done = ult if profile == "ULTRA" else low
         if done < 6:
-            secs += sum(ST.PROFILES[profile]["estimate"].values()) * 2 * (6 - done) / 6
+            # ULTRA: two 4096 masters (about 5 min each on the RTX 3050) and the loop (about 5 min)
+            secs += (3 * ST.PROFILES["ULTRA"]["estimate"]["1x1"] if profile == "ULTRA" else
+                     sum(ST.PROFILES[profile]["estimate"].values()) * 2) * (6 - done) / 6
     return secs
 
 
@@ -111,9 +116,13 @@ def one_animal():
     if what == "b":
         run(f"build {code}", lambda: vf.do_build(d, an, force=True))
     elif what == "p":
-        run(f"preview {code}", lambda: print("  ->", VL.rel(vf.preview(d, an))))
+        run(f"preview {code}", lambda: (print("  ->", VL.rel(vf.preview(d, an))), vf.do_rig(d, an)))
     elif what == "f":
         run(f"final {code}", lambda: [print(f"  {R}{e}{END}") for e in vf.final(d, an)])
+
+
+def rig_all():
+    vf.cmd_rig_all(type("A", (), dict(force=False, no_preview=False, jobs=3))())
 
 
 def files_of():
@@ -121,9 +130,12 @@ def files_of():
     d = VL.find(code)
     an, bs, low, ult, ap = state(d)
     print(f" {W}{an['code']} · {an['common']}{END} ({an['scientific']}), status {an['status']}, .blend {bs}")
-    for t in vf.targets(an, "ULTRA", d)[0]:
-        ok = os.path.exists(t["final"])
-        print(f"  {G if ok else D}{os.path.basename(t['final'])}{END}" + (f"  {D}{os.path.getsize(t['final']) // 1024} KB{END}" if ok else ""))
+    import package as PK
+    for s, _, what in PK.EXPORT["items"]:
+        p = PK.export_file(d, an["code"], s)
+        ok = os.path.exists(p)
+        print(f"  {G if ok else D}{os.path.basename(p)}{END}  {D}{what}"
+              + (f", {os.path.getsize(p) // 1024} KB" if ok else "") + f"{END}")
     print(f"  {D}preview: {VL.rel(os.path.join(VL.CACHE, 'preview', an['code']))}{END}")
 
 
@@ -133,9 +145,11 @@ def menu():
         rows = status(verbose=False)
         low_eta, ult_eta = eta(rows, "LOW"), eta(rows, "ULTRA")
         print(f"\n {C}RENDER{END}   1 Build every missing or stale .blend")
-        print(f"          2 LOW previews of every built animal {D}(~{low_eta / 60:.0f} min){END}")
-        print(f"          3 ULTRA finals of every preview-approved animal {D}(~{ult_eta / 60:.0f} min; skips finished images){END}")
+        print(f"          2 LOW previews of every built animal, then its rig and loops {D}(~{low_eta / 60:.0f} min + ~1-2 min an animal to rig){END}")
+        print(f"          3 ULTRA renders of every preview-approved animal: two masters + the loop {D}(~{ult_eta / 60:.0f} min; "
+              f"skips finished renders; then package.bat){END}")
         print("          4 One animal (build, preview or final)")
+        print(f" {C}MOTION{END}   R Rig every animal + GIF loops {D}(proposed; ~1-2 min an animal, skips current rigs){END}")
         print(f" {C}CHECK{END}    5 Status of every animal     6 One animal's files")
         print(f" {C}CONTROL{END}  Q Quit   {D}(Ctrl+C pauses a render; run it again to carry on){END}")
         k = input(f"\n {W}choose:{END} ").strip().lower()
@@ -147,6 +161,8 @@ def menu():
             run("ULTRA finals", lambda: vf.cmd_render_all(type("A", (), dict(profile="ULTRA", force=False))()))
         elif k == "4":
             run("one animal", one_animal)
+        elif k == "r":
+            run("rig", rig_all)
         elif k == "5":
             status(verbose=True)
         elif k == "6":
@@ -167,6 +183,8 @@ def main(argv):
         run("LOW previews", lambda: vf.cmd_render_all(type("A", (), dict(profile="LOW", force=False))()))
     elif a in ("final", "ultra"):
         run("ULTRA finals", lambda: vf.cmd_render_all(type("A", (), dict(profile="ULTRA", force=False))()))
+    elif a == "rig":
+        run("rig", rig_all)
     else:
         d = VL.find(argv[0])
         an = VL.load(d)
@@ -174,7 +192,7 @@ def main(argv):
         if what == "final":
             run(f"final {argv[0]}", lambda: [print(f"  {R}{e}{END}") for e in vf.final(d, an)])
         else:
-            run(f"preview {argv[0]}", lambda: print("  ->", VL.rel(vf.preview(d, an))))
+            run(f"preview {argv[0]}", lambda: (print("  ->", VL.rel(vf.preview(d, an))), vf.do_rig(d, an)))
 
 
 if __name__ == "__main__":

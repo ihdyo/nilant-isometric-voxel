@@ -1,15 +1,18 @@
 {
- "version": "2.1",
- "locked": "2026-11-16",
- "reason": "Owner approved (2026-11-16, 'Approve and relock'): plates switched off, every part whole voxels (solid feet for penguin, flamingo, toucan); information cards redesigned to breathe (roomier cards, pixel-art icon badges, centred text, the photo as a tilted sticker, 16:9 three cards side by side). References: 03 Design/Reference/look \u00b7 2026-11-16 \u00b7 solid feet before-after.jpg and cards before-after.jpg",
+ "version": "2.2",
+ "locked": "2026-11-17",
+ "reason": "Owner approved the export package (2026-11-17: 'i approve everything'): two 4096 masters, the 1:1 stock crop, the 1080 GIF loop and the A5 card PDFs in English and Indonesian (front v5: the Nilant wordmark top right, the model centred on its body with its rendered shadow, particles in the background's 400-600 tints, a straight fun-fact band; back: the blocky master with powered by ihdyo). vf_export.py (with EXPORT) and package.py added to the lock; the build standards unchanged (v2.2), so no model is rebuilt. References: 02 Animals/Voxel Fauna \u00b7 Twenty-five examples \u00b7 cards (EN|ID).jpg",
  "rig": "iso_top",
  "geometry": "mob",
  "files": {
-  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_standards.py": "ff985f934e6babaf",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
   "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb",
   "_system/studio/blender/vf_job.py": "f35d4e8f9792a9f1",
   "_system/studio/blender/vf_color.py": "90184be2ddba6a7c",
-  "_system/studio/scripts/infographic.py": "b32c1764f84ed085"
+  "_system/studio/scripts/infographic.py": "b32c1764f84ed085",
+  "_system/studio/blender/vf_rig.py": "2ae7404b96e5b6c3",
+  "_system/studio/blender/vf_export.py": "f9627d9ac88b8a39",
+  "_system/studio/scripts/package.py": "1fd8b40a79201d06"
  }
 }

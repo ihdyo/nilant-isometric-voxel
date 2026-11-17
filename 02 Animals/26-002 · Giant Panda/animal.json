@@ -2,7 +2,7 @@
   "code": "26-002",
   "common": "Giant Panda",
   "scientific": "Ailuropoda melanoleuca",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -142,14 +142,56 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "254b5da95aff7108/945ec55a2175af0a"
   },
   "notes": [
     "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Panda Raksasa",
+      "kicker": "Mamalia · Keluarga beruang",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1,5–1,8 m"
+        },
+        {
+          "label": "Berat",
+          "value": "80–125 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "10–15 tahun"
+        },
+        {
+          "label": "Bambu",
+          "value": "> 99%"
+        }
+      ],
+      "habitat": "Hutan pegunungan berkabut yang sejuk dan penuh bambu di Tiongkok tengah, 1.200–3.900 m.",
+      "diet": "Bambu, bambu, bambu! Mengunyah 10–12 jam sehari, sesekali ikan atau serangga.",
+      "facts": [
+        "'Jempol' itu bukan jari. Itu bantalan di atas tulang pergelangan, pas untuk memegang bambu.",
+        "Bayi panda baru lahir beratnya cuma 85–140 g. Lebih ringan dari sebutir apel!"
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

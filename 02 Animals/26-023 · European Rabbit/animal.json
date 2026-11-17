@@ -2,7 +2,7 @@
   "code": "26-023",
   "common": "European Rabbit",
   "scientific": "Oryctolagus cuniculus",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -147,14 +147,56 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "d3f5c35b89ff76fc/d0771d09d3c9efed"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "hopper",
+    "actions": [
+      "pose",
+      "idle",
+      "hop"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kelinci Eropa",
+      "kicker": "Mamalia · Keluarga kelinci",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "38–50 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "1,5–2,5 kg"
+        },
+        {
+          "label": "Anak",
+          "value": "5–6 ekor"
+        },
+        {
+          "label": "Hamil",
+          "value": "~30 hari"
+        }
+      ],
+      "habitat": "Ladang berpasir, semak, dan hutan. Asli Spanyol, Portugal, dan Prancis, kini di 5 benua.",
+      "diet": "Rumput, daun, dan akar. Ia bahkan memakan sebagian kotorannya untuk dicerna dua kali!",
+      "facts": [
+        "Ia menghentakkan kaki belakang ke tanah untuk memberi tahu liang bahwa bahaya mendekat.",
+        "Ia leluhur liar semua kelinci peliharaan, sekitar 80 ras."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

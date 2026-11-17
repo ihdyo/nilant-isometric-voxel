@@ -1,147 +1,97 @@
 {
  "code": "26-023",
- "built": "2026-11-16T21:12:27",
+ "built": "2026-11-17T15:20:18",
  "blender": "5.3.0",
- "model_hash": "7643499b8def140c",
+ "model_hash": "d3f5c35b89ff76fc",
  "look_hash": "d0771d09d3c9efed",
  "build_standards": {
-  "_system/studio/blender/vf_standards.py": "ac4a0ddf100bdb09",
+  "_system/studio/blender/vf_standards.py": "ff985f934e6babaf",
   "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
   "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb"
  },
- "standards_version": "2.1",
+ "standards_version": "2.2",
  "rig": "iso_top",
  "geometry": "mob",
  "model": {
   "errors": [],
   "notes": [
-   "posed size 17.2 x 11.1 x 17.1 voxels (L x W x H), 1055 voxels, colours belly, ear, eye, fur, nose, tail, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, muzzle; turned ear_l, ear_r, head"
+   "the pose moves the lowest point to z = -0.21: the engine sets the animal back on the ground",
+   "posed size 17.8 x 11.0 x 21.5 voxels (L x W x H), 922 voxels, colours belly, ear, eye, fur, nose, tail, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, shin_hl, shin_hr; turned ear_l, ear_r, head, leg_hl, leg_hr, shin_hl, shin_hr"
   ],
   "size": [
    17,
    11,
-   17
+   21
   ],
-  "voxels": 1055
+  "voxels": 922
  },
  "frames": {
   "ILL 1x1": {
-   "ortho_scale": 2.2452193853769664,
+   "ortho_scale": 2.634963244199753,
    "view": [
-    2.2452193853769664,
-    2.2452193853769664
+    2.634963244199753,
+    2.634963244199753
    ],
    "box_size": [
-    1.5716535697638765,
-    1.5289570838212967
+    1.7701068645027433,
+    1.844474270939827
    ]
   },
   "ILL 9x16": {
-   "ortho_scale": 3.4073790130382147,
+   "ortho_scale": 3.837630058542533,
    "view": [
-    1.9166506948339959,
-    3.4073790130382147
+    2.158666907930175,
+    3.837630058542533
    ],
    "box_size": [
-    1.5716535697638765,
-    1.5289570838212967
+    1.7701068645027433,
+    1.844474270939827
    ]
   },
   "ILL 16x9": {
-   "ortho_scale": 3.9972734217550236,
+   "ortho_scale": 4.822154956705429,
    "view": [
-    3.9972734217550236,
-    2.248466299737201
+    4.822154956705429,
+    2.712462163146804
    ],
    "box_size": [
-    1.5716535697638765,
-    1.5289570838212967
+    1.7701068645027433,
+    1.844474270939827
    ]
   },
   "INF 1x1": {
-   "ortho_scale": 4.170641254286135,
+   "ortho_scale": 5.031299156955339,
    "view": [
-    4.170641254286135,
-    4.170641254286135
+    5.031299156955339,
+    5.031299156955339
    ],
    "box_size": [
-    1.5716535697638765,
-    1.5289570838212967
+    1.7701068645027433,
+    1.844474270939827
    ]
   },
   "INF 9x16": {
-   "ortho_scale": 6.255961881429201,
+   "ortho_scale": 7.546948735433007,
    "view": [
-    3.5189785583039255,
-    6.255961881429201
+    4.2451586636810665,
+    7.546948735433007
    ],
    "box_size": [
-    1.5716535697638765,
-    1.5289570838212967
+    1.7701068645027433,
+    1.844474270939827
    ]
   },
   "INF 16x9": {
-   "ortho_scale": 3.7962646612654023,
+   "ortho_scale": 4.2756204456588005,
    "view": [
-    3.7962646612654023,
-    2.135398871961789
+    4.2756204456588005,
+    2.4050365006830754
    ],
    "box_size": [
-    1.5716535697638765,
-    1.5289570838212967
+    1.7701068645027433,
+    1.844474270939827
    ]
   }
  },
- "renders": {
-  "LOW": {
-   "ILL 1x1": {
-    "seconds": 6.7,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 9x16": {
-    "seconds": 3.3,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "ILL 16x9": {
-    "seconds": 2.8,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 1x1": {
-    "seconds": 4.5,
-    "size": [
-     1024,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 9x16": {
-    "seconds": 2.0,
-    "size": [
-     576,
-     1024
-    ],
-    "at": "2026-11-16"
-   },
-   "INF 16x9": {
-    "seconds": 2.2,
-    "size": [
-     1024,
-     576
-    ],
-    "at": "2026-11-16"
-   }
-  }
- }
+ "renders": {}
 }

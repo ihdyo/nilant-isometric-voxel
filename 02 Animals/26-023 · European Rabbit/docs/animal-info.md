@@ -75,4 +75,4 @@ The global status (Endangered) is for the native range only; introduced populati
 
 ## Modelling notes (from the photographs)
 
-See `docs/voxel-model.md`. Key features: long upright ears; big dark eyes; a white cotton tail; a round sitting shape with big hind feet; a grey-brown coat.
+See `docs/voxel-model.md`. Key features: long upright ears; big dark eyes; a white cotton tail; a high rump sloping to the chest, slanted thighs over long flat hind feet; a grey-brown coat.

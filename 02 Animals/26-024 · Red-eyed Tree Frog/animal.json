@@ -2,7 +2,7 @@
   "code": "26-024",
   "common": "Red-eyed Tree Frog",
   "scientific": "Agalychnis callidryas",
-  "status": "Preview",
+  "status": "Preview approved",
   "facing": "+X",
   "look": {
     "palette": {
@@ -157,14 +157,56 @@
     ]
   },
   "approvals": {
-    "preview": null,
-    "final": null
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "6c8e9f927ec1f7af/3c5296f5e0357fe0"
   },
   "notes": [
     "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
   ],
   "history": [
     "2026-11-16 Research (folder created)",
-    "2026-11-16 Preview"
-  ]
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved"
+  ],
+  "motion": {
+    "plan": "hopper",
+    "actions": [
+      "pose",
+      "idle",
+      "hop"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Katak Pohon Mata Merah",
+      "kicker": "Amfibi · Keluarga katak pohon",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "4–7 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "6–15 g"
+        },
+        {
+          "label": "Telur",
+          "value": "10–100"
+        },
+        {
+          "label": "Usia",
+          "value": "~5 tahun"
+        }
+      ],
+      "habitat": "Hutan hujan dekat kolam, dari Meksiko selatan hingga utara Amerika Selatan.",
+      "diet": "Lalat, nyamuk, belalang, dan serangga lain, disambar pada malam hari.",
+      "facts": [
+        "Berudu dalam telur bisa menetas lebih cepat dan jatuh ke air jika ular menyerang telurnya!",
+        "Ia memamerkan mata merah besarnya untuk mengejutkan pemangsa yang lapar."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
 }

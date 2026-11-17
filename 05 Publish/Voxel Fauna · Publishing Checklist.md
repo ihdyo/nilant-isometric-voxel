@@ -3,15 +3,17 @@
 ## Before any upload (per animal)
 - [ ] The owner approved the animal (`animal.json → approvals.final`).
 - [ ] `vf.py verify` passes; `vf.py check <code> --strict` has no errors.
-- [ ] All six PNGs in `export/` at 4096 px on the long side; each looked at full size (no artefacts, type correct).
-- [ ] No logo, watermark, signature or URL in any image.
+- [ ] The export package in `export/`: two 4096 masters, the stock image, the loop GIF, the English and Indonesian
+      cards; each looked at full size (no artefacts, type correct, the cards at 100 %).
+- [ ] No logo, watermark, signature or URL in the masters, the stock image or the loop (the card back carries
+      "powered by ihdyo" only).
 - [ ] `vf.py stock <code>` ran: JPEGs in `export/stock/` are 4–100 MP and ≤ 45 MB; CSVs in `05 Publish/Stock/`.
 - [ ] Titles and keywords read well (`animal.json → stock` to override the defaults); the species and scientific
       name are in the title; no other brand or trademark.
 
 ## Adobe Stock
-- [ ] Illustrations only: the information artworks carry a third-party photo (see the Stock Platforms guide).
-- [ ] Upload the JPEGs (start with ILL 1:1 and ILL 16:9; see "similar content" in the Stock Platforms guide).
+- [ ] The stock image only: the cards carry a third-party photo (see the Stock Platforms guide).
+- [ ] Upload the JPEG of `STOCK-1x1`.
 - [ ] Upload `<code> · Adobe Stock.csv` in the portal; check category Animals.
 - [ ] "Created using generative AI tools" stays **unticked** (Blender model and render; no generative image tool).
 - [ ] Submit; set the registry's Adobe Stock cells to Submitted.

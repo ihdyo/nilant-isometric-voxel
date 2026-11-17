@@ -18,24 +18,26 @@ Background (not modelled): `emerald-200`.
 
 ## Size and pose
 
-- Size: 18 × 11 × 34 voxels posed (L × W × H); longest side 34, budget 26–34 (target 30) from the real size 1.2 m (standing height about 1.2 m).
+- Size: 16 × 11 × 34 voxels posed (L × W × H); longest side 34, budget 26–34 (target 30) from the real size 1.2 m (standing height about 1.2 m).
 - Pose: see Personality, pose and expression. Head towards +X, feet on z = 0 in the rest pose, left flank at −Y; modelled symmetric, mirrored, then posed at the joints.
-- Parts: foot_r, leg_r, foot_l, leg_l, body, wing_l, wing_r, neck, beak, head.
+- Parts: foot_l, foot_r, shin_l, shin_r, leg_l, leg_r, body, wing_l, wing_r, neck, beak, head.
 
 ## Personality, pose and expression
 
 - Personality: elegant and a little snooty.
-- Pose: standing on one leg, the other folded up and tucked back under the body on the camera side, a long straight neck rising from the front of a bulky body, chin up, the big bill bent down, wings lifted at the back, a webbed foot one voxel thick on the ground.
+- Pose: standing on one leg, the other (the camera side) lifted and bent at the knee with the toes curled down, both legs built the same (an upper and a lower part on a webbed foot one voxel thick) so it can walk on them, a long straight neck rising from the front of a bulky body, chin up, the big bill bent down, wings lifted at the back.
 - Expression: a half-lidded amber eye, the pink lid painted over its top half.
 
 ## Proportions (inclusive voxel ranges of each part in the rest pose, as built)
 
 | Part | x | y | z | Pose |
 |---|---|---|---|---|
-| foot_r | 5 to 8 | 0 to 4 | 0 to 0 | turned rz +8°; on leg_r |
-| leg_r | 6 to 6 | 2 to 2 | 1 to 11 | on body |
-| foot_l | -1 to 0 | -3 to -1 | 7 to 7 | on leg_l |
-| leg_l | 1 to 6 | -2 to -2 | 7 to 11 | turned ry +28°; on body |
+| foot_l | 5 to 7 | -3 to -1 | 0 to 0 | turned ry +34°; on shin_l |
+| foot_r | 5 to 7 | 1 to 3 | 0 to 0 | turned rz +8°; on shin_r |
+| shin_l | 6 to 6 | -2 to -2 | 1 to 5 | turned ry +40°; on leg_l |
+| shin_r | 6 to 6 | 2 to 2 | 1 to 5 | on leg_r |
+| leg_l | 6 to 6 | -2 to -2 | 6 to 11 | turned ry -38°; on body |
+| leg_r | 6 to 6 | 2 to 2 | 6 to 11 | on body |
 | body | 0 to 10 | -4 to 4 | 12 to 18 |  |
 | wing_l | 0 to 8 | -5 to -5 | 13 to 18 | turned ry +14°; on body |
 | wing_r | 0 to 8 | 5 to 5 | 13 to 18 | turned ry +14°; on body |

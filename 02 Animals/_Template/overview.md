@@ -15,4 +15,4 @@ page.
 | `docs/references.md` | every source and every photograph with author and licence |
 | `assets/photos/` | genuine photographs of the species (references only) |
 | `blender/model.py` | the voxel model (source of truth for the .blend) |
-| `export/` | the six final images |
+| `export/` | the export package |
