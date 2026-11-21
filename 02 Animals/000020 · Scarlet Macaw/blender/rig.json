@@ -1,0 +1,44 @@
+{
+ "code": "000020",
+ "rigged": "2026-11-21T16:56:58",
+ "blender": "5.3.0",
+ "still_built": "2026-11-21T16:56:54",
+ "motion_hash": "edd7d980c6a4792c",
+ "rig_engine": "78ec5c9923cbc596",
+ "plan": "bird",
+ "bones": 10,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "flap": 48
+ },
+ "blend": "000020 \u00b7 Scarlet Macaw \u00b7 Rig.blend",
+ "glb": "000020 \u00b7 Scarlet Macaw \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 3.646628259636918,
+  "box_size": [
+   2.5526397817458424,
+   2.466819405555725
+  ]
+ },
+ "vertices": 1650,
+ "groups": [
+  "beak",
+  "body",
+  "head",
+  "leg_l",
+  "leg_r",
+  "tail",
+  "tail_tip",
+  "wing_l",
+  "wing_r"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

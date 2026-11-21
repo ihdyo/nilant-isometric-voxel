@@ -1,0 +1,205 @@
+{
+  "code": "000055",
+  "common": "Red Kangaroo",
+  "scientific": "Osphranter rufus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#F54900",
+      "belly": "#FEF3C6",
+      "muzzle": "#D6D3D1",
+      "claw": "#262626",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#EECEAA",
+    "background_name": "soft sand",
+    "background_oklch": [
+      0.87,
+      0.06,
+      70.2
+    ],
+    "accent": null,
+    "why": "A sun-baked outback-terracotta pastel that complements its rusty-red coat and pale cream chest.",
+    "size": {
+      "real_m": 2.4,
+      "measure": "head-and-body 1.3–1.6 m plus tail 1.0–1.2 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Kangaroo family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Diprotodontia",
+      "family": "Macropodidae",
+      "genus": "Osphranter",
+      "species": "O. rufus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2015",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Height",
+        "value": "Up to 1.8 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "22–92 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "12–18 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Leap",
+        "value": "Up to 9 m",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Arid and semi-arid deserts, scrublands and open grasslands across inland Australia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Green desert grasses and flowering herbs, obtaining most of its water directly from fresh plants.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The world's largest living marsupial—a single bound can cover 9 metres at speeds over 60 km/h.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Its thick muscular tail acts like a 'fifth leg' when walking slowly and a counterbalance mid-leap.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Osphranter_rufus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Osphranter rufus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Osphranter_rufus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Osphranter rufus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Osphranter_rufus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "red kangaroo",
+      "kangaroo",
+      "osphranter rufus",
+      "marsupial",
+      "australia",
+      "outback",
+      "joey",
+      "wildlife",
+      "hopping"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "hopper",
+    "actions": [
+      "pose",
+      "idle",
+      "hop"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kanguru Merah",
+      "kicker": "Mamalia · Keluarga kanguru",
+      "stats": [
+        {
+          "label": "Tinggi",
+          "value": "Hingga 1,8 m"
+        },
+        {
+          "label": "Berat",
+          "value": "22–92 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "12–18 tahun"
+        },
+        {
+          "label": "Lompatan",
+          "value": "Hingga 9 m"
+        }
+      ],
+      "habitat": "Gurun kering dan semi-kering, semak belukar, serta padang rumput terbuka di pedalaman Australia.",
+      "diet": "Rumput gurun hijau dan herba berbunga, memperoleh sebagian besar kebutuhan air langsung dari tanaman.",
+      "facts": [
+        "Marsupial terbesar di dunia yang masih hidup—satu lompatannya mampu menjangkau 9 meter dengan kecepatan lebih dari 60 km/jam.",
+        "Ekor berotot tebalnya berfungsi sebagai 'kaki kelima' saat berjalan pelan dan penyeimbang di udara."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

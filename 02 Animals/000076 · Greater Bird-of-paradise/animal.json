@@ -1,0 +1,207 @@
+{
+  "code": "000076",
+  "common": "Greater Bird-of-paradise",
+  "scientific": "Paradisaea apoda",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "plumage": "#BB4D00",
+      "crown": "#FFDF20",
+      "throat": "#00BC7D",
+      "plume": "#FFD230",
+      "beak": "#74D4FF",
+      "eye": "#171717"
+    },
+    "background": "#F9C5CC",
+    "background_name": "soft rose",
+    "background_oklch": [
+      0.87,
+      0.06,
+      9.3
+    ],
+    "accent": null,
+    "why": "A soft blossom pink that sets off the emerald throat and cascading golden-amber display plumes.",
+    "size": {
+      "real_m": 0.43,
+      "measure": "body length 43–44 cm (excluding long ornamental tail wires up to ~75 cm)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Bird-of-paradise family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Passeriformes",
+      "family": "Paradisaeidae",
+      "genus": "Paradisaea",
+      "species": "P. apoda"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2018",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "43–44 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "170–300 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–30 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "1–2 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Lowland and hill rainforests of southern New Guinea and the Aru Islands, from sea level up to 1,000 m.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Forest fruits, berries, and canopy arthropods such as insects and spiders.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Males gather in canopy leks and flare cascading golden-yellow flank plumes to impress watching females.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Early European traders thought it had no feet because trade skins lacked legs—hence apoda, meaning 'footless'.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Paradisaea apoda: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Paradisaea_apoda/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Paradisaea apoda. The IUCN Red List of Threatened Species (2018 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2018-2.RLTS.T22706249A130411310.en",
+      "doi": "10.2305/IUCN.UK.2018-2.RLTS.T22706249A130411310.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "greater bird of paradise",
+      "bird of paradise",
+      "paradisaea apoda",
+      "exotic bird",
+      "new guinea",
+      "rainforest bird",
+      "plumes",
+      "courtship",
+      "tropical wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "flier",
+    "actions": [
+      "pose",
+      "idle",
+      "fly",
+      "display"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Cenderawasih Besar",
+      "kicker": "Burung · Keluarga cenderawasih",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "43–44 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "170–300 g"
+        },
+        {
+          "label": "Usia",
+          "value": "15–30 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "1–2 butir"
+        }
+      ],
+      "habitat": "Hutan hujan dataran rendah dan perbukitan di Papua bagian selatan serta Kepulauan Aru, hingga ketinggian 1.000 m.",
+      "diet": "Buah-buahan hutan, beri, serta serangga dan laba-laba di kanopi pohon.",
+      "facts": [
+        "Pejantan berkumpul di pohon arena dan mengembangkan bulu hias kuning keemasan untuk memikat betina.",
+        "Pedagang Eropa dulu mengira burung ini tak berkaki karena spesimen awetannya tanpa kaki—asal nama apoda."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

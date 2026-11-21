@@ -1,0 +1,204 @@
+{
+  "code": "000061",
+  "common": "Sunda Pangolin",
+  "scientific": "Manis javanica",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "scale": "#57534D",
+      "shade": "#44403B",
+      "skin": "#FEE685",
+      "claw": "#D6D3D1",
+      "eye": "#171717"
+    },
+    "background": "#B0E1CA",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      164.3
+    ],
+    "accent": null,
+    "why": "A lush Southeast-Asian-forest emerald pastel that sets off its overlapping olive-brown keratin scales.",
+    "size": {
+      "real_m": 1.1,
+      "measure": "total length, 0.9–1.2 m including prehensile tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Pangolin family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Pholidota",
+      "family": "Manidae",
+      "genus": "Manis",
+      "species": "M. javanica"
+    },
+    "conservation": {
+      "code": "CR",
+      "status": "Critically Endangered",
+      "assessed": "2019",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "0.9–1.2 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "4–7 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Scales",
+        "value": "~20% of weight",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Primary and secondary tropical forests, peat swamps and wooded gardens across Southeast Asia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Tree-nesting ants and termites, extracted with a sticky tongue longer than its entire body.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The world's only truly scaly mammal—its overlapping armour scales are made of keratin, the same protein as human fingernails.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "When threatened, it curls into an impenetrable armoured ball that even a tiger's jaws cannot crack open.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Manis_javanica",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Manis javanica: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Manis_javanica/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Manis javanica. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Manis_javanica",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "sunda pangolin",
+      "pangolin",
+      "manis javanica",
+      "scaly anteater",
+      "indonesia",
+      "southeast asia",
+      "critically endangered",
+      "scales",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Trenggiling Sunda (Sunda Pangolin)",
+      "kicker": "Mamalia · Keluarga trenggiling",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "0,9–1,2 m"
+        },
+        {
+          "label": "Berat",
+          "value": "4–7 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–20 tahun"
+        },
+        {
+          "label": "Sisik",
+          "value": "~20% bobot tubuh"
+        }
+      ],
+      "habitat": "Hutan hujan tropis primer dan sekunder, rawa gambut, serta kebun berhutan di Asia Tenggara.",
+      "diet": "Semut dan rayap pohon yang diambil menggunakan lidah lengket yang lebih panjang dari seluruh tubuhnya.",
+      "facts": [
+        "Satu-satunya mamalia bersisik sejati di dunia—sisik pelindungnya terbuat dari keratin, protein yang sama dengan kuku manusia.",
+        "Saat terancam, ia menggulung menjadi bola zirah rapat yang bahkan tak mampu digigit terbuka oleh harimau."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

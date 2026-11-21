@@ -1,0 +1,205 @@
+{
+  "code": "000052",
+  "common": "Reindeer",
+  "scientific": "Rangifer tarandus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#79716B",
+      "ruff": "#F5F5F4",
+      "antler": "#FEE685",
+      "hoof": "#262626",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#A6E0E7",
+    "background_name": "soft aqua",
+    "background_oklch": [
+      0.87,
+      0.06,
+      205.4
+    ],
+    "accent": null,
+    "why": "An icy Arctic-cyan backdrop that highlights its frosty white neck ruff and sweeping branching antlers.",
+    "size": {
+      "real_m": 2.0,
+      "measure": "head-and-body length, 1.6–2.2 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Deer family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Cervidae",
+      "genus": "Rangifer",
+      "species": "R. tarandus"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2015",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Shoulder",
+        "value": "0.9–1.4 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "60–318 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "12–15 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Migration",
+        "value": "Up to 5,000 km",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Arctic tundra and subarctic boreal forests across northern Europe, Siberia and North America.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Reindeer lichen (caribou moss) dug from beneath snow in winter, plus grasses, sedges and willow leaves in summer.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The only deer species in which both males and females grow antlers every year.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Their eye tapetum shifts from gold in summer to deep blue in winter to see ultraviolet light on snow.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Rangifer_tarandus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Rangifer tarandus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Rangifer_tarandus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Rangifer tarandus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Rangifer_tarandus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "reindeer",
+      "caribou",
+      "rangifer tarandus",
+      "arctic",
+      "tundra",
+      "antlers",
+      "winter",
+      "deer",
+      "migration"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Rusa Kutub (Reindeer)",
+      "kicker": "Mamalia · Keluarga rusa",
+      "stats": [
+        {
+          "label": "Bahu",
+          "value": "0,9–1,4 m"
+        },
+        {
+          "label": "Berat",
+          "value": "60–318 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "12–15 tahun"
+        },
+        {
+          "label": "Migrasi",
+          "value": "Hingga 5.000 km"
+        }
+      ],
+      "habitat": "Tundra Arktik dan hutan boreal subarktik di Eropa utara, Siberia, dan Amerika Utara.",
+      "diet": "Lumut kerak (reindeer lichen) yang digali dari bawah salju saat musim dingin, serta rumput dan daun willow di musim panas.",
+      "facts": [
+        "Satu-satunya spesies rusa di mana pejantan maupun betina sama-sama menumbuhkan tanduk setiap tahun.",
+        "Lapisan mata mereka berubah dari emas di musim panas menjadi biru tua di musim dingin untuk melihat cahaya UV di salju."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

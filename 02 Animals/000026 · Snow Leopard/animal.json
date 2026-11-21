@@ -1,0 +1,217 @@
+{
+  "code": "000026",
+  "common": "Snow Leopard",
+  "scientific": "Panthera uncia",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#D6D3D1",
+      "spot": "#57534D",
+      "belly": "#F5F5F4",
+      "nose": "#FFA1AD",
+      "white": "#FAFAF9",
+      "eye": "#00BC7D"
+    },
+    "background": "#AFDBF7",
+    "background_name": "soft sky blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      236.2
+    ],
+    "accent": null,
+    "why": "A crisp glacial sky blue that echoes high Himalayan snowfields and sets off the smoky-grey spotted coat.",
+    "size": {
+      "real_m": 2.1,
+      "measure": "nose to tail tip, about 2.1 m including the 0.9 m tail (body length 1–1.3 m per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Cat family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Panthera",
+      "species": "P. uncia"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Body length",
+        "value": "1–1.3 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "22–55 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–18 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "90–105 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Steep, rocky alpine mountains and cliffs across Central and South Asia at 3,000–5,500 m.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Blue sheep, Siberian ibex, marmots, pikas and mountain birds ambushed on rocky ledges.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its thick tail is nearly as long as its body and works as a balance pole on cliffs and a scarf while sleeping.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Unlike lions and tigers, snow leopards cannot roar because their vocal cords lack a thick elastic pad.",
+        "source": [
+          3
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Ricky Wright",
+      "licence": "CC BY 2.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Snow_Leopard_(Panthera_Uncia_or_Uncia_Uncia)_(8628009802).jpg",
+      "centre": [
+        0.5,
+        0.48
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Panthera uncia: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Panthera_uncia/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "McCarthy, T., Mallon, D., Jackson, R., Zahler, P. & McCarthy, K. (2017). Panthera uncia. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2017-2.RLTS.T22732A50664030.en",
+      "doi": "10.2305/IUCN.UK.2017-2.RLTS.T22732A50664030.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Weissengruber, G.E., Forstenpointner, G., Peters, G., Kübber-Heiss, A. & Fitch, W.T. (2002). Hyoid apparatus and pharynx in the lion (Panthera leo), jaguar (Panthera onca), tiger (Panthera tigris), cheetah (Acinonyx jubatus) and domestic cat (Felis silvestris f. catus). Journal of Anatomy 201: 195–209",
+      "publisher": "Wiley",
+      "url": "https://doi.org/10.1046/j.1469-7580.2002.00088.x",
+      "doi": "10.1046/j.1469-7580.2002.00088.x",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "snow leopard",
+      "panthera uncia",
+      "mountain cat",
+      "himalayas",
+      "big cat",
+      "spotted fur",
+      "endangered wildlife",
+      "alpine predator",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 026-035); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "quadruped",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "prowl"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Macan Tutul Salju",
+      "kicker": "Mamalia · Keluarga kucing",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1–1,3 m"
+        },
+        {
+          "label": "Berat",
+          "value": "22–55 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–18 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "90–105 hari"
+        }
+      ],
+      "habitat": "Pegunungan alpen berbatu yang terjal di Asia Tengah dan Selatan pada ketinggian 3.000–5.500 m.",
+      "diet": "Domba biru, ibex Siberia, marmot, pika, dan burung gunung yang disergap dari tebing batu.",
+      "facts": [
+        "Ekornya yang tebal hampir sepanjang tubuhnya dan berfungsi sebagai penyeimbang di tebing sekaligus syal saat tidur.",
+        "Tidak seperti singa dan harimau, macan tutul salju tidak bisa mengaum karena pita suaranya tidak memiliki bantalan elastis tebal."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

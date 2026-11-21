@@ -1,6 +1,6 @@
 """Voxel Fauna · shared helpers for the command line (plain Python 3.10+, Pillow and openpyxl; no bpy).
 
-Paths, the Tailwind palette and colour maths, animal folders and animal.json, image IDs, the Blender runner and the
+Paths, the colour maths, animal folders and animal.json, image IDs, the Blender runner and the
 standards fingerprint. Everything the look depends on is read from blender/vf_standards.py.
 """
 import glob
@@ -33,7 +33,6 @@ LOG = os.path.join(ROOT, "_system", "log")
 CACHE = os.path.join(ROOT, "_system", "cache")
 SKILL = os.path.join(ROOT, ".claude", "skills", "voxel-animal-production", "SKILL.md")
 LOCK = os.path.join(DATA, "standards.lock.json")
-PALETTE = json.load(open(os.path.join(DESIGN, "Color", "tailwind-v4-palette.json"), encoding="utf-8"))["colors"]
 DEFAULT_BLENDER = r"C:\Users\ihdyo\AppData\Local\Programs\Blender 5.3.0\blender-5.3.0-windows-x64\blender.exe"
 
 # the files whose content is the approved look: a change to any of them needs the owner's OK and a relock
@@ -51,7 +50,7 @@ def rel(path):
 
 # ---- colour ---------------------------------------------------------------------------------------------------------
 def hexcode(token):
-    """A Tailwind token or "#RRGGBB" -> "RRGGBB"."""
+    """"#RRGGBB" (or a ramp shade "#RRGGBB-700") -> "RRGGBB"."""
     return VC.hex_of(token)
 
 
@@ -60,14 +59,30 @@ def is_colour(c):
 
 
 def background(look):
-    """The rendered background colour: a vivid pastel of look.background (vf_standards.BACKGROUND_RULE)."""
-    R = ST.BACKGROUND_RULE
-    return VC.pastel(look["background"], R["max_chroma"], R["lightness"])
+    """The rendered background colour: look.background exactly (vf_standards.BACKGROUND_RULE)."""
+    return "#" + VC.hex_of(look["background"])
 
 
 def background_factor(look):
-    """The chroma factor the background gets; card colours drawn from its family get the same."""
-    return VC.pastel_factor(look["background"], ST.BACKGROUND_RULE["max_chroma"])
+    """Kept for callers: the background is already at the collection's chroma, so card colours are not muted (the
+    ramp, vf_color.RAMP, is calm by design)."""
+    return 1.0
+
+
+def background_rule_errors(look):
+    """The one-chroma background rule (vf_standards.BACKGROUND_RULE), as a list of problems."""
+    R, E = ST.BACKGROUND_RULE, []
+    bg = look.get("background")
+    if not (isinstance(bg, str) and VC.HEX.match(bg)):
+        return [f"look.background '{bg}' is not a #RRGGBB hex"]
+    L, C, h = VC.oklch(bg)
+    if abs(C - R["chroma"]) > R["tolerance"] * 2.5:
+        E.append(f"look.background {bg} has OKLCH chroma {C:.3f}; every background is {R['chroma']} "
+                 f"(vf_color.background(hue, {R['lightness']}, {R['chroma']}))")
+    lo, hi = R["lightness_range"]
+    if not lo - 0.006 <= L <= hi + 0.006:
+        E.append(f"look.background {bg} has OKLCH lightness {L:.3f}, outside {lo}-{hi}")
+    return E
 
 
 def budget(animal):
@@ -112,16 +127,9 @@ def delta_e(a, b):
     return sum((p - q) ** 2 for p, q in zip(lab(a), lab(b))) ** 0.5
 
 
-def shade(token):
-    try:
-        return int(token.rsplit("-", 1)[1])
-    except (IndexError, ValueError):
-        return None
-
-
 # ---- animals --------------------------------------------------------------------------------------------------------
 def animal_dirs():
-    return sorted(d for d in glob.glob(os.path.join(ANIMALS, "[0-9][0-9]-[0-9][0-9][0-9] · *")) if os.path.isdir(d))
+    return sorted(d for d in glob.glob(os.path.join(ANIMALS, "[0-9]" * 6 + " · *")) if os.path.isdir(d))
 
 
 def find(code):
@@ -153,10 +161,13 @@ def blend_path(folder, animal):
     return os.path.join(folder, "blender", f"{animal['code']} · {animal['common']}.blend")
 
 
+CODE_DIGITS = 6                  # animal code: six digits, 000001, 000002, ... (owner 2026-11-21: "remove the yy id
+                                 # completely and make it 6 digits animal id"); was Nilant's YY-SEQ (26-001)
+
+
 def next_code():
-    year = time.strftime("%y")
-    used = [int(os.path.basename(d)[3:6]) for d in animal_dirs() if os.path.basename(d).startswith(year + "-")]
-    return f"{year}-{(max(used) + 1 if used else 1):03d}"
+    used = [int(os.path.basename(d)[:CODE_DIGITS]) for d in animal_dirs()]
+    return f"{(max(used) + 1 if used else 1):0{CODE_DIGITS}d}"
 
 
 # ---- Blender --------------------------------------------------------------------------------------------------------

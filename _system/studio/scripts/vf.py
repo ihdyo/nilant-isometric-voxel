@@ -5,7 +5,7 @@
   doctor                      Blender, Python packages, fonts, palette, standards lock
   list                        every animal with its status
   new "<Common name>" ["<Scientific name>"]
-                              next YY-SEQ code, folder from 02 Animals/_Template, status Research
+                              next six-digit code, folder from 02 Animals/_Template, status Research
   check <code> [--strict]     everything the files can prove: animal.json, sources behind every fact, photo licence and
                               log, palette and background rules, the voxel brief, the voxel model, type fits, exports
   build <code>                model.py -> the editable .blend (+ blender/build.json); only when missing or stale
@@ -21,12 +21,14 @@
   info <code> [--profile LOW|ULTRA]
                               re-lays the cards of the three information artworks on their cached plates
   overview <code>             rewrites overview.md from animal.json and the files
-  register <code>             adds or updates the animal and its six images in 05 Publish/Voxel Fauna · Registry.xlsx
+  register <code>             adds or updates the animal in 05 Publish/Voxel Fauna · Registry.xlsx and its items in
+                              every platform workbook (05 Publish/Platforms/Voxel Fauna · <Platform>.xlsx)
+  registry                    rebuilds the registry's Animals sheet (the animal information) from every animal.json
   stock <code> [--only ILL-1x1,ILL-16x9]
                               the stock JPEG in export/, upload CSVs in 05 Publish/Stock/ (illustrations only by
                               default: the information artworks carry a third-party photo), the Gumroad zip (all six)
-  log <code|Image ID> <platform> <action> [--kinds ILL] [--link URL] [--note "..."]
-                              records an upload event in the Publish Log (registry sheet + markdown), like Nilant's log
+  log <code|Image ID> <platform> <action> [--link URL] [--note "..."]
+                              records an upload event in the platform's workbook (Publish Log) + markdown, like Nilant's log
   selftest [--ultra] [--ratios 1x1] [--compare]
                               the engine end to end on a placeholder creature -> _system/cache/selftest/
   rig <code> [--force] [--no-preview]
@@ -67,8 +69,8 @@ def out(*a):
 # ---- the selftest creature (placeholder copy at the longest lengths the layouts allow) ------------------------------
 SELFTEST = {
     "code": "00-000", "common": "Test Creature", "scientific": "Testus voxelis", "status": "Preview",
-    "look": {"palette": {"fur": "orange-400", "belly": "orange-50", "dark": "stone-800"}, "background": "sky-200",
-             "accent": None},
+    "look": {"palette": {"fur": "#FF8904", "belly": "#FFF7ED", "dark": "#292524"}, "background": "#ACDCF5",
+             "background_name": "sky blue", "background_oklch": [0.87, 0.06, 230.0], "accent": None},
     "info": {
         "kicker": "Placeholder · Engine test",
         "conservation": {"status": "Least Concern", "code": "LC", "source": [1]},
@@ -137,24 +139,18 @@ def check_animal(folder, animal, strict=False):
     look = animal["look"]
     pal = look.get("palette") or {}
     for k, t in pal.items():
-        if not VL.is_colour(t):
-            E.append(f"look.palette.{k}: '{t}' is neither a Tailwind v4 token nor a #RRGGBB hex")
+        if not (isinstance(t, str) and VL.VC.HEX.match(t)):
+            E.append(f"look.palette.{k}: '{t}' is not a #RRGGBB hex (the Tailwind tokens were removed 2026-11-21)")
     bg = look.get("background", "")
-    if not VL.is_colour(bg):
-        E.append(f"look.background '{bg}' is neither a Tailwind v4 token nor a #RRGGBB hex")
-    elif pal:
-        lo, hi = ST.BACKGROUND_RULE["shades"]
-        if bg in VL.PALETTE and not lo <= (VL.shade(bg) or 0) <= hi:
-            E.append(f"background {bg}: shade outside the soft range {lo}-{hi}")
-        if bg not in VL.PALETTE and VL.VC.oklch(bg)[0] < ST.BACKGROUND_RULE["min_lightness"]:
-            E.append(f"background {bg}: OKLCH lightness {VL.VC.oklch(bg)[0]:.2f} is below "
-                     f"{ST.BACKGROUND_RULE['min_lightness']} (backgrounds stay soft)")
+    E += VL.background_rule_errors(look)
+    if pal and not E:
         main = next(iter(pal.values()))
-        if VL.is_colour(main):
-            de = VL.delta_e(main, VL.background(look))
-            if de < ST.BACKGROUND_RULE["min_delta_e"]:
-                E.append(f"background {bg} (rendered {VL.background(look)}) is too close to the main colour {main} "
-                         f"(delta E {de:.0f})")
+        de = VL.delta_e(VL.VC.tone(main, **ST.ANIMAL_TONE), VL.background(look))
+        if de < ST.BACKGROUND_RULE["min_delta_e"]:
+            E.append(f"background {bg} is too close to the main colour {main} as rendered (delta E {de:.0f}, at "
+                     f"least {ST.BACKGROUND_RULE['min_delta_e']:.0f}): move the background's lightness or hue")
+    if not look.get("background_name"):
+        W.append("look.background_name is missing (a short name of the background colour, used in stock titles)")
     if real and not ((look.get("size") or {}).get("real_m")):
         has_model = bool(folder) and os.path.exists(os.path.join(folder, "blender", "model.py"))
         (E if has_model else W).append("look.size.real_m is missing (the real longest dimension in metres sets the "
@@ -1268,7 +1264,8 @@ def write_overview(folder, animal):
         lines.append(f"| `{PK.export_id(code, suffix)}` | {what} | "
                      + (f"`export/{os.path.basename(p)}`" if os.path.exists(p) else "not built yet") + " |")
     lines += ["", "## Look", "",
-              f"- Background: `{look.get('background')}`" + (f": {look['why']}" if look.get("why") else ""),
+              f"- Background: `{look.get('background')}`" + (f" ({look['background_name']})" if look.get("background_name") else "")
+              + (f": {look['why']}" if look.get("why") else ""),
               "- Palette: " + ", ".join(f"{k} `{v}`" for k, v in (look.get("palette") or {}).items()),
               f"- Photo on the information artwork: `{ph.get('file', '-')}` ({ph.get('author', '?')}, {ph.get('licence', '?')})",
               "", "## Files", "", "| Path | What |", "|---|---|",
@@ -1369,7 +1366,16 @@ def cmd_register(a):
     advance(animal, "Registered")
     VL.save(folder, animal)
     write_overview(folder, animal)
-    out(f"{a.code}: {n} rows written to {VL.rel(VL.REGISTRY)}")
+    out(f"{a.code}: {n} rows written to {VL.rel(VL.REGISTRY)} and the platform workbooks in "
+        f"{VL.rel(registry.PLATFORM_DIR)}")
+    return 0
+
+
+def cmd_registry(a):
+    """Rebuild the registry's Animals sheet from every animal.json (the animal information; owner 2026-11-21)."""
+    import registry
+    n = registry.refresh_animals()
+    out(f"{n} animals written to {VL.rel(VL.REGISTRY)} (platform targets: {VL.rel(registry.PLATFORM_DIR)})")
     return 0
 
 
@@ -1384,22 +1390,27 @@ def cmd_stock(a):
 
 
 def cmd_log(a):
-    """Record an upload event: one dated row per image in the registry's Publish Log sheet and the markdown log."""
+    """Record an upload event: one dated row per item in the platform's workbook (Publish Log) and the markdown log."""
     import registry
     key = a.target
-    code = key[3:9] if key.startswith("VF-") else key
+    code = key[3:3 + VL.CODE_DIGITS] if key.startswith("VF-") else key
     folder = VL.find(code)
     animal = VL.load(folder)
+    try:
+        plat = registry._platform(a.platform)
+    except StopIteration:
+        out(f"platform must be one of {', '.join(registry.PLATFORM_NAMES)}")
+        return 1
     if key.startswith("VF-"):
         ids = [key]
-    else:
-        kinds = [k.strip().upper() for k in (a.kinds or "ILL,INF").split(",")]
-        ids = [VL.image_id(code, k, r) for k in kinds for r in ST.RATIOS]
+    else:                                       # every item that goes to this platform
+        ids = [i[0] for i in registry.items_for(folder, animal, plat["kind"])]
     if a.action not in registry.LOG_ACTIONS:
         out(f"action must be one of {', '.join(registry.LOG_ACTIONS)}")
         return 1
-    n = registry.log(ids, animal, a.platform, a.action, a.link or "", a.note or "")
-    out(f"logged {n} image(s): {a.platform} {a.action} -> {VL.rel(registry.LOG_MD)} and the registry")
+    n = registry.log(ids, animal, plat["name"], a.action, a.link or "", a.note or "")
+    out(f"logged {n} item(s): {plat['name']} {a.action} -> {VL.rel(registry.platform_path(plat['name']))} and "
+        f"{VL.rel(registry.LOG_MD)}")
     return 0
 
 
@@ -1508,11 +1519,11 @@ def standards_md():
         + " (no texture) |",
         f"| Shadow | composited: strength {ST.SHADOW['strength']}, dead zone {ST.SHADOW['deadzone']}, "
         f"blur {ST.SHADOW['smooth']} of the short side (twice), pass ground grey {ST.SHADOW['ground_grey']} |",
-        f"| Background | one colour per animal (Tailwind shade {ST.BACKGROUND_RULE['shades'][0]}–"
-        f"{ST.BACKGROUND_RULE['shades'][1]} or hex, OKLCH L ≥ {ST.BACKGROUND_RULE['min_lightness']}), rendered as a "
-        f"vivid pastel: OKLCH chroma ≤ {ST.BACKGROUND_RULE['max_chroma']}, lightness "
-        f"{ST.BACKGROUND_RULE['lightness'][0]}–{ST.BACKGROUND_RULE['lightness'][1]} (card colours from its family get "
-        f"the same chroma factor); ΔE ≥ {ST.BACKGROUND_RULE['min_delta_e']:.0f} from the main colour |",
+        f"| Background | one colour per animal: OKLCH lightness {ST.BACKGROUND_RULE['lightness']} (or "
+        f"{ST.BACKGROUND_RULE['lightness_range'][0]}–{ST.BACKGROUND_RULE['lightness_range'][1]} where the coat needs it), "
+        f"chroma {ST.BACKGROUND_RULE['chroma']} for every animal, the hue chosen per animal (habitat or complement), as a hex; "
+        f"card colours from the background's hue on the collection's ramp; ΔE ≥ {ST.BACKGROUND_RULE['min_delta_e']:.0f} "
+        f"from the main colour as rendered |",
         f"| Shared render base | {ST.RENDER_BASE['engine']}; " + ", ".join(f"{k} {v}" for k, v in ST.RENDER_BASE['eevee'].items())
         + f"; motion blur {ST.RENDER_BASE['motion_blur']}; bloom {ST.RENDER_BASE['bloom']} |",
         f"| ULTRA | scale {U['scale']}; " + ", ".join(f"{k} {v}" for k, v in U["eevee"].items())
@@ -1523,11 +1534,11 @@ def standards_md():
         "| Sizes (LOW) | " + ", ".join(f"{r} {round(w * L['scale'])}×{round(h * L['scale'])}" for r, (w, h) in ST.SIZES.items()) + " |",
         "| Framing | " + "; ".join(f"{k} {r}: zone {v['zone']}, fill {v['fill']}" for k in ST.FRAMING for r, v in ST.FRAMING[k].items()) + " |",
         f"| Card system | radius {ST.INFO_STYLE['radius']}u, lip {ST.INFO_STYLE['lip']}u (background + {ST.INFO_STYLE['lip_steps']}), "
-        f"padding {ST.INFO_STYLE['pad']}u, white tiles and cards, fun fact on the background family at {ST.INFO_STYLE['fact_shade']}; "
+        f"padding {ST.INFO_STYLE['pad']}u, white tiles and cards, fun fact on the background's ramp at {ST.INFO_STYLE['fact_shade']}; "
         f"headings {', '.join(ST.INFO_STYLE['headings'].values())} |",
         "| Copy limits | " + ", ".join(f"{k} {v}" for k, v in ST.INFO_LIMITS.items()) + " |",
         f"| Photo licences | {', '.join(ST.INFO_STYLE['photo_licences'])} (credited on the artwork) |",
-        f"| Image ID | `{ST.IMAGE_ID}` (e.g. `{VL.image_id('26-001', 'ILL', '1x1')}`) |",
+        f"| Image ID | `{ST.IMAGE_ID}` (e.g. `{VL.image_id('000001', 'ILL', '1x1')}`) |",
     ]
     return "\n".join(lines)
 
@@ -1624,7 +1635,7 @@ def cmd_doctor(a):
     import infographic as IG
     out("font italic:", "Poppins italic found" if not IG.faux_italic()
         else "not installed: scientific names use a sheared Poppins Medium (see 03 Design/Fonts/README.md)")
-    out("palette:", len(VL.PALETTE), "tokens")
+    out("colours: hex only; background rule OKLCH chroma", ST.BACKGROUND_RULE["chroma"])
     out("standards lock:", "present" if os.path.exists(VL.LOCK) else "missing")
     return 0 if ok else 1
 
@@ -1674,10 +1685,9 @@ def main():
     p.add_argument("code")
     p.add_argument("--only")
     p = sub.add_parser("log")
-    p.add_argument("target", help="an animal code (all its images) or one Image ID")
-    p.add_argument("platform", help="Adobe Stock, Shutterstock, Gumroad, Freepik, ...")
+    p.add_argument("target", help="an animal code (every item that goes to the platform) or one Image ID")
+    p.add_argument("platform", help="Adobe Stock, Shutterstock, Freepik, Dreamstime, Gumroad, Creative Market")
     p.add_argument("action", help="Submitted, Accepted, Rejected, Live, Removed, Updated")
-    p.add_argument("--kinds", help="ILL, INF or ILL,INF (with an animal code)")
     p.add_argument("--link")
     p.add_argument("--note")
     p = sub.add_parser("selftest")
@@ -1694,6 +1704,7 @@ def main():
     p.add_argument("--jobs", type=int, default=3, help="Blender runs at once (default 3)")
     p = sub.add_parser("rig-check")
     p.add_argument("code", nargs="?")
+    sub.add_parser("registry")
     sub.add_parser("verify")
     p = sub.add_parser("lock")
     p.add_argument("reason")

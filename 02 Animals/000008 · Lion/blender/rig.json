@@ -1,0 +1,52 @@
+{
+ "code": "000008",
+ "rigged": "2026-11-21T16:55:31",
+ "blender": "5.3.0",
+ "still_built": "2026-11-21T16:55:26",
+ "motion_hash": "83529e5c29bfddf9",
+ "rig_engine": "78ec5c9923cbc596",
+ "plan": "walker",
+ "bones": 17,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "walk": 64,
+  "shake": 24
+ },
+ "blend": "000008 \u00b7 Lion \u00b7 Rig.blend",
+ "glb": "000008 \u00b7 Lion \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 5.702709385457691,
+  "box_size": [
+   3.9918965698203834,
+   3.2324088010936975
+  ]
+ },
+ "vertices": 4140,
+ "groups": [
+  "body",
+  "ear_l",
+  "ear_r",
+  "head",
+  "leg_fl",
+  "leg_fr",
+  "leg_hl",
+  "leg_hr",
+  "mane",
+  "muzzle",
+  "shin_fl",
+  "shin_fr",
+  "shin_hl",
+  "shin_hr",
+  "tail",
+  "tail_tip"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

@@ -4,14 +4,15 @@
 
 ## Palette (must match `animal.json → look.palette`; the first key is the main colour)
 
-| Key | Colour (Tailwind token or #hex) | Where |
+| Key | Colour (#RRGGBB) | Where |
 |---|---|---|
 | `main` | `stone-400` | the coat |
 | `light` | `stone-100` | belly, muzzle |
 | `dark` | `stone-800` | paws, ear tips |
 | `eye` | `neutral-950` | eyes, nose |
 
-Background (not modelled): `sky-200` (rendered muted).
+Background (not modelled): `#ACDCF5` (its name, e.g. sky blue): OKLCH lightness 0.87, chroma 0.06, the hue chosen
+for the animal (its habitat, or the complement of its coat); `vf_color.background(hue, 0.87, 0.06)`.
 
 ## Size and pose
 

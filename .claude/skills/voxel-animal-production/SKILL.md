@@ -1,6 +1,6 @@
 ---
 name: voxel-animal-production
-description: The single source of truth for producing Voxel Fauna animals - isometric voxel animal illustrations made in Blender code for Gumroad, Adobe Stock and other stock sites. Covers the visual standards (true-isometric orthographic camera, large voxels, vivid solid Tailwind colours under Khronos PBR Neutral, one complementary flat background per species, composited shadow), the modelling standards (the voxel brief docs/voxel-model.md, key-prompt.md, the voxel grid in model.py), building and rendering (.blend from model.py, render.bat, ULTRA and LOW profiles adapted from Nilant), the LOW review compositions, the export package (two master renders, the stock image, the loop GIF, the A5 card in English and Indonesian), the Duolingo-style card system with a real photograph, research and sources, the registry and publish log, stock packaging, and the two owner approvals per animal. Use before creating, modelling, rendering, documenting or registering any animal, when asked to start the next animal, change the look, write card copy, render a preview or final, or prepare uploads.
+description: The single source of truth for producing Voxel Fauna animals - isometric voxel animal illustrations made in Blender code for Gumroad, Adobe Stock and other stock sites. Covers the visual standards (true-isometric orthographic camera, large voxels, vivid solid hex colours under Khronos PBR Neutral, one flat background per species at the collection's one chroma, composited shadow), the modelling standards (the voxel brief docs/voxel-model.md, key-prompt.md, the voxel grid in model.py), building and rendering (.blend from model.py, render.bat, ULTRA and LOW profiles adapted from Nilant), the LOW review compositions, the export package (two master renders, the stock image, the loop GIF, the A5 card in English and Indonesian), the Duolingo-style card system with a real photograph, research and sources, the registry and publish log, stock packaging, and the two owner approvals per animal. Use before creating, modelling, rendering, documenting or registering any animal, when asked to start the next animal, change the look, write card copy, render a preview or final, or prepare uploads.
 ---
 
 # Voxel Fauna · voxel animal production
@@ -23,8 +23,8 @@ and 16:9) remain the review sheets. It reuses Nilant's directory conventions and
    `vf.py lock "what and why"` and `vf.py standards --write`.
 5. Every animal passes two owner approvals: the LOW preview (`vf.py approve <code> preview`) before any ULTRA render,
    and the finished animal (`vf.py approve <code> final`). Never approve on the owner's behalf. The owner asked for
-   the ten examples 26-001 to 26-010 at once (2026-11-16), then five more (26-011 to 26-015) and ten more
-   (26-016 to 26-025); after them, one new animal at a time unless the owner asks otherwise.
+   the ten examples 000001 to 000010 at once (2026-11-16), then five more (000011 to 000015) and ten more
+   (000016 to 000025); after them, one new animal at a time unless the owner asks otherwise.
 
 ## 1. Visual standards
 - **Camera:** orthographic, true isometric: azimuth 45° (Nilant pose convention: 0 = in front at −Y), elevation
@@ -54,18 +54,32 @@ and 16:9) remain the review sheets. It reuses Nilant's directory conventions and
   eyebrow like that. they should flat", with a block-game character as the reference): eyes (a white eye with the
   pupil to the inside, or a dark eye with a glint, or a sleepy line), brows (a darker strip whose steps give the
   mood) and the mouth (a U smile, a smirk, a dot) are colours on the face voxels, flush; never plates or blocks.
-- **Colour:** vivid but soft, matte, flat, no textures, no gradients. Tailwind v4 tokens by default; a hex is allowed
-  where no token fits (owner, 2026-11-16: "for this project, break from tailwind coloring token"). The view transform
-  is **Khronos PBR Neutral** with a neutral `slate-100` sky fill (owner, 2026-11-16: Nilant's AgX + blue sky made the
+- **A lively pose, looking at the camera** (owner, 2026-11-21: "make it more dynamic", then "the animal should still
+  see the camera in dynamic pose", then "make it look at camera except for the static basic pose"): a real stride
+  (diagonal legs 14–22° forward and back, a knee folding) or one paw lifted, tails raised and curled, ears asymmetric;
+  every head, birds and the dolphin included, turned to the camera (yaw about −14°, its neck, mane or torso
+  straight), roll within ±5° (not tilted aggressively). The loops keep it on the camera (`MOTION.life`: the
+  look-around centred on that turn, 7°). Only the static blocky pose (`MASTER-BLOCK`, the rest pose) looks straight
+  ahead. A "candid" head looking away was tried the same day and dropped.
+- **Sections stay attached:** a turning section that only touches its parent (a neck standing on the body, a tail
+  against the rump, an ear on the head) is sunk one voxel into it by the engine (`Grid.anchor()`, run by
+  `load_model` for every animal: the parent's cells against it, within 2.5 voxels of its hinge (`ANCHOR_REACH`), join
+  its layer in the parent's colours; a tail lying along the rump is held at its root, not doubled), so nothing
+  opens a gap or floats in the loops (owner, 2026-11-21: the flamingo's and zebra's necks, the giraffe's and zebra's
+  tails). Limbs hang from the body's face by design.
+- **Colour:** vivid but soft, matte, flat, no textures, no gradients. Every colour is a hex `#RRGGBB` (owner,
+  2026-11-21: "remove the tailwind color palette completely"; the tokens were replaced by their exact hex, nothing
+  renders differently). The view transform is **Khronos PBR Neutral** with a neutral `#F1F5F9` sky fill (owner, 2026-11-16: Nilant's AgX + blue sky made the
   models pale; PBR Neutral renders base colours as authored). 3–7 palette keys per species; large areas shades
   50–800, small details any shade.
-- **Background:** one flat colour per species (a Tailwind token at shade 50–300, or a soft hex), complementing the
-  animal (the hue opposite its main coat colour, or its habitat's colour for black, white or grey animals),
-  rendered as a **vivid pastel** (owner: "the background color is too vibrant, make it slightly desaturated so the
-  animal more popup", then "keep the background vivid but pastel (not too vibrant or neon), keep it calm"): OKLCH
-  chroma capped at 0.07, lightness held in 0.85–0.93, hue kept (soft tokens such as sky-200 unchanged, neon ones
-  calmed); the card lips and the fun-fact card get the same chroma factor; at least ΔE 30 between the main colour and
-  the rendered background. Nothing else in the frame.
+- **Background** (owner, 2026-11-21: "change all the background colors to break from the color palette. make it
+  dynamic but have same saturation for all. then make the background color show the suitable color for the animal,
+  like maybe the habitat, the color from color theory"): one flat colour per species, OKLCH (lightness 0.87, chroma
+  **0.06 for every animal**, its own hue): the hue from the animal's habitat (bamboo green, sea-ice blue, savanna
+  gold) or the complement of its coat (forest-mist teal behind the rusty fox), written in `look.background` (hex),
+  `look.background_oklch` and `look.background_name` (used in stock titles), with the reason in `look.why`. The
+  lightness moves (0.74–0.88) only where the coat needs it to stand out by ΔE 20 (a fixed chroma cannot reach the old
+  30 against a mid-grey coat). It renders exactly. Nothing else in the frame.
 - **Light and shadow:** rig `iso_top` (owner-approved): a warm key 55° high from the camera's front-left, a cool rim
   from behind without its own shadow; one soft shadow composited on the background.
 - **Composition:** the whole animal visible, never cropped or stretched, centred with balanced space; each ratio
@@ -92,7 +106,7 @@ and 16:9) remain the review sheets. It reuses Nilant's directory conventions and
   a second box only for a real feature; no `ellipsoid`, no stair-stepped curves) → the recognisable features,
   exaggerated like a toy → colour shapes with `paint` (flat, no speckles) → the face painted flat (white eye + inner
   pupil, a brow strip, a mouth; the snout box with a dark nose row) → `mirror()` → the pose from the personality
-  (head turned to the camera and cocked, ears, tail, a stride or a lifted paw) → `vf.py check` → `vf.py preview` and
+  (a stride or a lifted paw, tail and ears; the head turned to the camera) → `vf.py check` → `vf.py preview` and
   judge.
 - Lessons from the first ten: a long neck must be about as long as the legs (giraffe); a mane must frame the face on
   every side, not sit behind it (lion); a solid dark muzzle block reads as a bear, keep only the nostrils dark
@@ -128,7 +142,7 @@ and 16:9) remain the review sheets. It reuses Nilant's directory conventions and
   by PBR Neutral for colour fidelity).
 - **Shadow composite (EEVEE has no shadow catcher):** the animal over transparency (ground as holdout) and the shadow
   (animal as holdout, grey ground, Standard view); the shadow factor is blurred, given a 3 % dead zone and laid at
-  strength 0.65 over the exact background hex in linear light. Open background = exactly the token's hex.
+  strength 0.65 over the exact background hex in linear light. Open background = exactly the background's hex.
 
 ### Animation rig and motion (APPROVED and locked 2026-11-17, standards v2.2)
 - **Motion v2 (PROPOSED 2026-11-17, owner: "really dynamic ... tilt the head, ear, etc ... not blindly look at camera"):** every action carries the life layer `_alive()` (`MOTION.life`): the head looks around (yaw biased away from the camera), tilts and nods, shared with the neck; each ear perks and tips on its own beat; tails wag; folded wings flutter with one fuller flap a loop (the flamingo flaps a little as it walks); the body sways and rolls with the stride. Walk, flap, hop and waddle run two cycles a loop (`MOTION.cycles`, 48 frames), and the legs swing wider (26°, 20° with a knee, 24° on two legs). Every term is a whole number of cycles a loop, so loops stay seamless.
@@ -159,6 +173,15 @@ and 16:9) remain the review sheets. It reuses Nilant's directory conventions and
 - **Per animal** (`animal.json → motion`): `plan` (walker, sitter, bird, swimmer, sprawler, hopper), `actions`,
   optional `frames` per action, `base` (still angles replaced in one action: the hippo walks with its jaw shut) and
   `signature` (the loop shown in the lineup; default the first after `idle`).
+- **Motion options and the 2026-11-21 fixes:** per-animal motion options in `animal.json →
+  motion.options`: `walk_jaw` (the hippo walks with a yawn, the jaw opening 30° and closing once a loop),
+  `howl_lift` (how far the howl throws the head back: 34° for the standing wolf). The trunk lives (`_trunk`: a curl
+  and a sway rolling down the chain); a bird's feet point and paddle in a hop or a flap.
+- **Nested stacking** (2026-11-21, `STACK_LEVELS.nested`): a section hanging from another section is drawn 0.1 voxel
+  over its parent (head 2.05, its muzzle and ears 2.15), so a child always wins where their faces
+  meet (the tiger's flickering face).
+- **Tails behind the body** (2026-11-21, `STACK_BEHIND`): tails and flukes are drawn at the limbs' level 0, under
+  the body, in the loops (the red panda's lifted tail drew its root over the rump and looked as big as the body).
 - **Section names matter:** the library finds sections by name, so models keep them: `head`, `neck`, `torso`, `mane`,
   `leg_fl/fr/hl/hr`, `shin_*`, `leg_l/r` + `foot_l/r` (two legs), `wing_*`, `flipper_l/r`, `flipper_hl/hr`, `arm_*`,
   `ear_*`, `tail`, `tail_tip`, `flukes`, `trunk_1…3`, `jaw`, `tongue`, `gill_*`, `snout`/`muzzle`/`nose`/`beak`.
@@ -190,7 +213,7 @@ Per animal, in `export/` (the IDs `VF-<code>-<item>`; numbers in `blender/vf_exp
 | `MASTER-BLOCK.png` | the same for the regular blocky pose (the rest pose, every joint straight, set on the ground) |
 | `STOCK.jpg` | the image for stock sites: the whole dynamic master (4096 square, 16.8 MP, no crop) as an sRGB JPEG with its title and keywords, beside the package in `export/` (owner 2026-11-17: no crop, no `stock/` folder); not in the Gumroad zip |
 | `LOOP.gif` | the looped dynamic animation: the signature action (motion.signature, else the first after idle), 1080 square, 24 fps |
-| `CARD-EN.pdf`, `CARD-ID.pdf` | the A5 card (148 × 210 mm, 3 mm bleed, 300 dpi, trim box set), one per language. Front, minimal and playful, no photograph for now: the animal's pastel, the name big with the scientific name and IUCN chip, the Nilant wordmark top right, the dynamic model (its body centred) with its own rendered shadow among a few small particles (the background family's 400-600 tints, mixed shapes), four boxless stats with pixel icons, home and menu in two columns, the fun fact on a full-bleed band with a straight top edge. Back: the blocky master with "powered by" + the ihdyo mark + "ihdyo", small at the bottom, black on a light background and white on a dark one (the only place the brand appears) |
+| `CARD-EN.pdf`, `CARD-ID.pdf` | the A5 card (148 × 210 mm, 3 mm bleed, 300 dpi, trim box set), one per language. Front, minimal and playful, no photograph for now: the animal's pastel, the name big with the scientific name and IUCN chip, the Nilant wordmark top right, the dynamic model (its body centred) with its own rendered shadow among a few small particles (the background's ramp tints 400-600, mixed shapes), four boxless stats with pixel icons, home and menu in two columns, the fun fact on a full-bleed band with a straight top edge. Back: the blocky master with "powered by" + the ihdyo mark + "ihdyo", small at the bottom, black on a light background and white on a dark one (the only place the brand appears) |
 - **One batch file:** `render.bat` → 3 renders (owner: "render.bat should be rendering only (2 image and 1
   motion)"): `vf.py final <code>` renders the two masters into `export/` and their cut-outs and the loop frames into
   `_system/cache/plates/<code>/ULTRA/` (`blender/vf_export.py`, from the rig `.blend`). Then `render.bat` → P builds
@@ -207,33 +230,33 @@ Per animal, in `export/` (the IDs `VF-<code>-<item>`; numbers in `blender/vf_exp
 
 ### The locked values
 <!-- standards:begin -->
-Standards version 2.2 · rig `iso_top` · geometry `mob` (generated from `vf_standards.py` by `vf.py standards --write`; do not edit by hand)
+Standards version 2.3 · rig `iso_top` · geometry `mob` (generated from `vf_standards.py` by `vf.py standards --write`; do not edit by hand)
 
 | Area | Value |
 |---|---|
 | Voxel | 0.1 m; posed longest side 16–56 voxels: target 28 × (real longest dimension in m)^0.4 ± 15%; smallest feature 1 voxel |
 | Pose | sections turn at their joints, at most 40° on any axis, ears, snout and jaw follow their parent; plates (flat surfaces) switched off for now: whole voxels only; the face is painted flat; the posed animal is set on z = 0 |
-| Motion | armature from the joints, sections skinned with rigid weights, rest pose = the model as drawn, action `pose` = the still; 24 fps; idle 48 frames, walk 24 (32 from 40 voxels long); legs swing 22° stiff, 17° over a knee folding 34°, two legs 20° folding 45°; hops 0.22 of the length; every frame grounded |
+| Motion | armature from the joints, sections skinned with rigid weights, rest pose = the model as drawn, action `pose` = the still; 24 fps; idle 48 frames, walk 48 (64 from 40 voxels long); legs swing 26° stiff, 20° over a knee folding 34°, two legs 24° folding 45°; hops 0.22 of the length; every frame grounded |
 | Geometry | `mob`: one part's faces merge into flat planes; sharp box edges (no bevel), flat shading, flat solid colours; one voxel layer per part, so overlapping sections stack whole (no holes) |
 | Camera | ORTHO, azimuth 45.0°, elevation 35.264° (true isometric), distance 40.0 m, clip 0.1–200.0 m, no depth of field |
 | Facing | head towards +X, back up, left flank at −Y (head lower right in frame) |
 | Colour | view Khronos PBR Neutral, look None, exposure 0.0 |
-| Key sun | orange-200, 2.4 W/m², rotation (35.0, 0.0, -50.0) + 45.0° turn, angle 0.12 rad, shadow True |
-| Rim sun | indigo-200, 0.72 W/m², rotation (62.0, 0.0, 140.0) + 45.0° turn, angle 0.12 rad, shadow False |
-| Sky fill | slate-100 × 0.5 |
+| Key sun | #FFD6A7, 2.4 W/m², rotation (35.0, 0.0, -50.0) + 45.0° turn, angle 0.12 rad, shadow True |
+| Rim sun | #C6D2FF, 0.72 W/m², rotation (62.0, 0.0, 140.0) + 45.0° turn, angle 0.12 rad, shadow False |
+| Sky fill | #F1F5F9 × 0.5 |
 | Material | matte: roughness 0.86, specular 0.3, coat 0.0, coat_roughness 0.2, subsurface 0.0, subsurface_scale 0.06, subsurface_radius (0.8, 0.8, 0.8) (no texture) |
 | Shadow | composited: strength 0.65, dead zone 0.03, blur 0.004 of the short side (twice), pass ground grey 0.25 |
-| Background | one colour per animal (Tailwind shade 50–300 or hex, OKLCH L ≥ 0.8), rendered as a vivid pastel: OKLCH chroma ≤ 0.07, lightness 0.85–0.93 (card colours from its family get the same chroma factor); ΔE ≥ 30 from the main colour |
+| Background | one colour per animal: OKLCH lightness 0.87 (or 0.74–0.88 where the coat needs it), chroma 0.06 for every animal, the hue chosen per animal (habitat or complement), as a hex; card colours from the background's hue on the collection's ramp; ΔE ≥ 20 from the main colour as rendered |
 | Shared render base | BLENDER_EEVEE; use_raytracing True, use_shadows True, use_fast_gi True, fast_gi_method GLOBAL_ILLUMINATION, fast_gi_quality 0.75, fast_gi_step_count 12, fast_gi_ray_count 3, fast_gi_thickness_near 0.3, fast_gi_bias 0.02, fast_gi_distance 0.0; motion blur False; bloom False |
 | ULTRA | scale 1.0; taa_render_samples 256, shadow_ray_count 4, shadow_step_count 16, shadow_resolution_scale 1.0, light_threshold 0.001, fast_gi_resolution 1; shadow pass samples 64; ray tracing resolution 1/1, denoise True |
 | LOW | scale 0.25; taa_render_samples 8, shadow_ray_count 1, shadow_step_count 2, shadow_resolution_scale 1.0, light_threshold 0.01, fast_gi_resolution 2; shadow pass samples 8; ray tracing resolution 1/4, denoise True |
 | Sizes (ULTRA) | 1x1 4096×4096, 9x16 2304×4096, 16x9 4096×2304 |
 | Sizes (LOW) | 1x1 1024×1024, 9x16 576×1024, 16x9 1024×576 |
 | Framing | ILL 1x1: zone (0.0, 0.0, 1.0, 1.0), fill 0.7; ILL 9x16: zone (0.0, 0.0, 1.0, 1.0), fill 0.82; ILL 16x9: zone (0.0, 0.0, 1.0, 1.0), fill 0.68; INF 1x1: zone (0.31, 0.32, 0.97, 0.71), fill 0.94; INF 9x16: zone (0.03, 0.215, 0.62, 0.475), fill 0.94; INF 16x9: zone (0.02, 0.08, 0.48, 0.95), fill 0.9 |
-| Card system | radius 2.2u, lip 0.9u (background + 200), padding 2.0u, white tiles and cards, fun fact on the background family at 700; headings Home turf, On the menu, Fun fact! |
+| Card system | radius 2.2u, lip 0.9u (background + 200), padding 2.0u, white tiles and cards, fun fact on the background's ramp at 700; headings Home turf, On the menu, Fun fact! |
 | Copy limits | common 22, scientific 34, kicker 30, stats 4, stat_label 12, stat_value 11, habitat 100, diet 95, fact 115, facts 2 |
 | Photo licences | Public domain, CC0, CC BY 2.0, CC BY 2.5, CC BY 3.0, CC BY 4.0 (credited on the artwork) |
-| Image ID | `VF-{code}-{kind}-{ratio}` (e.g. `VF-26-001-ILL-1x1`) |
+| Image ID | `VF-{code}-{kind}-{ratio}` (e.g. `VF-000001-ILL-1x1`) |
 <!-- standards:end -->
 
 ## 4. Production workflow (one animal, six phases, two approvals; every animal rigged and animated)
@@ -246,7 +269,8 @@ rendering).
    every statement numbered to `docs/references.md`; mark uncertain or general-knowledge statements as such. Photos:
    genuine, from Wikimedia Commons or agencies, licence **public domain, CC0 or CC BY only** (never BY-SA, NC, ND),
    at least two angles, logged with author, licence and page URL; downloads need the owner's OK of the batch.
-2. **Modelling** — choose `look.palette` and `look.background` (write `look.why`), write `docs/voxel-model.md`, then
+2. **Modelling** — choose `look.palette` (hex) and the background's hue (`vf_color.background(hue, 0.87, 0.06)`:
+   `look.background`, `background_oklch`, `background_name`, and `look.why`), write `docs/voxel-model.md`, then
    `model.py` (yourself, or by attaching `key-prompt.md` + `docs/voxel-model.md` to Claude Sonnet in a browser),
    set `animal.json → motion` (plan and actions, section 3), `vf.py check <code>` until clean.
 3. **Preview, rig and motion** — every animal goes all the way to rigged and animated (owner, 2026-11-17: "for
@@ -284,16 +308,25 @@ rendering).
 - Type never shrinks; too much text is an error naming the field to shorten (`vf.py check`). Numbers stay with their
   unit when lines wrap. Scientific names use real italics when `03 Design/Fonts/Poppins-MediumItalic.ttf` exists, else a
   sheared Poppins Medium.
-- Colours come from the background's family (950 title and values, 700 labels and headings, background + 200 lips,
-  the 700 shade for the fun-fact card with white type), checked for contrast.
+- Colours come from the background's hue on the collection's own ramp (`vf_color.RAMP`, written `#RRGGBB-700`: 950
+  title and values, 700 labels and headings, background + 200 lips, the 700 shade for the fun-fact card with white
+  type), checked for contrast.
 
 ## 6. Registry, publish log, IDs and stock
-- Animal code `YY-SEQ`. Image ID `VF-<code>-<ILL|INF>-<ratio>`; the export file is `export/<Image ID>.png`. The
-  registry `05 Publish/Voxel Fauna · Registry.xlsx` (Read Me, Animals, Images, Publish Log, Platforms; amber cells are
-  the owner's); `vf.py register` upserts by code and ID.
+- Animal code: six digits, `000001`, `000002`, … (owner, 2026-11-21: "remove the yy id completely and make it 6
+  digits"; was `YY-SEQ`, `26-001`); the folder `02 Animals/000001 · Red Fox`. Image ID `VF-<code>-<item>`
+  (`VF-000001-MASTER-DYN`); the export file is `export/<Image ID>.<ext>`.
+- **The registry lists the animals; the platforms have their own workbooks** (owner, 2026-11-21: "the registry excel
+  should list the animal info. the platform target should listed in different excel files"):
+  `05 Publish/Voxel Fauna · Registry.xlsx` (Read Me, Animals: one row per species with its names, classification,
+  IUCN status, size, stats, habitat, diet, facts, colours, photo credit, motion, status and approvals; `vf.py
+  registry` rebuilds it from every `animal.json`) and `05 Publish/Platforms/Voxel Fauna · <Platform>.xlsx` per
+  platform (Adobe Stock, Shutterstock, Freepik, Dreamstime: the stock JPEG; Gumroad, Creative Market: the export
+  package): Read Me (its rules), Items (one row per item and animal with its State), Publish Log. `vf.py register`
+  upserts the animal's row and its items in every platform workbook; amber cells are the owner's.
 - **Publish log** (as Nilant records each upload): `vf.py log <code|Image ID> <platform> <action> [--link] [--note]`
-  appends a dated row to the registry's Publish Log sheet and to `05 Publish/Voxel Fauna · Publish Log.md`, and sets
-  the image's platform cell. Actions: Submitted, Accepted, Rejected, Live, Removed, Updated.
+  appends a dated row to that platform's Publish Log and to `05 Publish/Voxel Fauna · Publish Log.md`, and sets the
+  item's State. Actions: Submitted, Accepted, Rejected, Live, Removed, Updated.
 - **Stock vs Gumroad:** the cards carry a third-party photograph, which stock sites' contributor terms do not let
   you license as your own work, so `vf.py stock` packages **only the stock image** (`STOCK.jpg`, the dynamic master) for Adobe
   Stock and Shutterstock (JPEG, sRGB, XMP metadata, CSVs) and puts **the whole export package** in the Gumroad zip,

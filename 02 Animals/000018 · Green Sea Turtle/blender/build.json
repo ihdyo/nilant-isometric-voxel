@@ -1,0 +1,96 @@
+{
+ "code": "000018",
+ "built": "2026-11-21T16:56:40",
+ "blender": "5.3.0",
+ "model_hash": "a2f6068cdd0dd8ea",
+ "look_hash": "640d5d51ade94dac",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "posed size 26.6 x 30.4 x 7.0 voxels (L x W x H), 2151 voxels, colours belly, eye, seam, shell, skin, parts body, flipper_hl, flipper_hr, flipper_l, flipper_r, head; turned flipper_hl, flipper_hr, flipper_l, flipper_r, head"
+  ],
+  "size": [
+   26,
+   31,
+   7
+  ],
+  "voxels": 2151
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 4.132117509835808,
+   "view": [
+    4.132117509835808,
+    4.132117509835808
+   ],
+   "box_size": [
+    2.8924822568850654,
+    1.8401902839541435
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 6.270964242569248,
+   "view": [
+    3.527417386445202,
+    6.270964242569248
+   ],
+   "box_size": [
+    2.8924822568850654,
+    1.8401902839541435
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 4.810954990729786,
+   "view": [
+    4.810954990729786,
+    2.706162182285505
+   ],
+   "box_size": [
+    2.8924822568850654,
+    1.8401902839541435
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 5.0196134314079215,
+   "view": [
+    5.0196134314079215,
+    5.0196134314079215
+   ],
+   "box_size": [
+    2.8924822568850654,
+    1.8401902839541435
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 9.271890874336068,
+   "view": [
+    5.215438616814038,
+    9.271890874336068
+   ],
+   "box_size": [
+    2.8924822568850654,
+    1.8401902839541435
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 6.986672118079869,
+   "view": [
+    6.986672118079869,
+    3.9300030664199266
+   ],
+   "box_size": [
+    2.8924822568850654,
+    1.8401902839541435
+   ]
+  }
+ },
+ "renders": {}
+}

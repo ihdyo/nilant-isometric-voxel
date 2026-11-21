@@ -1,0 +1,206 @@
+{
+  "code": "000092",
+  "common": "Walrus",
+  "scientific": "Odobenus rosmarus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#973C00",
+      "fold": "#7B3306",
+      "whisker": "#E7E5E4",
+      "tusk": "#FFFBEB",
+      "eye": "#171717"
+    },
+    "background": "#EBD0A9",
+    "background_name": "soft sand",
+    "background_oklch": [
+      0.87,
+      0.06,
+      76.9
+    ],
+    "accent": null,
+    "why": "A pale Arctic-sunrise peach that warms up the cinnamon-brown skin and sets off the long ivory tusks.",
+    "size": {
+      "real_m": 3.2,
+      "measure": "total length 2.7–3.6 m in adult males",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Walrus family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Odobenidae",
+      "genus": "Odobenus",
+      "species": "O. rosmarus"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "2.7–3.6 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "800–1,700 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "40 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "15–16 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Shallow Arctic continental shelves, sea ice floes, and rocky coastal haul-outs across the Arctic Ocean.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Clams, mussels, cockles, sea cucumbers, and benthic invertebrates suctioned from the seafloor.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Uses hundreds of sensitive snout whiskers (vibrissae) to feel buried clams in dark, muddy Arctic seabeds.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Uses its long ivory tusks (up to 1 m) to haul its massive body out of freezing water onto ice floes.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Odobenus rosmarus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Odobenus_rosmarus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Odobenus rosmarus. The IUCN Red List of Threatened Species (2016 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-1.RLTS.T15106A45228501.en",
+      "doi": "10.2305/IUCN.UK.2016-1.RLTS.T15106A45228501.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "walrus",
+      "odobenus rosmarus",
+      "pinniped",
+      "arctic",
+      "tusks",
+      "whiskers",
+      "marine mammal",
+      "sea ice",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "waddle",
+      "bellow"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Walrus",
+      "kicker": "Mamalia · Keluarga walrus",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "2,7–3,6 m"
+        },
+        {
+          "label": "Berat",
+          "value": "800–1.700 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "40 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "15–16 bulan"
+        }
+      ],
+      "habitat": "Paparan benua Arktik yang dangkal, bongkahan es laut, dan pantai berbatu di seluruh Samudra Arktik.",
+      "diet": "Kerang, remis, teripang, dan invertebrata dasar laut yang diisap dari lumpur dasar samudra.",
+      "facts": [
+        "Menggunakan ratusan kumis sensitif di moncongnya untuk meraba kerang yang terkubur di dasar laut Arktik yang gelap.",
+        "Memakai dua gading panjangnya (hingga 1 m) untuk menarik tubuh besarnya naik dari air beku ke atas es."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "code": "000040",
+  "common": "Ring-tailed Lemur",
+  "scientific": "Lemur catta",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#A6A09B",
+      "black": "#171717",
+      "white": "#FAFAF9",
+      "belly": "#F5F5F4",
+      "muzzle": "#292524",
+      "eye": "#FE9A00"
+    },
+    "background": "#CCDBB0",
+    "background_name": "soft lime green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      123.8
+    ],
+    "accent": null,
+    "why": "A fresh sunlit Madagascar spring lime green that highlights the crisp black-and-white ringed tail and amber eyes.",
+    "size": {
+      "real_m": 1.0,
+      "measure": "nose to tail tip, about 1.0 m (body 39–46 cm plus 56–63 cm ringed tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Lemur family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Primates",
+      "family": "Lemuridae",
+      "genus": "Lemur",
+      "species": "L. catta"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2018",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Body length",
+        "value": "39–46 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Tail length",
+        "value": "56–63 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "2.2–3.5 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "16–19 yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Gallery forests, spiny bush, dry scrub and rocky canyons in southern and southwestern Madagascar.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Tamarind pods, figs, leaves, flowers, bark, sap and occasional insects.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its iconic black-and-white tail is longer than its body and held high like a flag to keep the troop together.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "In the morning sun, ring-tailed lemurs sit upright with arms spread wide like tiny sun-worshippers to warm up.",
+        "source": [
+          1,
+          3
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Charles J. Sharp",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Ring-tailed_lemur_(Lemur_catta)_2.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Lemur catta: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Lemur_catta/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "LaFleur, M. & Gould, L. (2020). Lemur catta. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2020-2.RLTS.T11496A115565760.en",
+      "doi": "10.2305/IUCN.UK.2020-2.RLTS.T11496A115565760.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Jolly, A. (1966). Lemur Behavior: A Madagascar Field Study",
+      "publisher": "University of Chicago Press",
+      "url": "https://press.uchicago.edu/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (monograph)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "ring-tailed lemur",
+      "lemur catta",
+      "lemur",
+      "madagascar",
+      "striped tail",
+      "primate",
+      "endangered wildlife",
+      "cute lemur",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 036-050); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "quadruped",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "sunbathe"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Lemur Ekor Cincin",
+      "kicker": "Mamalia · Keluarga lemur",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "39–46 cm"
+        },
+        {
+          "label": "Ekor",
+          "value": "56–63 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "2,2–3,5 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "16–19 tahun"
+        }
+      ],
+      "habitat": "Hutan galeri, semak berduri, hutan kering, dan ngarai berbatu di Madagaskar bagian selatan dan barat daya.",
+      "diet": "Buah asam (tamarind), ara, daun, bunga, kulit kayu, getah, dan sesekali serangga.",
+      "facts": [
+        "Ekor belang hitam-putihnya lebih panjang dari tubuhnya dan diangkat tegak seperti bendera agar kawanan tetap menyatu.",
+        "Di pagi hari, lemur ekor cincin duduk tegak dengan tangan terentang menghadap matahari untuk menghangatkan tubuh."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

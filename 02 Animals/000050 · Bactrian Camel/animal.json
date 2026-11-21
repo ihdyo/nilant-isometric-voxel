@@ -1,0 +1,204 @@
+{
+  "code": "000050",
+  "common": "Bactrian Camel",
+  "scientific": "Camelus bactrianus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#973C00",
+      "shag": "#461901",
+      "muzzle": "#FEE685",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#EECEAA",
+    "background_name": "soft sand",
+    "background_oklch": [
+      0.87,
+      0.06,
+      70.2
+    ],
+    "accent": null,
+    "why": "A warm desert-sand pastel that echoes the Gobi dunes and contrasts cleanly with its thick dark-brown winter coat.",
+    "size": {
+      "real_m": 3.2,
+      "measure": "head-and-body length, 2.25–3.5 m plus tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Camel family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Camelidae",
+      "genus": "Camelus",
+      "species": "C. bactrianus"
+    },
+    "conservation": {
+      "code": "CR",
+      "status": "Critically Endangered",
+      "assessed": "2020",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Height",
+        "value": "1.8–2.3 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "300–1,000 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "35–50 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "13 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Cold rocky deserts, steppes and sand dunes of Central Asia, enduring −40 °C winters and 40 °C summers.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Thorny desert shrubs, dry grasses, twigs and salty plants—plus up to 100 litres of water in one go.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its two humps store fat—not water—which converts into energy and hydration during long desert treks.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Double rows of long eyelashes and closable nostrils seal out fierce Gobi sandstorms.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Camelus_bactrianus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Camelus bactrianus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Camelus_bactrianus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Camelus bactrianus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Camelus_bactrianus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "bactrian camel",
+      "camel",
+      "camelus bactrianus",
+      "two humps",
+      "gobi desert",
+      "desert mammal",
+      "steppe",
+      "asian wildlife",
+      "endangered"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Unta Baktria",
+      "kicker": "Mamalia · Keluarga unta",
+      "stats": [
+        {
+          "label": "Tinggi",
+          "value": "1,8–2,3 m"
+        },
+        {
+          "label": "Berat",
+          "value": "300–1.000 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "35–50 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "13 bulan"
+        }
+      ],
+      "habitat": "Gurun berbatu dingin, stepa, dan bukit pasir Asia Tengah, tahan suhu −40 °C hingga 40 °C.",
+      "diet": "Semak gurun berduri, rumput kering, ranting, dan tanaman asin—plus hingga 100 liter air sekaligus.",
+      "facts": [
+        "Kedua punuknya menyimpan lemak—bukan air—yang diubah menjadi energi dan cairan saat perjalanan jauh.",
+        "Dua baris bulu mata panjang dan lubang hidung yang bisa menutup rapat melindunginya dari badai pasir Gobi."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

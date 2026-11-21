@@ -1,0 +1,204 @@
+{
+  "code": "000060",
+  "common": "Giant Anteater",
+  "scientific": "Myrmecophaga tridactyla",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#57534D",
+      "stripe": "#171717",
+      "trim": "#F5F5F4",
+      "tail": "#44403B",
+      "eye": "#171717"
+    },
+    "background": "#E0D5A8",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.87,
+      0.06,
+      95.9
+    ],
+    "accent": null,
+    "why": "A warm savanna-ochre amber that sets off its striking black-and-white shoulder stripe and huge plumed tail.",
+    "size": {
+      "real_m": 2.1,
+      "measure": "total length, 1.8–2.4 m including bushy tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Anteater family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Pilosa",
+      "family": "Myrmecophagidae",
+      "genus": "Myrmecophaga",
+      "species": "M. tridactyla"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2013",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "1.8–2.4 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "18–41 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "14–16 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Tongue",
+        "value": "60 cm long",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Grasslands, savannas, wetlands and tropical forests of Central and South America.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Up to 30,000 ants and termites a day, flicked up at 150 times per minute with a sticky 60-cm tongue.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Completely toothless—it crushes insects against hard ridges on the roof of its mouth and muscular stomach.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "It walks on its knuckles with its huge front claws tucked inward so they stay razor-sharp for tearing termite mounds.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Myrmecophaga_tridactyla",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Myrmecophaga tridactyla: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Myrmecophaga_tridactyla/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Myrmecophaga tridactyla. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Myrmecophaga_tridactyla",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "giant anteater",
+      "anteater",
+      "myrmecophaga tridactyla",
+      "south america",
+      "pantanal",
+      "savanna",
+      "termites",
+      "wildlife",
+      "mammal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Trenggiling Raksasa (Giant Anteater)",
+      "kicker": "Mamalia · Keluarga trenggiling raksasa",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1,8–2,4 m"
+        },
+        {
+          "label": "Berat",
+          "value": "18–41 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "14–16 tahun"
+        },
+        {
+          "label": "Lidah",
+          "value": "Panjang 60 cm"
+        }
+      ],
+      "habitat": "Padang rumput, sabana, lahan basah, dan hutan tropis di Amerika Tengah dan Amerika Selatan.",
+      "diet": "Hingga 30.000 semut dan rayap per hari, dijilat 150 kali per menit dengan lidah lengket sepanjang 60 cm.",
+      "facts": [
+        "Sama sekali tidak bergigi—ia menghancurkan serangga pada langit-langit mulut keras dan lambung berototnya.",
+        "Ia berjalan di atas buku-buku jarinya dengan cakar depan raksasa terlipat agar tetap tajam untuk membongkar sarang rayap."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

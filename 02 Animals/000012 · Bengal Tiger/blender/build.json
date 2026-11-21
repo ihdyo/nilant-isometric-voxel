@@ -1,0 +1,97 @@
+{
+ "code": "000012",
+ "built": "2026-11-21T16:55:58",
+ "blender": "5.3.0",
+ "model_hash": "fd42cc3b490f5855",
+ "look_hash": "2acfec40e2ec527c",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "the pose moves the lowest point to z = -0.20: the engine sets the animal back on the ground",
+   "posed size 42.5 x 15.7 x 25.3 voxels (L x W x H), 4244 voxels, colours eye, fur, nose, pupil, stripe, white, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, muzzle, shin_fl, shin_fr, shin_hl, shin_hr, tail, tail_tip; turned ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, shin_fl, shin_hl, tail, tail_tip"
+  ],
+  "size": [
+   44,
+   13,
+   25
+  ],
+  "voxels": 4244
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 4.785601838482003,
+   "view": [
+    4.785601838482003,
+    4.785601838482003
+   ],
+   "box_size": [
+    3.349921286937402,
+    3.3121060989797115
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 7.2627019771000585,
+   "view": [
+    4.085269862118783,
+    7.2627019771000585
+   ],
+   "box_size": [
+    3.349921286937402,
+    3.3121060989797115
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 8.659100912365258,
+   "view": [
+    8.659100912365258,
+    4.870744263205458
+   ],
+   "box_size": [
+    3.349921286937402,
+    3.3121060989797115
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 9.034659298908107,
+   "view": [
+    9.034659298908107,
+    9.034659298908107
+   ],
+   "box_size": [
+    3.349921286937402,
+    3.3121060989797115
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 13.551988948362158,
+   "view": [
+    7.622993783453714,
+    13.551988948362158
+   ],
+   "box_size": [
+    3.349921286937402,
+    3.3121060989797115
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 8.091597311443,
+   "view": [
+    8.091597311443,
+    4.551523487686688
+   ],
+   "box_size": [
+    3.349921286937402,
+    3.3121060989797115
+   ]
+  }
+ },
+ "renders": {}
+}

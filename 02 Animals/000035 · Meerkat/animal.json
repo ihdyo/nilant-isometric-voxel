@@ -1,0 +1,217 @@
+{
+  "code": "000035",
+  "common": "Meerkat",
+  "scientific": "Suricata suricatta",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#FEE685",
+      "stripe": "#57534D",
+      "mask": "#171717",
+      "belly": "#FFFBEB",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#ECCFA9",
+    "background_name": "soft sand",
+    "background_oklch": [
+      0.87,
+      0.06,
+      75.4
+    ],
+    "accent": null,
+    "why": "A warm Kalahari apricot-peach pastel that evokes red desert sands and complements the sandy-tan banded coat.",
+    "size": {
+      "real_m": 0.5,
+      "measure": "nose to tail tip, about 0.5 m (body 25–35 cm plus 17–25 cm slender tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Mongoose family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Herpestidae",
+      "genus": "Suricata",
+      "species": "S. suricatta"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2015",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Body length",
+        "value": "25–35 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "0.6–0.97 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "12–14 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "70 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Arid open savannas, scrublands and Kalahari desert plains across southern Africa.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Beetles, scorpions, spiders, centipedes, lizards, small snakes, eggs and desert tubers.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "While the mob digs for insects, one sentry stands upright on its tail and calls distinct alarms for eagles versus jackals.",
+        "source": [
+          3
+        ]
+      },
+      {
+        "text": "Dark rings around its eyes act like built-in sunglasses against the bright Kalahari sun.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Fir0002",
+      "licence": "CC BY-SA 3.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Meerkat_feb_09.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Suricata suricatta: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Suricata_suricatta/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Jordan, N.R. & Do Linh San, E. (2015). Suricata suricatta. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2015-4.RLTS.T41624A45209377.en",
+      "doi": "10.2305/IUCN.UK.2015-4.RLTS.T41624A45209377.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Manser, M.B. (2001). The acoustic structure of suricates' alarm calls varies with predator type and the level of response urgency. Proceedings of the Royal Society B 268: 2315–2324",
+      "publisher": "The Royal Society",
+      "url": "https://doi.org/10.1098/rspb.2001.1773",
+      "doi": "10.1098/rspb.2001.1773",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "meerkat",
+      "suricata suricatta",
+      "kalahari",
+      "sentry",
+      "african wildlife",
+      "mongoose",
+      "desert animal",
+      "standing meerkat",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 026-035); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "biped_upright",
+    "actions": [
+      "pose",
+      "idle",
+      "lookout",
+      "scurry"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Meerkat",
+      "kicker": "Mamalia · Keluarga garangan",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "25–35 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "0,6–0,97 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "12–14 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "70 hari"
+        }
+      ],
+      "habitat": "Sabana terbuka yang kering, semak belukar, dan dataran gurun Kalahari di Afrika bagian selatan.",
+      "diet": "Kumbang, kalajengking, laba-laba, kelabang, kadal, ular kecil, telur, dan umbi-umbian gurun.",
+      "facts": [
+        "Saat kawanan menggali mencari serangga, satu penjaga berdiri tegak bertumpu pada ekornya dan menyerukan peringatan berbeda untuk elang maupun jakal.",
+        "Lingkaran hitam di sekitar matanya berfungsi seperti kacamata hitam alami terhadap terik matahari Kalahari."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

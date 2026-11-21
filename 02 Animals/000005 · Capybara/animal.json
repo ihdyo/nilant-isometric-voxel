@@ -1,0 +1,206 @@
+{
+  "code": "000005",
+  "common": "Capybara",
+  "scientific": "Hydrochoerus hydrochaeris",
+  "status": "Final",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "#973C00",
+      "dark": "#441306",
+      "eye": "#0A0A0A"
+    },
+    "background": "#A7DFED",
+    "background_name": "river blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      215
+    ],
+    "accent": null,
+    "why": "The calm river water capybaras wallow in, opposite their warm brown coat.",
+    "size": {
+      "real_m": 1.2,
+      "measure": "nose to rump: 106–134 cm, mid-range",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Guinea pig family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Caviidae",
+      "genus": "Hydrochoerus",
+      "species": "H. hydrochaeris"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2016",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "106–134 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "35–66 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "~6 yrs wild",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Group",
+        "value": "3–30",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Riverbanks, marshes and flooded grasslands across South America. Water is never far away.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Grasses and water plants, with the odd bit of bark or fruit. A champion grazer!",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The world's biggest rodent can stay completely underwater for up to five minutes.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Each morning it re-eats the previous day's food to get more out of it. Gross, but clever!",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-resting.jpg",
+      "author": "Wilfredor",
+      "licence": "CC0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Hydrochoeris_hydrochaeris_in_Brazil_in_Petr%C3%B3polis,_Rio_de_Janeiro,_Brazil_09.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Hydrochoerus hydrochaeris: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Hydrochoerus_hydrochaeris/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Reid, F. (2016). Hydrochoerus hydrochaeris. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-2.RLTS.T10300A22190005.en",
+      "doi": "10.2305/IUCN.UK.2016-2.RLTS.T10300A22190005.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "capybara",
+      "rodent",
+      "south america",
+      "wetland",
+      "chill",
+      "relaxed",
+      "river",
+      "grazer"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "3197dd0b8d1afa55/cb384d53aacafa10"
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "sniff"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kapibara",
+      "kicker": "Mamalia · Keluarga marmot",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "106–134 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "35–66 kg"
+        },
+        {
+          "label": "Usia di alam",
+          "value": "~6 tahun"
+        },
+        {
+          "label": "Kelompok",
+          "value": "3–30"
+        }
+      ],
+      "habitat": "Tepi sungai, rawa, dan padang rumput banjir di Amerika Selatan. Air selalu dekat.",
+      "diet": "Rumput dan tanaman air, sesekali kulit kayu atau buah. Juara merumput!",
+      "facts": [
+        "Hewan pengerat terbesar di dunia ini bisa menyelam penuh hingga lima menit.",
+        "Tiap pagi ia memakan lagi makanan kemarin agar sarinya terserap. Jorok, tapi cerdik!"
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

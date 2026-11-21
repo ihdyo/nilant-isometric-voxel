@@ -1,0 +1,205 @@
+{
+  "code": "000051",
+  "common": "Moose",
+  "scientific": "Alces alces",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#292524",
+      "antler": "#FEF3C6",
+      "leg": "#D6D3D1",
+      "muzzle": "#44403B",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#ADDCF5",
+    "background_name": "soft sky blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      231.5
+    ],
+    "accent": null,
+    "why": "A crisp northern-lake sky blue that sets off the deep chocolate coat and broad pale-cream palmate antlers.",
+    "size": {
+      "real_m": 2.9,
+      "measure": "head-and-body length, 2.4–3.1 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Deer family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Cervidae",
+      "genus": "Alces",
+      "species": "A. alces"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2016",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Shoulder",
+        "value": "1.4–2.1 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "200–700 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–25 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Antler span",
+        "value": "Up to 1.8 m",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Boreal forests, willow swamps, lakeshores and river valleys across North America, Europe and Asia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Willow, birch and aspen twigs in winter, plus underwater pondweeds and water lilies in summer.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The largest living member of the deer family—bulls grow palm-shaped antlers spanning up to 1.8 metres.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Strong swimmers that can dive up to 5 metres deep to graze on sodium-rich aquatic plants.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Alces_alces",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Alces alces: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Alces_alces/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Alces alces. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Alces_alces",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "moose",
+      "alces alces",
+      "elk",
+      "antlers",
+      "boreal forest",
+      "deer",
+      "northern wildlife",
+      "taiga",
+      "mammal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Rusa Besar (Moose)",
+      "kicker": "Mamalia · Keluarga rusa",
+      "stats": [
+        {
+          "label": "Bahu",
+          "value": "1,4–2,1 m"
+        },
+        {
+          "label": "Berat",
+          "value": "200–700 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–25 tahun"
+        },
+        {
+          "label": "Tanduk",
+          "value": "Hingga 1,8 m"
+        }
+      ],
+      "habitat": "Hutan boreal, rawa willow, tepi danau, dan lembah sungai di Amerika Utara, Eropa, dan Asia.",
+      "diet": "Ranting willow, birch, dan aspen di musim dingin, serta tanaman air dan teratai di musim panas.",
+      "facts": [
+        "Anggota keluarga rusa terbesar yang masih hidup—pejantannya menumbuhkan tanduk lebar hingga 1,8 meter.",
+        "Perenang ulung yang mampu menyelam sedalam 5 meter untuk memakan tumbuhan air kaya natrium."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

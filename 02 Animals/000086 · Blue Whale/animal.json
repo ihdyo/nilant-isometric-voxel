@@ -1,0 +1,206 @@
+{
+  "code": "000086",
+  "common": "Blue Whale",
+  "scientific": "Balaenoptera musculus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#62748E",
+      "mottle": "#90A1B9",
+      "pleat": "#CAD5E2",
+      "belly": "#DFF2FE",
+      "eye": "#171717"
+    },
+    "background": "#ACDDF4",
+    "background_name": "soft sky blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      228.3
+    ],
+    "accent": null,
+    "why": "A deep open-ocean sky blue that evokes pelagic waters while keeping the slate-blue mottled flanks legible.",
+    "size": {
+      "real_m": 28.0,
+      "measure": "total length 24–30 m (largest animal ever known to have lived on Earth)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Baleen whale family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Balaenopteridae",
+      "genus": "Balaenoptera",
+      "species": "B. musculus"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2018",
+      "trend": "increasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "24–30 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "100–150 t",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "80–90 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "10–12 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open oceans worldwide from polar feeding grounds to tropical breeding waters.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Almost exclusively krill—filtering up to 4 tonnes of tiny crustaceans per day through baleen plates.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The largest animal ever known to exist on Earth, with a heart roughly the size of a small car.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Its low-frequency songs reach up to 188 decibels and can travel hundreds of kilometres underwater.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Balaenoptera musculus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Balaenoptera_musculus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Balaenoptera musculus. The IUCN Red List of Threatened Species (2018 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2018-2.RLTS.T2477A156923585.en",
+      "doi": "10.2305/IUCN.UK.2018-2.RLTS.T2477A156923585.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "blue whale",
+      "balaenoptera musculus",
+      "whale",
+      "baleen whale",
+      "marine mammal",
+      "ocean",
+      "largest animal",
+      "endangered",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim",
+      "breach"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Paus Biru",
+      "kicker": "Mamalia · Keluarga paus balin",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "24–30 m"
+        },
+        {
+          "label": "Berat",
+          "value": "100–150 t"
+        },
+        {
+          "label": "Usia",
+          "value": "80–90 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "10–12 bulan"
+        }
+      ],
+      "habitat": "Samudra lepas di seluruh dunia, dari perairan kutub tempat mencari makan hingga perairan tropis untuk berkembang biak.",
+      "diet": "Hampir seluruhnya krill—menyaring hingga 4 ton krustasea kecil setiap hari menggunakan lempeng balin.",
+      "facts": [
+        "Hewan terbesar yang pernah diketahui hidup di Bumi, dengan ukuran jantung kira-kira sebesar mobil kecil.",
+        "Nyanyian frekuensi rendahnya mencapai 188 desibel dan mampu merambat ratusan kilometer di bawah laut."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

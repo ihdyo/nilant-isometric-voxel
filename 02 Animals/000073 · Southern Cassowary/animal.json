@@ -1,0 +1,204 @@
+{
+  "code": "000073",
+  "common": "Southern Cassowary",
+  "scientific": "Casuarius casuarius",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "plumage": "#171717",
+      "neck": "#155DFC",
+      "wattle": "#E7000B",
+      "casque": "#44403B",
+      "leg": "#A6A09B"
+    },
+    "background": "#D5CEF9",
+    "background_name": "soft lilac",
+    "background_oklch": [
+      0.87,
+      0.06,
+      292.6
+    ],
+    "accent": null,
+    "why": "A soft tropical-orchid violet pastel that contrasts vividly with its cobalt-blue neck, crimson wattles and glossy black plumage.",
+    "size": {
+      "real_m": 1.65,
+      "measure": "standing height 1.5–1.8 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Cassowary family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Casuariiformes",
+      "family": "Casuariidae",
+      "genus": "Casuarius",
+      "species": "C. casuarius"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2018",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Height",
+        "value": "1.5–1.8 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "29–58 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "40–50 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Top speed",
+        "value": "50 km/h",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Dense tropical rainforests and swamp forests of New Guinea, nearby islands and northeastern Australia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Hundreds of species of fallen rainforest fruits swallowed whole, plus fungi, insects and snails.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The world's third-tallest and second-heaviest living bird—each three-toed foot sports a 12-centimetre dagger-like inner claw!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "As a 'rainforest gardener', over 200 tropical tree species depend on cassowaries to swallow and disperse their large seeds.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Casuarius_casuarius",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Casuarius casuarius: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Casuarius_casuarius/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Casuarius casuarius. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Casuarius_casuarius",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "southern cassowary",
+      "cassowary",
+      "casuarius casuarius",
+      "kasuari",
+      "papua",
+      "rainforest",
+      "flightless bird",
+      "dinosaur bird",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kasuari Gelambir Ganda (Southern Cassowary)",
+      "kicker": "Burung · Keluarga kasuari",
+      "stats": [
+        {
+          "label": "Tinggi",
+          "value": "1,5–1,8 m"
+        },
+        {
+          "label": "Berat",
+          "value": "29–58 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "40–50 tahun"
+        },
+        {
+          "label": "Kecepatan",
+          "value": "50 km/jam"
+        }
+      ],
+      "habitat": "Hutan hujan tropis lebat dan hutan rawa di Papua (Nugini), pulau-pulau sekitarnya, dan Australia timur laut.",
+      "diet": "Ratusan jenis buah hutan hujan yang jatuh dan ditelan utuh, serta jamur, serangga, dan siput.",
+      "facts": [
+        "Burung tertinggi ketiga dan terberat kedua di dunia—setiap kakinya memiliki cakar dalam sepanjang 12 sentimeter layaknya belati!",
+        "Sebagai 'tukang kebun hutan hujan', lebih dari 200 spesies pohon tropis bergantung pada kasuari untuk menyebarkan bijinya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

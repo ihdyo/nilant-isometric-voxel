@@ -1,18 +1,18 @@
 {
- "version": "2.2",
- "locked": "2026-11-17",
- "reason": "Owner approved the export package (2026-11-17: 'i approve everything'): two 4096 masters, the 1:1 stock crop, the 1080 GIF loop and the A5 card PDFs in English and Indonesian (front v5: the Nilant wordmark top right, the model centred on its body with its rendered shadow, particles in the background's 400-600 tints, a straight fun-fact band; back: the blocky master with powered by ihdyo). vf_export.py (with EXPORT) and package.py added to the lock; the build standards unchanged (v2.2), so no model is rebuilt. References: 02 Animals/Voxel Fauna \u00b7 Twenty-five examples \u00b7 cards (EN|ID).jpg",
+ "version": "2.3",
+ "locked": "2026-11-21",
+ "reason": "Owner said 'lock it' (2026-11-21) after the owner's list (00 TODO/readme first.txt) and its follow-ups: six-digit codes; hex colours (Tailwind removed) with card inks on vf_color.RAMP; backgrounds at one OKLCH chroma 0.06, L 0.87, the hue per animal; calmer animal colours (ANIMAL_TONE); motion v2 with the head looking at the camera (life look 7, bias 0); every head turned to the camera in the dynamic pose (the blocky pose straight); Grid.anchor (sections sunk into their parent near the hinge); nested stacking levels; tails behind the body in the loops; trunk, walking yawn, bird feet, howl lift; the face layer removed. Sheets: 02 Animals/Voxel Fauna \u00b7 2026-11-21 \u00b7 25 examples before-after (LOW).jpg, \u00b7 loop fixes before-after (LOW).jpg",
  "rig": "iso_top",
  "geometry": "mob",
  "files": {
-  "_system/studio/blender/vf_standards.py": "ff985f934e6babaf",
-  "_system/studio/blender/vf_voxel.py": "0b295f14a1ec40f9",
-  "_system/studio/blender/vf_scene.py": "cc088d49e90f4fcb",
-  "_system/studio/blender/vf_job.py": "f35d4e8f9792a9f1",
-  "_system/studio/blender/vf_color.py": "90184be2ddba6a7c",
-  "_system/studio/scripts/infographic.py": "b32c1764f84ed085",
-  "_system/studio/blender/vf_rig.py": "2ae7404b96e5b6c3",
-  "_system/studio/blender/vf_export.py": "f9627d9ac88b8a39",
-  "_system/studio/scripts/package.py": "1fd8b40a79201d06"
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485",
+  "_system/studio/blender/vf_job.py": "168dcebaa9068659",
+  "_system/studio/blender/vf_color.py": "2d8ec59be8f4df7f",
+  "_system/studio/scripts/infographic.py": "e725768f1f7a318b",
+  "_system/studio/blender/vf_rig.py": "78ec5c9923cbc596",
+  "_system/studio/blender/vf_export.py": "a3cea2a60489ba72",
+  "_system/studio/scripts/package.py": "0e6d20f15f719ea0"
  }
 }

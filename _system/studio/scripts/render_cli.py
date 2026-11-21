@@ -269,7 +269,7 @@ def do_build_all():
 
 
 def pick_animal():
-    code = ask("Animal code (e.g. 26-001):")
+    code = ask("Animal code (e.g. 000001):")
     return VL.find(code) if code else None
 
 

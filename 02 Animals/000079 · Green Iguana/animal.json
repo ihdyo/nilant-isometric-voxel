@@ -1,0 +1,207 @@
+{
+  "code": "000079",
+  "common": "Green Iguana",
+  "scientific": "Iguana iguana",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "scales": "#00C950",
+      "crest": "#BBF451",
+      "dewlap": "#00D492",
+      "stripe": "#404040",
+      "claw": "#44403B",
+      "eye": "#171717"
+    },
+    "background": "#B0E1CA",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      164.3
+    ],
+    "accent": null,
+    "why": "A fresh emerald-mint backdrop that echoes sunlit tropical foliage while keeping the bright green scales distinct.",
+    "size": {
+      "real_m": 1.8,
+      "measure": "total length 1.5–2.0 m including the long banded whip-like tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Reptile · Iguana family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Squamata",
+      "family": "Iguanidae",
+      "genus": "Iguana",
+      "species": "I. iguana"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2019",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "1.5–2 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "4–8 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "20–70 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Tropical rainforest canopies near rivers and streams across Central and South America.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Herbivorous feeder eating tender leaves, flowers, shoots, and ripe tropical fruits.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Has a light-sensing 'third eye' (parietal eye) on top of its head that detects shadows of overhead predators.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Can leap from branches 12 metres high into water below and stay submerged for up to 30 minutes.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Iguana iguana: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Iguana_iguana/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Iguana iguana. The IUCN Red List of Threatened Species (2019 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2020-2.RLTS.T174481A1414646.en",
+      "doi": "10.2305/IUCN.UK.2020-2.RLTS.T174481A1414646.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "green iguana",
+      "iguana iguana",
+      "iguana",
+      "lizard",
+      "reptile",
+      "rainforest",
+      "dorsal spines",
+      "herbivore",
+      "tropical wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "nod"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Iguana Hijau",
+      "kicker": "Reptil · Keluarga iguana",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1,5–2 m"
+        },
+        {
+          "label": "Berat",
+          "value": "4–8 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–20 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "20–70 butir"
+        }
+      ],
+      "habitat": "Kanopi hutan hujan tropis di dekat sungai dan aliran air di Amerika Tengah dan Selatan.",
+      "diet": "Herbivora pemakan daun muda, bunga, pucuk tanaman, dan buah-buahan tropis yang matang.",
+      "facts": [
+        "Memiliki 'mata ketiga' peka cahaya di puncak kepala untuk mendeteksi bayangan pemangsa dari udara.",
+        "Mampu melompat dari dahan setinggi 12 meter ke air dan menyelam hingga 30 menit."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

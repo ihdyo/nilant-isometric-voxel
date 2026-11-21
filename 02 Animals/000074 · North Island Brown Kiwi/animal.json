@@ -1,0 +1,204 @@
+{
+  "code": "000074",
+  "common": "North Island Brown Kiwi",
+  "scientific": "Apteryx mantelli",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "plumage": "#7B3306",
+      "shade": "#44403B",
+      "beak": "#FEF3C6",
+      "leg": "#79716B",
+      "eye": "#171717"
+    },
+    "background": "#CCDCB1",
+    "background_name": "soft lime green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      124.2
+    ],
+    "accent": null,
+    "why": "A fresh New-Zealand-fern lime pastel that complements its warm streaked chestnut-brown plumage and ivory bill.",
+    "size": {
+      "real_m": 0.4,
+      "measure": "body length 35–45 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Kiwi family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Apterygiformes",
+      "family": "Apterygidae",
+      "genus": "Apteryx",
+      "species": "A. mantelli"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2017",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "35–45 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "1.4–4 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "25–50 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Egg size",
+        "value": "~20% of body",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Subtropical and temperate native forests, scrublands and pine plantations of New Zealand's North Island.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Earthworms, beetle larvae, cicadas, spiders and fallen berries sniffed out underground.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The only bird in the world with nostrils at the very tip of its long beak—allowing it to smell earthworms deep underground!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Females lay one of the largest eggs relative to body size of any bird, weighing up to 20% of the mother's body weight.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Apteryx_mantelli",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Apteryx mantelli: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Apteryx_mantelli/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Apteryx mantelli. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Apteryx_mantelli",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "kiwi",
+      "north island brown kiwi",
+      "apteryx mantelli",
+      "new zealand",
+      "flightless bird",
+      "nocturnal",
+      "cute",
+      "wildlife",
+      "bird"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kiwi Cokelat Pulau Utara",
+      "kicker": "Burung · Keluarga burung kiwi",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "35–45 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "1,4–4 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "25–50 tahun"
+        },
+        {
+          "label": "Ukuran telur",
+          "value": "~20% bobot tubuh"
+        }
+      ],
+      "habitat": "Hutan asli subtropis dan beriklim sedang serta semak belukar di Pulau Utara Selandia Baru.",
+      "diet": "Cacing tanah, larva kumbang, tonggeret, laba-laba, dan beri jatuh yang diendus di dalam tanah.",
+      "facts": [
+        "Satu-satunya burung di dunia dengan lubang hidung di ujung paruh panjangnya—memungkinkannya mencium cacing di dalam tanah!",
+        "Betinanya menghasilkan salah satu telur terbesar relatif terhadap ukuran tubuh di dunia burung, mencapai 20% bobot induknya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

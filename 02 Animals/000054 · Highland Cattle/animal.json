@@ -1,0 +1,205 @@
+{
+  "code": "000054",
+  "common": "Highland Cattle",
+  "scientific": "Bos taurus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#CA3500",
+      "fringe": "#F54900",
+      "horn": "#FEF3C6",
+      "muzzle": "#FEE685",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#F0CDAB",
+    "background_name": "soft sand",
+    "background_oklch": [
+      0.87,
+      0.06,
+      66.1
+    ],
+    "accent": null,
+    "why": "A warm heather-apricot backdrop that pairs naturally with its iconic ginger-red coat and sweeping cream horns.",
+    "size": {
+      "real_m": 2.4,
+      "measure": "head-and-body length, 2.0–2.5 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Cattle family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Bovidae",
+      "genus": "Bos",
+      "species": "B. taurus"
+    },
+    "conservation": {
+      "code": "DOM",
+      "status": "Domesticated (not evaluated)",
+      "assessed": "2026",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Shoulder",
+        "value": "1.1–1.3 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "420–800 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Horn span",
+        "value": "Up to 1.5 m",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Rugged wet moorlands, hills and coastal pastures of the Scottish Highlands and islands.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Coarse moorland grasses, heather, sedges and shrubs that other cattle breeds cannot digest.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Their iconic shaggy fringe—called a 'dossan' in Scots—shields their eyes from driving rain, snow and midges.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "They grow a double coat (oily outer hair over a downy undercoat) instead of thick back fat to stay warm.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Bos_taurus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Bos taurus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Bos_taurus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Bos taurus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Bos_taurus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "highland cattle",
+      "highland cow",
+      "scottish cow",
+      "bos taurus",
+      "shaggy cow",
+      "horns",
+      "scotland",
+      "farm animal",
+      "cute"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Sapi Dataran Tinggi (Highland Cattle)",
+      "kicker": "Mamalia · Keluarga sapi",
+      "stats": [
+        {
+          "label": "Bahu",
+          "value": "1,1–1,3 m"
+        },
+        {
+          "label": "Berat",
+          "value": "420–800 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–20 tahun"
+        },
+        {
+          "label": "Tanduk",
+          "value": "Hingga 1,5 m"
+        }
+      ],
+      "habitat": "Padang rumput basah, perbukitan, dan pesisir berangin di Dataran Tinggi Skotlandia.",
+      "diet": "Rumput rawa kasar, tanaman heather, dan semak belukar yang sulit dicerna sapi jenis lain.",
+      "facts": [
+        "Poni panjang khas mereka—disebut 'dossan'—melindungi mata dari hujan lebat, salju, dan serangga.",
+        "Mereka memiliki dua lapis bulu tahan air sebagai pengganti lapisan lemak tebal untuk menjaga kehangatan."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

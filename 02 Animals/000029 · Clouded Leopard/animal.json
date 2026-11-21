@@ -1,0 +1,217 @@
+{
+  "code": "000029",
+  "common": "Clouded Leopard",
+  "scientific": "Neofelis nebulosa",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#A6A09B",
+      "cloud": "#44403B",
+      "belly": "#F5F5F4",
+      "muzzle": "#E7E5E4",
+      "white": "#FAFAF9",
+      "eye": "#FE9A00"
+    },
+    "background": "#B0E1CA",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      164.4
+    ],
+    "accent": null,
+    "why": "A lush rainforest emerald green echoing the Southeast Asian forest canopy where this arboreal cat lives.",
+    "size": {
+      "real_m": 1.8,
+      "measure": "nose to tail tip, about 1.8 m (body 0.69–1.08 m plus 0.61–0.91 m tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Cat family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Felidae",
+      "genus": "Neofelis",
+      "species": "N. nebulosa"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2020",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Body length",
+        "value": "0.69–1.08 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "11–23 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "11–17 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "85–93 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Dense tropical evergreen and deciduous forests from the Himalayan foothills across mainland Southeast Asia.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Monkeys, gibbons, squirrels, slow lorises, deer, wild pigs and forest birds hunted in trees and on the ground.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Rotating hind ankles let it climb down tree trunks headfirst and hang upside down beneath branches.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "It has the longest upper canine teeth relative to skull size of any living wild cat—up to 4 cm long.",
+        "source": [
+          3
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Ltshears",
+      "licence": "CC BY-SA 3.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Clouded_Leopard.jpg",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Neofelis nebulosa: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Neofelis_nebulosa/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Gray, T., Borah, J., Coudrat, C.N.Z., Ghimirey, Y., Giordano, A., Greenspan, E., Petersen, W., Rostro-García, S., Shariff, M. & Wai-Ming, W. (2021). Neofelis nebulosa. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2021-2.RLTS.T14519A198843258.en",
+      "doi": "10.2305/IUCN.UK.2021-2.RLTS.T14519A198843258.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Christiansen, P. (2006). Sabertooth characters in the clouded leopard (Neofelis nebulosa Griffiths 1821). Journal of Morphology 267: 1186–1198",
+      "publisher": "Wiley",
+      "url": "https://doi.org/10.1002/jmor.10468",
+      "doi": "10.1002/jmor.10468",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "clouded leopard",
+      "neofelis nebulosa",
+      "southeast asia wildlife",
+      "rainforest cat",
+      "arboreal cat",
+      "endangered cat",
+      "clouded pattern",
+      "wild cat",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 026-035); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "quadruped",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "climb"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Macan Dahan",
+      "kicker": "Mamalia · Keluarga kucing",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "0,69–1,08 m"
+        },
+        {
+          "label": "Berat",
+          "value": "11–23 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "11–17 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "85–93 hari"
+        }
+      ],
+      "habitat": "Hutan hujan tropis lebat dan hutan gugur dari kaki bukit Himalaya hingga daratan Asia Tenggara.",
+      "diet": "Monyet, owa, tupai, kukang, rusa kecil, babi hutan, dan burung hutan yang diburu di pohon maupun di tanah.",
+      "facts": [
+        "Pergelangan kaki belakangnya yang dapat berputar memungkinkannya menuruni batang pohon dengan kepala di bawah.",
+        "Memiliki gigi taring atas terpanjang dibanding ukuran tengkorak di antara semua kucing liar yang masih hidup."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

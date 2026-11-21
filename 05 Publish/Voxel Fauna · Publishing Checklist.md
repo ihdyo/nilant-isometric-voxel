@@ -16,7 +16,7 @@
 - [ ] Upload `VF-<code>-STOCK.jpg`.
 - [ ] Upload `<code> · Adobe Stock.csv` in the portal; check category Animals.
 - [ ] "Created using generative AI tools" stays **unticked** (Blender model and render; no generative image tool).
-- [ ] Submit; set the registry's Adobe Stock cells to Submitted.
+- [ ] Submit; record it: `vf.py log <code> "Adobe Stock" Submitted` (sets the State in `05 Publish/Platforms/Voxel Fauna · Adobe Stock.xlsx`).
 
 ## Shutterstock
 - [ ] Upload the JPEGs, apply `<code> · Shutterstock.csv`, mark as illustration; submit; registry → Submitted.
@@ -26,8 +26,8 @@
 - [ ] Publish; registry Gumroad cells → Live.
 
 ## Log every event (as Nilant logs each upload)
-- [ ] After each upload: `vf.py log <code> "<platform>" Submitted [--kinds ILL]` (all images of the animal) or
+- [ ] After each upload: `vf.py log <code> "<platform>" Submitted` (every item of the animal that goes there) or
       `vf.py log <Image ID> "<platform>" Submitted`.
 - [ ] After review: `vf.py log <Image ID> "<platform>" Accepted --link <url>` (or Rejected `--note "<reason>"`, Live).
-      It writes the dated row to the registry's Publish Log sheet and `05 Publish/Voxel Fauna · Publish Log.md`, and
-      sets the image's platform cell. Refusal reasons shape the next uploads: note them.
+      It writes the dated row to the platform workbook's Publish Log and `05 Publish/Voxel Fauna · Publish Log.md`, and
+      sets the item's State. Refusal reasons shape the next uploads: note them.

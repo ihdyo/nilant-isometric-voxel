@@ -1,0 +1,216 @@
+{
+  "code": "000044",
+  "common": "White Rhinoceros",
+  "scientific": "Ceratotherium simum",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#A6A09B",
+      "shade": "#79716B",
+      "horn": "#FFFBEB",
+      "nail": "#E7E5E4",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#BAD7FC",
+    "background_name": "soft periwinkle",
+    "background_oklch": [
+      0.87,
+      0.06,
+      254.6
+    ],
+    "accent": null,
+    "why": "A clear African sky blue that complements the pale slate-grey armor skin and wide savanna silhouette.",
+    "size": {
+      "real_m": 4.2,
+      "measure": "lip to tail tip, about 4.2 m (body 3.4–4.2 m plus 50–70 cm tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Rhinoceros family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Perissodactyla",
+      "family": "Rhinocerotidae",
+      "genus": "Ceratotherium",
+      "species": "C. simum"
+    },
+    "conservation": {
+      "code": "NT",
+      "status": "Near Threatened",
+      "assessed": "2020",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Body length",
+        "value": "3.4–4.2 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "1.4–3.6 t",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Front horn",
+        "value": "up to 1.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "40–50 yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open grasslands, savannas and bushveld with waterholes and mud wallows across southern and eastern Africa.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Short savanna grasses cropped cleanly with its wide, square, flat upper lip.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The second-largest land mammal after the elephant; its name comes from Dutch 'wijd' ('wide'), referring to its square grazing lip.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Unlike African elephants, white rhino calves run in front of their mothers rather than behind them.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Charles J. Sharp",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:White_rhinoceros_(Ceratotherium_simum)_2.jpg",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ceratotherium simum: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ceratotherium_simum/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Emslie, R. (2020). Ceratotherium simum. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2020-1.RLTS.T4185A45813880.en",
+      "doi": "10.2305/IUCN.UK.2020-1.RLTS.T4185A45813880.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Owen-Smith, R.N. (1988). Megaherbivores: The Influence of Very Large Body Size on Ecology",
+      "publisher": "Cambridge University Press",
+      "url": "https://www.cambridge.org/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (monograph)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "white rhinoceros",
+      "ceratotherium simum",
+      "white rhino",
+      "savanna",
+      "african wildlife",
+      "rhino horn",
+      "megaherbivore",
+      "safari",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 036-050); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "graze"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Badak Putih",
+      "kicker": "Mamalia · Keluarga badak",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "3,4–4,2 m"
+        },
+        {
+          "label": "Berat",
+          "value": "1,4–3,6 t"
+        },
+        {
+          "label": "Cula depan",
+          "value": "hingga 1,5 m"
+        },
+        {
+          "label": "Usia",
+          "value": "40–50 tahun"
+        }
+      ],
+      "habitat": "Padang rumput terbuka, sabana, dan semak belukar dengan kubangan air di Afrika bagian selatan dan timur.",
+      "diet": "Rumput sabana pendek yang dipotong rapi menggunakan bibir atasnya yang lebar dan rata.",
+      "facts": [
+        "Mamalia darat terbesar kedua setelah gajah; namanya berasal dari kata Belanda 'wijd' ('lebar') yang merujuk pada bibirnya yang persegi.",
+        "Tidak seperti gajah Afrika, anak badak putih berlari di depan induknya, bukan di belakang."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

@@ -1,0 +1,96 @@
+{
+ "code": "000020",
+ "built": "2026-11-21T16:56:54",
+ "blender": "5.3.0",
+ "model_hash": "97fbd5ab18daebc7",
+ "look_hash": "47d6e2d2f50ee816",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "posed size 26.0 x 18.3 x 23.7 voxels (L x W x H), 1477 voxels, colours bill, blue, dark, eye, face, red, yellow, parts beak, body, head, leg_l, leg_r, tail, tail_tip, wing_l, wing_r; turned beak, head, tail, tail_tip, wing_l, wing_r"
+  ],
+  "size": [
+   27,
+   9,
+   23
+  ],
+  "voxels": 1477
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 3.3794895985296796,
+   "view": [
+    3.3794895985296796,
+    3.3794895985296796
+   ],
+   "box_size": [
+    2.0753028263526296,
+    2.3656427189707756
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 4.499301520547707,
+   "view": [
+    2.530857105308085,
+    4.499301520547707
+   ],
+   "box_size": [
+    2.0753028263526296,
+    2.3656427189707756
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 6.1846868469824186,
+   "view": [
+    6.1846868469824186,
+    3.4788863514276107
+   ],
+   "box_size": [
+    2.0753028263526296,
+    2.3656427189707756
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 6.45292612921652,
+   "view": [
+    6.45292612921652,
+    6.45292612921652
+   ],
+   "box_size": [
+    2.0753028263526296,
+    2.3656427189707756
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 9.679389193824777,
+   "view": [
+    5.444656421526437,
+    9.679389193824777
+   ],
+   "box_size": [
+    2.0753028263526296,
+    2.3656427189707756
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 5.37112012253901,
+   "view": [
+    5.37112012253901,
+    3.0212550689281934
+   ],
+   "box_size": [
+    2.0753028263526296,
+    2.3656427189707756
+   ]
+  }
+ },
+ "renders": {}
+}

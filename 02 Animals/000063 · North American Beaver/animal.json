@@ -1,0 +1,205 @@
+{
+  "code": "000063",
+  "common": "North American Beaver",
+  "scientific": "Castor canadensis",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#7B3306",
+      "belly": "#BB4D00",
+      "tail": "#44403B",
+      "tooth": "#FF6900",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#ADDCF5",
+    "background_name": "soft sky blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      231.5
+    ],
+    "accent": null,
+    "why": "A crisp pond-water sky blue that sets off its glossy chestnut fur, orange incisors and broad scaly paddle tail.",
+    "size": {
+      "real_m": 1.1,
+      "measure": "total length, 0.9–1.2 m including flat tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Beaver family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Castoridae",
+      "genus": "Castor",
+      "species": "C. canadensis"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2016",
+      "trend": "increasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "0.9–1.2 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "11–32 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "10–15 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Dive time",
+        "value": "Up to 15 mins",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Freshwater streams, rivers, ponds, marshes and wooded lakes across North America.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Inner bark and twigs of aspen, willow, birch and cottonwood, plus water lilies and pond plants.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Nature's master ecosystem engineer—it builds dams of logs and mud that create thriving wetland habitats for hundreds of species.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Its front teeth are bright orange because their enamel is reinforced with iron, making them self-sharpening.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Castor_canadensis",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Castor canadensis: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Castor_canadensis/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Castor canadensis. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Castor_canadensis",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "beaver",
+      "north american beaver",
+      "castor canadensis",
+      "dam",
+      "wetland",
+      "paddle tail",
+      "rodent",
+      "wildlife",
+      "nature"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Berang-berang Amerika Utara",
+      "kicker": "Mamalia · Keluarga berang-berang (beaver)",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "0,9–1,2 m"
+        },
+        {
+          "label": "Berat",
+          "value": "11–32 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "10–15 tahun"
+        },
+        {
+          "label": "Menyelam",
+          "value": "Hingga 15 menit"
+        }
+      ],
+      "habitat": "Sungai kecil, sungai besar, kolam, rawa, dan danau berhutan di Amerika Utara.",
+      "diet": "Kulit kayu bagian dalam dan ranting aspen, willow, birch, serta teratai dan tanaman air.",
+      "facts": [
+        "Insinyur ekosistem ulung—ia membangun bendungan kayu dan lumpur yang menciptakan habitat lahan basah bagi ratusan spesies.",
+        "Gigi depannya berwarna oranye cerah karena emailnya diperkuat zat besi sehingga tetap tajam secara alami."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

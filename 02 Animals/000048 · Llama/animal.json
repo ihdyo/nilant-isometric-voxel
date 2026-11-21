@@ -1,0 +1,219 @@
+{
+  "code": "000048",
+  "common": "Llama",
+  "scientific": "Lama glama",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#FEF3C6",
+      "patch": "#973C00",
+      "face": "#44403B",
+      "pad": "#57534D",
+      "white": "#FAFAF9",
+      "eye": "#1C1917"
+    },
+    "background": "#C3B88C",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.78,
+      0.06,
+      95.5
+    ],
+    "accent": null,
+    "why": "A warm Andean highland golden ochre that complements the creamy-brown woolly fleece.",
+    "size": {
+      "real_m": 1.8,
+      "measure": "standing height at head about 1.7–1.8 m (body 1.2–2.2 m plus 20–25 cm tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Camel family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Camelidae",
+      "genus": "Lama",
+      "species": "L. glama"
+    },
+    "conservation": {
+      "code": "DOM",
+      "status": "Domesticated",
+      "assessed": "2026",
+      "trend": "stable",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Head height",
+        "value": "1.7–1.8 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "130–200 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–25 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "350 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "High-altitude Andean plateaus, puna grasslands and mountain slopes across Peru, Bolivia, Ecuador, Chile and Argentina.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Coarse Andean grasses, shrubs, lichens and herbs grazed cleanly with a split upper lip.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Domesticated in the Andes over 4,000 years ago from wild guanacos, llamas have banana-shaped inward-curving ears.",
+        "source": [
+          1,
+          2
+        ]
+      },
+      {
+        "text": "Their blood carries extra hemoglobin with high oxygen affinity, letting them thrive above 4,000 meters in thin mountain air.",
+        "source": [
+          3
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Mathias Appel",
+      "licence": "CC0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Llama_(26425914541).jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Lama glama: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Lama_glama/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Kadwell, M., Fernandez, M., Stanley, H.F., Baldi, R., Wheeler, J.C., Rosadio, R. & Bruford, M.W. (2001). Genetic analysis reveals the wild ancestors of the llama and the alpaca. Proceedings of the Royal Society B 268: 2575–2584",
+      "publisher": "The Royal Society",
+      "url": "https://doi.org/10.1098/rspb.2001.1774",
+      "doi": "10.1098/rspb.2001.1774",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    },
+    {
+      "id": 3,
+      "title": "Banchero, N. & Grover, R.F. (1972). Effect of different levels of simulated altitude on O2 transport in llama and sheep. American Journal of Physiology 222: 1239–1245",
+      "publisher": "American Physiological Society",
+      "url": "https://doi.org/10.1152/ajplegacy.1972.222.5.1239",
+      "doi": "10.1152/ajplegacy.1972.222.5.1239",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "llama",
+      "lama glama",
+      "andes",
+      "camelid",
+      "peru",
+      "wool",
+      "south america",
+      "cute llama",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 036-050); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "chew"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Llama",
+      "kicker": "Mamalia · Keluarga unta",
+      "stats": [
+        {
+          "label": "Tinggi kepala",
+          "value": "1,7–1,8 m"
+        },
+        {
+          "label": "Berat",
+          "value": "130–200 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–25 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "350 hari"
+        }
+      ],
+      "habitat": "Dataran tinggi Andes, padang rumput puna, dan lereng gunung di Peru, Bolivia, Ekuador, Chili, dan Argentina.",
+      "diet": "Rumput kasar Andes, semak, lumut kerak, dan herba yang dimakan dengan bibir atas yang terbelah.",
+      "facts": [
+        "Didomestikasi di Pegunungan Andes lebih dari 4.000 tahun lalu dari guanako liar; llama memiliki telinga panjang melengkung seperti pisang.",
+        "Darahnya kaya hemoglobin berafinitas oksigen tinggi sehingga mampu hidup bugar di ketinggian lebih dari 4.000 meter."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

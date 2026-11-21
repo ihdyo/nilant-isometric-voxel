@@ -1,0 +1,97 @@
+{
+ "code": "000008",
+ "built": "2026-11-21T16:55:26",
+ "blender": "5.3.0",
+ "model_hash": "2c12b00f557cfdc4",
+ "look_hash": "1389c16bea7ced90",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "the pose moves the lowest point to z = -0.22: the engine sets the animal back on the ground",
+   "posed size 47.4 x 18.7 x 26.0 voxels (L x W x H), 5917 voxels, colours coat, eye, mane, muzzle, nose, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, mane, muzzle, shin_fl, shin_fr, shin_hl, shin_hr, tail, tail_tip; turned ear_l, ear_r, leg_fl, leg_fr, leg_hl, leg_hr, mane, shin_fl, shin_hl, tail, tail_tip"
+  ],
+  "size": [
+   47,
+   17,
+   25
+  ],
+  "voxels": 5917
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 5.338384266108593,
+   "view": [
+    5.338384266108593,
+    5.338384266108593
+   ],
+   "box_size": [
+    3.736868986276015,
+    3.061307607218623
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 8.101612978376185,
+   "view": [
+    4.557157300336604,
+    8.101612978376185
+   ],
+   "box_size": [
+    3.736868986276015,
+    3.061307607218623
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 8.00341858096372,
+   "view": [
+    8.00341858096372,
+    4.501922951792093
+   ],
+   "box_size": [
+    3.736868986276015,
+    3.061307607218623
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 8.350539026782934,
+   "view": [
+    8.350539026782934,
+    8.350539026782934
+   ],
+   "box_size": [
+    3.736868986276015,
+    3.061307607218623
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 12.525808540174399,
+   "view": [
+    7.045767303848099,
+    12.525808540174399
+   ],
+   "box_size": [
+    3.736868986276015,
+    3.061307607218623
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 9.026253590038683,
+   "view": [
+    9.026253590038683,
+    5.07726764439676
+   ],
+   "box_size": [
+    3.736868986276015,
+    3.061307607218623
+   ]
+  }
+ },
+ "renders": {}
+}

@@ -17,6 +17,7 @@ Grid API (_system/studio/blender/vf_voxel.py):
   g.carve(a, b)                        remove
   g.set(x, y, z, colour, part)         one voxel
   g.mirror("-Y")                       copy the left side to the right
+  g.joint(part, pivot, rotate, parent)  turn a section at its hinge (the dynamic pose turns the head to the camera)
 Check without Blender: python _system/studio/scripts/vf.py check {{CODE}}
 """
 

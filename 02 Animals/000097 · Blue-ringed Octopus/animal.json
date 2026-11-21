@@ -1,0 +1,207 @@
+{
+  "code": "000097",
+  "common": "Blue-ringed Octopus",
+  "scientific": "Hapalochlaena lunulata",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#FFB900",
+      "patch": "#BB4D00",
+      "ring": "#00D3F2",
+      "ring_dark": "#171717",
+      "sucker": "#FEF3C6",
+      "eye": "#171717"
+    },
+    "background": "#DCD6A9",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.87,
+      0.06,
+      101.2
+    ],
+    "accent": null,
+    "why": "A bright sunlit reef yellow that harmonizes with the golden ochre body while letting the electric cyan rings glow.",
+    "size": {
+      "real_m": 0.12,
+      "measure": "mantle length ~5 cm, total length with arms 10–12 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mollusc · Octopus family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Mollusca",
+      "class": "Cephalopoda",
+      "order": "Octopoda",
+      "family": "Octopodidae",
+      "genus": "Hapalochlaena",
+      "species": "H. lunulata"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2014",
+      "trend": "unknown",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "10–12 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "10–30 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "1–2 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Eggs",
+        "value": "50–100",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Shallow coral reefs, tide pools, and rubble flats across northern Australia, Indonesia, and the Coral Triangle.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Small crabs, hermit crabs, and shrimp hunted at night on reef flats.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Flashes around 50 to 60 iridescent blue rings in a fraction of a second as a warning display when threatened.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Carries symbiotic bacteria that produce tetrodotoxin, a potent neurotoxin over 1,000 times stronger than cyanide.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Hapalochlaena lunulata: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Hapalochlaena_lunulata/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Hapalochlaena lunulata. The IUCN Red List of Threatened Species (2014 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2018-2.RLTS.T162925A954325.en",
+      "doi": "10.2305/IUCN.UK.2018-2.RLTS.T162925A954325.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "blue-ringed octopus",
+      "blue ringed octopus",
+      "hapalochlaena lunulata",
+      "octopus",
+      "venomous",
+      "coral triangle",
+      "reef",
+      "marine life",
+      "cephalopod"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "crawl",
+      "flash"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Gurita Cincin Biru",
+      "kicker": "Moluska · Keluarga gurita",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "10–12 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "10–30 g"
+        },
+        {
+          "label": "Usia",
+          "value": "1–2 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "50–100 butir"
+        }
+      ],
+      "habitat": "Terumbu karang dangkal, kolam pasang surut, dan rataan karang di Australia utara, Indonesia, dan Segitiga Terumbu Karang.",
+      "diet": "Kepiting kecil, kelomang, dan udang yang diburu pada malam hari di rataan terumbu.",
+      "facts": [
+        "Menyalakan sekitar 50 hingga 60 cincin biru berkilau dalam sekejap mata sebagai tanda peringatan saat terancam.",
+        "Membawa bakteri simbion penghasil tetrodotoksin, racun saraf yang 1.000 kali lebih kuat daripada sianida."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

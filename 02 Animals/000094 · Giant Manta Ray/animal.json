@@ -1,0 +1,206 @@
+{
+  "code": "000094",
+  "common": "Giant Manta Ray",
+  "scientific": "Mobula birostris",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "back": "#171717",
+      "shoulder": "#E7E5E4",
+      "belly": "#FAFAF9",
+      "spot": "#404040",
+      "eye": "#171717"
+    },
+    "background": "#C7D2FD",
+    "background_name": "soft lavender",
+    "background_oklch": [
+      0.87,
+      0.06,
+      273.8
+    ],
+    "accent": null,
+    "why": "A serene pelagic twilight indigo-lavender that gives crisp definition to both the jet-black wings and white underbelly.",
+    "size": {
+      "real_m": 7.0,
+      "measure": "disc width (wingspan) 4.5–7 m (largest ray species in the world)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Cartilaginous fish · Eagle ray family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Chondrichthyes",
+      "order": "Myliobatiformes",
+      "family": "Mobulidae",
+      "genus": "Mobula",
+      "species": "M. birostris"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2019",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Wingspan",
+        "value": "4.5–7 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "1.3–2 t",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "40+ yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Offspring",
+        "value": "1 pup",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Tropical, subtropical, and temperate pelagic oceans, coral reefs, and productive upwellings worldwide.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Zooplankton, krill, and fish larvae funneled into its wide mouth by rolled cephalic fins.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Possesses the largest brain-to-body ratio of any fish and passes mirror self-recognition behavioral tests.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Each manta ray has a unique constellation of dark spots on its white belly used by researchers to identify individuals.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Mobula birostris: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Manta_birostris/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Mobula birostris. The IUCN Red List of Threatened Species (2019 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2020-3.RLTS.T198921A68632946.en",
+      "doi": "10.2305/IUCN.UK.2020-3.RLTS.T198921A68632946.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "giant manta ray",
+      "manta ray",
+      "mobula birostris",
+      "ray",
+      "coral reef",
+      "ocean",
+      "marine life",
+      "pelagic",
+      "endangered"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "glide",
+      "loop"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Pari Manta Raksasa",
+      "kicker": "Ikan bertulang rawan · Keluarga pari elang",
+      "stats": [
+        {
+          "label": "Bentang sirip",
+          "value": "4,5–7 m"
+        },
+        {
+          "label": "Berat",
+          "value": "1,3–2 t"
+        },
+        {
+          "label": "Usia",
+          "value": "40+ tahun"
+        },
+        {
+          "label": "Anak",
+          "value": "1 ekor"
+        }
+      ],
+      "habitat": "Samudra pelagis tropis, subtropis, dan beriklim sedang serta terumbu karang di seluruh dunia.",
+      "diet": "Zooplankton, krill, dan larva ikan yang diarahkan ke mulut lebarnya oleh sirip kepala.",
+      "facts": [
+        "Memiliki rasio ukuran otak terhadap tubuh terbesar di antara semua ikan dan lulus uji pengenalan diri di cermin.",
+        "Setiap pari manta memiliki pola bintik hitam unik di perut putihnya yang dipakai peneliti untuk mengenali individu."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

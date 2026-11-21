@@ -1,0 +1,206 @@
+{
+  "code": "000091",
+  "common": "West Indian Manatee",
+  "scientific": "Trichechus manatus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#A6A09B",
+      "shade": "#79716B",
+      "snout": "#D6D3D1",
+      "nail": "#E7E5E4",
+      "eye": "#171717"
+    },
+    "background": "#A9E2D6",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      181.0
+    ],
+    "accent": null,
+    "why": "A soft seagrass-lagoon pale teal that complements the warm grey-brown skin and evokes shallow springs.",
+    "size": {
+      "real_m": 3.2,
+      "measure": "total length 2.7–3.5 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Manatee family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Sirenia",
+      "family": "Trichechidae",
+      "genus": "Trichechus",
+      "species": "T. manatus"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2008",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "2.7–3.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "400–600 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "40–60 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "12–14 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Warm, shallow coastal waters, estuaries, mangrove creeks, and freshwater springs from Florida to Brazil.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Seagrasses, water hyacinth, mangrove leaves, and freshwater aquatic plants—eating up to 10% of its body weight daily.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Replaces its molars continuously throughout life ('marching molars') as abrasive plants wear them down.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Closest living terrestrial relatives are elephants and hyraxes, sharing prehensile upper lips and toenail-like flipper nails.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Trichechus manatus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Trichechus_manatus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Trichechus manatus. The IUCN Red List of Threatened Species (2008 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2008.RLTS.T22103A9356917.en",
+      "doi": "10.2305/IUCN.UK.2008.RLTS.T22103A9356917.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "west indian manatee",
+      "manatee",
+      "sea cow",
+      "trichechus manatus",
+      "marine mammal",
+      "seagrass",
+      "florida",
+      "gentle giant",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim",
+      "graze"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Lembu Laut Hindia Barat",
+      "kicker": "Mamalia · Keluarga lembu laut",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "2,7–3,5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "400–600 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "40–60 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "12–14 bulan"
+        }
+      ],
+      "habitat": "Perairan pesisir hangat dan dangkal, muara, sungai bakau, serta mata air tawar dari Florida hingga Brasil.",
+      "diet": "Lamun, eceng gondok, daun bakau, dan tumbuhan air—memakan hingga 10% berat tubuhnya setiap hari.",
+      "facts": [
+        "Gigi gerahamnya terus berganti maju sepanjang hidup untuk menggantikan gigi yang aus mengunyah tumbuhan.",
+        "Kerabat darat terdekatnya adalah gajah dan hiraks, berbagi bibir atas lentur dan kuku kecil pada siripnya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

@@ -8,9 +8,9 @@
 - 2026-11-16 · The bulky, posed blocky-mob look approved by the owner after three rounds (geometry `mob`, joints,
   plates, stacked sections, faces painted flat, voxels scaled to real size, vivid pastel backgrounds), standards
   relocked as v2.0 (`03 Design/Reference/look · 2026-11-16 · flat faces before-after.jpg`); five more animals
-  (26-011 to 26-015).
+  (000011 to 000015).
 - 2026-11-16 · Plates switched off (solid feet), knees for the long-legged animals, the hippo, wolf and rabbit
-  reworked, ten more animals (26-016 to 26-025), the information cards redesigned to breathe; standards relocked as
+  reworked, ten more animals (000016 to 000025), the information cards redesigned to breathe; standards relocked as
   v2.1 on the owner's OK.
 
 ## Waiting for the owner
@@ -20,7 +20,7 @@
 2. **Approve one download:** `Poppins-MediumItalic.ttf` (Google Fonts, OFL, ~150 KB) for true italic scientific
    names; previews use a sheared Medium until then.
 3. Fill `_system/data/brand.json → contributor_names`; write the Gumroad licence text and cover (brand allowed there).
-4. Optional: try `key-prompt.md` in a browser on one brief (e.g. rename `26-001`'s `model.py`, attach the prompt and
+4. Optional: try `key-prompt.md` in a browser on one brief (e.g. rename `000001`'s `model.py`, attach the prompt and
    `docs/voxel-model.md`, compare the result) to see how Sonnet does with it.
 
 ## Next: rigging and animation (owner, 2026-11-16: "add the todo to rig the animal and provide the dynamic animation
@@ -78,3 +78,20 @@ and expression of the animals like walking, and other animation that usualy the 
 
 ## Open: standards v2.3 (owner, 2026-11-17)
 - [ ] **Owner:** OK the calmer colours and motion v2 from the before/after sheets; then `vf.py lock`, `vf.py standards --write`, and `vf.py approve <code> preview` for the 25 again (the rebuild changed every model key).
+
+## Open: the owner's list of 2026-11-21 (`00 TODO/readme first.txt`, done for 000001–000025)
+- [x] Six-digit codes everywhere (all 100 animals), Tailwind removed (hex only), one-chroma backgrounds, the registry
+  split into the animals (registry) and one workbook per platform.
+- [x] The twelve model and motion fixes, livelier poses for all 25 (the head to the camera; the static blocky pose
+  straight), sections anchored into their parents,
+  nested stacking; all 25 rebuilt, rigged (rig check PASS) and looped at LOW.
+- [x] The face layer, tried on 000001, removed with its code on the owner's word ("undo everything that face
+  related"): every face stays painted flat.
+- [x] Standards relocked as v2.3 on the owner's "lock it" (2026-11-21).
+- [ ] **Owner: approve the 25 LOW previews again** (`vf.py approve <code> preview`; the models changed since the
+  approvals of 2026-11-17).
+- [ ] ULTRA renders and packages again (`render.bat` → 3, then P): the existing `export/` files are from the old
+  models and backgrounds.
+- [ ] Then `00 TODO/026-100.txt`: recheck the registry and the information of 000026–000100, build them, LOW previews
+  in `02 Animals/_preview` (every 25: rig sections, GIFs, renders, card fronts and backs), move the existing lineups
+  there.

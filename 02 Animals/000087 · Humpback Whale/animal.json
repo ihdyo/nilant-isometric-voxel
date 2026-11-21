@@ -1,0 +1,206 @@
+{
+  "code": "000087",
+  "common": "Humpback Whale",
+  "scientific": "Megaptera novaeangliae",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#262626",
+      "belly": "#F5F5F4",
+      "flipper": "#E7E5E4",
+      "tubercle": "#79716B",
+      "eye": "#171717"
+    },
+    "background": "#BAD7FC",
+    "background_name": "soft periwinkle",
+    "background_oklch": [
+      0.87,
+      0.06,
+      254.6
+    ],
+    "accent": null,
+    "why": "A clear marine blue that silhouettes the charcoal-black back and bright white wing-like pectoral flippers.",
+    "size": {
+      "real_m": 15.0,
+      "measure": "total length 12–16 m with pectoral flippers up to 5 m long",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Baleen whale family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Balaenopteridae",
+      "genus": "Megaptera",
+      "species": "M. novaeangliae"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2018",
+      "trend": "increasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "12–16 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "25–30 t",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "45–50 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "11.5 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "All major oceans, migrating up to 8,000 km between polar feeding waters and tropical breeding lagoons.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Krill and small schooling fish such as herring, capelin, and sand lance.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Hunts in coordinated groups by blowing spiraling 'bubble nets' that herd fish into tight traps.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Males compose complex, evolving songs lasting up to 20 minutes that spread across entire ocean basins.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Megaptera novaeangliae: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Megaptera_novaeangliae/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Megaptera novaeangliae. The IUCN Red List of Threatened Species (2018 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2018-2.RLTS.T13006A50362794.en",
+      "doi": "10.2305/IUCN.UK.2018-2.RLTS.T13006A50362794.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "humpback whale",
+      "megaptera novaeangliae",
+      "whale",
+      "marine mammal",
+      "ocean",
+      "whale song",
+      "breaching",
+      "flippers",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim",
+      "breach"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Paus Bungkuk",
+      "kicker": "Mamalia · Keluarga paus balin",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "12–16 m"
+        },
+        {
+          "label": "Berat",
+          "value": "25–30 t"
+        },
+        {
+          "label": "Usia",
+          "value": "45–50 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "11,5 bulan"
+        }
+      ],
+      "habitat": "Seluruh samudra utama, bermigrasi hingga 8.000 km antara perairan kutub dan laguna tropis.",
+      "diet": "Krill dan ikan pelagis kecil bergerombol seperti hering, kapelin, dan ikan pasir.",
+      "facts": [
+        "Berburu berkelompok dengan meniup 'jaring gelembung' melingkar untuk menggiring ikan ke dalam perangkap.",
+        "Pejantan menggubah lagu rumit berdurasi hingga 20 menit yang terus berkembang dan menyebar melintasi samudra."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

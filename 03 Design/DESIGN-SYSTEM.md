@@ -24,9 +24,9 @@ detail. The information artworks speak in a friendly, Duolingo-like voice with c
 | Face | an expression painted flat on the front of the head (owner: "they should flat", block-game character reference): a white eye with the pupil to the inside (or a dark eye with a glint, or a sleepy line), a darker brow strip whose steps carry the mood, a painted mouth; a snout box with a dark nose row on its top front edge |
 | Material | matte (roughness 0.86, specular 0.3, no coat, no subsurface); flat solid colours, no texture, no shading painted in colour (owner: "keep the texture flat solid") |
 | Style source | the blocky-mob style of block-building games, never a copy of a particular game's creature and never named after a game anywhere (titles, keywords, listings) |
-| Colour | Khronos PBR Neutral view, neutral slate-100 sky fill: colours render as authored (owner 2026-11-16: "the model colour is so pale" under AgX). PROPOSED v2.3 (owner 2026-11-17: "edit all the animal model color to not that vibrant", with a reference sheet): every animal colour is calmed at render time by `vf_standards.ANIMAL_TONE` (OKLCH lightness and hue kept, chroma above 0.09 halved, then x 0.95: orange-600 0.217 -> 0.146), so palettes in `animal.json` keep their tokens |
-| Palette | Tailwind v4 tokens by default, a hex where none fits (owner 2026-11-16: "break from tailwind coloring token"); 3–7 keys; large areas shades 50–800, details any shade |
-| Background | one colour per species (Tailwind 50–300 or a soft hex), complementary, rendered as a **vivid pastel** (OKLCH chroma ≤ 0.07, lightness 0.85–0.93, hue kept; owner: "vivid but pastel (not too vibrant or neon), keep it calm"), ΔE ≥ 30 between the main colour and the rendered background; exactly that hex in every open pixel; card lips and the fun-fact card get the same chroma factor |
+| Colour | Khronos PBR Neutral view, neutral #F1F5F9 sky fill: colours render as authored (owner 2026-11-16: "the model colour is so pale" under AgX). PROPOSED v2.3 (owner 2026-11-17: "edit all the animal model color to not that vibrant", with a reference sheet): every animal colour is calmed at render time by `vf_standards.ANIMAL_TONE` (OKLCH lightness and hue kept, chroma above 0.09 halved, then x 0.95: orange-600 0.217 -> 0.146), so palettes in `animal.json` keep their authored hex |
+| Palette | hex colours `#RRGGBB` only (owner 2026-11-21: "remove the tailwind color palette completely"; the old tokens became their exact hex); 3–7 keys |
+| Background | PROPOSED 2026-11-21 (owner: "make it dynamic but have same saturation for all ... suitable color for the animal, like maybe the habitat, the color from color theory"): OKLCH lightness 0.87, **chroma 0.06 for every animal**, the hue per animal from its habitat or the complement of its coat (`look.background`, `background_oklch`, `background_name`); lightness 0.74–0.88 only where the coat needs it, ΔE ≥ 20 from the main colour as rendered; exactly that hex in every open pixel; card colours from its hue on `vf_color.RAMP` |
 | Light | warm key sun front-left and 55° high (`iso_top`, approved 2026-11-15), cool rim behind without its own shadow |
 | Shadow | one soft shadow on the ground, strength 0.65, composited over the background |
 | Framing | the whole animal, centred; illustrations fill 70 % (1:1), 82 % (9:16 width), 68 % (16:9 height) on the binding side |
@@ -75,6 +75,6 @@ need a stronger shade to stay ΔE 30 away), rabbit lime-200, tree frog pink-200.
 | Type | the card system's fonts and colours; sizes in u: title 7.2, scientific 3.0, kicker 1.9, stat value 3.0, body 2.15, fun fact 2.2, credit 1.15; type never shrinks (too long = an error naming the field) |
 
 ## Files
-`Color/tailwind-v4-palette.json` (copy of Nilant's), `Fonts/` (Poppins, OFL), `Reference/` (approved look sheets:
+`Color/` (the colour rules, hex only), `Fonts/` (Poppins, OFL), `Reference/` (approved look sheets:
 rig and geometry 2026-11-15, colour fidelity 2026-11-16, blocky mob before-after, bulky posed before-after and flat faces before-after 2026-11-16; the last is the approved
 look, standards v2.0).

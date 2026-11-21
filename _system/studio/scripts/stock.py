@@ -39,7 +39,7 @@ ADOBE_ANIMALS = 1          # Adobe Stock category id "Animals"
 def _titles(animal, kind):
     s = animal.get("stock") or {}
     import infographic as IG
-    bg = IG._token_of(animal["look"]["background"]).rsplit("-", 1)[0]
+    bg = animal["look"].get("background_name") or "pastel"
     if kind == "ILL":
         return s.get("title") or (f"{animal['common']} ({animal['scientific']}) isometric voxel 3D illustration "
                                   f"on a soft {bg} background")

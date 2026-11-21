@@ -1,0 +1,96 @@
+{
+ "code": "000004",
+ "built": "2026-11-21T16:54:58",
+ "blender": "5.3.0",
+ "model_hash": "a7ff9a7b7550f77b",
+ "look_hash": "5499a0522f315597",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "posed size 14.7 x 19.6 x 27.8 voxels (L x W x H), 2655 voxels, colours bill, black, cream, white, yellow, parts beak, body, flipper_l, flipper_r, foot_l, foot_r, head; turned beak, flipper_l, flipper_r, foot_l, foot_r, head"
+  ],
+  "size": [
+   15,
+   13,
+   27
+  ],
+  "voxels": 2655
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 4.169660194643907,
+   "view": [
+    4.169660194643907,
+    4.169660194643907
+   ],
+   "box_size": [
+    1.7361999638796917,
+    2.9187621362507343
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 3.7641191628828006,
+   "view": [
+    2.1173170291215753,
+    3.7641191628828006
+   ],
+   "box_size": [
+    1.7361999638796917,
+    2.9187621362507343
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 7.630750683008454,
+   "view": [
+    7.630750683008454,
+    4.292297259192256
+   ],
+   "box_size": [
+    1.7361999638796917,
+    2.9187621362507343
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 7.961707954857433,
+   "view": [
+    7.961707954857433,
+    7.961707954857433
+   ],
+   "box_size": [
+    1.7361999638796917,
+    2.9187621362507343
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 11.942561932286146,
+   "view": [
+    6.717691086910957,
+    11.942561932286146
+   ],
+   "box_size": [
+    1.7361999638796917,
+    2.9187621362507343
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 6.626961001846423,
+   "view": [
+    6.626961001846423,
+    3.727665563538613
+   ],
+   "box_size": [
+    1.7361999638796917,
+    2.9187621362507343
+   ]
+  }
+ },
+ "renders": {}
+}

@@ -1,0 +1,205 @@
+{
+  "code": "000088",
+  "common": "Orca",
+  "scientific": "Orcinus orca",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "black": "#171717",
+      "white": "#FAFAF9",
+      "saddle": "#90A1B9",
+      "eye": "#171717"
+    },
+    "background": "#C7D2FD",
+    "background_name": "soft lavender",
+    "background_oklch": [
+      0.87,
+      0.06,
+      273.8
+    ],
+    "accent": null,
+    "why": "A crisp sub-polar indigo-periwinkle that frames both the jet-black skin and stark snow-white patches.",
+    "size": {
+      "real_m": 8.0,
+      "measure": "total length 6–8 m in adult males, up to 9.8 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Oceanic dolphin family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Delphinidae",
+      "genus": "Orcinus",
+      "species": "O. orca"
+    },
+    "conservation": {
+      "code": "DD",
+      "status": "Data Deficient",
+      "assessed": "2017",
+      "trend": "unknown",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "6–8 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3.6–5.4 t",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "50–80 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "15–18 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Every ocean on Earth, from Arctic and Antarctic pack ice to warm tropical seas.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Fish, squid, seals, sea lions, sharks, and whales depending on pod culture and ecotype.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The largest member of the dolphin family, living in lifelong matrilineal pods with distinct vocal dialects.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Different pods pass down specialized hunting techniques across generations, such as wave-washing seals off ice floes.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Orcinus orca: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Orcinus_orca/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Orcinus orca. The IUCN Red List of Threatened Species (2017 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T15421A50368125.en",
+      "doi": "10.2305/IUCN.UK.2017-3.RLTS.T15421A50368125.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "orca",
+      "killer whale",
+      "orcinus orca",
+      "dolphin",
+      "marine mammal",
+      "ocean",
+      "apex predator",
+      "black and white",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim",
+      "spyhop"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Paus Pembunuh / Orca",
+      "kicker": "Mamalia · Keluarga lumba-lumba samudra",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "6–8 m"
+        },
+        {
+          "label": "Berat",
+          "value": "3,6–5,4 t"
+        },
+        {
+          "label": "Usia",
+          "value": "50–80 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "15–18 bulan"
+        }
+      ],
+      "habitat": "Seluruh samudra di Bumi, dari lapisan es Arktik dan Antarktika hingga laut tropis yang hangat.",
+      "diet": "Ikan, cumi-cumi, anjing laut, singa laut, hiu, dan paus tergantung budaya kelompoknya.",
+      "facts": [
+        "Anggota terbesar keluarga lumba-lumba yang hidup dalam kawanan matrilineal seumur hidup dengan dialek suara khas.",
+        "Setiap kelompok mewariskan teknik berburu khusus lintas generasi, seperti menciptakan gelombang untuk menjatuhkan anjing laut dari es."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

@@ -1,0 +1,218 @@
+{
+  "code": "000046",
+  "common": "Malayan Tapir",
+  "scientific": "Tapirus indicus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "dark": "#171717",
+      "saddle": "#FAFAF9",
+      "ear": "#FAFAF9",
+      "nail": "#E7E5E4",
+      "white": "#FAFAF9",
+      "eye": "#1C1917"
+    },
+    "background": "#A9E2D6",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      180.4
+    ],
+    "accent": null,
+    "why": "A soft misty rainforest seafoam teal that frames the bold black-and-white saddle pattern cleanly.",
+    "size": {
+      "real_m": 2.3,
+      "measure": "snout tip to tail tip, about 2.3 m (body 1.8–2.5 m plus 5–10 cm stubby tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Tapir family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Perissodactyla",
+      "family": "Tapiridae",
+      "genus": "Tapirus",
+      "species": "T. indicus"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2014",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Body length",
+        "value": "1.8–2.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "250–320 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "25–30 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "390–400 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Tropical lowland and hill rainforests across Sumatra, Peninsular Malaysia, southern Thailand and southern Myanmar.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Tender shoots, leaves, twigs, aquatic plants and fallen forest fruits gathered with its flexible trunk-like snout.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its bold black-and-white saddle looks striking in daylight, yet breaks up its outline like boulders in moonlit jungle shadows.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "The largest of the four tapir species and the only one native to Asia, closely related to horses and rhinoceroses.",
+        "source": [
+          1,
+          2
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Charles J. Sharp",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Malayan_tapir_(Tapirus_indicus)_2.jpg",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Tapirus indicus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Tapirus_indicus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Traeholt, C., Novarino, W., bin Saaban, S., Shwe, N.M., Lynam, A., Zainuddin, Z., Simpson, B. & bin Mohd, S. (2016). Tapirus indicus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-1.RLTS.T21472A45173636.en",
+      "doi": "10.2305/IUCN.UK.2016-1.RLTS.T21472A45173636.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Holden, J., Yanuar, A. & Martyr, D.J. (2003). The Asian tapir in Kerinci Seblat National Park, Sumatra: evidence collected through photo-trapping. Oryx 37: 34–40",
+      "publisher": "Cambridge University Press",
+      "url": "https://doi.org/10.1017/S0030605303000097",
+      "doi": "10.1017/S0030605303000097",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "malayan tapir",
+      "tapirus indicus",
+      "asian tapir",
+      "sumatra",
+      "rainforest mammal",
+      "black and white",
+      "endangered wildlife",
+      "indonesia wildlife",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 036-050); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "sniff"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Tapir Asia",
+      "kicker": "Mamalia · Keluarga tapir",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1,8–2,5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "250–320 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "25–30 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "390–400 hari"
+        }
+      ],
+      "habitat": "Hutan hujan tropis dataran rendah dan perbukitan di Sumatra, Semenanjung Malaya, Thailand selatan, dan Myanmar selatan.",
+      "diet": "Pucuk daun lembut, ranting, tumbuhan air, dan buah hutan yang dipetik dengan belalai pendeknya yang lentur.",
+      "facts": [
+        "Pola pelana hitam-putihnya menyamarkan siluet tubuhnya seperti batu besar di bawah cahaya bulan hutan hujan.",
+        "Spesies tapir terbesar dari empat jenis yang ada dan satu-satunya yang berasal dari Asia; berkerabat dekat dengan kuda dan badak."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

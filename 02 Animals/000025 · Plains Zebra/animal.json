@@ -1,0 +1,215 @@
+{
+  "code": "000025",
+  "common": "Plains Zebra",
+  "scientific": "Equus quagga",
+  "status": "Final",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "white": "#FAFAF9",
+      "stripe": "#171717",
+      "muzzle": "#44403B"
+    },
+    "background": "#EDCFAA",
+    "background_name": "savanna gold",
+    "background_oklch": [
+      0.87,
+      0.06,
+      72
+    ],
+    "accent": null,
+    "why": "Golden savanna grass, so the black-and-white stripes pop.",
+    "size": {
+      "real_m": 2.8,
+      "measure": "nose to tail tip: head and body 2.17–2.46 m plus a 0.47–0.56 m tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Horse family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Perissodactyla",
+      "family": "Equidae",
+      "genus": "Equus",
+      "species": "E. quagga"
+    },
+    "conservation": {
+      "code": "NT",
+      "status": "Near Threatened",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Shoulder",
+        "value": "1.1–1.45 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "175–385 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "~12 months",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Daily walk",
+        "value": "up to 13 km",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open savannas and grasslands of eastern and southern Africa, up to 4,400 m.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Mostly grass stems, about 90 % of what it eats, plus the odd herb, leaf or twig.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Biting flies struggle to land on stripes, so zebras get bitten less than horses!",
+        "source": [
+          3
+        ]
+      },
+      {
+        "text": "No two zebras have the same stripes, just like fingerprints.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-kenya.jpg",
+      "author": "CT Cooper",
+      "licence": "Public domain",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Equus_quagga_boehmi_pair_by_the_A109_road,_Kenya.jpg",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Equus burchellii (Equus quagga): Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Equus_burchellii/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "King, S.R.B. & Moehlman, P.D. (2016). Equus quagga. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-2.RLTS.T41013A45172424.en",
+      "doi": "10.2305/IUCN.UK.2016-2.RLTS.T41013A45172424.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Caro, T., Argueta, Y., Briolat, E.S., Bruggink, J., Kasprowsky, M., Lake, J., Mitchell, M.J., Richardson, S. & How, M. (2019). Benefits of zebra stripes: behaviour of tabanid flies around zebras and horses. PLOS ONE 14(2): e0210831",
+      "publisher": "Public Library of Science",
+      "url": "https://doi.org/10.1371/journal.pone.0210831",
+      "doi": "10.1371/journal.pone.0210831",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "plains zebra",
+      "zebra",
+      "equus quagga",
+      "stripes",
+      "savanna",
+      "safari",
+      "africa",
+      "black and white",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "cece3dc7f3eadc8c/6f760c4949ce9a9e"
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Zebra Dataran",
+      "kicker": "Mamalia · Keluarga kuda",
+      "stats": [
+        {
+          "label": "Bahu",
+          "value": "1,1–1,45 m"
+        },
+        {
+          "label": "Berat",
+          "value": "175–385 kg"
+        },
+        {
+          "label": "Hamil",
+          "value": "~12 bulan"
+        },
+        {
+          "label": "Jalan harian",
+          "value": "hingga 13 km"
+        }
+      ],
+      "habitat": "Sabana terbuka dan padang rumput Afrika timur dan selatan, hingga 4.400 m.",
+      "diet": "Kebanyakan batang rumput, sekitar 90% makanannya, plus sesekali herba, daun, atau ranting.",
+      "facts": [
+        "Lalat penggigit sulit hinggap di belang, jadi zebra lebih jarang digigit daripada kuda!",
+        "Tak ada dua zebra dengan belang yang sama, seperti sidik jari."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

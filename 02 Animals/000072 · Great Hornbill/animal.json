@@ -1,0 +1,204 @@
+{
+  "code": "000072",
+  "common": "Great Hornbill",
+  "scientific": "Buceros bicornis",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "plumage": "#171717",
+      "neck": "#FEE685",
+      "casque": "#FFB900",
+      "trim": "#171717",
+      "eye": "#FB2C36"
+    },
+    "background": "#DCD6A9",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.87,
+      0.06,
+      101.2
+    ],
+    "accent": null,
+    "why": "A warm tropical-canopy buttercup yellow that echoes the preen-oil gold colouring its huge casque and neck.",
+    "size": {
+      "real_m": 1.15,
+      "measure": "body length 95–130 cm; wingspan 1.5–1.8 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Hornbill family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Bucerotiformes",
+      "family": "Bucerotidae",
+      "genus": "Buceros",
+      "species": "B. bicornis"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2020",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "95–130 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingspan",
+        "value": "1.5–1.8 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "2.1–4 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "35–40 yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Tall evergreen rainforests of India, mainland Southeast Asia and Sumatra.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Wild figs, nutmegs, stone fruits, plus tree frogs, lizards, insects and small birds.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "During nesting, the female seals herself inside a tree hollow with mud and fruit pulp—leaving only a narrow slit for the male to pass food!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "It literally 'paints' its white neck and bill bright yellow using golden preen oil from a gland near its tail.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Buceros_bicornis",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Buceros bicornis: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Buceros_bicornis/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Buceros bicornis. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Buceros_bicornis",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "great hornbill",
+      "hornbill",
+      "buceros bicornis",
+      "rangkong",
+      "sumatra",
+      "rainforest",
+      "casque",
+      "vulnerable",
+      "bird"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "flier",
+    "actions": [
+      "pose",
+      "idle",
+      "fly"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Rangkong Papan (Great Hornbill)",
+      "kicker": "Burung · Keluarga rangkong (enggang)",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "95–130 cm"
+        },
+        {
+          "label": "Bentang sayap",
+          "value": "1,5–1,8 m"
+        },
+        {
+          "label": "Berat",
+          "value": "2,1–4 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "35–40 tahun"
+        }
+      ],
+      "habitat": "Hutan hujan tropis berkanopi tinggi di India, Asia Tenggara daratan, dan Sumatra.",
+      "diet": "Buah ara liar, pala hutan, buah berbiji, serta katak pohon, kadal, serangga, dan burung kecil.",
+      "facts": [
+        "Saat bersarang, betinanya menyegel diri di dalam lubang pohon dengan lumpur—hanya menyisakan celah sempit bagi pejantan untuk menyuapinya!",
+        "Ia 'mengecat' leher dan paruhnya menjadi kuning cerah menggunakan minyak kelenjar ekornya sendiri."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

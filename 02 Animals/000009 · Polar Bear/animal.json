@@ -1,0 +1,206 @@
+{
+  "code": "000009",
+  "common": "Polar Bear",
+  "scientific": "Ursus maritimus",
+  "status": "Final",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "#FFFBEB",
+      "dark": "#171717",
+      "shine": "#FFFFFF"
+    },
+    "background": "#B4D9FA",
+    "background_name": "arctic-sea blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      245
+    ],
+    "accent": null,
+    "why": "The cold blue of the Arctic sea, a little darker so the white bear stands out.",
+    "size": {
+      "real_m": 2.2,
+      "measure": "nose to tail: 1.8–2.5 m, mid-range",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Bear family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Ursidae",
+      "genus": "Ursus",
+      "species": "U. maritimus"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2015",
+      "trend": "unknown",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "1.8–2.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "150–800 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Shoulder",
+        "value": "up to 1.6 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "25–30 yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Sea ice across the Arctic Ocean, especially the ice edge where seals come up for air.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Mostly ringed seals, ambushed at their breathing holes in the ice. Very patient eaters!",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its fur isn't actually white! The hairs are clear, and the skin underneath is black.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Huge front paws work like paddles, making it an excellent swimmer.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-on-ice.jpg",
+      "author": "Christopher Michel",
+      "licence": "CC BY 2.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Polar_Bear_with_its_tongue_sticking_out.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ursus maritimus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ursus_maritimus/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Wiig, Ø., Amstrup, S., Atwood, T., Laidre, K., Lunn, N., Obbard, M., Regehr, E. & Thiemann, G. (2015). Ursus maritimus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2015-4.RLTS.T22823A14871490.en",
+      "doi": "10.2305/IUCN.UK.2015-4.RLTS.T22823A14871490.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "polar bear",
+      "arctic",
+      "ice",
+      "bear",
+      "white bear",
+      "climate",
+      "north pole",
+      "snow"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "f6dba3c331337db9/064d1367b2633307"
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "sniff"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Beruang Kutub",
+      "kicker": "Mamalia · Keluarga beruang",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1,8–2,5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "150–800 kg"
+        },
+        {
+          "label": "Bahu",
+          "value": "hingga 1,6 m"
+        },
+        {
+          "label": "Usia",
+          "value": "25–30 tahun"
+        }
+      ],
+      "habitat": "Es laut di Samudra Arktik, terutama tepi es tempat anjing laut naik untuk bernapas.",
+      "diet": "Kebanyakan anjing laut cincin, disergap di lubang napasnya di es. Pemburu yang sabar!",
+      "facts": [
+        "Bulunya sebenarnya tidak putih! Rambutnya bening, dan kulit di bawahnya hitam.",
+        "Kaki depannya yang besar bekerja seperti dayung, jadi ia perenang yang hebat."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

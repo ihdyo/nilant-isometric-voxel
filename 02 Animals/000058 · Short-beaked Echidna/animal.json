@@ -1,0 +1,204 @@
+{
+  "code": "000058",
+  "common": "Short-beaked Echidna",
+  "scientific": "Tachyglossus aculeatus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#292524",
+      "spine": "#FEF3C6",
+      "snout": "#44403B",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#DCD6A9",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.87,
+      0.06,
+      101.2
+    ],
+    "accent": null,
+    "why": "A warm sunlit-wattle yellow that highlights its dark brown fur and pale cream-tipped defensive spines.",
+    "size": {
+      "real_m": 0.45,
+      "measure": "total length, 35–53 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Monotreme",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Monotremata",
+      "family": "Tachyglossidae",
+      "genus": "Tachyglossus",
+      "species": "T. aculeatus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2015",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "35–53 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "2–7 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "Up to 45 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Tongue",
+        "value": "18 cm long",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Forests, deserts, grasslands and mountain slopes across Australia and lowland New Guinea.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Ants, termites and earthworms lapped up with a sticky 18-centimetre tongue.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Like the platypus, it lays a single soft-shelled egg—which it incubates inside a temporary belly pouch!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "When startled, it curls into a spiky ball or digs straight downward into the soil in seconds.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Tachyglossus_aculeatus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Tachyglossus aculeatus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Tachyglossus_aculeatus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Tachyglossus aculeatus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Tachyglossus_aculeatus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "echidna",
+      "short-beaked echidna",
+      "tachyglossus aculeatus",
+      "spiny anteater",
+      "monotreme",
+      "australia",
+      "spines",
+      "wildlife",
+      "cute"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Ekidna Moncong Pendek",
+      "kicker": "Mamalia · Monotremata",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "35–53 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "2–7 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "Hingga 45 tahun"
+        },
+        {
+          "label": "Lidah",
+          "value": "Panjang 18 cm"
+        }
+      ],
+      "habitat": "Hutan, gurun, padang rumput, dan lereng gunung di seluruh Australia serta dataran rendah Nugini.",
+      "diet": "Semut, rayap, dan cacing tanah yang dijilat dengan lidah lengket sepanjang 18 sentimeter.",
+      "facts": [
+        "Seperti platipus, ia bertelur satu butir bercangkang lunak—yang dierami di dalam kantung perut sementara!",
+        "Saat terkejut, ia menggulung menjadi bola berduri atau menggali lurus ke dalam tanah dalam hitungan detik."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

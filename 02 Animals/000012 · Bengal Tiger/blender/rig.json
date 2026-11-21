@@ -1,0 +1,50 @@
+{
+ "code": "000012",
+ "rigged": "2026-11-21T16:56:03",
+ "blender": "5.3.0",
+ "still_built": "2026-11-21T16:55:58",
+ "motion_hash": "22d3c1a23f6e7d9f",
+ "rig_engine": "78ec5c9923cbc596",
+ "plan": "walker",
+ "bones": 16,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "walk": 64
+ },
+ "blend": "000012 \u00b7 Bengal Tiger \u00b7 Rig.blend",
+ "glb": "000012 \u00b7 Bengal Tiger \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 5.073510120900348,
+  "box_size": [
+   3.5514570846302433,
+   3.39336362387985
+  ]
+ },
+ "vertices": 3140,
+ "groups": [
+  "body",
+  "ear_l",
+  "ear_r",
+  "head",
+  "leg_fl",
+  "leg_fr",
+  "leg_hl",
+  "leg_hr",
+  "muzzle",
+  "shin_fl",
+  "shin_fr",
+  "shin_hl",
+  "shin_hr",
+  "tail",
+  "tail_tip"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

@@ -12,7 +12,8 @@ adapted for stills. Source of truth: `A:\WORK!!\_startup\nilant-voxel-isometric`
 
 **Read before generating anything:** `.claude/skills/voxel-animal-production/SKILL.md` (the single source of truth for
 production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md` (what is open),
-`03 Design/DESIGN-SYSTEM.md`. The owner's original brief is `00 TODO/voxel-isometric.txt`.
+`03 Design/DESIGN-SYSTEM.md`. The owner's original brief was `00 TODO/voxel-isometric.txt` (removed by the owner on 2026-11-21; in git history);
+`00 TODO/` holds the owner's current prompts until they are done.
 
 ## Consistency contract (the same result whichever model or person works here)
 1. **`python _system/studio/scripts/vf.py verify` before calling any work done.** It checks the standards lock, that
@@ -45,10 +46,10 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
   expressions painted flat, vivid pastel backgrounds): geometry `mob`, `vf_voxel` layers, joints and plates,
   `vf_color.py`. Before/after: `03 Design/Reference/look · 2026-11-16 · bulky posed before-after.jpg` (round 2) and
   `look · 2026-11-16 · flat faces before-after.jpg` (round 3, the approved look).
-- **Twenty-five example animals** (owner, 2026-11-16) 26-001 Red Fox … 26-010 Giraffe, 26-011 African Elephant …
-  26-015 European Hedgehog, then 26-016 Axolotl, 26-017 Gray Wolf, 26-018 Green Sea Turtle, 26-019 Nine-banded
-  Armadillo, 26-020 Scarlet Macaw, 26-021 Bottlenose Dolphin, 26-022 Mountain Goat, 26-023 European Rabbit, 26-024
-  Red-eyed Tree Frog, 26-025 Plains Zebra: research docs with verified sources (ADW, IUCN assessments read on the
+- **Twenty-five example animals** (owner, 2026-11-16) 000001 Red Fox … 000010 Giraffe, 000011 African Elephant …
+  000015 European Hedgehog, then 000016 Axolotl, 000017 Gray Wolf, 000018 Green Sea Turtle, 000019 Nine-banded
+  Armadillo, 000020 Scarlet Macaw, 000021 Bottlenose Dolphin, 000022 Mountain Goat, 000023 European Rabbit, 000024
+  Red-eyed Tree Frog, 000025 Plains Zebra: research docs with verified sources (ADW, IUCN assessments read on the
   IUCN site and their DOIs on Crossref, papers), 50 genuine photos (PD / CC0 / CC BY), voxel briefs, models, built
   `.blend`, LOW previews in `_system/cache/preview/`; all 25 previews approved (2026-11-17).
 - **Plates switched off** (owner, 2026-11-16: "disable flat pixel for now"): `vf_standards.POSE["plates"] = False`;
@@ -81,17 +82,41 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
   the loops' animal pass only; checked bias off/on on all 25); section names enforced (`SECTION_STEMS`). Every
   `.blend` and rig rebuilt; `vf_scene`, `vf_rig`, `vf_export`, `vf_standards`, `vf_color`, `package.py` differ from
   the lock (not relocked: the owner relocks after seeing the ULTRA results).
-- Next: the ULTRA re-render on the RTX 3050 (`render.bat` → 3, then P), the owner's relock (`vf.py lock`, then
-  `vf.py standards --write`) and `approve <code> final` per animal; awaiting the owner: the Poppins italic download,
-  contributor names and Gumroad licence.
+- **The owner's list of 2026-11-21 (the first prompt), done for 000001–000025, LOCKED as standards v2.3:**
+  - **Six-digit animal codes** (`000001`, folders `000001 · Red Fox`, Image IDs `VF-000001-…`) for all 100 animals,
+    in every file, name and document (`vflib.CODE_DIGITS`, `next_code`).
+  - **Tailwind removed:** `03 Design/Color/tailwind-v4-palette.json` deleted; every colour is a hex (the tokens'
+    exact values); card colours come from the background's hue on `vf_color.RAMP` (`"#RRGGBB-700"`).
+  - **Backgrounds at one chroma:** OKLCH (0.87, 0.06, hue), the hue per animal from its habitat or the complement of
+    its coat (`look.background`, `background_oklch`, `background_name`, `why`; `BACKGROUND_RULE`, ΔE ≥ 20).
+  - **Registry split:** `05 Publish/Voxel Fauna · Registry.xlsx` lists the animals' information (all 100,
+    `vf.py registry`); each platform has its own workbook in `05 Publish/Platforms/` (items, state, publish log).
+  - **Models:** the red panda's tail at its first size (drawn behind the body), the flamingo's neck on the body (anchored), the lion's mane shorter,
+    the wolf without a neck, the rabbit one block with inset thighs and side front legs, the frog's arms in one piece
+    and its hind legs two clapperboard boards inset in the flanks, the toucan's bill duotone and smaller bird feet
+    (toucan, penguin, macaw); every animal re-posed livelier with the head turned to the camera (yaw about −14°),
+    the loops keeping it on the camera; only the static blocky pose looks straight ahead (owner: "make it look at
+    camera except for the static basic pose").
+  - **Engine:** `Grid.anchor()` sinks every turning section into its parent near its hinge (2.5 voxels,
+    `ANCHOR_REACH`; no floating necks or tails); nested
+    stacking levels (the tiger's flickering face); tails drawn behind the body in the loops (`STACK_BEHIND`); the trunk curl and sway, the hippo's walking yawn
+    (`motion.options.walk_jaw`), a bird's feet in the hop and flap, the wolf's howl lifting the head (`howl_lift`).
+  - **A face layer was tried on 000001 and removed entirely** (owner: "undo everything that face related"): every
+    face stays painted flat, and the engine has no face-layer code.
+  - All 25 rebuilt, rigged (rig check PASS) and looped at LOW; previews need the owner's approval again.
+- Next: the owner's review of the 25 LOW
+  previews (`vf.py approve <code> preview`), the ULTRA renders
+  (`render.bat` → 3, then P) and `approve <code> final`; then `00 TODO/026-100.txt` (the next 75 animals). Still
+  awaiting the owner: the Poppins italic download, contributor names and Gumroad licence.
 
 ## Hard rules
 - **One source of truth each:** numbers in `_system/studio/blender/vf_standards.py`; an animal's names, look, card copy,
   photo, sources, stock metadata and approvals in its `animal.json`; its geometry in `blender/model.py`; its modelling
-  brief in `docs/voxel-model.md` (palette must equal `animal.json`); the registry and publish log in
-  `05 Publish/Voxel Fauna · Registry.xlsx` (+ `Voxel Fauna · Publish Log.md`).
-- **Colours:** Tailwind v4 tokens by default (`03 Design/Color/tailwind-v4-palette.json`); a `#RRGGBB` hex where no
-  token fits (owner, 2026-11-16: "for this project, break from tailwind coloring token"); backgrounds render muted.
+  brief in `docs/voxel-model.md` (palette must equal `animal.json`); the animals' information in
+  `05 Publish/Voxel Fauna · Registry.xlsx` (built from `animal.json`); the platform targets and their publish logs in
+  `05 Publish/Platforms/Voxel Fauna · <Platform>.xlsx` (+ `Voxel Fauna · Publish Log.md`).
+- **Colours:** every colour is a `#RRGGBB` hex (owner, 2026-11-21: "remove the tailwind color palette completely").
+  Backgrounds: OKLCH lightness 0.87, chroma 0.06 for every animal, the hue chosen per animal (`BACKGROUND_RULE`).
 - **No AI-generated images, ever** (animals, references, backgrounds, photos on the artwork).
 - **Photos:** genuine, public domain, CC0 or CC BY only (never BY-SA, NC, ND), logged in the animal's
   `docs/references.md` with author, licence and URL, credited on the information artwork. Stock sites get the
@@ -106,7 +131,7 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 - **Card copy:** the Duolingo voice of the skill (section 5): short, warm, concrete, no AI-slop words.
 - **Downloads** (photos, fonts, anything) only after the owner approves the batch; log fonts in `04 Library/README.md`.
 - **Naming (Nilant/Kodey style):** numbered top folders `NN Name`; human-facing files `Voxel Fauna · Title`; animal
-  folders `YY-SEQ · Common Name`; exports named by Image ID `VF-<code>-<ILL|INF>-<ratio>.png`.
+  folders `NNNNNN · Common Name` (six-digit code, `000001 · Red Fox`); exports named by Image ID `VF-<code>-<ILL|INF>-<ratio>.png`.
 - **Language:** English everywhere.
 
 ## Map
@@ -115,10 +140,10 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 | `key-prompt.md` | attach it with one animal's `docs/voxel-model.md` to Claude Sonnet (browser) to write that animal's `model.py` |
 | `00 TODO/` | the owner's brief and scratch prompts (not part of the pipeline) |
 | `01 Guide/` | `Voxel Fauna · Production Workflow`, `· Stock Platforms`, `· Prerequisites` |
-| `02 Animals/` | `_Template/` and one folder per species `YY-SEQ · Common Name/`: `overview.md` (generated), `animal.json`, `docs/animal-info.md`, `docs/references.md`, `docs/voxel-model.md`, `assets/photos/`, `blender/model.py` + the built `.blend` + `build.json` + `README.md` (+ the animation rig `· Rig.blend`, `· Rig.glb`, `rig.json`), `export/` (the export package: `VF-<code>-MASTER-DYN.png`, `-MASTER-BLOCK.png`, `-LOOP.gif`, `-CARD-EN.pdf`, `-CARD-ID.pdf`; beside them `-STOCK.jpg`, the dynamic master as the stock JPEG, no crop) |
-| `03 Design/` | `DESIGN-SYSTEM.md`, `Color/` (Tailwind v4 palette), `Fonts/` (Poppins, OFL), `Logo/` (the owner's ihdyo mark, for the card back), `Reference/` (approved look sheets) |
+| `02 Animals/` | `_Template/` and one folder per species `NNNNNN · Common Name/`: `overview.md` (generated), `animal.json`, `docs/animal-info.md`, `docs/references.md`, `docs/voxel-model.md`, `assets/photos/`, `blender/model.py` + the built `.blend` + `build.json` + `README.md` (+ the animation rig `· Rig.blend`, `· Rig.glb`, `rig.json`), `export/` (the export package: `VF-<code>-MASTER-DYN.png`, `-MASTER-BLOCK.png`, `-LOOP.gif`, `-CARD-EN.pdf`, `-CARD-ID.pdf`; beside them `-STOCK.jpg`, the dynamic master as the stock JPEG, no crop) |
+| `03 Design/` | `DESIGN-SYSTEM.md`, `Color/` (the colour rules; hex only), `Fonts/` (Poppins, OFL), `Logo/` (the owner's ihdyo mark, for the card back), `Reference/` (approved look sheets) |
 | `04 Library/` | licence and download log |
-| `05 Publish/` | `Voxel Fauna · Registry.xlsx` (Read Me, Animals, Images, Publish Log, Platforms), `Voxel Fauna · Publish Log.md`, `Voxel Fauna · Publishing Checklist.md`, `Stock/` (CSVs), `Gumroad/` (zips) |
+| `05 Publish/` | `Voxel Fauna · Registry.xlsx` (Read Me, Animals: the animal information), `Platforms/Voxel Fauna · <Platform>.xlsx` (one per platform: Read Me, Items, Publish Log), `Voxel Fauna · Publish Log.md`, `Voxel Fauna · Publishing Checklist.md`, `Stock/` (CSVs), `Gumroad/` (zips) |
 | `_system/studio/render/` | `render.bat` (double-click: build, LOW previews, ULTRA renders, offline), `P` in its menu packages offline: GIF, cards, stock JPEG and CSVs, zip, registry, `Voxel Fauna · How to Render.md`, `README.md` (status of every animal) |
 | `_system/studio/blender/` | engine (bpy): `vf_standards.py`, `vf_voxel.py` (the grid), `vf_scene.py` (meshes, stage, cameras, profiles, passes, composite), `vf_job.py` (one Blender run: build, or open a .blend and render), `vf_rig.py` (the animation rig and motion library, locked), `vf_export.py` (the ULTRA export renders: masters and loop, proposed), `selftest_model.py` |
 | `_system/studio/scripts/` | `vf.py` (command line), `render_cli.py` (render.bat's menu), `vflib.py`, `infographic.py` (card system), `package.py` (GIF, A5 cards; locked), `registry.py`, `stock.py` |
@@ -130,7 +155,7 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
 (LOW from the .blend + contact sheet, then rig and loops) · `approve <code> preview|final` (owner's word only) ·
 `final <code> [--low]` (the two masters and the loop frames; resumes) · `package <code> [--low]` · `package-all` · `package-pending [code]` · `render-all LOW|ULTRA` · `info <code> [--profile LOW|ULTRA]` (re-lay the cards only) ·
 `overview <code>` · `register <code>` · `stock <code> [--only …]` · `log <code|Image ID> <platform> <action>` ·
-`selftest [--ultra] [--ratios 1x1] [--compare]` · `rig <code> [--force] [--no-preview]` (animation rig + GIF loops) ·
+`registry` (the Animals sheet from every animal.json) · `selftest [--ultra] [--ratios 1x1] [--compare]` · `rig <code> [--force] [--no-preview]` (animation rig + GIF loops) ·
 `rig-all [--jobs 3]` (+ the motion lineup) · `rig-check [<code>]` (T-pose renders + bend test) · `verify` · `lock "<what and why>"` · `standards [--write]`.
 `render.bat` runs build / previews / finals from a menu. Blender is found through `BLENDER`, then
 `_system/studio/blender_path.txt` (written by render.bat), then the regular 5.3.0 install Nilant uses.
@@ -153,7 +178,12 @@ production), `_system/log/DECISIONS.md` (newest rows win), `_system/log/PLAN.md`
   top (`Pen.ASC = 0.74`) and keeps numbers with their unit when wrapping.
 - `cmd /c render.bat` from a shell whose working directory contains `!` fails ("not recognized"); run it by its full
   path or double-click it (it `cd`s to its own folder).
-- Bash heredocs in this harness mangle backslashes and some apostrophes: write files with the Write/Edit tools.
+- Bash heredocs in this harness mangle backslashes and some apostrophes: write files with the Write/Edit tools. A
+  Python script fed through stdin (`python - <<EOF`) also failed to save `Voxel Fauna · Registry.xlsx` (OSError 22 on
+  the `·` path) while the same code from a file worked: run multi-line Python from a file.
+- **Anchored sections:** `load_model` runs `Grid.anchor()`, so a model's voxel count and its parts' layers include
+  the anchor cells (a section's cells inside its parent). Count and compare models through `load_model`, never by
+  reading `model.py` alone.
 - **ULTRA needs the RTX 3050:** on the second PC (Intel UHD Graphics 730, integrated) any 4096 ULTRA pass ends in
   Vulkan `VK_ERROR_DEVICE_LOST` and empty passes ("shadow pass: almost no open ground"), on OpenGL too; LOW works.
   Check the GPU (`Get-CimInstance Win32_VideoController`) before blaming the code.

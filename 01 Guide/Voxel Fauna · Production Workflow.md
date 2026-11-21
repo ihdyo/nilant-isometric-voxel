@@ -19,7 +19,9 @@ Six phases, two approvals by the owner. The rules behind each step are in the sk
    page URL).
 
 ## Phase 2 · Modelling
-1. `animal.json → look`: 3–6 palette keys (first = main colour), one soft background, the reason in `look.why`.
+1. `animal.json → look`: 3–6 palette keys as hex (first = main colour); the background at the collection's one chroma
+   with its own hue (`vf_color.background(hue, 0.87, 0.06)` → `background`, `background_oklch`, `background_name`),
+   chosen from the habitat or as the complement of the coat, the reason in `look.why`.
 2. `docs/voxel-model.md`: the voxel brief (palette table equal to `animal.json`, size and pose, proportions of each
    part, the 3–5 recognisable features, colour map, photos used).
 3. `blender/model.py`: write it yourself, or attach **`key-prompt.md`** + `docs/voxel-model.md` to Claude Sonnet (high
@@ -49,7 +51,8 @@ Six phases, two approvals by the owner. The rules behind each step are in the sk
    `i18n.id` for the Indonesian card), then `render.bat` → P (no render).
 
 ## Phase 5 · Documentation and registry
-1. `vf.py overview <code>`; `vf.py register <code>` → rows in `05 Publish/Voxel Fauna · Registry.xlsx`.
+1. `vf.py overview <code>`; `vf.py register <code>` → the animal's row in `05 Publish/Voxel Fauna · Registry.xlsx` and its
+   items in every platform workbook (`05 Publish/Platforms/`).
 2. `render.bat` → P (or `vf.py stock <code>`) → the stock JPEG (the whole dynamic master, in `export/`) and upload CSVs (stock sites), the
    Gumroad zip of the whole export package.
 3. `vf.py verify`.
@@ -57,7 +60,7 @@ Six phases, two approvals by the owner. The rules behind each step are in the sk
 ## Phase 6 · Completion and publishing
 1. Present the folder and the export package to the owner. On the owner's OK: `vf.py approve <code> final`.
 2. Upload with `05 Publish/Voxel Fauna · Publishing Checklist.md`; record every event:
-   `vf.py log <code> "Adobe Stock" Submitted --kinds ILL`, later `vf.py log VF-26-001-ILL-1x1 "Adobe Stock" Accepted --link <url>`.
+   `vf.py log <code> "Adobe Stock" Submitted --kinds ILL`, later `vf.py log VF-000001-ILL-1x1 "Adobe Stock" Accepted --link <url>`.
 
 ## When something goes wrong
 - Blender job failed: the message names the error; the full log is `_system/cache/jobs/<code>-<step>/blender.log`.

@@ -10,7 +10,7 @@ check each platform's contributor page before a big batch. Read on 2026-11-15.
   `05 Publish/Stock/<code> · Adobe Stock.csv` and `· Shutterstock.csv`, and a Gumroad zip of the PNG masters in
   `05 Publish/Gumroad/`.
 - No logo, watermark, signature or URL in any image (owner, 2026-11-15).
-- Every upload event is recorded with `vf.py log` (the registry's Publish Log sheet and `Voxel Fauna · Publish Log.md`).
+- Every upload event is recorded with `vf.py log` (the platform's workbook, `05 Publish/Platforms/Voxel Fauna · <Platform>.xlsx`, Publish Log sheet, and `Voxel Fauna · Publish Log.md`).
 
 ## The photo on the information artworks (owner, 2026-11-16)
 The information artworks carry a real photograph of the species by a third party (public domain, CC0 or CC BY,
@@ -73,7 +73,7 @@ every platform and on Gumroad.
 
 ## Freepik (Magnific) and the others
 Verify before the first upload: accepted formats for 3D/illustration (some take PNG), minimum size, the AI
-declaration, the CSV format. Record what you find in the registry's Platforms sheet and here.
+declaration, the CSV format. Record what you find in the platform's workbook (Read Me) and here (`registry.PLATFORMS` writes the Read Me).
 
 ## Sources
 - Adobe Stock: [illustration requirements](https://helpx.adobe.com/stock/contributor/submit-your-content/submit-illustrations/technical-legal-requirements-illustration-submission.html),

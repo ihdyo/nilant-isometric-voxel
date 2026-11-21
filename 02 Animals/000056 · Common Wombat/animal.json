@@ -1,0 +1,205 @@
+{
+  "code": "000056",
+  "common": "Common Wombat",
+  "scientific": "Vombatus ursinus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#57534D",
+      "shade": "#44403B",
+      "nose": "#171717",
+      "ear": "#FEE685",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#CCDCB1",
+    "background_name": "soft lime green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      124.2
+    ],
+    "accent": null,
+    "why": "A fresh eucalyptus-meadow lime pastel that contrasts nicely with its stout earthy-brown fur.",
+    "size": {
+      "real_m": 1.0,
+      "measure": "head-and-body length, 0.85–1.15 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Wombat family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Diprotodontia",
+      "family": "Vombatidae",
+      "genus": "Vombatus",
+      "species": "V. ursinus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2015",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "0.85–1.15 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "22–39 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Top speed",
+        "value": "40 km/h",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Eucalyptus forests, coastal heathlands and cooler mountain woodlands of southeastern Australia and Tasmania.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Tough native tussock grasses, sedges, roots and bark grazed at night.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The only known animal in the world that produces cube-shaped droppings—so they don't roll away when marking territory!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Its rear end is reinforced with thick cartilage plates; when threatened, it blocks its burrow with its armoured rump.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Vombatus_ursinus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Vombatus ursinus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Vombatus_ursinus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Vombatus ursinus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Vombatus_ursinus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "wombat",
+      "common wombat",
+      "vombatus ursinus",
+      "marsupial",
+      "australia",
+      "tasmania",
+      "cube poop",
+      "burrowing",
+      "cute"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Wombat Biasa (Common Wombat)",
+      "kicker": "Mamalia · Keluarga wombat",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "0,85–1,15 m"
+        },
+        {
+          "label": "Berat",
+          "value": "22–39 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–20 tahun"
+        },
+        {
+          "label": "Kecepatan",
+          "value": "40 km/jam"
+        }
+      ],
+      "habitat": "Hutan eukaliptus, padang semak pesisir, dan hutan pegunungan sejuk di Australia tenggara dan Tasmania.",
+      "diet": "Rumput liar keras, teki-tekian, akar, dan kulit kayu yang dimakan pada malam hari.",
+      "facts": [
+        "Satu-satunya hewan di dunia yang menghasilkan kotoran berbentuk kubus—agar tidak menggelinding saat menandai wilayah!",
+        "Bagian belakang tubuhnya diperkuat lempeng tulang rawan tebal untuk menyumbat liang dari predator."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

@@ -1,0 +1,210 @@
+{
+  "code": "000015",
+  "common": "European Hedgehog",
+  "scientific": "Erinaceus europaeus",
+  "status": "Final",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "spines": "#973C00",
+      "tips": "#FEF3C6",
+      "face": "#C8A47E",
+      "nose": "#171717",
+      "eye": "#0A0A0A",
+      "feet": "#79716B"
+    },
+    "background": "#CBDCB1",
+    "background_name": "garden green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      125
+    ],
+    "accent": null,
+    "why": "Garden leaves and hedges, where hedgehogs hunt beetles at night.",
+    "size": {
+      "real_m": 0.25,
+      "measure": "nose to tail: head and body 13.5–26.5 cm plus a 2 cm tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Hedgehog family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Eulipotyphla",
+      "family": "Erinaceidae",
+      "genus": "Erinaceus",
+      "species": "E. europaeus"
+    },
+    "conservation": {
+      "code": "NT",
+      "status": "Near Threatened",
+      "assessed": "2023",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Spines",
+        "value": "~5,000",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "0.8–1.2 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "up to 6 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Litter",
+        "value": "4–6 young",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Hedgerows, fields, parks and gardens across Europe, maybe even yours!",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Beetles, earwigs, moths and snails, plus the odd egg or bit of fruit.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "In winter it hibernates, but wakes every week or two for a day of snacks and a wee.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Hoglets are born with their spines tucked under soft skin; they pop up within a day.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-walking.jpg",
+      "author": "Christian Kahle",
+      "licence": "CC0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Erinaceus_europaeus_5.jpg",
+      "centre": [
+        0.5,
+        0.55
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Erinaceus europaeus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Erinaceus_europaeus/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Gazzard, A. & Rasmussen, S.L. (2024). Erinaceus europaeus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2024-2.RLTS.T29650A213411773.en",
+      "doi": "10.2305/IUCN.UK.2024-2.RLTS.T29650A213411773.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "european hedgehog",
+      "hedgehog",
+      "erinaceus",
+      "garden animal",
+      "spines",
+      "woodland",
+      "cute animal",
+      "nocturnal",
+      "europe"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "7893bf5668505ed0/95d175c223b942de"
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 5 animals'); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "sniff"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Landak Susu Eropa",
+      "kicker": "Mamalia · Keluarga landak susu",
+      "stats": [
+        {
+          "label": "Duri",
+          "value": "~5.000"
+        },
+        {
+          "label": "Berat",
+          "value": "0,8–1,2 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "hingga 6 th"
+        },
+        {
+          "label": "Anak",
+          "value": "4–6 ekor"
+        }
+      ],
+      "habitat": "Pagar tanaman, ladang, taman, dan kebun di seluruh Eropa, mungkin juga kebunmu!",
+      "diet": "Kumbang, cocopet, ngengat, dan siput, plus sesekali telur atau buah.",
+      "facts": [
+        "Di musim dingin ia hibernasi, tapi bangun tiap satu-dua minggu untuk ngemil dan pipis.",
+        "Bayi landak lahir dengan duri terselip di bawah kulit lembut; duri muncul dalam sehari."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

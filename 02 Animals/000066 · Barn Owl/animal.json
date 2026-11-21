@@ -1,0 +1,204 @@
+{
+  "code": "000066",
+  "common": "Barn Owl",
+  "scientific": "Tyto alba",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "face": "#FAFAF9",
+      "back": "#FFD230",
+      "speckle": "#79716B",
+      "beak": "#FEF3C6",
+      "eye": "#171717"
+    },
+    "background": "#C7D2FD",
+    "background_name": "soft lavender",
+    "background_oklch": [
+      0.87,
+      0.06,
+      273.5
+    ],
+    "accent": null,
+    "why": "A soft moonlit-indigo backdrop that makes its heart-shaped white face and golden-buff back shine.",
+    "size": {
+      "real_m": 0.36,
+      "measure": "body length 33–39 cm; wingspan 80–95 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Barn owl family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Strigiformes",
+      "family": "Tytonidae",
+      "genus": "Tyto",
+      "species": "T. alba"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2018",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "33–39 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingspan",
+        "value": "80–95 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "290–460 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "4–10 yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open farmlands, grasslands, forest edges, barns and palm plantations worldwide.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Mice, voles, rats and shrews hunted in total darkness by sound alone.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its heart-shaped facial disc acts like a satellite dish, funneling faint rustling sounds to asymmetrically placed ears.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "It can pinpoint and catch a mouse hidden completely under snow or grass in pitch darkness.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Tyto_alba",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Tyto alba: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Tyto_alba/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Tyto alba. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Tyto_alba",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "barn owl",
+      "tyto alba",
+      "serak jawa",
+      "owl",
+      "heart face",
+      "nocturnal",
+      "bird",
+      "wildlife",
+      "raptor"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "flier",
+    "actions": [
+      "pose",
+      "idle",
+      "fly"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Serak Jawa (Barn Owl)",
+      "kicker": "Burung · Keluarga serak jawa (barn owl)",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "33–39 cm"
+        },
+        {
+          "label": "Bentang sayap",
+          "value": "80–95 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "290–460 g"
+        },
+        {
+          "label": "Usia",
+          "value": "4–10 tahun"
+        }
+      ],
+      "habitat": "Lahan pertanian terbuka, padang rumput, tepi hutan, lumbung, dan perkebunan di berbagai belahan dunia.",
+      "diet": "Tikus, mencit, dan celurut yang diburu dalam kegelapan total hanya dengan mengandalkan pendengaran.",
+      "facts": [
+        "Wajah berbentuk hatinya berfungsi seperti parabola yang memusatkan suara gemerisik halus ke telinga asimetrisnya.",
+        "Ia dapat menemukan dan menangkap tikus yang tersembunyi di bawah salju atau rumput dalam kegelapan total."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

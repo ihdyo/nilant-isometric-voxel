@@ -1,0 +1,210 @@
+{
+  "code": "000020",
+  "common": "Scarlet Macaw",
+  "scientific": "Ara macao",
+  "status": "Final",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "red": "#E7000B",
+      "yellow": "#FFB900",
+      "blue": "#155DFC",
+      "face": "#FAFAF9",
+      "bill": "#E7E5E4",
+      "dark": "#171717",
+      "eye": "#FEF3C6"
+    },
+    "background": "#B6E1C3",
+    "background_name": "canopy green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      155
+    ],
+    "accent": null,
+    "why": "The rainforest canopy macaws fly over, opposite their scarlet.",
+    "size": {
+      "real_m": 0.89,
+      "measure": "bill tip to tail tip: about 89 cm, a third to a half of it tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Parrot family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Psittaciformes",
+      "family": "Psittacidae",
+      "genus": "Ara",
+      "species": "A. macao"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2022",
+      "trend": null,
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "~89 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "~1.2 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "40–50 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Eggs",
+        "value": "2–4",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Rainforest treetops from southern Mexico to the Amazon, below 1,000 m.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Fruit and nuts, even unripe ones, plus riverbank clay that helps it digest them.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Most scarlet macaws are lefties: they hold their food with the left foot.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Pairs stay together for life and preen each other's feathers.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-flying.jpg",
+      "author": "ImagePerson",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Scarlet_Macaw_(Ara_macao)_Costa_Rica_8598.jpg",
+      "centre": [
+        0.55,
+        0.42
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ara macao: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ara_macao/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "BirdLife International (2022). Ara macao. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2022-2.RLTS.T22685563A163778999.en",
+      "doi": "10.2305/IUCN.UK.2022-2.RLTS.T22685563A163778999.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "scarlet macaw",
+      "macaw",
+      "parrot",
+      "ara macao",
+      "tropical bird",
+      "rainforest",
+      "colourful bird",
+      "central america",
+      "amazon"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "7b33faefb458357b/4e0d73f06b7d763c"
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final"
+  ],
+  "motion": {
+    "plan": "bird",
+    "actions": [
+      "pose",
+      "idle",
+      "flap"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Makau Merah",
+      "kicker": "Burung · Keluarga nuri",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "~89 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "~1,2 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "40–50 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "2–4"
+        }
+      ],
+      "habitat": "Puncak pohon hutan hujan dari Meksiko selatan hingga Amazon, di bawah 1.000 m.",
+      "diet": "Buah dan kacang, bahkan yang belum matang, plus tanah liat tepi sungai untuk mencernanya.",
+      "facts": [
+        "Kebanyakan makau merah kidal: mereka memegang makanan dengan kaki kiri.",
+        "Pasangan setia seumur hidup dan saling merapikan bulu."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

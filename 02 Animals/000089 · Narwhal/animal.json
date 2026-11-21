@@ -1,0 +1,206 @@
+{
+  "code": "000089",
+  "common": "Narwhal",
+  "scientific": "Monodon monoceros",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#90A1B9",
+      "mottle": "#314158",
+      "belly": "#F5F5F4",
+      "tusk": "#FEF3C6",
+      "eye": "#171717"
+    },
+    "background": "#A6E0E7",
+    "background_name": "soft aqua",
+    "background_oklch": [
+      0.87,
+      0.06,
+      205.6
+    ],
+    "accent": null,
+    "why": "A glacial Arctic cyan-aqua that mirrors icy fjords while highlighting the ivory spiral tusk.",
+    "size": {
+      "real_m": 4.7,
+      "measure": "body length 4–5 m, plus spiral ivory tusk up to 2–3 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Monodontid whale family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Monodontidae",
+      "genus": "Monodon",
+      "species": "M. monoceros"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2017",
+      "trend": "unknown",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "4–5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "0.8–1.6 t",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "50 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "14–15 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Cold Arctic waters, fjords, and pack-ice leads around Canada, Greenland, Norway, and Russia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Greenland halibut, Arctic cod, squid, and shrimp caught during deep winter dives.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its famous spiral 'horn' is actually an elongated upper-left canine tooth packed with up to 10 million nerve endings.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Regularly dives deeper than 1,500 metres beneath dense Arctic sea ice to feed on deep-water halibut.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Monodon monoceros: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Monodon_monoceros/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Monodon monoceros. The IUCN Red List of Threatened Species (2017 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T13704A50367651.en",
+      "doi": "10.2305/IUCN.UK.2017-3.RLTS.T13704A50367651.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "narwhal",
+      "monodon monoceros",
+      "arctic whale",
+      "unicorn of the sea",
+      "tusk",
+      "marine mammal",
+      "arctic",
+      "whale",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim",
+      "dive"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Paus Bertanduk / Narwhal",
+      "kicker": "Mamalia · Keluarga paus kutub",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "4–5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "0,8–1,6 t"
+        },
+        {
+          "label": "Usia",
+          "value": "50 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "14–15 bulan"
+        }
+      ],
+      "habitat": "Perairan dingin Arktik, fyord, dan celah es di sekitar Kanada, Greenland, Norwegia, dan Rusia.",
+      "diet": "Ikan halibut Greenland, kod Arktik, cumi-cumi, dan udang yang ditangkap saat menyelam dalam.",
+      "facts": [
+        "'Tanduk' spiralnya yang terkenal sebenarnya adalah gigi taring kiri atas yang memanjang dan berisi hingga 10 juta ujung saraf.",
+        "Rutin menyelam lebih dari 1.500 meter di bawah lapisan es tebal Arktik untuk memburu halibut laut dalam."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

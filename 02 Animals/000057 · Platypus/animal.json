@@ -1,0 +1,205 @@
+{
+  "code": "000057",
+  "common": "Platypus",
+  "scientific": "Ornithorhynchus anatinus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#7B3306",
+      "belly": "#FEE685",
+      "bill": "#45556C",
+      "tail": "#461901",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#A9E2D6",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      180.4
+    ],
+    "accent": null,
+    "why": "A cool creek-water teal that sets off its rich waterproof brown fur and slate-grey duck bill.",
+    "size": {
+      "real_m": 0.5,
+      "measure": "total length, 43–50 cm (males up to 60 cm)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Monotreme",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Monotremata",
+      "family": "Ornithorhynchidae",
+      "genus": "Ornithorhynchus",
+      "species": "O. anatinus"
+    },
+    "conservation": {
+      "code": "NT",
+      "status": "Near Threatened",
+      "assessed": "2014",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "43–60 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "0.7–2.4 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "12–17 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Dive time",
+        "value": "Up to 2 mins",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Freshwater rivers, cool mountain streams and lakes across eastern Australia and Tasmania.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Freshwater shrimp, insect larvae, worms and crayfish detected underwater with its electroreceptive bill.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "One of only five egg-laying mammals (monotremes) on Earth—and males carry a venomous spur on each hind ankle!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "It hunts with eyes, ears and nostrils shut tight, sensing the tiny electrical pulses of prey muscles with its bill.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Ornithorhynchus_anatinus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ornithorhynchus anatinus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ornithorhynchus_anatinus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Ornithorhynchus anatinus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Ornithorhynchus_anatinus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "platypus",
+      "ornithorhynchus anatinus",
+      "monotreme",
+      "duck-billed platypus",
+      "australia",
+      "egg-laying mammal",
+      "river",
+      "wildlife",
+      "unique"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Platipus",
+      "kicker": "Mamalia · Monotremata",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "43–60 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "0,7–2,4 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "12–17 tahun"
+        },
+        {
+          "label": "Menyelam",
+          "value": "Hingga 2 menit"
+        }
+      ],
+      "habitat": "Sungai air tawar, aliran pegunungan sejuk, dan danau di Australia timur dan Tasmania.",
+      "diet": "Udang air tawar, larva serangga, cacing, dan lobster air tawar yang dideteksi lewat sensor listrik di paruhnya.",
+      "facts": [
+        "Salah satu dari hanya lima mamalia bertelur (monotremata) di Bumi—dan pejantannya punya taji berbisa di pergelangan kaki belakang!",
+        "Ia berburu dengan mata, telinga, dan hidung tertutup rapat, mendeteksi sinyal listrik otot mangsa lewat paruhnya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

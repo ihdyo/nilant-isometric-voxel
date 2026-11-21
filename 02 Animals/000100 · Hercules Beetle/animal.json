@@ -1,0 +1,205 @@
+{
+  "code": "000100",
+  "common": "Hercules Beetle",
+  "scientific": "Dynastes hercules",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "elytra": "#7CCF00",
+      "spot": "#171717",
+      "thorax": "#171717",
+      "horn": "#262626",
+      "leg": "#171717"
+    },
+    "background": "#CCDCB1",
+    "background_name": "soft pastel",
+    "background_oklch": [
+      0.87,
+      0.06,
+      124.2
+    ],
+    "accent": null,
+    "why": "A fresh canopy-leaf lime that harmonizes with the olive-lime wing covers while contrasting with the glossy black horn.",
+    "size": {
+      "real_m": 0.17,
+      "measure": "total length 5–17 cm in adult males including the long thoracic horn",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Insect · Scarab beetle family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Insecta",
+      "order": "Coleoptera",
+      "family": "Scarabaeidae",
+      "genus": "Dynastes",
+      "species": "D. hercules"
+    },
+    "conservation": {
+      "code": "NE",
+      "status": "Not Evaluated",
+      "assessed": "2026",
+      "trend": "unknown",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "5–17 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "30–100 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "1–2 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Eggs",
+        "value": "50–100",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Humid montane and lowland rainforests from southern Mexico through Central America to Bolivia and Brazil.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Decaying wood as larvae; fermenting fallen tropical fruit and tree sap as adults.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Males sport a giant thoracic horn longer than their body, which they use like pincers to flip rivals off tree branches.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Its wing covers change color from olive-yellow in dry air to black in high humidity due to light-refracting micro-structures.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Dynastes hercules: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Dynastes_hercules/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Dynastes hercules: Catalogue of Life & IUCN Red List status check",
+      "publisher": "Catalogue of Life / IUCN",
+      "url": "https://www.catalogueoflife.org/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (taxonomic checklist)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "hercules beetle",
+      "dynastes hercules",
+      "rhinoceros beetle",
+      "beetle",
+      "insect",
+      "rainforest",
+      "horn",
+      "scarab",
+      "strongest insect"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "pinch"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kumbang Hercules",
+      "kicker": "Serangga · Keluarga kumbang tanduk",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "5–17 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "30–100 g"
+        },
+        {
+          "label": "Usia",
+          "value": "1–2 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "50–100 butir"
+        }
+      ],
+      "habitat": "Hutan hujan pegunungan dan dataran rendah yang lembap dari Meksiko selatan hingga Bolivia dan Brasil.",
+      "diet": "Kayu lapuk saat menjadi larva; buah tropis matang yang jatuh dan getah pohon saat dewasa.",
+      "facts": [
+        "Pejantan memiliki tanduk dada raksasa lebih panjang dari tubuhnya yang dipakai seperti capit untuk melempar lawan dari dahan.",
+        "Penutup sayapnya dapat berubah warna dari hijau-kuning zaitun di udara kering menjadi hitam saat kelembapan tinggi."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

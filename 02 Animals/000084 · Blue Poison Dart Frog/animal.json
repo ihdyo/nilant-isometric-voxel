@@ -1,0 +1,207 @@
+{
+  "code": "000084",
+  "common": "Blue Poison Dart Frog",
+  "scientific": "Dendrobates tinctorius azureus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#155DFC",
+      "limbs": "#432DD7",
+      "spot": "#171717",
+      "belly": "#00BCFF",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#B7D8FB",
+    "background_name": "soft periwinkle",
+    "background_oklch": [
+      0.87,
+      0.06,
+      250.0
+    ],
+    "accent": null,
+    "why": "A cool rainforest-mist periwinkle blue that harmonizes with the cobalt body while letting the black spots read crisply.",
+    "size": {
+      "real_m": 0.045,
+      "measure": "snout-to-vent length 3–4.5 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Amphibian · Poison dart frog family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Anura",
+      "family": "Dendrobatidae",
+      "genus": "Dendrobates",
+      "species": "D. tinctorius azureus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2023",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "3–4.5 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3–8 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "4–6 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "5–10 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Isolated forest islands surrounded by the Sipaliwini savanna in southern Suriname.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Ants, mites, termites, beetles, and tiny flies on the moist forest floor.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its electric-blue skin and dark spots act as warning coloration, and each frog's spot pattern is unique like a fingerprint.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Acquires its skin toxins from eating wild ants and mites; captive frogs fed fruit flies become completely harmless.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Dendrobates tinctorius azureus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Dendrobates_tinctorius/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Dendrobates tinctorius azureus. The IUCN Red List of Threatened Species (2023 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2023-1.RLTS.T55204A184642120.en",
+      "doi": "10.2305/IUCN.UK.2023-1.RLTS.T55204A184642120.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "blue poison dart frog",
+      "poison dart frog",
+      "dendrobates tinctorius",
+      "amphibian",
+      "frog",
+      "suriname",
+      "rainforest",
+      "warning color",
+      "tropical"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "hop",
+      "croak"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Katak Panah Biru",
+      "kicker": "Amfibi · Keluarga katak panah beracun",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "3–4,5 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "3–8 g"
+        },
+        {
+          "label": "Usia",
+          "value": "4–6 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "5–10 butir"
+        }
+      ],
+      "habitat": "Kantong hutan terisolasi yang dikelilingi sabana Sipaliwini di Suriname bagian selatan.",
+      "diet": "Semut, tungau, rayap, kumbang, dan lalat kecil di lantai hutan yang lembap.",
+      "facts": [
+        "Kulit biru elektrik dengan bintik hitam menjadi tanda peringatan bahaya, dan pola bintik tiap katak unik seperti sidik jari.",
+        "Racun kulitnya berasal dari semut dan tungau liar yang dimakannya; katak peliharaan tidak beracun."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

@@ -1,32 +1,45 @@
 """Voxel Fauna · colour maths shared by the Blender engine and the command line (plain Python, no bpy).
 
-A colour is a Tailwind v4 token ("teal-200", "white", "black") or a hex code ("#9FD8CC"). The owner lifted the
-tokens-only rule on 2026-11-16 ("for this project, break from tailwind coloring token"); tokens remain the starting
-point and are still used for every palette that has no reason to leave them.
+Every colour is a hex code "#RRGGBB" (owner 2026-11-21: "remove the tailwind color palette completely"; the tokens
+were converted to their exact hex values, so nothing renders differently). A card colour drawn from an animal's
+background is written "#RRGGBB-700": the background's hue at a shade of the collection's own OKLCH ramp (RAMP below),
+the way a Tailwind family was used before.
 
     hex_of(c)      "RRGGBB" (no #)              srgb(c)   (r, g, b) in 0..1
     oklch(c)       (L 0..1, C, h degrees)        mute(c, k) the same lightness and hue, chroma x k, as "#RRGGBB"
     pastel(c, max_chroma, (lo, hi))   the hue kept, chroma capped, lightness held in the band: vivid but calm
+    background(hue, lightness, chroma)  an animal's background: the collection's one chroma at its own hue
+    ramp(base, shade)  the base colour's hue at a shade 50..950 of RAMP ("#RRGGBB-700" resolves through it)
 """
-import json
 import math
-import os
 import re
 
-HERE = os.path.dirname(os.path.abspath(__file__))
-ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
-PALETTE = json.load(open(os.path.join(ROOT, "03 Design", "Color", "tailwind-v4-palette.json"), encoding="utf-8"))["colors"]
 HEX = re.compile(r"^#[0-9A-Fa-f]{6}$")
+SHADED = re.compile(r"^(#[0-9A-Fa-f]{6})-([0-9]{2,3})$")
+
+# The collection's own shade ramp (replaces the Tailwind families, 2026-11-21): per shade, the OKLCH lightness and
+# chroma of a colour drawn from a background's hue. Lightness steps like Tailwind v4's; chroma calm (the old family
+# colours were muted by the background's chroma factor, about x 0.6), peaking at 500-700 for the inks and lips.
+RAMP = {50: (0.975, 0.018), 100: (0.95, 0.03), 200: (0.91, 0.045), 300: (0.87, 0.06), 400: (0.78, 0.08),
+        500: (0.68, 0.095), 600: (0.585, 0.1), 700: (0.5, 0.095), 800: (0.42, 0.085), 900: (0.345, 0.07),
+        950: (0.265, 0.055)}
+SHADES = tuple(sorted(RAMP))
+NAMED = {"white": "FFFFFF", "black": "000000"}     # the card system's plain white and black (not animal colours)
 
 
 def is_colour(c):
-    return isinstance(c, str) and (c in PALETTE or c in ("white", "black") or bool(HEX.match(c)))
+    return isinstance(c, str) and bool(HEX.match(c) or SHADED.match(c))
 
 
 def hex_of(c):
     if isinstance(c, str) and HEX.match(c):
         return c[1:].upper()
-    return {"white": "FFFFFF", "black": "000000"}.get(c) or PALETTE[c]["hex"]
+    if c in NAMED:
+        return NAMED[c]
+    m = SHADED.match(c) if isinstance(c, str) else None
+    if m:
+        return ramp(m.group(1), int(m.group(2)))[1:]
+    raise ValueError(f"not a colour: {c!r} (a colour is '#RRGGBB')")
 
 
 def srgb(c):
@@ -103,3 +116,22 @@ def pastel_factor(c, max_chroma):
     """The chroma factor pastel() applies to this colour (1.0 when it is already soft enough)."""
     C = oklch(c)[1]
     return 1.0 if C <= max_chroma else max_chroma / C
+
+
+def background(hue, lightness, chroma):
+    """An animal's background: OKLCH (lightness, chroma, hue) as '#RRGGBB' (vf_standards.BACKGROUND_RULE)."""
+    return from_oklch(lightness, chroma, hue)
+
+
+def ramp(base, shade):
+    """The base colour's hue at one shade of RAMP: '#RRGGBB'. A grey base (chroma under 0.01) keeps a grey ramp."""
+    shade = min(SHADES, key=lambda s: abs(s - int(shade)))
+    L, C, h = oklch(base)
+    Lr, Cr = RAMP[shade]
+    return from_oklch(Lr, Cr if C >= 0.01 else C, h)
+
+
+def nearest_shade(c):
+    """The RAMP shade whose lightness is closest to the colour's."""
+    L = oklch(c)[0]
+    return min(SHADES, key=lambda s: abs(RAMP[s][0] - L))

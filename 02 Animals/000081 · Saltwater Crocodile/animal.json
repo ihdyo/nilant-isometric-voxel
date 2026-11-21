@@ -1,0 +1,207 @@
+{
+  "code": "000081",
+  "common": "Saltwater Crocodile",
+  "scientific": "Crocodylus porosus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "scales": "#474739",
+      "ridge": "#44403B",
+      "belly": "#FEF3C6",
+      "tooth": "#FAFAF9",
+      "iris": "#FFD230",
+      "eye": "#171717"
+    },
+    "background": "#B5E1C4",
+    "background_name": "soft leaf green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      156.1
+    ],
+    "accent": null,
+    "why": "A calm mangrove-leaf green that frames the dark olive armor and pale ivory teeth without muddy contrast.",
+    "size": {
+      "real_m": 5.5,
+      "measure": "total length 4.3–5.2 m in adult males, up to 6+ m (largest living reptile)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Reptile · Crocodile family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Crocodilia",
+      "family": "Crocodylidae",
+      "genus": "Crocodylus",
+      "species": "C. porosus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2019",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "3–6 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "200–1,000 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "70+ yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "40–60 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Brackish estuaries, mangrove swamps, coastal rivers, and open seas from eastern India through Southeast Asia to northern Australia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Fish, crabs, turtles, birds, wild boars, and large mammals ambushed at the water's edge.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Delivers the strongest measured bite force of any living animal, exceeding 16,000 newtons.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Special salt glands on its tongue excrete excess salt, allowing it to travel hundreds of kilometres across open ocean.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Crocodylus porosus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Crocodylus_porosus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Crocodylus porosus. The IUCN Red List of Threatened Species (2019 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2021-2.RLTS.T5668A3047556.en",
+      "doi": "10.2305/IUCN.UK.2021-2.RLTS.T5668A3047556.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "saltwater crocodile",
+      "crocodylus porosus",
+      "crocodile",
+      "alligator",
+      "reptile",
+      "estuary",
+      "mangrove",
+      "predator",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "snap"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Buaya Muara",
+      "kicker": "Reptil · Keluarga buaya",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "3–6 m"
+        },
+        {
+          "label": "Berat",
+          "value": "200–1.000 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "70+ tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "40–60 butir"
+        }
+      ],
+      "habitat": "Muara payau, hutan bakau, sungai pesisir, dan laut lepas dari India timur, Asia Tenggara, hingga Australia utara.",
+      "diet": "Ikan, kepiting, penyu, burung, babi hutan, dan mamalia besar yang disergap di tepi air.",
+      "facts": [
+        "Memiliki kekuatan gigitan terkuat di antara semua hewan yang hidup saat ini, melampaui 16.000 newton.",
+        "Kelenjar garam khusus di lidahnya membuang kelebihan garam sehingga mampu berenang ratusan kilometer di laut lepas."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

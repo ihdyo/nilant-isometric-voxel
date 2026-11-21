@@ -1,0 +1,204 @@
+{
+  "code": "000075",
+  "common": "Ruby-throated Hummingbird",
+  "scientific": "Archilochus colubris",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "back": "#009966",
+      "throat": "#EC003F",
+      "belly": "#F5F5F4",
+      "beak": "#171717",
+      "eye": "#171717"
+    },
+    "background": "#F2C5DE",
+    "background_name": "soft orchid",
+    "background_oklch": [
+      0.87,
+      0.06,
+      344.0
+    ],
+    "accent": null,
+    "why": "A soft nectar-blossom pink that echoes the trumpet flowers it hovers beside and highlights its ruby throat.",
+    "size": {
+      "real_m": 0.09,
+      "measure": "body length 7–9 cm; wingspan 8–11 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Hummingbird family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Apodiformes",
+      "family": "Trochilidae",
+      "genus": "Archilochus",
+      "species": "A. colubris"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2020",
+      "trend": "increasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "7–9 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingspan",
+        "value": "8–11 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "2–6 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingbeats",
+        "value": "53 per sec",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Woodland edges, meadows, orchards and flower gardens across eastern North America, wintering in Central America.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Flower nectar (eating up to twice its body weight daily) plus tiny spiders, gnats and aphids.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "It beats its wings 53 times per second and is the only bird family able to hover motionless and fly backwards or upside down!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Despite weighing less than a nickel (3 grams), many migrate non-stop 800 km across the open Gulf of Mexico.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Archilochus_colubris",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Archilochus colubris: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Archilochus_colubris/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Archilochus colubris. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Archilochus_colubris",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "ruby-throated hummingbird",
+      "hummingbird",
+      "archilochus colubris",
+      "nectar",
+      "iridescent",
+      "tiny bird",
+      "hover",
+      "wildlife",
+      "bird"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "flier",
+    "actions": [
+      "pose",
+      "idle",
+      "fly"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kolibri Leher Rubi",
+      "kicker": "Burung · Keluarga kolibri",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "7–9 cm"
+        },
+        {
+          "label": "Bentang sayap",
+          "value": "8–11 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "2–6 g"
+        },
+        {
+          "label": "Kepakan",
+          "value": "53 per detik"
+        }
+      ],
+      "habitat": "Tepi hutan, padang bunga, kebun buah, dan taman di Amerika Utara bagian timur, bermigrasi ke Amerika Tengah saat musim dingin.",
+      "diet": "Nektar bunga (memakan hingga dua kali bobot tubuhnya per hari) ditambah laba-laba kecil dan serangga mungil.",
+      "facts": [
+        "Ia mengepakkan sayap 53 kali per detik dan menjadi satu-satunya keluarga burung yang mampu melayang diam serta terbang mundur!",
+        "Meski beratnya hanya sekitar 3 gram, banyak di antaranya bermigrasi nonstop sejauh 800 km melintasi Teluk Meksiko."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

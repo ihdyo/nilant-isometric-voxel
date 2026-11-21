@@ -1,0 +1,47 @@
+{
+ "code": "000001",
+ "rigged": "2026-11-21T16:54:43",
+ "blender": "5.3.0",
+ "still_built": "2026-11-21T16:54:38",
+ "motion_hash": "1a7b96e1a10f3d0f",
+ "rig_engine": "78ec5c9923cbc596",
+ "plan": "walker",
+ "bones": 12,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "walk": 48,
+  "sniff": 48
+ },
+ "blend": "000001 \u00b7 Red Fox \u00b7 Rig.blend",
+ "glb": "000001 \u00b7 Red Fox \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 3.7937742526268794,
+  "box_size": [
+   2.6556419768388153,
+   2.3130458146333694
+  ]
+ },
+ "vertices": 1986,
+ "groups": [
+  "body",
+  "ear_l",
+  "ear_r",
+  "head",
+  "leg_fl",
+  "leg_fr",
+  "leg_hl",
+  "leg_hr",
+  "snout",
+  "tail",
+  "tail_tip"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

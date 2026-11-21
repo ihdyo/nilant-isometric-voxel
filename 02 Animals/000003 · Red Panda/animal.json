@@ -1,0 +1,208 @@
+{
+  "code": "000003",
+  "common": "Red Panda",
+  "scientific": "Ailurus fulgens",
+  "status": "Registered",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "#CA3500",
+      "white": "#FAFAF9",
+      "dark": "#441306",
+      "ring": "#FFB86A",
+      "eye": "#0A0A0A"
+    },
+    "background": "#AFE2CD",
+    "background_name": "moss green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      168
+    ],
+    "accent": null,
+    "why": "Moss on the Himalayan trees it lives in, the complement of its rusty red coat.",
+    "size": {
+      "real_m": 1.0,
+      "measure": "nose to tail tip: head and body 56–63 cm plus tail 37–47 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Red panda family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Ailuridae",
+      "genus": "Ailurus",
+      "species": "A. fulgens"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2015",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "56–63 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Tail",
+        "value": "37–47 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3.7–6.2 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "8–10 yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Cool Himalayan forests with lots of bamboo, 2,200 to 4,800 m up in the mountains.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Mostly bamboo leaves, plus berries, blossoms, bird eggs and tender young leaves.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Plot twist: it isn't a giant panda's cousin. Red pandas have a whole family all to themselves!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "It climbs down trees head first, with a flexible spine and sharp claws.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-front.jpg",
+      "author": "Mathias Appel",
+      "licence": "CC0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Red_Panda_(25193861686).jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ailurus fulgens: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ailurus_fulgens/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Glatston, A., Wei, F., Than Zaw & Sherpa, A. (2015). Ailurus fulgens. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2015-4.RLTS.T714A45195924.en",
+      "doi": "10.2305/IUCN.UK.2015-4.RLTS.T714A45195924.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "red panda",
+      "lesser panda",
+      "himalaya",
+      "firefox",
+      "bamboo",
+      "endangered animal",
+      "cute",
+      "ringed tail"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "16a56cb8c84c11d7/32ac7db9f4f9e675"
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final",
+    "2026-11-17 Registered"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Panda Merah",
+      "kicker": "Mamalia · Keluarga panda merah",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "56–63 cm"
+        },
+        {
+          "label": "Ekor",
+          "value": "37–47 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "3,7–6,2 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "8–10 tahun"
+        }
+      ],
+      "habitat": "Hutan Himalaya yang sejuk dan kaya bambu, 2.200–4.800 m di pegunungan.",
+      "diet": "Kebanyakan daun bambu, plus buah beri, bunga, telur burung, dan daun muda.",
+      "facts": [
+        "Kejutan: ia bukan sepupu panda raksasa. Panda merah punya keluarga sendiri!",
+        "Ia turun dari pohon dengan kepala lebih dulu, berkat tulang punggung lentur dan cakar tajam."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

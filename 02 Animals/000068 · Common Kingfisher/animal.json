@@ -1,0 +1,204 @@
+{
+  "code": "000068",
+  "common": "Common Kingfisher",
+  "scientific": "Alcedo atthis",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "back": "#00B8DB",
+      "belly": "#FF6900",
+      "throat": "#FAFAF9",
+      "beak": "#171717",
+      "foot": "#FB2C36"
+    },
+    "background": "#AAE2D5",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      179.5
+    ],
+    "accent": null,
+    "why": "A tranquil river-bank teal that harmonizes with its dazzling electric-blue back and warm copper belly.",
+    "size": {
+      "real_m": 0.17,
+      "measure": "body length 16–17 cm; wingspan 24–26 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Kingfisher family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Coraciiformes",
+      "family": "Alcedinidae",
+      "genus": "Alcedo",
+      "species": "A. atthis"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2016",
+      "trend": "unknown",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "16–17 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingspan",
+        "value": "24–26 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "34–46 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "6–15 yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Clear, slow-flowing rivers, streams, canals and reed-fringed lakes across Europe, Asia and North Africa.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Minnows, sticklebacks and aquatic insects caught in lightning-fast headfirst plunges.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its dazzling turquoise feathers contain no blue pigment—the colour comes from microscopic nanostructures scattering light!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Its streamlined beak inspired the nose cone of Japan's Shinkansen bullet train to eliminate tunnel sonic booms.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Alcedo_atthis",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Alcedo atthis: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Alcedo_atthis/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Alcedo atthis. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Alcedo_atthis",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "kingfisher",
+      "common kingfisher",
+      "alcedo atthis",
+      "raja udang",
+      "turquoise bird",
+      "river",
+      "shinkansen",
+      "bird",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "flier",
+    "actions": [
+      "pose",
+      "idle",
+      "fly"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Raja Udang Erasia (Common Kingfisher)",
+      "kicker": "Burung · Keluarga raja udang",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "16–17 cm"
+        },
+        {
+          "label": "Bentang sayap",
+          "value": "24–26 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "34–46 g"
+        },
+        {
+          "label": "Usia",
+          "value": "6–15 tahun"
+        }
+      ],
+      "habitat": "Sungai jernih berarus tenang, anak sungai, kanal, dan danau berbuluh di Eropa, Asia, dan Afrika Utara.",
+      "diet": "Ikan kecil dan serangga air yang ditangkap dengan tukikan cepat menembus permukaan air.",
+      "facts": [
+        "Bulu biru kehijauan berkilaunya tidak mengandung pigmen biru—warnanya tercipta dari struktur mikro yang membiaskan cahaya!",
+        "Paruh aerodinamisnya menginspirasi desain moncong kereta cepat Shinkansen Jepang untuk menghilangkan dentuman sonik di terowongan."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

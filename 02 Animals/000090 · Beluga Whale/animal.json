@@ -1,0 +1,205 @@
+{
+  "code": "000090",
+  "common": "Beluga Whale",
+  "scientific": "Delphinapterus leucas",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#FAFAF9",
+      "shade": "#E2E8F0",
+      "lip": "#D6D3D1",
+      "eye": "#171717"
+    },
+    "background": "#AFDBF7",
+    "background_name": "soft sky blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      236.1
+    ],
+    "accent": null,
+    "why": "A crisp pale polar-sky blue that gives clean contrast around the pure snow-white skin.",
+    "size": {
+      "real_m": 4.5,
+      "measure": "total length 3.5–5.5 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Monodontid whale family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Monodontidae",
+      "genus": "Delphinapterus",
+      "species": "D. leucas"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2017",
+      "trend": "unknown",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "3.5–5.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "1–1.5 t",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "35–50 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "14–15 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Arctic and sub-Arctic coastal waters, estuaries, and shallow river mouths.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Salmon, Arctic cod, herring, shrimp, crabs, octopus, and benthic worms.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Nicknamed the 'canary of the sea' for its rich repertoire of chirps, whistles, clicks, and trills.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Unlike most whales, its neck vertebrae are unfused, allowing it to turn its head sideways and nod.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Delphinapterus leucas: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Delphinapterus_leucas/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Delphinapterus leucas. The IUCN Red List of Threatened Species (2017 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T6335A50352346.en",
+      "doi": "10.2305/IUCN.UK.2017-3.RLTS.T6335A50352346.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "beluga whale",
+      "delphinapterus leucas",
+      "beluga",
+      "white whale",
+      "arctic",
+      "marine mammal",
+      "whale",
+      "canary of the sea",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim",
+      "nod"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Paus Beluga",
+      "kicker": "Mamalia · Keluarga paus kutub",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "3,5–5,5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "1–1,5 t"
+        },
+        {
+          "label": "Usia",
+          "value": "35–50 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "14–15 bulan"
+        }
+      ],
+      "habitat": "Perairan pesisir Arktik dan sub-Arktik, muara, serta mulut sungai dangkal.",
+      "diet": "Salmon, kod Arktik, hering, udang, kepiting, gurita, dan cacing dasar laut.",
+      "facts": [
+        "Dijuluki 'kenari lautan' karena kekayaan suaranya mulai dari kicauan, siulan, klik, hingga getaran nada.",
+        "Tidak seperti paus lainnya, tulang lehernya tidak menyatu sehingga kepalanya bisa menoleh dan mengangguk."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

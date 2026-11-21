@@ -1,0 +1,217 @@
+{
+  "code": "000001",
+  "common": "Red Fox",
+  "scientific": "Vulpes vulpes",
+  "status": "Registered",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "#F54900",
+      "white": "#FAFAF9",
+      "dark": "#292524",
+      "eye": "#0A0A0A"
+    },
+    "background": "#A7E1DD",
+    "background_name": "forest-mist teal",
+    "background_oklch": [
+      0.87,
+      0.06,
+      190
+    ],
+    "accent": null,
+    "why": "A misty teal from the woods it hunts in, opposite the fox's rusty orange coat.",
+    "size": {
+      "real_m": 1.1,
+      "measure": "nose to tail tip: head and body 46–90 cm plus tail 30–56 cm, mid-range",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Dog family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Canidae",
+      "genus": "Vulpes",
+      "species": "V. vulpes"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2016",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "46–90 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Tail",
+        "value": "30–56 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3–14 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "~3 yrs wild",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Forests, tundra, deserts, farms and even cities. No wild dog roams more of the planet!",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Mice, voles and rabbits, plus bugs, fruit and leftovers. Up to 1 kg of food a day.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Foxes pounce on mice under snow, and leaps aimed roughly north-east land far more often. A magnetic sense, maybe!",
+        "source": [
+          3
+        ]
+      },
+      {
+        "text": "It has the widest range of any wild dog, from the Arctic Circle to North Africa.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-standing.jpg",
+      "author": "Alexis Lours",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Red_Fox_2025_09_28_05.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Vulpes vulpes: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Vulpes_vulpes/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Hoffmann, M. & Sillero-Zubiri, C. (2016). Vulpes vulpes. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-1.RLTS.T23062A46190249.en",
+      "doi": "10.2305/IUCN.UK.2016-1.RLTS.T23062A46190249.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Červený, J., Begall, S., Koubek, P., Nováková, P. & Burda, H. (2011). Directional preference may enhance hunting accuracy in foraging foxes. Biology Letters 7(3): 355–357",
+      "publisher": "The Royal Society",
+      "url": "https://doi.org/10.1098/rsbl.2010.1145",
+      "doi": "10.1098/rsbl.2010.1145",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "red fox",
+      "fox",
+      "vulpes",
+      "canid",
+      "orange fox",
+      "forest animal",
+      "predator",
+      "woodland"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "1a36e768f217c106/db11742cd08de77b"
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final",
+    "2026-11-17 Registered"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "sniff"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Rubah Merah",
+      "kicker": "Mamalia · Keluarga anjing",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "46–90 cm"
+        },
+        {
+          "label": "Ekor",
+          "value": "30–56 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "3–14 kg"
+        },
+        {
+          "label": "Usia di alam",
+          "value": "~3 tahun"
+        }
+      ],
+      "habitat": "Hutan, tundra, gurun, ladang, bahkan kota. Tak ada anjing liar yang wilayahnya seluas ini!",
+      "diet": "Tikus, tikus ladang, dan kelinci, plus serangga, buah, dan sisa makanan. Hingga 1 kg sehari.",
+      "facts": [
+        "Rubah menerkam tikus di bawah salju, dan lompatan ke arah timur laut jauh lebih sering kena. Mungkin indra magnet!",
+        "Wilayahnya terluas di antara semua anjing liar, dari Lingkar Arktik sampai Afrika Utara."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

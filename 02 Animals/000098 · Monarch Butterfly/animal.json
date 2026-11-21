@@ -1,0 +1,206 @@
+{
+  "code": "000098",
+  "common": "Monarch Butterfly",
+  "scientific": "Danaus plexippus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "wing": "#FF6900",
+      "vein": "#171717",
+      "spot": "#FAFAF9",
+      "body": "#171717",
+      "eye": "#171717"
+    },
+    "background": "#E0D5A8",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.87,
+      0.06,
+      95.9
+    ],
+    "accent": null,
+    "why": "A warm late-summer meadow amber that complements the burnt-orange wings and crisp black-and-white borders.",
+    "size": {
+      "real_m": 0.1,
+      "measure": "wingspan 8.9–10.2 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Insect · Brush-footed butterfly family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Insecta",
+      "order": "Lepidoptera",
+      "family": "Nymphalidae",
+      "genus": "Danaus",
+      "species": "D. plexippus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2023",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Wingspan",
+        "value": "9–10 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "0.5 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "2–9 months",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Eggs",
+        "value": "300–500",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open meadows, prairies, and overwintering oyamel fir forests across North America.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Milkweed leaves as caterpillars; flower nectar from asters, goldenrod, and milkweed as adults.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Completes an epic multi-generational migration of up to 4,800 km between Canada and central Mexico.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Caterpillars store bitter cardiac glycosides from milkweed plants, making adult butterflies toxic to birds.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Danaus plexippus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Danaus_plexippus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Danaus plexippus. The IUCN Red List of Threatened Species (2023 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2023-2.RLTS.T159971A245238282.en",
+      "doi": "10.2305/IUCN.UK.2023-2.RLTS.T159971A245238282.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "monarch butterfly",
+      "danaus plexippus",
+      "butterfly",
+      "monarch",
+      "migration",
+      "insect",
+      "pollinator",
+      "milkweed",
+      "nature"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "flier",
+    "actions": [
+      "pose",
+      "idle",
+      "flutter",
+      "glide"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kupu-kupu Raja / Monarch",
+      "kicker": "Serangga · Keluarga kupu-kupu berkaki sikat",
+      "stats": [
+        {
+          "label": "Bentang sayap",
+          "value": "9–10 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "0,5 g"
+        },
+        {
+          "label": "Usia",
+          "value": "2–9 bulan"
+        },
+        {
+          "label": "Telur",
+          "value": "300–500 butir"
+        }
+      ],
+      "habitat": "Padang rumput terbuka dan hutan cemara oyamel tempat berlindung musim dingin di Amerika Utara.",
+      "diet": "Daun milkweed saat menjadi ulat; nektar bunga aster, goldenrod, dan milkweed saat dewasa.",
+      "facts": [
+        "Menempuh migrasi epik lintas generasi sejauh hingga 4.800 km antara Kanada dan Meksiko tengah.",
+        "Ulatnya menyimpan racun glikosida jantung dari tanaman milkweed sehingga kupu-kupu dewasa beracun bagi burung."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

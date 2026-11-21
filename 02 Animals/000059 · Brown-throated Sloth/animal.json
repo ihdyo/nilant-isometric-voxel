@@ -1,0 +1,204 @@
+{
+  "code": "000059",
+  "common": "Brown-throated Sloth",
+  "scientific": "Bradypus variegatus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#79716B",
+      "face": "#FEF3C6",
+      "stripe": "#292524",
+      "claw": "#E7E5E4",
+      "eye": "#171717"
+    },
+    "background": "#B5E1C4",
+    "background_name": "soft leaf green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      156.1
+    ],
+    "accent": null,
+    "why": "A lush rainforest-canopy green that echoes the mossy foliage where it hangs in slow motion.",
+    "size": {
+      "real_m": 0.65,
+      "measure": "head-and-body length, 42–80 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Three-toed sloth family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Pilosa",
+      "family": "Bradypodidae",
+      "genus": "Bradypus",
+      "species": "B. variegatus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2014",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "42–80 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "2.3–6.3 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "20–30 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Top speed",
+        "value": "0.24 km/h",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Tropical rainforest canopies across Central and South America.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Young Cecropia leaves, buds and tender shoots—digested slowly over weeks in a four-chambered stomach.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Algae grow in grooves along its fur, giving it green rainforest camouflage—and hosting a mini ecosystem of moths!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Extra neck vertebrae let it turn its head nearly 270 degrees while hanging upside down.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Bradypus_variegatus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Bradypus variegatus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Bradypus_variegatus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Bradypus variegatus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Bradypus_variegatus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "sloth",
+      "brown-throated sloth",
+      "bradypus variegatus",
+      "three-toed sloth",
+      "rainforest",
+      "amazon",
+      "cute",
+      "arboreal",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kungkang Leher Cokelat",
+      "kicker": "Mamalia · Keluarga kungkang",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "42–80 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "2,3–6,3 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "20–30 tahun"
+        },
+        {
+          "label": "Kecepatan",
+          "value": "0,24 km/jam"
+        }
+      ],
+      "habitat": "Kanopi hutan hujan tropis di Amerika Tengah dan Amerika Selatan.",
+      "diet": "Daun muda Cecropia, kuncup, dan pucuk lembut—dicerna perlahan selama berminggu-minggu di lambung empat ruang.",
+      "facts": [
+        "Alga tumbuh di alur bulunya, memberinya kamuflase hijau hutan hujan—sekaligus rumah bagi ekosistem ngengat mini!",
+        "Ruas tulang leher ekstra memungkinkannya memutar kepala hampir 270 derajat saat bergelantungan."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

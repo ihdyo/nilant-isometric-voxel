@@ -1,0 +1,206 @@
+{
+  "code": "000093",
+  "common": "Great White Shark",
+  "scientific": "Carcharodon carcharias",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "back": "#62748E",
+      "belly": "#FAFAF9",
+      "gill": "#314158",
+      "tooth": "#F5F5F4",
+      "eye": "#171717"
+    },
+    "background": "#B7D8FB",
+    "background_name": "soft periwinkle",
+    "background_oklch": [
+      0.87,
+      0.06,
+      250.0
+    ],
+    "accent": null,
+    "why": "A crisp deep-ocean blue that highlights the classic countershaded slate-grey back and bright white underbelly.",
+    "size": {
+      "real_m": 5.0,
+      "measure": "total length 4–6 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Cartilaginous fish · Mackerel shark family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Chondrichthyes",
+      "order": "Lamniformes",
+      "family": "Lamnidae",
+      "genus": "Carcharodon",
+      "species": "C. carcharias"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2018",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "4–6 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "680–1,100 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "70+ yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Gestation",
+        "value": "11–18 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Temperate and subtropical coastal and offshore waters worldwide, especially off California, South Africa, and southern Australia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Fish and rays as juveniles; seals, sea lions, dolphins, and whale carrion as large adults.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Electroreceptors in its snout (ampullae of Lorenzini) detect tiny electrical pulses from a prey's heartbeat.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Keeps its swimming muscles warmer than surrounding cold ocean water, enabling explosive breaches above the surface.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Carcharodon carcharias: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Carcharodon_carcharias/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Carcharodon carcharias. The IUCN Red List of Threatened Species (2018 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2019-3.RLTS.T3855A2878674.en",
+      "doi": "10.2305/IUCN.UK.2019-3.RLTS.T3855A2878674.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "great white shark",
+      "carcharodon carcharias",
+      "shark",
+      "white shark",
+      "ocean",
+      "apex predator",
+      "marine life",
+      "dorsal fin",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim",
+      "bite"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Hiu Putih Besar",
+      "kicker": "Ikan bertulang rawan · Keluarga hiu makarel",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "4–6 m"
+        },
+        {
+          "label": "Berat",
+          "value": "680–1.100 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "70+ tahun"
+        },
+        {
+          "label": "Mengandung",
+          "value": "11–18 bulan"
+        }
+      ],
+      "habitat": "Perairan pesisir dan lepas pantai beriklim sedang serta subtropis di seluruh dunia.",
+      "diet": "Ikan dan pari saat muda; anjing laut, singa laut, lumba-lumba, dan bangkai paus saat dewasa.",
+      "facts": [
+        "Elektroreseptor di moncongnya (ampullae of Lorenzini) mendeteksi sinyal listrik lemah dari detak jantung mangsa.",
+        "Menjaga suhu otot renangnya lebih hangat dari air laut dingin sehingga mampu melompat tinggi ke udara."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

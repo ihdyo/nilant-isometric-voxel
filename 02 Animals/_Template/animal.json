@@ -6,14 +6,20 @@
   "facing": "+X",
   "look": {
     "palette": {
-      "main": "stone-400",
-      "light": "stone-100",
-      "dark": "stone-800",
-      "eye": "neutral-950"
+      "main": "#A6A09B",
+      "light": "#F5F5F4",
+      "dark": "#292524",
+      "eye": "#0A0A0A"
     },
-    "background": "sky-200",
+    "background": "#ACDCF5",
+    "background_name": "sky blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      230.0
+    ],
     "accent": null,
-    "why": "Why this background complements the species (hue opposite the main coat colour, soft shade).",
+    "why": "Why this background suits the species: its habitat's colour, or the complement of its main coat colour (one chroma for every animal, the hue is the choice).",
     "size": {
       "real_m": null,
       "measure": "the real longest dimension: nose to tail tip, or height for upright and long-necked species",

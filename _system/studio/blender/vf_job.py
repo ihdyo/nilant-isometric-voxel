@@ -7,7 +7,7 @@ job.json (written by scripts/vf.py, never by hand), one of:
              "readme": "...", "renders": [...]}                     model.py -> scenes -> saved .blend (+ optional renders)
     render  {"open": ".../<code> · <Name>.blend", "renders": [...]}
                                                    renders straight from the built .blend (render.bat, final)
-    renders: [{"scene": "ILL 1x1", "profile": "LOW", "out": ".../VF-26-001-ILL-1x1.png"}, ...]
+    renders: [{"scene": "ILL 1x1", "profile": "LOW", "out": ".../VF-000001-ILL-1x1.png"}, ...]
 plus "work" (a temp folder for the passes) and "result" (where this run reports). The result lists the model report,
 the framing, every render's timing and any error, so the caller can say what broke.
 """

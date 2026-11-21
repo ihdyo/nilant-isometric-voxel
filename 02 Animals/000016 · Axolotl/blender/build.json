@@ -1,0 +1,96 @@
+{
+ "code": "000016",
+ "built": "2026-11-21T16:56:27",
+ "blender": "5.3.0",
+ "model_hash": "39953d20c5418409",
+ "look_hash": "8f4e0e8769e114cd",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "posed size 18.5 x 14.8 x 7.0 voxels (L x W x H), 342 voxels, colours belly, eye, gill, skin, parts body, gill_l, gill_r, head, leg_fl, leg_fr, leg_hl, leg_hr, tail, tail_tip; turned gill_l, gill_r, head, leg_fl, leg_fr, leg_hl, leg_hr, tail, tail_tip"
+  ],
+  "size": [
+   17,
+   13,
+   7
+  ],
+  "voxels": 342
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 2.4241252281600496,
+   "view": [
+    2.4241252281600496,
+    2.4241252281600496
+   ],
+   "box_size": [
+    1.6968876597120346,
+    1.0987140487413853
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 3.678889235148043,
+   "view": [
+    2.069375194770774,
+    3.678889235148043
+   ],
+   "box_size": [
+    1.6968876597120346,
+    1.0987140487413853
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 2.8724550293892426,
+   "view": [
+    2.8724550293892426,
+    1.615755954031449
+   ],
+   "box_size": [
+    1.6968876597120346,
+    1.0987140487413853
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 2.997037776163081,
+   "view": [
+    2.997037776163081,
+    2.997037776163081
+   ],
+   "box_size": [
+    1.6968876597120346,
+    1.0987140487413853
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 5.439396272667499,
+   "view": [
+    3.059660403375468,
+    5.439396272667499
+   ],
+   "box_size": [
+    1.6968876597120346,
+    1.0987140487413853
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 4.098762463072547,
+   "view": [
+    4.098762463072547,
+    2.3055538854783078
+   ],
+   "box_size": [
+    1.6968876597120346,
+    1.0987140487413853
+   ]
+  }
+ },
+ "renders": {}
+}

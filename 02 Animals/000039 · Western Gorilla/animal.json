@@ -1,0 +1,217 @@
+{
+  "code": "000039",
+  "common": "Western Gorilla",
+  "scientific": "Gorilla gorilla",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#171717",
+      "silver": "#D6D3D1",
+      "skin": "#292524",
+      "chest": "#44403B",
+      "white": "#FAFAF9",
+      "eye": "#7B3306"
+    },
+    "background": "#B0E1CA",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      164.3
+    ],
+    "accent": null,
+    "why": "A rich Congo-basin forest emerald green that frames the charcoal-black coat and silverback saddle.",
+    "size": {
+      "real_m": 1.7,
+      "measure": "standing height about 1.6–1.75 m for an adult silverback (1.4–1.8 m per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Great ape family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Primates",
+      "family": "Hominidae",
+      "genus": "Gorilla",
+      "species": "G. gorilla"
+    },
+    "conservation": {
+      "code": "CR",
+      "status": "Critically Endangered",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Height",
+        "value": "1.4–1.8 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "70–200 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "35–40 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "255 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Lowland tropical rainforests and swamp forests across Central Africa.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Leaves, stems, shoots, pith, wild fruits, bamboo and termites—consuming up to 18 kg of vegetation daily.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The largest living primate; adult males develop a saddle of silver-white hair across their backs around age 12.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "A silverback's chest-beat echoes over 1 km through dense jungle and honestly signals his body size to rivals.",
+        "source": [
+          3
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Charles J. Sharp",
+      "licence": "CC BY 4.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Western_lowland_gorilla_(Gorilla_gorilla_gorilla)_male_2.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Gorilla gorilla: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Gorilla_gorilla/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Maisels, F., Bergl, R.A. & Williamson, E.A. (2018). Gorilla gorilla (amended version of 2016 assessment). The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2018-2.RLTS.T9404A136250858.en",
+      "doi": "10.2305/IUCN.UK.2018-2.RLTS.T9404A136250858.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Wright, E., Graw, B., Mbea, E., Futro, A., Manser, M.B. & Robbins, M.M. (2021). Chest beats as an honest signal of body size in male mountain gorillas (Gorilla beringei beringei). Scientific Reports 11: 6879",
+      "publisher": "Springer Nature",
+      "url": "https://doi.org/10.1038/s41598-021-86261-8",
+      "doi": "10.1038/s41598-021-86261-8",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "western gorilla",
+      "gorilla gorilla",
+      "silverback",
+      "great ape",
+      "congo rainforest",
+      "african wildlife",
+      "critically endangered",
+      "primate",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 036-050); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "ape_knuckle",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "chest_beat"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Gorila Barat",
+      "kicker": "Mamalia · Keluarga kera besar",
+      "stats": [
+        {
+          "label": "Tinggi",
+          "value": "1,4–1,8 m"
+        },
+        {
+          "label": "Berat",
+          "value": "70–200 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "35–40 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "255 hari"
+        }
+      ],
+      "habitat": "Hutan hujan tropis dataran rendah dan hutan rawa di Afrika bagian tengah.",
+      "diet": "Daun, batang, tunas, empulur, buah-buahan liar, bambu, dan rayap—memakan hingga 18 kg tumbuhan setiap hari.",
+      "facts": [
+        "Primata terbesar yang masih hidup; jantan dewasa menumbuhkan bulu perak di punggungnya (silverback) sekitar usia 12 tahun.",
+        "Tepukan dada pejantan silverback menggema lebih dari 1 km menembus hutan lebat sebagai sinyal ukuran tubuhnya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

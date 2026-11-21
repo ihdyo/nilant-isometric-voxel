@@ -1,0 +1,50 @@
+{
+ "code": "000010",
+ "rigged": "2026-11-21T16:55:46",
+ "blender": "5.3.0",
+ "still_built": "2026-11-21T16:55:41",
+ "motion_hash": "7ec342fb1a59d17a",
+ "rig_engine": "78ec5c9923cbc596",
+ "plan": "walker",
+ "bones": 15,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "walk": 48,
+  "reach": 48
+ },
+ "blend": "000010 \u00b7 Giraffe \u00b7 Rig.blend",
+ "glb": "000010 \u00b7 Giraffe \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 7.128369307943753,
+  "box_size": [
+   2.9406241082656948,
+   4.989858515560627
+  ]
+ },
+ "vertices": 2940,
+ "groups": [
+  "body",
+  "ear_l",
+  "ear_r",
+  "head",
+  "leg_fl",
+  "leg_fr",
+  "leg_hl",
+  "leg_hr",
+  "neck",
+  "shin_fl",
+  "shin_fr",
+  "shin_hl",
+  "shin_hr",
+  "tail"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

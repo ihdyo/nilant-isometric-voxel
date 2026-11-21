@@ -1,0 +1,98 @@
+{
+ "code": "000010",
+ "built": "2026-11-21T16:55:41",
+ "blender": "5.3.0",
+ "model_hash": "f093f4f00a282fe6",
+ "look_hash": "2023225356010ff9",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "the pose moves the lowest point to z = +0.04: the engine sets the animal back on the ground",
+   "220 voxels are not mirrored across y = 0 (fine for a pose or a marking; check it is meant)",
+   "posed size 32.6 x 10.3 x 54.8 voxels (L x W x H), 3212 voxels, colours base, dark, eye, mane, patch, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, neck, shin_fl, shin_fr, shin_hl, shin_hr, tail; turned ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, neck, shin_fl, shin_hl, tail"
+  ],
+  "size": [
+   25,
+   9,
+   55
+  ],
+  "voxels": 3212
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 6.719334529978889,
+   "view": [
+    6.719334529978889,
+    6.719334529978889
+   ],
+   "box_size": [
+    2.6352831471408535,
+    4.703534170985222
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 5.736017281689295,
+   "view": [
+    3.2265097209502285,
+    5.736017281689295
+   ],
+   "box_size": [
+    2.6352831471408535,
+    4.703534170985222
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 12.296821362052867,
+   "view": [
+    12.296821362052867,
+    6.916962016154738
+   ],
+   "box_size": [
+    2.6352831471408535,
+    4.703534170985222
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 12.830153221454509,
+   "view": [
+    12.830153221454509,
+    12.830153221454509
+   ],
+   "box_size": [
+    2.6352831471408535,
+    4.703534170985222
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 19.24522983218176,
+   "view": [
+    10.82544178060224,
+    19.24522983218176
+   ],
+   "box_size": [
+    2.6352831471408535,
+    4.703534170985222
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 10.679231834222158,
+   "view": [
+    10.679231834222158,
+    6.007067906749964
+   ],
+   "box_size": [
+    2.6352831471408535,
+    4.703534170985222
+   ]
+  }
+ },
+ "renders": {}
+}

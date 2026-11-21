@@ -1,0 +1,219 @@
+{
+  "code": "000049",
+  "common": "Alpaca",
+  "scientific": "Vicugna pacos",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fleece": "#FAFAF9",
+      "shade": "#FEF3C6",
+      "face": "#FEE685",
+      "nose": "#44403B",
+      "white": "#FAFAF9",
+      "eye": "#1C1917"
+    },
+    "background": "#F1C5E0",
+    "background_name": "soft orchid",
+    "background_oklch": [
+      0.87,
+      0.06,
+      341.6
+    ],
+    "accent": null,
+    "why": "A soft pastel blossom pink that accentuates the cloud-like fluffy cream fleece and gentle round face.",
+    "size": {
+      "real_m": 1.45,
+      "measure": "standing height at head about 1.4–1.5 m (body 1.2–1.5 m plus 15–20 cm tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Camel family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Camelidae",
+      "genus": "Vicugna",
+      "species": "V. pacos"
+    },
+    "conservation": {
+      "code": "DOM",
+      "status": "Domesticated",
+      "assessed": "2026",
+      "trend": "stable",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Shoulder",
+        "value": "81–99 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "55–85 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "335–345 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "High-altitude Andean wetlands (bofedales) and puna grasslands at 3,500–5,000 m in Peru, Bolivia, Chile and Ecuador.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Tender highland grasses, sedges, hay and leaves clipped gently without uprooting pasture plants.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Bred for over 5,000 years from the wild vicuña specifically for its luxuriously soft, hypoallergenic fleece—not as a pack animal.",
+        "source": [
+          1,
+          2
+        ]
+      },
+      {
+        "text": "Unlike the llama's long banana-shaped ears, alpacas have shorter, straight spear-shaped ears and a fluffy wool topknot.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Mathias Appel",
+      "licence": "CC0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Alpaca_(30893280702).jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Vicugna pacos: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Vicugna_pacos/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Kadwell, M., Fernandez, M., Stanley, H.F., Baldi, R., Wheeler, J.C., Rosadio, R. & Bruford, M.W. (2001). Genetic analysis reveals the wild ancestors of the llama and the alpaca. Proceedings of the Royal Society B 268: 2575–2584",
+      "publisher": "The Royal Society",
+      "url": "https://doi.org/10.1098/rspb.2001.1774",
+      "doi": "10.1098/rspb.2001.1774",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    },
+    {
+      "id": 3,
+      "title": "Wheeler, J.C. (1995). Evolution and present situation of the South American Camelidae. Biological Journal of the Linnean Society 54: 271–295",
+      "publisher": "Oxford University Press",
+      "url": "https://doi.org/10.1111/j.1095-8312.1995.tb01037.x",
+      "doi": "10.1111/j.1095-8312.1995.tb01037.x",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "alpaca",
+      "vicugna pacos",
+      "fluffy alpaca",
+      "andes",
+      "fleece",
+      "peru",
+      "cute animal",
+      "camelid",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 036-050); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "hop"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Alpaka",
+      "kicker": "Mamalia · Keluarga unta",
+      "stats": [
+        {
+          "label": "Bahu",
+          "value": "81–99 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "55–85 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–20 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "335–345 hari"
+        }
+      ],
+      "habitat": "Lahan basah dataran tinggi Andes (bofedales) dan padang rumput puna pada ketinggian 3.500–5.000 m.",
+      "diet": "Rumput dataran tinggi yang lembut, teki, jerami, dan dedaunan yang dipotong tanpa mencabut akarnya.",
+      "facts": [
+        "Dibiakkan lebih dari 5.000 tahun lalu dari vikuna liar khusus untuk diambil bulu wolnya yang sangat lembut—bukan sebagai hewan pengangkut beban.",
+        "Berbeda dengan telinga llama yang melengkung panjang seperti pisang, alpaka bertelinga lurus pendek dan berjambul bulu lebat."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "code": "000064",
+  "common": "Bald Eagle",
+  "scientific": "Haliaeetus leucocephalus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "plumage": "#292524",
+      "head": "#FAFAF9",
+      "beak": "#FFB900",
+      "iris": "#FFF085",
+      "eye": "#171717"
+    },
+    "background": "#ACDDF4",
+    "background_name": "soft sky blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      228.3
+    ],
+    "accent": null,
+    "why": "A crisp high-altitude sky blue that showcases its snow-white head, dark-chocolate wings and golden beak.",
+    "size": {
+      "real_m": 0.9,
+      "measure": "body length 70–102 cm; wingspan 1.8–2.3 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Hawk & eagle family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Accipitriformes",
+      "family": "Accipitridae",
+      "genus": "Haliaeetus",
+      "species": "H. leucocephalus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2024",
+      "trend": "increasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "70–102 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingspan",
+        "value": "1.8–2.3 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3–6.3 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "20–30 yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Coasts, rivers, large lakes and reservoirs bordered by tall old-growth trees across North America.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Fish (especially salmon, trout and catfish) snatched from the water surface, plus waterfowl and carrion.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "They build the largest tree nests of any bird—up to 4 metres deep and weighing over a metric tonne!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Juveniles have mottled brown heads and don't develop their iconic white head and tail until around age five.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Haliaeetus_leucocephalus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Haliaeetus leucocephalus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Haliaeetus_leucocephalus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Haliaeetus leucocephalus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Haliaeetus_leucocephalus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "bald eagle",
+      "eagle",
+      "haliaeetus leucocephalus",
+      "bird of prey",
+      "raptor",
+      "north america",
+      "wings",
+      "wildlife",
+      "bird"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "flier",
+    "actions": [
+      "pose",
+      "idle",
+      "fly"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Elang Botak (Bald Eagle)",
+      "kicker": "Burung · Keluarga elang",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "70–102 cm"
+        },
+        {
+          "label": "Bentang sayap",
+          "value": "1,8–2,3 m"
+        },
+        {
+          "label": "Berat",
+          "value": "3–6,3 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "20–30 tahun"
+        }
+      ],
+      "habitat": "Pesisir, sungai, danau besar, dan waduk yang dikelilingi pohon-pohon tinggi di Amerika Utara.",
+      "diet": "Ikan (terutama salmon, trout, dan lele) yang disambar dari permukaan air, serta burung air.",
+      "facts": [
+        "Mereka membangun sarang pohon terbesar dari semua burung—hingga kedalaman 4 meter dan berat lebih dari satu ton!",
+        "Elang muda berkepala cokelat tutul dan baru mendapatkan bulu kepala serta ekor putih ikoniknya pada usia sekitar lima tahun."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

@@ -1,0 +1,217 @@
+{
+  "code": "000032",
+  "common": "Arctic Fox",
+  "scientific": "Vulpes lagopus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#FAFAF9",
+      "shade": "#E2E8F0",
+      "nose": "#171717",
+      "pad": "#D6D3D1",
+      "white": "#DFF2FE",
+      "eye": "#FE9A00"
+    },
+    "background": "#A6E0E6",
+    "background_name": "soft teal",
+    "background_oklch": [
+      0.87,
+      0.06,
+      204.1
+    ],
+    "accent": null,
+    "why": "An icy polar-cyan pastel that frames the snow-white winter coat cleanly without washing it out.",
+    "size": {
+      "real_m": 0.85,
+      "measure": "nose to tail tip, about 0.85 m (body 46–68 cm plus 25–35 cm bushy tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Dog family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Canidae",
+      "genus": "Vulpes",
+      "species": "V. lagopus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2014",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Body length",
+        "value": "46–68 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3–8 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "3–6 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "52 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Treeless Arctic tundra, coastal pack ice and alpine fell across North America, Greenland, Iceland and Eurasia.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Lemmings, voles, seabirds, eggs, berries, carrion and leftovers from polar bear kills on sea ice.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its coat changes color with the seasons—pure snow-white in winter and charcoal-brown in summer.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "It can endure temperatures down to −70 °C without shivering thanks to the warmest fur of any mammal.",
+        "source": [
+          3
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Ómar Runólfsson",
+      "licence": "CC BY 2.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Vulpes_lagopus_-_Iceland.jpg",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Vulpes lagopus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Vulpes_lagopus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Angerbjörn, A. & Tannerfeldt, M. (2014). Vulpes lagopus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2014-2.RLTS.T899A57549321.en",
+      "doi": "10.2305/IUCN.UK.2014-2.RLTS.T899A57549321.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Scholander, P.F., Hock, R., Walters, V. & Irving, L. (1950). Adaptation to cold in arctic and tropical mammals and birds in relation to body temperature, insulation, and basal metabolic rate. Biological Bulletin 99: 259–271",
+      "publisher": "Marine Biological Laboratory",
+      "url": "https://doi.org/10.2307/1538742",
+      "doi": "10.2307/1538742",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "arctic fox",
+      "vulpes lagopus",
+      "polar fox",
+      "white fox",
+      "tundra wildlife",
+      "winter animal",
+      "arctic",
+      "fluffy fox",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 026-035); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "quadruped",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "pounce"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Rubah Arktik",
+      "kicker": "Mamalia · Keluarga anjing",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "46–68 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "3–8 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "3–6 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "52 hari"
+        }
+      ],
+      "habitat": "Tundra Arktik tanpa pohon, es laut pesisir, dan pegunungan alpen di Amerika Utara, Greenland, Islandia, dan Eurasia.",
+      "diet": "Lemming, tikus padang, burung laut, telur, buah beri, dan sisa buruan beruang kutub di atas es laut.",
+      "facts": [
+        "Bulunya berubah warna mengikuti musim—putih seputih salju di musim dingin dan cokelat arang di musim panas.",
+        "Mampu bertahan pada suhu hingga −70 °C tanpa menggigil berkat bulu terhangat di antara semua mamalia."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

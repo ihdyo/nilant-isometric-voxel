@@ -1,0 +1,208 @@
+{
+  "code": "000007",
+  "common": "Koala",
+  "scientific": "Phascolarctos cinereus",
+  "status": "Final",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "#A6A09B",
+      "white": "#F5F5F4",
+      "nose": "#292524",
+      "eye": "#0A0A0A",
+      "paw": "#57534D"
+    },
+    "background": "#B9E0C0",
+    "background_name": "eucalyptus sage",
+    "background_oklch": [
+      0.87,
+      0.06,
+      150
+    ],
+    "accent": null,
+    "why": "The grey-green of the eucalyptus leaves it eats and sleeps in.",
+    "size": {
+      "real_m": 0.75,
+      "measure": "head and body 72–78 cm (sitting height with the ears)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Marsupial · Koala family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Diprotodontia",
+      "family": "Phascolarctidae",
+      "genus": "Phascolarctos",
+      "species": "P. cinereus"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "72–78 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "5–12 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Sleep",
+        "value": "18 h a day",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "10+ yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Eucalyptus forests of eastern and south-eastern Australia, mostly below 600 m.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Eucalyptus leaves, about 500 g a day, from just a handful of favourite tree species.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "It naps up to 18 hours a day. A leafy, low-energy diet means lots of rest!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "No sweat glands, no problem: it cools off by licking its arms.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-in-tree.jpg",
+      "author": "Les Anderson",
+      "licence": "CC0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Koala-bear-sunlight_(Unsplash).jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Phascolarctos cinereus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Phascolarctos_cinereus/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Woinarski, J. & Burbidge, A.A. (2016). Phascolarctos cinereus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-1.RLTS.T16892A21960344.en",
+      "doi": "10.2305/IUCN.UK.2016-1.RLTS.T16892A21960344.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "koala",
+      "australia",
+      "marsupial",
+      "eucalyptus",
+      "cute",
+      "sleepy",
+      "grey",
+      "tree animal"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "9e9b8c0ec6a0670c/88e029a8259fe2c3"
+  },
+  "notes": [
+    "Example animal seeded 2026-11-16 (owner: 'generate at least 10 example animals'); facts from ADW, IUCN and cited papers."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "doze"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Koala",
+      "kicker": "Marsupial · Keluarga koala",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "72–78 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "5–12 kg"
+        },
+        {
+          "label": "Tidur",
+          "value": "18 jam/hari"
+        },
+        {
+          "label": "Usia",
+          "value": "10+ tahun"
+        }
+      ],
+      "habitat": "Hutan eukaliptus di Australia timur dan tenggara, kebanyakan di bawah 600 m.",
+      "diet": "Daun eukaliptus, sekitar 500 g sehari, dari segelintir jenis pohon favoritnya.",
+      "facts": [
+        "Ia tidur hingga 18 jam sehari. Makanan daun yang rendah energi butuh banyak istirahat!",
+        "Tak punya kelenjar keringat? Tak masalah: ia mendinginkan diri dengan menjilat lengannya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

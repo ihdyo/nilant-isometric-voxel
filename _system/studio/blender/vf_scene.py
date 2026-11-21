@@ -28,7 +28,7 @@ import vf_color as VC  # noqa: E402
 from vf_voxel import apply as _apply  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(HERE, "..", "..", ".."))
-PALETTE = VC.PALETTE
+
 REPORT = []
 
 CORNERS = ((0, 0, 0), (1, 0, 0), (1, 1, 0), (0, 1, 0), (0, 0, 1), (1, 0, 1), (1, 1, 1), (0, 1, 1))
@@ -41,7 +41,7 @@ def log(line):
 
 
 # ---- colour ---------------------------------------------------------------------------------------------------------
-hex_of = VC.hex_of          # a Tailwind token or "#RRGGBB" (owner 2026-11-16: tokens are no longer required)
+hex_of = VC.hex_of          # "#RRGGBB" (owner 2026-11-21: the Tailwind palette removed)
 srgb = VC.srgb
 
 
@@ -50,9 +50,9 @@ def _lin(c):
 
 
 def background_hex(look):
-    """The colour every open pixel gets: a vivid pastel of the animal's background (vf_standards.BACKGROUND_RULE)."""
-    R = ST.BACKGROUND_RULE
-    return VC.pastel(look["background"], R["max_chroma"], R["lightness"])
+    """The colour every open pixel gets: the animal's background exactly (vf_standards.BACKGROUND_RULE: one chroma for
+    the collection, the hue per animal, already in its pastel band)."""
+    return "#" + VC.hex_of(look["background"])
 
 
 def rgba(token, a=1.0):
@@ -403,15 +403,18 @@ DEPTH_ATTR, BIAS_ATTR, DEPTH_MOD = "vf_depth", "vf_bias", "VF depth"
 
 def stack_level(grid, part):
     """How far (voxels) the part is nudged towards the camera in a loop's animal pass (vf_standards.STACK_LEVELS): a limb
-    (a leg, shin, foot or flipper, or anything hanging from one) not at all, the body (every part without a joint) a
+    (a leg, shin, foot or flipper, a tail, or anything hanging from one) not at all, the body (every part without a joint) a
     hair, every other jointed section well over the body."""
     p, n = part, 0
     while p in grid.joints and n < 16:
-        if p.split("_")[0] in ST.STACK_LIMBS:
-            return ST.STACK_LEVELS["limb"]
+        if p.split("_")[0] in ST.STACK_LIMBS + getattr(ST, "STACK_BEHIND", ()):
+            return ST.STACK_LEVELS["limb"]           # legs and tails: behind the body
         p = grid.joints[p].get("parent")
         n += 1
-    return ST.STACK_LEVELS["body"] if part not in grid.joints else ST.STACK_LEVELS["section"]
+    if part not in grid.joints:
+        return ST.STACK_LEVELS["body"]
+    # a child section sits over its parent section: n jointed sections in the chain = n - 1 levels of nesting
+    return ST.STACK_LEVELS["section"] + ST.STACK_LEVELS.get("nested", 0.0) * max(0, n - 1)
 
 
 def _depth_group():

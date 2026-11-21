@@ -72,7 +72,7 @@ two files; commit to GitHub.
 - **Round 3** (owner: no holes, flat faces, "vivid but pastel", better flamingo feet, five more animals): one voxel
   layer per part; faces painted flat; backgrounds as capped-chroma pastels (the ×0.55 mute greyed soft colours); the
   panda moved to the hex #BFD7A7 (every Tailwind lime/green pastel sat within ΔE 30 of its white fur).
-- **Five more animals** 26-011 to 26-015: ADW accounts; IUCN DOIs found and checked on Crossref (ADW stale for the
+- **Five more animals** 000011 to 000015: ADW accounts; IUCN DOIs found and checked on Crossref (ADW stale for the
   elephant, EN not VU, and the hedgehog, NT since 2024); papers for the fun facts checked on Crossref; 10 photos from
   Commons (licences re-checked at download). "Hippopotamus" did not fit the 16:9 header (type never shrinks), so the
   folder and name are "Hippo".
@@ -122,3 +122,28 @@ two files; commit to GitHub.
 - **Card v5** (owner): `_front` centres the animal's alpha box and scales so the wider half (with the shadow) fits; FRONT.particles count 12, shades 400-600; `_nilant()` places the Nilant logo by `ink_on`. All 25 repackaged at LOW; sheets `02 Animals/Voxel Fauna · Twenty-five examples · cards (EN|ID).jpg`.
 - **Card v5 final** (owner): the Nilant head removed, the wordmark SVG alone (`_nilant()` renders it with PyMuPDF); all 25 repackaged at LOW. **Export package approved and locked** as standards v2.2 + the export package (`vf_export.py`, `package.py` in `LOCKED_FILES`).
 - **Tone + motion v2** (owner): `vf_color.tone()` + `ANIMAL_TONE` in `vf_scene.plastic`; `vf_rig._alive()` on idle, walk (four legs, two legs, sprawl), flap, hop, swim, waddle; `MOTION.cycles`, `MOTION.life`. Reference sheet kept out of git (third-party image) in `_system/cache/reference/`. Before frames in `_system/cache/before-v2/`.
+
+## 2026-11-21 · The owner's list: six-digit codes, hex colours, one-chroma backgrounds, the registry split, model fixes, candid poses, the face layer test (Claude)
+- **Codes:** a one-off script renamed every `26-NNN` folder, file and text mention to `000NNN` (1115 text files, 1512
+  names, the cache included); `vflib.animal_dirs` globs six digits, `next_code` gives `000101`; docs updated.
+- **Colours:** `vf_color` without the Tailwind palette (hex, `"#RRGGBB-700"` ramp shades, `background()`, `ramp()`,
+  `nearest_shade()`); every animal.json palette converted to the exact hex; new backgrounds (the first 25 chosen one by
+  one: habitat or complement; 26–100 keeping their hue) at OKLCH chroma 0.06, lightness 0.87 or lowered for contrast;
+  briefs' palette tables and background lines synced; infographic, package and stock on the ramp and the background
+  name; `vf.py check` on hex and the background rule.
+- **Registry:** `registry.py` rewritten (the Animals sheet with the information; six platform workbooks with Items and
+  Publish Log); `vf.py registry`; `vf.py log` per platform; the old workbook (no typed data) rebuilt.
+- **Engine:** `Grid.anchor()` + the loose-section check, `Grid.decal/eye/brow/mouth`, `face_meta`, decal shift in
+  `scaled()` and `mirror()`; nested stacking in `vf_scene.stack_level`; `vf_rig`: `Pose.loc/scl` keyed for face
+  bones, `_face()` (glances, blinks, brows), `_trunk()`, the walking yawn and the howl lift as `motion.options`, bird
+  feet in hop and flap.
+- **Models:** the fixes and poses (see DECISIONS); briefs' sizes, parts, pose lines and proportion tables refreshed.
+- **Renders:** all 25 rebuilt and previewed at LOW (stills, rig, rig check, loops); before images kept in
+  `_system/cache/before-2026-11-21/`; before/after sheets in `02 Animals/`.
+- **Owner's follow-up:** "undo the expression change for all models. the animal should still see the camera in
+  dynamic pose, otherwise make them look straight forward": the fox's painted face restored as committed; every head
+  turned to the camera (yaw −14 to −16, its neck, mane or torso straight), the penguin, flamingo, toucan, macaw and
+  dolphin straight ahead; briefs, docstrings, skill, key-prompt, CLAUDE.md updated; all 25 rebuilt again.
+- **Owner, again:** "undo everything that face related, to make it look at camera except for the static basic
+  pose": the face-layer code removed from `vf_voxel`, `vf_rig` and `vf_standards`; the birds' and the dolphin's
+  heads turned to the camera too; the life layer centred on the camera (look 7°, bias 0, tilt 5°); all 25 rebuilt.

@@ -1,0 +1,45 @@
+{
+ "code": "000007",
+ "rigged": "2026-11-21T16:55:23",
+ "blender": "5.3.0",
+ "still_built": "2026-11-21T16:55:19",
+ "motion_hash": "b6336c6d995e3f1e",
+ "rig_engine": "78ec5c9923cbc596",
+ "plan": "walker",
+ "bones": 10,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "walk": 48,
+  "doze": 48
+ },
+ "blend": "000007 \u00b7 Koala \u00b7 Rig.blend",
+ "glb": "000007 \u00b7 Koala \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 3.8147101797417795,
+  "box_size": [
+   2.6702971258192454,
+   2.270935446023941
+  ]
+ },
+ "vertices": 2044,
+ "groups": [
+  "body",
+  "ear_l",
+  "ear_r",
+  "head",
+  "leg_fl",
+  "leg_fr",
+  "leg_hl",
+  "leg_hr",
+  "nose"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

@@ -33,6 +33,8 @@ Typical model:
 """
 import math
 
+LIMB_STEMS = ("leg", "shin", "foot", "flipper", "arm", "wing")   # hinged on their parent's face by design
+ANCHOR_REACH = 2.5         # voxels from a section's hinge within which Grid.anchor() sinks it into its parent
 FACES = ((1, 0, 0), (-1, 0, 0), (0, 1, 0), (0, -1, 0), (0, 0, 1), (0, 0, -1))
 CORNERS = ((0, 0, 0), (1, 0, 0), (1, 1, 0), (0, 1, 0), (0, 0, 1), (1, 0, 1), (1, 1, 1), (0, 1, 1))
 
@@ -81,6 +83,7 @@ class Grid:
     def __init__(self):
         self.layers = {}                  # part -> {(x, y, z): colour key}, in the order the parts were started
         self.joints = {}                  # part -> dict(pivot, rotate, parent, scale, scale_pivot)
+        self.anchored = {}                # part -> cells sunk into its parent by anchor()
         self._merged = None
 
     def _put(self, pos, color, part):
@@ -202,6 +205,39 @@ class Grid:
                 m["scale_pivot"] = (j["scale_pivot"][0], 1.0 - j["scale_pivot"][1], j["scale_pivot"][2])
             self.joints[twin] = m
 
+    def anchor(self):
+        """Sink every turning section that only touches its parent one voxel into it (owner 2026-11-21: the
+        flamingo's and zebra's necks "floating", the giraffe's and zebra's tails): the parent's cells against the
+        section join the section's own layer, in the parent's colours, so they are hidden inside the parent (or flush
+        with it, the same colour) while still, and fill the gap when the section turns. Limbs hang from the body's
+        face by design. Called by load_model() after build(), for every animal."""
+        added = {}
+        for part, j in list(self.joints.items()):
+            par = j.get("parent")
+            if (par is None or part not in self.layers or par not in self.layers
+                    or part.split("_")[0] in LIMB_STEMS):
+                continue
+            mine, theirs = self.layers[part], self.layers[par]
+            if set(mine) & set(theirs):
+                continue
+            new = {}
+            pv = j["pivot"]
+            for (x, y, z) in mine:
+                for dx, dy, dz in FACES:
+                    n = (x + dx, y + dy, z + dz)
+                    if n in theirs and n not in mine:
+                        # only near the hinge: the contact face's centre within ANCHOR_REACH of the pivot, so a long
+                        # tail lying against the rump is held at its root, not doubled along its whole length
+                        fc = (x + 0.5 + dx / 2.0, y + 0.5 + dy / 2.0, z + 0.5 + dz / 2.0)
+                        if sum((fc[i] - pv[i]) ** 2 for i in range(3)) <= ANCHOR_REACH ** 2:
+                            new[n] = theirs[n]
+            mine.update(new)
+            if new:
+                added[part] = len(new)
+        self._merged = None
+        self.anchored = added
+        return added
+
     # ---- reading --------------------------------------------------------------------------------------------------
     def bounds(self):
         if not self.v:
@@ -317,6 +353,20 @@ class Grid:
             box = ((min(xs), max(xs) + 1), (min(ys), max(ys) + 1), (min(zs), max(zs) + 1))
             if any(not box[i][0] - 1.5 <= j["pivot"][i] <= box[i][1] + 1.5 for i in range(3)):
                 errors.append(f"joint '{part}': pivot {j['pivot']} is not on the part (its hinge must touch it)")
+        # a turning section must be sunk into its parent (owner 2026-11-21: the flamingo's and the zebra's necks
+        # "floating", the giraffe's and zebra's tails): a section that only touches its parent's face opens a gap as
+        # soon as it turns. Limbs hang from the body's face by design (block-game legs)
+        loose = []
+        for part, j in self.joints.items():
+            par = j.get("parent")
+            stem = part.split("_")[0]
+            if par is None or part not in parts or par not in parts or stem in LIMB_STEMS:
+                continue
+            if not set(self.layers[part]) & set(self.layers[par]):
+                loose.append(f"{part} on {par}")
+        if loose:
+            errors.append(f"section(s) only touching their parent, sink each one voxel into it so it stays attached "
+                          f"when it turns: {', '.join(sorted(loose))}")
         try:
             plo, phi = self.posed_bounds()
         except ValueError as e:
@@ -347,4 +397,5 @@ def load_model(path):
         raise ValueError(f"{path}: no build(g) function")
     g = Grid()
     ns["build"](g)
+    g.anchor()
     return g

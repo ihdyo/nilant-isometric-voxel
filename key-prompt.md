@@ -15,7 +15,7 @@ You are a voxel artist writing code. Read the attached **voxel brief** (`voxel-m
 sharp-edged matte blocks in flat solid colours (a **bulky blocky-mob** look: an animal assembled from a few big
 sections, turned a little at their joints, with its face painted flat on the front of the head, like a mob in a
 block-building game) and renders it from a true-isometric camera in Blender. You only place voxels and joints. Do not
-import Blender, do not set colours as RGB, do not add lights, cameras or anything else.
+import Blender, do not set colours as RGB (the palette's hex colours are named by their keys), do not add lights, cameras or anything else.
 
 **Answer with exactly one fenced ```python code block** containing the whole file, and nothing after it. Before
 the block you may write at most three short lines (for example, what you simplified). No other prose.
@@ -48,7 +48,8 @@ colour name or hex. `part` names the Blender object the voxel lands in.
   part's lower end swings towards +Y (so a left flipper held out from the body is **−**).
 - `ry` pitch: **+ puts a +X end down** (nose down, beak bent down) and a −X end up (a raised tail is **+**); a hanging
   leg's foot goes back with **+** and forward with **−**.
-- `rz` yaw: + turns +X towards +Y (away from the camera); **− turns the face towards the camera**.
+- `rz` yaw: + turns +X towards +Y (away from the camera); **− turns the face towards the camera** (the dynamic
+  pose turns the head to the camera, owner 2026-11-21).
 - Mirrored joints flip `rx` and `rz` (a left ear at `rx=+15` gives a right ear at `rx=−15`: both tip outwards).
 
 ## Orientation (fixed for the whole collection)
@@ -80,7 +81,10 @@ colour name or hex. `part` names the Blender object the voxel lands in.
    Any other name (`paw_fl`, `thigh_l`, `hoof_fl`) fails `vf.py check`: a paw or hoof is the end of its leg or foot,
    not a part of its own.
 6. **Joints:** a pivot touches its part (within a voxel and a half of it); at most **40°** on any axis (subtle,
-   believable turns, not contortions).
+   believable turns, not contortions). A section that turns (head, neck, tail, ear, snout, trunk) should overlap its
+   parent; where it only touches it, the engine sinks it one voxel into the parent near its hinge (`Grid.anchor()`, owner
+   2026-11-21: necks and tails "floating" in the loops), so build necks and tails growing out of the body, not
+   standing on it.
 7. **Symmetry:** build the left side (y ≤ 0) and the centre column, call `g.mirror()` once, then add the asymmetric
    pose joints (one paw lifted, one ear back) and one-sided details.
 
@@ -104,9 +108,17 @@ game's creature.
   legs); tail = one or two blocks; ears = small blocks or plates. A second box only for a real feature (a bear's
   hips, a mane block, a giraffe's shoulder step). **No `ellipsoid`, no stair-stepped curves**: flat faces, sharp
   corners. Exaggerate the brief's features like a toy.
-- **A pose with personality** (the brief's *Personality, pose and expression*): turn the head towards the camera and
-  cock it, splay or perk the ears, raise or curl the tail (two blocks), put the legs in a stride or lift one paw, hold
-  wings or flippers out, stand a bird on one leg. Every animal gets its own pose; keep each turn under 40°.
+- **A lively pose, looking at the camera** (owner, 2026-11-21: "make it more dynamic", then "make it look at camera
+  except for the static basic pose"): the body in motion, a real stride (the diagonal legs 14–22° forward and back,
+  a knee folding) or one paw lifted, the tail raised or curled (two blocks), the ears asymmetric, wings or flippers
+  held out; the head turned to the camera (yaw `rz` about −14; a neck, mane or torso under it stays straight), roll
+  `rx` at most ±5 (never tilted hard), pitch `ry` for the mood (nose down to sniff or stalk, up to look or call).
+  Every animal, birds included; every one gets its own pose; keep each turn under 40°.
+- **Short-legged hoppers** (rabbits, frogs; owner 2026-11-21, after the block-game rabbit): the body is one block;
+  each hind thigh is a slab two voxels wide on the flank, one voxel inside the body and one showing on its side, its
+  hinge inside the body (`leg_hl`); the lower leg and long foot (`shin_hl`) hinge at the knee or heel; a frog's hind
+  leg is two flat boards hinged like a clapperboard. Front legs start beside the chest (on the flank); a frog's arm is
+  one piece (no elbow).
 - **An expression, painted flat on the face** (owner, 2026-11-16: "dont extrude the mouth and eyebrow ... they should
   flat"): eyes, brows and mouths are colours on the front voxels of the head and snout (`g.set` / `g.box` into the
   `head` part), flush with the surface, never plates or blocks standing out:
@@ -138,9 +150,9 @@ def build(g):
         g.box((x, -4, 0), (x + 2, -2, 4), "fur", part=name)
         g.box((x, -4, 0), (x + 2, -2, 0), "dark", part=name)
         g.joint(name, pivot=(x + 1.5, -3, 5), parent="body")
-    # head: a big box on the front of the body, tilted and turned towards the camera
+    # head: a big box on the front of the body, turned to the camera
     g.box((14, -5, 9), (21, 5, 17), "fur", part="head")
-    g.joint("head", pivot=(15, 0.5, 12), rotate=(8, 0, -14), parent="body")
+    g.joint("head", pivot=(15, 0.5, 12), rotate=(4, 4, -14), parent="body")
     # face, painted flat on the front of the head: a light eye with the dark pupil to the inside, a dark brow
     # stepping down towards the middle (a determined look)
     g.box((21, -4, 13), (21, -4, 14), "belly", part="head")
@@ -162,8 +174,8 @@ def build(g):
     g.joint("tail", pivot=(0, 0.5, 11), rotate=(0, 25, 0), parent="body")
     g.mirror()
     # an asymmetric step: the front-left leg forward, the hind-left back (set after the mirror)
-    g.joint("leg_fl", pivot=(11.5, -3, 5), rotate=(0, -12, 0), parent="body")
-    g.joint("leg_hl", pivot=(2.5, -3, 5), rotate=(0, 10, 0), parent="body")
+    g.joint("leg_fl", pivot=(11.5, -3, 5), rotate=(0, -18, 0), parent="body")
+    g.joint("leg_hl", pivot=(2.5, -3, 5), rotate=(0, 14, 0), parent="body")
 ```
 
 ## File format

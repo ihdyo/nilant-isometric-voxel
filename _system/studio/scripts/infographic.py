@@ -10,8 +10,8 @@ lays the cards around it, following vf_standards.INFO_LAYOUTS / INFO_STYLE:
   cards    "Home turf" and "On the menu" on white cards, "Fun fact!" on a full-colour card with white type, each
            heading led by a pixel-art icon badge (house, apple, light bulb)
 
-Every colour is derived from the background's own family (sky-200 -> sky-950 title, sky-700 labels, sky-400 lips,
-sky-700 fun-fact card) and calmed by the same chroma factor as the rendered background (vf_standards.BACKGROUND_RULE), checked for contrast
+Every colour is drawn from the background's own hue on the collection's ramp (vf_color.RAMP: shade 950 title, 700
+labels, background + 200 lips, 700 fun-fact card; written "#RRGGBB-700"), checked for contrast
 (vf_standards.INK_RULE). Type never shrinks: too much text
 raises Overflow naming the field to shorten.
 """
@@ -24,7 +24,7 @@ import vflib as VL
 
 ST = VL.ST
 S = ST.INFO_STYLE
-SHADES = ["50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950"]
+SHADES = [str(x) for x in VL.VC.SHADES]          # the collection ramp (vf_color.RAMP): 50 ... 950
 
 
 class Overflow(ValueError):
@@ -37,43 +37,37 @@ def _text(v):
 
 # ---- colour ---------------------------------------------------------------------------------------------------------
 def _shift(token, steps):
+    """A ramp colour "#RRGGBB-300" moved by steps (+200 -> "#RRGGBB-500")."""
     fam, sh = token.rsplit("-", 1)
     i = min(len(SHADES) - 1, max(0, SHADES.index(sh) + steps // 100 if sh in SHADES else 5))
     return f"{fam}-{SHADES[i]}"
 
 
-_K = [1.0]                  # the chroma factor of the artwork being composed (set by colours())
-
-
 def _mute(c):
-    """A colour drawn from the background's family, calmed by the same chroma factor as the background
-    (vf_standards.BACKGROUND_RULE)."""
-    return c if c in ("white", "black") or _K[0] >= 1.0 else VL.VC.mute(c, _K[0])
+    """Kept for callers: ramp colours are calm by design (vf_color.RAMP), nothing is muted any more."""
+    return c
 
 
 def _token_of(c):
-    """The Tailwind token a background stands for: itself, or for a hex the nearest soft token (its family names
-    the inks and lips)."""
-    if c in VL.PALETTE:
-        return c
-    soft = [t for t in VL.PALETTE if (VL.shade(t) or 0) in (50, 100, 200, 300)]
-    return min(soft, key=lambda t: VL.delta_e(t, c))
+    """The background as a ramp colour: its hex with the ramp shade nearest its own lightness ("#A7E1DD-300"); the
+    hex names the hue every ink and lip is drawn from."""
+    base = "#" + VL.hexcode(c)
+    return f"{base}-{VL.VC.nearest_shade(base)}"
 
 
-def _first(fam, start, on, need, fallback="stone-950"):
+def _first(fam, start, on, need, fallback="#0C0A09"):
     for s in SHADES[SHADES.index(start):]:
         t = f"{fam}-{s}"
-        if t in VL.PALETTE and VL.contrast(_mute(t), on) >= need:
+        if VL.contrast(t, on) >= need:
             return t
     return fallback
 
 
 def colours(look):
-    """Every colour of the artwork: the tokens (checked for contrast after muting) and their RGB. The background and
-    every colour drawn from its family are muted like the rendered background; white cards and type stay white."""
+    """Every colour of the artwork: ramp colours on the background's hue (checked for contrast) and their RGB. The
+    background renders exactly; white cards and type stay white."""
     bg = _token_of(look["background"])
     fam = bg.rsplit("-", 1)[0]
-    _K[0] = VL.background_factor(look)
     R = ST.INK_RULE
     card = S["card"]
     bg_c = VL.background(look)
@@ -92,11 +86,10 @@ def colours(look):
         badge=_shift(bg, S["badge_shades"]) if _shift(bg, S["badge_shades"]) != bg else _shift(bg, 100),
         icon=_first(fam, "600", "white", R["min_label_contrast"]),
     )
-    out = {k: (bg_c if k == "bg" else v if v in ("white", "black") or k == "label" and look.get("accent") else _mute(v))
-           for k, v in t.items()}
+    out = {k: (bg_c if k == "bg" else v) for k, v in t.items()}
     if VL.contrast(out["label"], card) < R["min_label_contrast"]:
         raise ValueError(f"look.accent {t['label']} reads at {VL.contrast(out['label'], card):.1f}:1 on white cards")
-    return {k: VL.rgb(v) for k, v in out.items()}, out
+    return {k: VL.rgb(v) for k, v in out.items()}, {k: ("#" + VL.hexcode(v)) for k, v in out.items()}
 
 
 def status_chip(cons):
@@ -104,7 +97,7 @@ def status_chip(cons):
     if code not in S["status"]:
         return None
     fill = S["status"][code]
-    text = "white" if VL.contrast("white", fill) >= 3.0 else "stone-950"
+    text = "white" if VL.contrast("white", fill) >= 3.0 else "#0C0A09"
     return dict(label=f"IUCN · {S['status_names'][code]}", fill=VL.rgb(fill), text=VL.rgb(text), token=fill)
 
 

@@ -1,0 +1,96 @@
+{
+ "code": "000006",
+ "built": "2026-11-21T16:55:12",
+ "blender": "5.3.0",
+ "model_hash": "a34e4133436948dd",
+ "look_hash": "549dda9c1f66dbe7",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "posed size 16.3 x 11.0 x 34.0 voxels (L x W x H), 1059 voxels, colours bill, black, eye, feet, legs, light, pink, parts beak, body, foot_l, foot_r, head, leg_l, leg_r, neck, shin_l, shin_r, wing_l, wing_r; turned beak, foot_l, foot_r, head, leg_l, neck, shin_l, wing_l, wing_r"
+  ],
+  "size": [
+   17,
+   11,
+   33
+  ],
+  "voxels": 1059
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 4.413853308984212,
+   "view": [
+    4.413853308984212,
+    4.413853308984212
+   ],
+   "box_size": [
+    1.5717316592014754,
+    3.089697316288948
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 3.767923556449937,
+   "view": [
+    2.1194570005030897,
+    3.767923556449937
+   ],
+   "box_size": [
+    1.5717316592014754,
+    3.089697316288948
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 8.077640042585484,
+   "view": [
+    8.077640042585484,
+    4.543672523954335
+   ],
+   "box_size": [
+    1.5717316592014754,
+    3.089697316288948
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 8.427979586167345,
+   "view": [
+    8.427979586167345,
+    8.427979586167345
+   ],
+   "box_size": [
+    1.5717316592014754,
+    3.089697316288948
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 12.641969379251014,
+   "view": [
+    7.111107775828695,
+    12.641969379251014
+   ],
+   "box_size": [
+    1.5717316592014754,
+    3.089697316288948
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 7.015064149371812,
+   "view": [
+    7.015064149371812,
+    3.9459735840216448
+   ],
+   "box_size": [
+    1.5717316592014754,
+    3.089697316288948
+   ]
+  }
+ },
+ "renders": {}
+}

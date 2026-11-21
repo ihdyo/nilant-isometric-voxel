@@ -1,0 +1,207 @@
+{
+  "code": "000082",
+  "common": "Galapagos Giant Tortoise",
+  "scientific": "Chelonoidis niger",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "shell": "#44403B",
+      "scute": "#57534D",
+      "skin": "#79716B",
+      "nail": "#D6D3D1",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#E0D5A8",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.87,
+      0.06,
+      95.9
+    ],
+    "accent": null,
+    "why": "A warm sunlit volcanic-sand cream that gives clean separation around the dark charcoal dome shell.",
+    "size": {
+      "real_m": 1.5,
+      "measure": "carapace length 1.2–1.5 m (largest living tortoise species)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Reptile · Tortoise family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Testudines",
+      "family": "Testudinidae",
+      "genus": "Chelonoidis",
+      "species": "C. niger"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2017",
+      "trend": "increasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Shell",
+        "value": "1.2–1.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "150–300 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "100–170 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "2–16 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Volcanic highlands, dry grasslands, and scrublands of the Galapagos Islands in Ecuador.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Grasses, leaves, lichens, berries, and prickly pear cactus pads.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Can survive up to a full year without food or water by metabolizing stored fat and water reserves.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Shell shapes match island habitats: dome-shaped on lush highlands and saddle-backed on dry islands to reach high cacti.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Chelonoidis niger: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Chelonoidis_nigra/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Chelonoidis niger. The IUCN Red List of Threatened Species (2017 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2017-3.RLTS.T9023A3149101.en",
+      "doi": "10.2305/IUCN.UK.2017-3.RLTS.T9023A3149101.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "galapagos giant tortoise",
+      "chelonoidis niger",
+      "giant tortoise",
+      "tortoise",
+      "galapagos",
+      "reptile",
+      "longevity",
+      "endangered",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "graze"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kura-kura Raksasa Galapagos",
+      "kicker": "Reptil · Keluarga kura-kura darat",
+      "stats": [
+        {
+          "label": "Tempurung",
+          "value": "1,2–1,5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "150–300 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "100–170 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "2–16 butir"
+        }
+      ],
+      "habitat": "Dataran tinggi vulkanik, padang rumput kering, dan semak belukar di Kepulauan Galapagos, Ekuador.",
+      "diet": "Rumput, dedaunan, lumut kerak, beri, dan kaktus pir berduri.",
+      "facts": [
+        "Mampu bertahan hidup hingga satu tahun penuh tanpa makan atau minum dengan mengolah cadangan lemak dan air tubuhnya.",
+        "Bentuk tempurungnya menyesuaikan habitat pulau: berkubah di dataran tinggi subur dan melengkung pelana di pulau kering."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

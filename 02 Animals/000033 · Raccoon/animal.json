@@ -1,0 +1,217 @@
+{
+  "code": "000033",
+  "common": "Raccoon",
+  "scientific": "Procyon lotor",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#A6A09B",
+      "mask": "#171717",
+      "trim": "#FAFAF9",
+      "dark": "#57534D",
+      "white": "#FAFAF9",
+      "eye": "#1C1917"
+    },
+    "background": "#D5CEF9",
+    "background_name": "soft lilac",
+    "background_oklch": [
+      0.87,
+      0.06,
+      292.6
+    ],
+    "accent": null,
+    "why": "A twilight dusk lavender-violet that evokes nocturnal woodland foraging and contrasts with the silver-grey coat.",
+    "size": {
+      "real_m": 0.8,
+      "measure": "nose to tail tip, about 0.8 m (body 40–70 cm plus 20–40 cm ringed tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Raccoon family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Procyonidae",
+      "genus": "Procyon",
+      "species": "P. lotor"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2015",
+      "trend": "increasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Body length",
+        "value": "40–70 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3.5–9 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "2–3 yrs (wild)",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "63–65 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Deciduous and mixed forests near streams, marshes and lakes across North America, plus suburban parks.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Crayfish, frogs, insects, acorns, berries, corn and eggs—an adaptable nocturnal omnivore.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Wetting its front paws softens the skin and boosts nerve sensitivity, making 'food washing' a way of feeling food.",
+        "source": [
+          3
+        ]
+      },
+      {
+        "text": "Its black bandit mask reduces glare and enhances night vision during nocturnal foraging.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "D. Gordon E. Robertson",
+      "licence": "CC BY-SA 3.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Raccoon_climbing_in_tree_-_Cropped_and_color_corrected.jpg",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Procyon lotor: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Procyon_lotor/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Timm, R., Cuarón, A.D., Reid, F., Helgen, K. & González-Maya, J.F. (2016). Procyon lotor. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-1.RLTS.T41686A45216638.en",
+      "doi": "10.2305/IUCN.UK.2016-1.RLTS.T41686A45216638.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Lyall-Watson, M. (1963). A critical re-examination of food 'washing' behaviour in the raccoon (Procyon lotor Linn.). Proceedings of the Zoological Society of London 141: 371–393",
+      "publisher": "Wiley",
+      "url": "https://doi.org/10.1111/j.1469-7998.1963.tb01617.x",
+      "doi": "10.1111/j.1469-7998.1963.tb01617.x",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "raccoon",
+      "procyon lotor",
+      "bandit mask",
+      "ringed tail",
+      "forest animal",
+      "north america wildlife",
+      "nocturnal mammal",
+      "cute raccoon",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 026-035); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "quadruped",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "forage"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Rakun",
+      "kicker": "Mamalia · Keluarga rakun",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "40–70 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "3,5–9 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "2–3 thn (liar)"
+        },
+        {
+          "label": "Hamil",
+          "value": "63–65 hari"
+        }
+      ],
+      "habitat": "Hutan gugur dan hutan campuran di dekat sungai, rawa, dan danau di Amerika Utara serta taman kota.",
+      "diet": "Udang karang, katak, serangga, biji ek, buah beri, jagung, dan telur—omnivora nokturnal yang sangat adaptif.",
+      "facts": [
+        "Membasahi cakar depannya melembutkan kulit dan meningkatkan kepekaan saraf peraba untuk mengenali makanan.",
+        "Topeng hitam di sekitar matanya mengurangi silau cahaya dan mempertajam penglihatan malam."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

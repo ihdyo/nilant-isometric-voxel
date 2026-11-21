@@ -1,0 +1,45 @@
+{
+ "code": "000014",
+ "rigged": "2026-11-21T16:56:18",
+ "blender": "5.3.0",
+ "still_built": "2026-11-21T16:56:13",
+ "motion_hash": "1a8f7293dc9073b9",
+ "rig_engine": "78ec5c9923cbc596",
+ "plan": "walker",
+ "bones": 10,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "walk": 64,
+  "yawn": 48
+ },
+ "blend": "000014 \u00b7 Hippo \u00b7 Rig.blend",
+ "glb": "000014 \u00b7 Hippo \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 6.1651440036789245,
+  "box_size": [
+   4.315600802575247,
+   3.850207533687353
+  ]
+ },
+ "vertices": 5392,
+ "groups": [
+  "body",
+  "ear_l",
+  "ear_r",
+  "head",
+  "jaw",
+  "leg_fl",
+  "leg_fr",
+  "leg_hl",
+  "leg_hr"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

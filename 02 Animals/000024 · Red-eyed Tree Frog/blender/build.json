@@ -1,0 +1,96 @@
+{
+ "code": "000024",
+ "built": "2026-11-21T16:57:21",
+ "blender": "5.3.0",
+ "model_hash": "8739039a679b4d7f",
+ "look_hash": "ffd8f9e4428c9aff",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "posed size 18.1 x 15.0 x 10.6 voxels (L x W x H), 907 voxels, colours belly, blue, green, pupil, red, toe, yellow, parts body, head, leg_fl, leg_fr, leg_hl, leg_hr, shin_hl, shin_hr; turned head"
+  ],
+  "size": [
+   17,
+   15,
+   10
+  ],
+  "voxels": 907
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 3.0304575937347344,
+   "view": [
+    3.0304575937347344,
+    3.0304575937347344
+   ],
+   "box_size": [
+    2.121320315614314,
+    1.5921612083911896
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 4.599068434936182,
+   "view": [
+    2.5869759946516027,
+    4.599068434936182
+   ],
+   "box_size": [
+    2.121320315614314,
+    1.5921612083911896
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 4.162512963114221,
+   "view": [
+    4.162512963114221,
+    2.3414135417517494
+   ],
+   "box_size": [
+    2.121320315614314,
+    1.5921612083911896
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 4.343047486064348,
+   "view": [
+    4.343047486064348,
+    4.343047486064348
+   ],
+   "box_size": [
+    2.121320315614314,
+    1.5921612083911896
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 6.79992087386886,
+   "view": [
+    3.8249554915512336,
+    6.79992087386886
+   ],
+   "box_size": [
+    2.121320315614314,
+    1.5921612083911896
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 5.12396211501042,
+   "view": [
+    5.12396211501042,
+    2.8822286896933615
+   ],
+   "box_size": [
+    2.121320315614314,
+    1.5921612083911896
+   ]
+  }
+ },
+ "renders": {}
+}

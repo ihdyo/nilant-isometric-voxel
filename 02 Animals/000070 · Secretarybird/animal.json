@@ -1,0 +1,204 @@
+{
+  "code": "000070",
+  "common": "Secretarybird",
+  "scientific": "Sagittarius serpentarius",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "plumage": "#D6D3D1",
+      "legging": "#171717",
+      "face": "#FF6900",
+      "crest": "#292524",
+      "leg": "#FFCCD3"
+    },
+    "background": "#E0D5A8",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.87,
+      0.06,
+      95.5
+    ],
+    "accent": null,
+    "why": "A warm golden-savanna amber that echoes the tall African grass it patrols on its stilt-like legs.",
+    "size": {
+      "real_m": 1.4,
+      "measure": "standing height 1.2–1.5 m; wingspan 1.9–2.1 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Secretarybird family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Accipitriformes",
+      "family": "Sagittariidae",
+      "genus": "Sagittarius",
+      "species": "S. serpentarius"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2020",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Height",
+        "value": "1.2–1.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingspan",
+        "value": "1.9–2.1 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "3.3–4.3 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Kick force",
+        "value": "5× body weight",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open grasslands, savannas and shrublands across sub-Saharan Africa.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Snakes (including cobras and puff adders), locusts, lizards, rodents and frogs stomped with lethal kicks.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Instead of diving from the air, it hunts on foot—delivering kicks with 5 times its body weight in just 15 milliseconds!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Its name likely comes from its crest of long black quill feathers, resembling 19th-century clerks with quill pens tucked behind their ears.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Sagittarius_serpentarius",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Sagittarius serpentarius: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Sagittarius_serpentarius/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Sagittarius serpentarius. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Sagittarius_serpentarius",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "secretarybird",
+      "secretary bird",
+      "sagittarius serpentarius",
+      "raptor",
+      "africa",
+      "savanna",
+      "snake hunter",
+      "endangered",
+      "bird"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Burung Sekretaris (Secretarybird)",
+      "kicker": "Burung · Keluarga burung sekretaris",
+      "stats": [
+        {
+          "label": "Tinggi",
+          "value": "1,2–1,5 m"
+        },
+        {
+          "label": "Bentang sayap",
+          "value": "1,9–2,1 m"
+        },
+        {
+          "label": "Berat",
+          "value": "3,3–4,3 kg"
+        },
+        {
+          "label": "Tendangan",
+          "value": "5× bobot tubuh"
+        }
+      ],
+      "habitat": "Padang rumput terbuka, sabana, dan semak belukar di Afrika sub-Sahara.",
+      "diet": "Ular (termasuk kobra dan beludak), belalang, kadal, tikus, dan katak yang dilumpuhkan dengan tendangan kilat.",
+      "facts": [
+        "Alih-alih menukik dari udara, ia berburu dengan berjalan kaki—melancarkan tendangan sekuat 5 kali bobot tubuhnya hanya dalam 15 milidetik!",
+        "Namanya berasal dari jambul bulu hitam panjang di belakang kepalanya yang menyerupai pena bulu di telinga juru tulis abad ke-19."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

@@ -1,0 +1,207 @@
+{
+  "code": "000077",
+  "common": "Komodo Dragon",
+  "scientific": "Varanus komodoensis",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "scales": "#57534D",
+      "shade": "#44403B",
+      "belly": "#A6A09B",
+      "claw": "#262626",
+      "tongue": "#FFD230",
+      "eye": "#171717"
+    },
+    "background": "#EECEAA",
+    "background_name": "soft sand",
+    "background_oklch": [
+      0.87,
+      0.06,
+      70.2
+    ],
+    "accent": null,
+    "why": "A warm dry-savanna terracotta orange that contrasts with the rugged charcoal-grey scales of Komodo Island.",
+    "size": {
+      "real_m": 3.0,
+      "measure": "total length 2–3 m from snout to tail tip (heaviest living lizard)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Reptile · Monitor lizard family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Squamata",
+      "family": "Varanidae",
+      "genus": "Varanus",
+      "species": "V. komodoensis"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2019",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "2–3 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "70–90 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "30–50 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "15–30 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Dry tropical savannas, monsoon forests, and coastal scrublands on Komodo, Rinca, Flores, and Gili Motang in Indonesia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Deer, wild pigs, water buffalo, carrion, and smaller reptiles, hunted with serrated teeth and venom glands.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The heaviest living lizard on Earth, capable of eating up to 80 percent of its body weight in a single meal.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Uses a deeply forked yellow tongue to sample airborne scent molecules from up to 4 km away.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Varanus komodoensis: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Varanus_komodoensis/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Varanus komodoensis. The IUCN Red List of Threatened Species (2019 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2021-2.RLTS.T22884A123633058.en",
+      "doi": "10.2305/IUCN.UK.2021-2.RLTS.T22884A123633058.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "komodo dragon",
+      "varanus komodoensis",
+      "monitor lizard",
+      "komodo island",
+      "indonesia wildlife",
+      "giant lizard",
+      "reptile",
+      "apex predator",
+      "endangered species"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "flick"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Komodo",
+      "kicker": "Reptil · Keluarga biawak",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "2–3 m"
+        },
+        {
+          "label": "Berat",
+          "value": "70–90 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "30–50 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "15–30 butir"
+        }
+      ],
+      "habitat": "Sabana tropis kering, hutan musim, dan pesisir di Pulau Komodo, Rinca, Flores, dan Gili Motang, Indonesia.",
+      "diet": "Rusa, babi hutan, kerbau, bangkai, dan reptil kecil yang dilumpuhkan dengan gigi bergerigi serta kelenjar bisa.",
+      "facts": [
+        "Kadal terbesar yang masih hidup di Bumi, sanggup memakan hingga 80 persen berat tubuhnya dalam sekali makan.",
+        "Menggunakan lidah kuning bercabang panjang untuk mencium bau mangsa dari jarak hingga 4 km."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

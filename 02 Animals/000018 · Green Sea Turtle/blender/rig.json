@@ -1,0 +1,41 @@
+{
+ "code": "000018",
+ "rigged": "2026-11-21T16:56:45",
+ "blender": "5.3.0",
+ "still_built": "2026-11-21T16:56:40",
+ "motion_hash": "afa3c43ee4f77ad9",
+ "rig_engine": "78ec5c9923cbc596",
+ "plan": "swimmer",
+ "bones": 7,
+ "fps": 24,
+ "actions": {
+  "pose": 1,
+  "idle": 48,
+  "swim": 48
+ },
+ "blend": "000018 \u00b7 Green Sea Turtle \u00b7 Rig.blend",
+ "glb": "000018 \u00b7 Green Sea Turtle \u00b7 Rig.glb",
+ "frame": {
+  "ortho_scale": 4.202405836907228,
+  "box_size": [
+   2.9416840858350595,
+   1.9383282139897346
+  ]
+ },
+ "vertices": 1494,
+ "groups": [
+  "body",
+  "flipper_hl",
+  "flipper_hr",
+  "flipper_l",
+  "flipper_r",
+  "head"
+ ],
+ "check": {
+  "ok": true,
+  "weights_ok": true,
+  "missing": [],
+  "failing": []
+ },
+ "status": "APPROVED motion (owner, 2026-11-17); vf_rig.py and vf_standards.MOTION are locked"
+}

@@ -1,0 +1,207 @@
+{
+  "code": "000080",
+  "common": "Tokay Gecko",
+  "scientific": "Gekko gecko",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#90A1B9",
+      "spot": "#FF6900",
+      "blue_spot": "#74D4FF",
+      "belly": "#E7E5E4",
+      "iris": "#FFB900",
+      "eye": "#171717"
+    },
+    "background": "#ADDCF5",
+    "background_name": "soft sky blue",
+    "background_oklch": [
+      0.87,
+      0.06,
+      231.3
+    ],
+    "accent": null,
+    "why": "A clear twilight sky-blue that makes the bright orange-red polka dots and slate-blue skin pop cleanly.",
+    "size": {
+      "real_m": 0.35,
+      "measure": "total length 25–35 cm from snout to tail tip",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Reptile · Gecko family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Squamata",
+      "family": "Gekkonidae",
+      "genus": "Gekko",
+      "species": "G. gecko"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2019",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "25–35 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "150–300 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "10–15 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "2 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Rainforest trees, rocky cliffs, and rural buildings across Southeast Asia, India, and Indonesia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Moths, beetles, cockroaches, spiders, and small vertebrates hunted nocturnally.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Named after its loud, echoing 'to-kay' mating call that can be heard more than 100 metres away.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Millions of microscopic hair-like setae on its toe pads let it sprint upside down across smooth glass.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Gekko gecko: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Gekko_gecko/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Gekko gecko. The IUCN Red List of Threatened Species (2019 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2019-2.RLTS.T195309A2378260.en",
+      "doi": "10.2305/IUCN.UK.2019-2.RLTS.T195309A2378260.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "tokay gecko",
+      "gekko gecko",
+      "gecko",
+      "lizard",
+      "reptile",
+      "southeast asia",
+      "nocturnal",
+      "spotted gecko",
+      "tropical"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "call"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Tokek Rumah",
+      "kicker": "Reptil · Keluarga tokek",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "25–35 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "150–300 g"
+        },
+        {
+          "label": "Usia",
+          "value": "10–15 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "2 butir"
+        }
+      ],
+      "habitat": "Pepohonan hutan hujan, tebing batu, dan bangunan pedesaan di Asia Tenggara, India, dan Indonesia.",
+      "diet": "Ngengat, kumbang, kecoak, laba-laba, dan vertebrata kecil yang diburu pada malam hari.",
+      "facts": [
+        "Dinamai dari suara panggilan kawin 'to-kek' yang lantang dan terdengar lebih dari 100 meter.",
+        "Jutaan rambut mikroskopis di telapak jarinya membuatnya mampu berlari terbalik di permukaan kaca licin."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

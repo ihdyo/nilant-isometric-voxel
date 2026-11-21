@@ -11,8 +11,10 @@ nilant_takes.LENSES["iso"]) as read on 2026-11-15. Values marked ADAPTED change 
 the reason beside them. Values marked NEW have no Nilant equivalent.
 """
 
-STANDARDS_VERSION = "2.2"         # 2.0 (2026-11-16): the bulky, posed blocky-mob look; 2.1: plates off, cards
-                                  # redesigned; 2.2 (2026-11-17): the motion (rig and loops) approved
+STANDARDS_VERSION = "2.3"         # 2.0 (2026-11-16): the bulky, posed blocky-mob look; 2.1: plates off, cards
+                                  # redesigned; 2.2 (2026-11-17): the motion (rig and loops) approved; 2.3 (2026-11-21):
+                                  # hex colours, one-chroma backgrounds, calmer animal colours, motion v2 looking at the
+                                  # camera, anchored sections, nested stacking, tails behind the body
 COLLECTION = "Voxel Fauna"
 
 # ---- Voxel geometry ---------------------------------------------------------------------------------------------------
@@ -58,12 +60,14 @@ MOTION = dict(
     leg_swing_biped=24.0,    # two legs (birds): degrees each way; v1 20
     knee_fold_biped=45.0,    # two legs: degrees the lower leg folds back on the swing
     hop_height=0.22,         # of the posed length, voxels
-    life=dict(look=16.0, look_bias=0.3, tilt=9.0, nod=4.0, ear=14.0, ear_tilt=9.0, tail=10.0, wing=12.0,
+    life=dict(look=7.0, look_bias=0.0, tilt=5.0, nod=4.0, ear=14.0, ear_tilt=9.0, tail=10.0, wing=12.0,
               wing_flap=26.0, sway=2.5, roll=2.0),
-                             # v2: the life layer on every action (degrees): the head looks around (yaw, biased away
-                             # from the camera's side), tilts (roll) and nods; each ear perks and droops on its own
-                             # beat; tails wag; folded wings flutter, with one fuller flap a loop; the body sways and
-                             # rolls with the stride
+                             # v2: the life layer on every action (degrees): the head looks around a little (yaw),
+                             # tilts (roll) and nods; each ear perks and droops on its own beat; tails wag; folded
+                             # wings flutter, with one fuller flap a loop; the body sways and rolls with the stride.
+                             # 2026-11-21 (owner: "make it look at camera except for the static basic pose"): the head
+                             # keeps looking at the camera in the loops: the look-around centred on the still's turn
+                             # to the camera (bias 0, was 0.3 away from it) and smaller (7, was 16), the tilt 5 (was 9)
     bone=(1.5, 10.0),        # bone display length, voxels
     preview_step=2,          # previews keep every 2nd frame: 12 fps
     preview_scale=0.125,     # of the 4096 px square: 512 px (the LOW profile at half its scale)
@@ -75,7 +79,7 @@ BEVEL = dict(width=0.012, segments=4, profile=0.5)
                              # within 0.006-0.06 m, 4 segments, round. 0.012 m = 12 % of a voxel: every block reads as
                              # its own moulded cube with a thin highlight on each edge
 CULL_HIDDEN = True           # NEW: a voxel with all six neighbours in its own part is never seen and is not built
-STACK_LEVELS = dict(limb=0.0, body=0.05, section=2.05)
+STACK_LEVELS = dict(limb=0.0, body=0.05, section=2.05, nested=0.1)
                              # voxels each kind of section is nudged towards the camera, in the animal pass of the
                              # animated loops only. The camera is orthographic, so nothing moves or changes size on
                              # screen; only the depth test changes. limb (legs, shins, feet, flippers): never moved.
@@ -85,8 +89,16 @@ STACK_LEVELS = dict(limb=0.0, body=0.05, section=2.05)
                              # 2026-11-18: "still resize the leg, just make the leg size same as body but ensure it
                              # behind body if stacked"). section (head, tail, wings, with their ears and muzzles): 2
                              # over the body, so a turning head never has the body cutting through it (the panda's
-                             # flicker). The shadow pass is not nudged; stills and masters keep their approved look
+                             # flicker). nested (2026-11-21): a section hanging from another section gets `nested`
+                             # more per level (head 2.05, its muzzle and ears 2.15, a tail tip on its tail 2.15), so a
+                             # child always wins over its parent where their faces meet (the tiger's flickering face:
+                             # the muzzle and the head front fought at the same level). The shadow pass is not nudged;
+                             # stills and masters keep their approved look
 STACK_LIMBS = ("leg", "shin", "foot", "flipper", "arm")   # name stems of the limb sections (level 0, behind the body)
+STACK_BEHIND = ("tail", "flukes")   # 2026-11-21 (owner: the red panda's tail "not overlapping nor stacking"): a tail
+                                    # hangs behind the body from the camera, so the loops draw it at the limbs' level 0,
+                                    # under the body, never over it (it was 2.05, the head's level, and a lifted tail's
+                                    # root drew over the rump, so the tail looked as big as the body)
 SECTION_STEMS = ("head", "neck", "jaw", "muzzle", "snout", "nose", "beak", "ear", "horn", "tusk", "trunk", "gill",
                  "tongue", "mane", "torso", "tail", "flukes", "wing") + STACK_LIMBS
                              # every jointed section is named from these stems (key-prompt.md rule 5): `leg_fl`,
@@ -139,7 +151,7 @@ ANIMAL_TONE = dict(knee=0.09, slope=0.5, scale=0.95)
                              # colour keeps its lightness and hue; its chroma up to `knee` stays, above it only `slope`
                              # of the excess remains, then x `scale`. orange-600 0.217 -> 0.146, blue-600 0.246 -> 0.160,
                              # a brown at 0.09 -> 0.086: the loud colours calm down, the soft ones barely move
-SKY = dict(token="slate-100", strength=0.5)
+SKY = dict(token="#F1F5F9", strength=0.5)     # was the Tailwind token slate-100 (same hex)
 SUN_MIN_ANGLE = 0.12         # NILANT: intro_overhaul.polish_set widens every sun to at least 0.12 rad for soft edges
 RIG_TURN = 45.0              # ADAPTED: Nilant's suns are fixed for cameras looking from -Y (azimuth 0); the rig turns
                              # with our camera (azimuth 45) so the key stays front-left of it, as Nilant intends
@@ -149,13 +161,13 @@ RIG_TURN = 45.0              # ADAPTED: Nilant's suns are fixed for cameras look
 # the brightest and shadows stay under the animal). Only the rig named in RIG is used for production.
 RIGS = {
     "nilant": dict(
-        key=dict(token="orange-200", energy=2.4, rotation=(66.0, 0.0, -50.0), shadow=True),
-        rim=dict(token="indigo-200", energy=2.4 * 0.3, rotation=(62.0, 0.0, 140.0), shadow=True),
+        key=dict(token="#FFD6A7", energy=2.4, rotation=(66.0, 0.0, -50.0), shadow=True),
+        rim=dict(token="#C6D2FF", energy=2.4 * 0.3, rotation=(62.0, 0.0, 140.0), shadow=True),
     ),
     # proposal: the key 55 deg high, and the rim lights edges without casting a second shadow towards the camera
     "iso_top": dict(
-        key=dict(token="orange-200", energy=2.4, rotation=(35.0, 0.0, -50.0), shadow=True),
-        rim=dict(token="indigo-200", energy=2.4 * 0.3, rotation=(62.0, 0.0, 140.0), shadow=False),
+        key=dict(token="#FFD6A7", energy=2.4, rotation=(35.0, 0.0, -50.0), shadow=True),     # warm key (was orange-200)
+        rim=dict(token="#C6D2FF", energy=2.4 * 0.3, rotation=(62.0, 0.0, 140.0), shadow=False),   # cool rim (was indigo-200)
     ),
 }
 RIG = "iso_top"              # APPROVED by the owner 2026-11-15: with "nilant" the 24 deg key threw a
@@ -173,10 +185,8 @@ PLASTIC = dict(roughness=0.62, specular=0.5, coat=0.08, coat_roughness=0.2,
 MATTE = dict(roughness=0.86, specular=0.3, coat=0.0, coat_roughness=0.2,
              subsurface=0.0, subsurface_scale=0.06, subsurface_radius=(0.8, 0.8, 0.8))
 MATERIALS = {"plastic": PLASTIC, "matte": MATTE}
-PALETTE_RULE = dict(body=(50, 800), detail=(50, 950))    # NEW: Tailwind v4 shades a species palette may use: large
-                                                         # areas 50-800 (a capybara is amber-800), details any shade.
-                                                         # 2026-11-16 (owner: "for this project, break from tailwind
-                                                         # coloring token"): a colour may also be a hex "#RRGGBB"
+# Colours: every colour is a hex "#RRGGBB" (owner 2026-11-21: "remove the tailwind color palette completely"; the
+# Tailwind tokens were replaced by their exact hex values, so nothing renders differently). A species keeps 3-7 keys.
 
 # ---- Background and shadow (composited) ---------------------------------------------------------------------------------
 # NEW. EEVEE has no shadow catcher, and a lit ground under this rig in AgX cannot reach a pastel colour (a white
@@ -191,11 +201,19 @@ SHADOW = dict(strength=0.65,      # how dark a full shadow gets (0 = no shadow, 
               smooth=0.004,       # the shadow factor is box-blurred twice over this share of the short side first
               ground_grey=0.25,   # albedo of the shadow-pass ground (keeps its light below 1.0 so nothing clips)
               ground_size=400.0)  # metres
-BACKGROUND_RULE = dict(shades=(50, 300), min_delta_e=30.0, max_chroma=0.07, lightness=(0.85, 0.93), min_lightness=0.8)
-                             # NEW: one flat colour per animal, chosen to complement the species palette (opposite hue
-                             # family where the species allows), a soft Tailwind shade (50-300) or a hex at least
-                             # OKLCH lightness 0.8; the animal's main colour (look.palette, first key) must differ from
-                             # the rendered background by at least CIE76 delta E 30.
+BACKGROUND_RULE = dict(chroma=0.06, lightness=0.87, lightness_range=(0.74, 0.88), tolerance=0.004,
+                       min_delta_e=20.0, max_chroma=0.07, lightness_band=(0.74, 0.93))
+                             # PROPOSED 2026-11-21 (owner: "change all the background colors to break from the color
+                             # palette. make it dynamic but have same saturation for all ... show the suitable color
+                             # for the animal, like maybe the habitat, the color from color theory"): every background
+                             # is OKLCH (lightness, chroma 0.06, hue): one chroma for the whole collection (0.06 is the
+                             # most every hue holds in sRGB at lightness 0.87), its own hue per animal (its habitat, or
+                             # the complement of its coat), written in animal.json look.background (hex),
+                             # background_oklch [L, C, h] and background_name. Lightness 0.87 unless the animal's
+                             # main colour needs another (0.74-0.88) to stand out by CIE76 delta E 20 (a fixed chroma
+                             # cannot reach the old 30 against a mid-grey coat). `max_chroma` and `lightness_band` keep
+                             # pastel() a safety net that leaves a rule background unchanged.
+                             # Before (2026-11-16): a Tailwind token or hex rendered as a pastel, chroma capped at 0.07.
                              # APPROVED by the owner 2026-11-16 (owner: "the background color is too vibrant, make it slightly
                              # desaturated so the animal more popup", then "keep the background vivid but pastel (not
                              # too vibrant or neon), keep it calm"): the background renders as a vivid pastel of its
@@ -277,8 +295,8 @@ INFO_STYLE = dict(
     badge_shades=-100,                          # an icon badge on a white card: the background family one step lighter
     lip_steps=200,                              # a card's lip is the background token + 200 (sky-200 -> sky-400)
     fact_shade="700",                           # the fun-fact card: the background family at 700 (lip +200), white type
-    status={"LC": "emerald-500", "NT": "lime-500", "VU": "amber-400", "EN": "orange-500", "CR": "red-600",
-            "EW": "purple-600", "EX": "stone-900", "DD": "stone-400", "NE": "stone-300"},
+    status={"LC": "#00BC7D", "NT": "#7CCF00", "VU": "#FFB900", "EN": "#FF6900", "CR": "#E7000B",
+            "EW": "#9810FA", "EX": "#1C1917", "DD": "#A6A09B", "NE": "#D6D3D1"},   # the IUCN chip colours (hex)
     status_names={"LC": "Least Concern", "NT": "Near Threatened", "VU": "Vulnerable", "EN": "Endangered",
                   "CR": "Critically Endangered", "EW": "Extinct in the Wild", "EX": "Extinct",
                   "DD": "Data Deficient", "NE": "Not Evaluated"},
@@ -317,6 +335,7 @@ INFO_LIMITS = dict(common=22, scientific=34, kicker=30, stats=4, stat_label=12, 
 INK_RULE = dict(min_body_contrast=7.0, min_label_contrast=4.5)     # WCAG contrast of type on its own card or ground
 
 # ---- Identity --------------------------------------------------------------------------------------------------------
-# Animal code = Nilant's YY-SEQ (26-001 ...). Image ID = VF-<code>-<kind>-<ratio>, e.g. VF-26-001-ILL-1x1.
+# Animal code = six digits (000001 ...; owner 2026-11-21, was Nilant's YY-SEQ 26-001). Image ID = VF-<code>-<item>,
+# e.g. VF-000001-MASTER-DYN.
 IMAGE_ID = "VF-{code}-{kind}-{ratio}"
 STATUSES = ("Research", "Modelling", "Preview", "Preview approved", "Final", "Registered", "Approved")

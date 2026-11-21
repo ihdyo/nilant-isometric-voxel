@@ -1,0 +1,212 @@
+{
+  "code": "000017",
+  "common": "Gray Wolf",
+  "scientific": "Canis lupus",
+  "status": "Final",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "fur": "#A6A09B",
+      "back": "#57534D",
+      "light": "#F5F5F4",
+      "nose": "#171717"
+    },
+    "background": "#C8D2FD",
+    "background_name": "twilight indigo",
+    "background_oklch": [
+      0.87,
+      0.06,
+      275
+    ],
+    "accent": null,
+    "why": "Twilight, the wolf's hour to howl.",
+    "size": {
+      "real_m": 1.6,
+      "measure": "nose to tail tip: head and body 0.87–1.3 m plus a 0.35–0.52 m tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Dog family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Canidae",
+      "genus": "Canis",
+      "species": "C. lupus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2025",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "0.9–1.3 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "23–80 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pack",
+        "value": "5–9 wolves",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Top speed",
+        "value": "55–70 km/h",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Tundra, forests, prairies and dry lands across North America, Europe and Asia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Moose, elk, bison and deer, hunted as a team. One wolf can eat 9 kg in a meal!",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Every pet dog on Earth, from Chihuahua to Great Dane, descends from the gray wolf.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Howls help a pack find each other and tell other packs: this patch is taken!",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-front.jpg",
+      "author": "Gary Kramer",
+      "licence": "Public domain",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Front_view_of_a_resting_Canis_lupus_ssp.jpg",
+      "centre": [
+        0.5,
+        0.4
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Canis lupus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Canis_lupus/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Boitani, L., Werhahn, G. & Smith, D.W. (2026). Canis lupus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2026-1.RLTS.T3746A226161232.en",
+      "doi": "10.2305/IUCN.UK.2026-1.RLTS.T3746A226161232.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "gray wolf",
+      "grey wolf",
+      "wolf",
+      "canis lupus",
+      "howling",
+      "pack",
+      "forest animal",
+      "predator",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "2efcba9411cbb0d6/02fd0ad5419f09ee"
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 10 animals', chose the mixed set incl. game mobs); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "howl"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet",
+    "options": {
+      "howl_lift": 34
+    },
+    "note": "no neck (owner 2026-11-21): the howl throws the head back 34 degrees from the standing still"
+  },
+  "i18n": {
+    "id": {
+      "common": "Serigala Abu-abu",
+      "kicker": "Mamalia · Keluarga anjing",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "0,9–1,3 m"
+        },
+        {
+          "label": "Berat",
+          "value": "23–80 kg"
+        },
+        {
+          "label": "Kawanan",
+          "value": "5–9 ekor"
+        },
+        {
+          "label": "Kecepatan",
+          "value": "55–70 km/jam"
+        }
+      ],
+      "habitat": "Tundra, hutan, padang rumput, dan tanah kering di Amerika Utara, Eropa, dan Asia.",
+      "diet": "Moose, elk, bison, dan rusa, diburu bersama. Satu serigala bisa makan 9 kg sekali makan!",
+      "facts": [
+        "Setiap anjing peliharaan di Bumi, dari Chihuahua sampai Great Dane, keturunan serigala abu-abu.",
+        "Lolongan membantu kawanan saling menemukan dan memberi tahu kawanan lain: wilayah ini milik kami!"
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

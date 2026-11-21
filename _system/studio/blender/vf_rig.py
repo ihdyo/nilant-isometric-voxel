@@ -106,6 +106,7 @@ class Ctx:
         self.I3 = Matrix.Identity(3)
         self.info, self.plan, self.N, self.base = info, plan, n, base
         self.cyc, self.length = 1, 0.0
+        self.opt = {}                             # animal.json motion.options
 
     def has(self, b):
         return b in self.info
@@ -151,6 +152,10 @@ class Ctx:
     def abs(self, P, b, m):
         if b in self.info:
             P.rot[b] = ("abs", m)
+
+    def o(self, key, default):
+        """A per-animal motion option (animal.json motion.options), else the default."""
+        return float(self.opt.get(key, default))
 
 
 def a_pose(C, t):
@@ -205,6 +210,21 @@ def _alive(C, P, t, amt=1.0, head=True, ears=True, wings=True, tail=True):
         C.add(P, b, C.E(b, 0.6 * L["ear"] * amt * sn(t, N, 4, 0.1), 0, 0))
 
 
+TRUNK = ("trunk_1", "trunk_2", "trunk_3")
+
+
+def _trunk(C, P, t, curl=1.0, sway=1.0, k=1.0):
+    """A trunk that lives (owner 2026-11-21: "the elephant trunk should be animated dynamic"): a curl that rolls down
+    the chain (the tip lags and goes furthest, forward and up), and a side sway that also travels down it, so the trunk
+    reads as one soft limb, not three stiff blocks. Negative pitch lifts a hanging segment's tip forward."""
+    N = C.N
+    for i, b in enumerate(b for b in TRUNK if C.has(b)):
+        lag = 0.11 * i
+        c = curl * (10.0 + 9.0 * i) * (0.5 - 0.5 * math.cos(TAU * (k * t / N - lag)))
+        w = sway * (5.0 + 5.0 * i) * math.sin(TAU * (k * t / N - lag - 0.2))
+        C.add(P, b, C.E(b, w, -c, 0))
+
+
 def _tail(C, P, t, amp, k=1.0, lag=0.12, d=(0, 1, 0)):
     for i, b in enumerate(b for b in ("tail", "tail_tip", "flukes") if C.has(b)):
         C.add(P, b, C.toward(b, d, (amp + 5 * i) * sn(t, C.N, k, -lag * i)))
@@ -216,9 +236,7 @@ def a_idle(C, t):
         C.add(P, "torso", C.E("torso", 0, 1.2 * sn(t, N, 2), 0))
     _ears_idle(C, P, t)
     _tail(C, P, t, 10, d=(0, 0, 1) if C.plan == "swimmer" else (0, 1, 0))
-    for i, b in enumerate(("trunk_1", "trunk_2", "trunk_3")):
-        if C.has(b):
-            C.add(P, b, C.E(b, 0, (3 + 3 * i) * sn(t, N, 1, -0.1 * i), (2 + 2 * i) * sn(t, N, 1, 0.25 - 0.1 * i)))
+    _trunk(C, P, t, curl=1.3, sway=1.0)
     if C.has("jaw"):
         C.add(P, "jaw", C.E("jaw", 0, -7 * (0.5 + 0.5 * sn(t, N, 2)), 0))
     if C.has("tongue"):
@@ -324,11 +342,17 @@ def a_walk(C, t):
         C.add(P, b, C.toward(b, (0, 1, 0), (9 + 5 * i) * math.sin(th0 - 0.5 * (i + 1))))
     for b in C.pair("ear"):                                        # ears bounce with each footfall
         C.add(P, b, C.toward(b, (-1, 0, 0), 6 * math.sin(2 * th0 + 0.8)))
-    for i, b in enumerate(("trunk_1", "trunk_2", "trunk_3")):
-        if C.has(b):
-            C.add(P, b, C.E(b, 0, 2 * i * math.sin(2 * th0 - 0.4 * i), (4 + 4 * i) * math.sin(th0 - 0.4 * i)))
+    _trunk(C, P, t, curl=0.8, sway=1.4, k=S)
     if C.has("jaw"):
-        C.add(P, "jaw", C.E("jaw", 0, -5 * (0.5 + 0.5 * math.sin(2 * th0)), 0))
+        yawn = C.o("walk_jaw", 0.0)              # a walking yawn (the hippo, owner 2026-11-21): the jaw opens wide
+        if yawn > 0:                              # and closes once a loop, the head lifting as it opens
+            x = (t % N) / N
+            o = curve(x, [(0.0, 0.0), (0.12, 0.0), (0.36, 1.0), (0.58, 1.0), (0.82, 0.0), (1.0, 0.0)])
+            C.abs(P, "jaw", C.E("jaw", 0, 2 + yawn * o, 0))
+            if C.has("head"):
+                C.add(P, "head", C.E("head", 0, -0.3 * yawn * o, 0))
+        else:
+            C.add(P, "jaw", C.E("jaw", 0, -5 * (0.5 + 0.5 * math.sin(2 * th0)), 0))
     _alive(C, P, t, 0.8, tail=False)
     return P
 
@@ -345,6 +369,10 @@ def a_flap(C, t):
     for b in C.pair("flipper"):
         C.add(P, b, C.toward(b, (0, -1, 0.3), 34 * (0.5 - 0.5 * math.cos(2 * th))))
     P.hop = 0.6 * lift
+    for i, b in enumerate(C.pair("foot")):                        # the feet dangle and paddle while it lifts
+        C.add(P, b, C.E(b, 0, 18 * lift + 6 * math.sin(2 * th + 0.5 * i) * lift, 0))
+    for b in C.pair("leg"):
+        C.add(P, b, C.E(b, 0, 8 * lift, 0))
     for b in ("tail", "tail_tip"):
         if C.has(b):
             C.add(P, b, C.toward(b, (0, 0, 1), 8 * math.sin(th - 0.6)))
@@ -378,6 +406,10 @@ def a_hop(C, t):
         C.add(P, b, C.E(b, 0, 16 * air, 0))
     for b in C.pair("shin"):
         C.add(P, b, C.E(b, 0, 20 * air, 0))
+    for i, b in enumerate(C.pair("foot")):                        # and the feet point their toes and paddle a little
+        wig = 7.0 * math.sin(TAU * (2 * t * s / 24.0 + 0.25 * i)) * air          # (owner 2026-11-21: the toucan)
+        land = 10.0 * bump(t * s, 19, 1.4)                         # toes flatten and spread as it lands
+        C.add(P, b, C.E(b, 0, 30 * air + wig - land * 0.4, 0))
     P.body = C.Eb(0, -10 * curve(t * s, [(0, 0), (5, 0), (8, 1), (13, 0), (17, -0.6), (20, 0), (24, 0)]), 0)
     for b in C.pair("ear"):
         C.add(P, b, C.toward(b, (-1, 0, 0), 18 * air))
@@ -437,7 +469,8 @@ def a_waddle(C, t):
 def a_howl(C, t):
     P, N = Pose(C.I3), C.N
     s = 48.0 / N
-    p = curve(t * s, [(0, 0), (12, 16), (20, -5), (40, -5), (48, 0)])
+    H = C.o("howl_lift", 5.0)                    # how far the head lifts into the howl: a standing wolf (no howl in
+    p = curve(t * s, [(0, 0), (12, 10), (20, -H), (40, -H), (48, 0)])   # its still) throws it right back
     band = curve(t * s, [(0, 0), (19, 0), (23, 1), (37, 1), (41, 0), (48, 0)])
     C.add(P, "head", C.E("head", 0, p + 1.5 * sn(t, 6) * band, 0))
     if C.has("neck"):                                             # the neck takes the breath and lifts into the howl
@@ -492,9 +525,7 @@ def a_fan(C, t):
     th = TAU * t / N
     for b in C.pair("ear"):
         C.add(P, b, C.E(b, 0, 0, 16 * sn(t, N, 2)))
-    for i, b in enumerate(("trunk_1", "trunk_2", "trunk_3")):
-        if C.has(b):
-            C.add(P, b, C.E(b, 0, (5 + 4 * i) * math.sin(th - 0.5 * i), (5 + 5 * i) * math.sin(th + 1.2 - 0.5 * i)))
+    _trunk(C, P, t, curl=1.5, sway=1.2)
     C.add(P, "head", C.E("head", 0, 3 * math.sin(2 * th), -3 * math.sin(th)))
     _tail(C, P, t, 12, k=2)
     return P
@@ -749,6 +780,7 @@ def build_rig(grid, look_offset, motion):
                 base[b] = Euler(tuple(math.radians(a) for a in e), "XYZ").to_matrix()
         C = Ctx(info, plan, n, base)
         C.length = length
+        C.opt = dict(motion.get("options") or {})
         C.cyc = int(RIG.get("cycles", {}).get(name, 1))
         act = bpy.data.actions.new(name)
         act.use_fake_user = True
@@ -794,6 +826,7 @@ def build_rig(grid, look_offset, motion):
     for pb in pbs:
         pb.rotation_quaternion = (1, 0, 0, 0)
         pb.location = (0, 0, 0)
+        pb.scale = (1, 1, 1)
     arm.animation_data.action = bpy.data.actions.get("idle") or bpy.data.actions.get("pose")
     arm["vf_actions"] = actions
     arm["vf_plan"] = plan
@@ -912,6 +945,7 @@ def rig_check(arm, mesh, out_dir):
         pb.rotation_mode = "QUATERNION"
         pb.rotation_quaternion = (1, 0, 0, 0)
         pb.location = (0, 0, 0)
+        pb.scale = (1, 1, 1)
     vl.update()
     gname = {g.index: g.name for g in mesh.vertex_groups}
     gi = np.array([v.groups[0].group if len(v.groups) == 1 else -1 for v in mesh.data.vertices])

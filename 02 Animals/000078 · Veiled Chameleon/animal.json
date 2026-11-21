@@ -1,0 +1,207 @@
+{
+  "code": "000078",
+  "common": "Veiled Chameleon",
+  "scientific": "Chamaeleo calyptratus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#00BC7D",
+      "stripe": "#FFDF20",
+      "band": "#00BCFF",
+      "casque": "#5EA500",
+      "eye_cone": "#FFB900",
+      "eye": "#171717"
+    },
+    "background": "#CCDCB1",
+    "background_name": "soft lime green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      124.2
+    ],
+    "accent": null,
+    "why": "A crisp botanical lime that harmonizes with its leaf-green camouflage while highlighting the yellow and turquoise bands.",
+    "size": {
+      "real_m": 0.55,
+      "measure": "total length 45–60 cm in adult males (including coiled prehensile tail)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Reptile · Chameleon family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Squamata",
+      "family": "Chamaeleonidae",
+      "genus": "Chamaeleo",
+      "species": "C. calyptratus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2012",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "35–60 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "100–200 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "5–8 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "20–70 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Mountainous slopes, valleys, and coastal plateaus of Yemen and southwestern Saudi Arabia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Insects such as crickets and locusts, supplemented with leaves, blossoms, and fruit for hydration.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its tall head crest (casque) channels morning dew droplets directly down toward the corners of its mouth.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Each turret-like eye moves independently, giving a full 360-degree view before locking onto prey.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Chamaeleo calyptratus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Chamaeleo_calyptratus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Chamaeleo calyptratus. The IUCN Red List of Threatened Species (2012 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2012.RLTS.T176305A1437574.en",
+      "doi": "10.2305/IUCN.UK.2012.RLTS.T176305A1437574.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "veiled chameleon",
+      "chamaeleo calyptratus",
+      "chameleon",
+      "lizard",
+      "reptile",
+      "camouflage",
+      "coiled tail",
+      "casque",
+      "exotic pet"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "look"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Bunglon Yaman",
+      "kicker": "Reptil · Keluarga bunglon",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "35–60 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "100–200 g"
+        },
+        {
+          "label": "Usia",
+          "value": "5–8 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "20–70 butir"
+        }
+      ],
+      "habitat": "Lereng pegunungan, lembah, dan dataran tinggi di Yaman serta Arab Saudi bagian barat daya.",
+      "diet": "Serangga seperti jangkrik dan belalang, ditambah dedaunan, bunga, dan buah untuk sumber cairan.",
+      "facts": [
+        "Jambul tinggi di kepalanya mengalirkan tetesan embun pagi langsung menuju sudut mulutnya.",
+        "Kedua mata kerucutnya bergerak terpisah untuk memantau 360 derajat sebelum mengunci mangsa."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

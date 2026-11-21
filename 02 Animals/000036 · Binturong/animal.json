@@ -1,0 +1,217 @@
+{
+  "code": "000036",
+  "common": "Binturong",
+  "scientific": "Arctictis binturong",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#292524",
+      "frost": "#A6A09B",
+      "ear": "#F5F5F4",
+      "muzzle": "#79716B",
+      "white": "#FAFAF9",
+      "eye": "#BB4D00"
+    },
+    "background": "#B5E1C4",
+    "background_name": "soft leaf green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      156.1
+    ],
+    "accent": null,
+    "why": "A deep tropical canopy green evoking Southeast Asian rainforests and contrasting with the shaggy charcoal coat.",
+    "size": {
+      "real_m": 1.65,
+      "measure": "nose to tail tip, about 1.65 m (body 61–96 cm plus thick prehensile tail 56–89 cm per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Civet family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Viverridae",
+      "genus": "Arctictis",
+      "species": "A. binturong"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Body length",
+        "value": "61–96 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "9–20 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "90–92 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Dense primary and secondary tropical rainforests across mainland Southeast Asia, Sumatra, Java, Borneo and Palawan.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Strangler figs, wild fruits, shoots, leaves, insects, birds, eggs and small forest mammals.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Scent glands under its tail release a compound (2-AP) that smells remarkably like warm buttered popcorn.",
+        "source": [
+          3
+        ]
+      },
+      {
+        "text": "It is one of only two carnivores—alongside the kinkajou—with a truly prehensile tail strong enough to support its full weight.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Greg Hume",
+      "licence": "CC BY 3.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Binturong_in_Overton_Park_Zoo_01.jpg",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Arctictis binturong: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Arctictis_binturong/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Willcox, D.H.A., Chutipong, W., Gray, T.N.E., Cheyne, S., Semiadi, G., Rahman, H., Coudrat, C.N.Z., Jennings, A., Ghimirey, Y., Ross, J., Fredriksson, G. & Tilker, A. (2016). Arctictis binturong. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-1.RLTS.T41690A45217088.en",
+      "doi": "10.2305/IUCN.UK.2016-1.RLTS.T41690A45217088.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Greene, L.K., Wallen, T.W., Moresco, A., Goodwin, T.E. & Drea, C.M. (2016). Reproductive endocrine patterns and volatile urinary compounds of Arctictis binturong: discovering why bearcats smell like popcorn. The Science of Nature 103: 37",
+      "publisher": "Springer",
+      "url": "https://doi.org/10.1007/s00114-016-1361-4",
+      "doi": "10.1007/s00114-016-1361-4",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "binturong",
+      "arctictis binturong",
+      "bearcat",
+      "southeast asia wildlife",
+      "rainforest mammal",
+      "prehensile tail",
+      "civet",
+      "endangered wildlife",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 036-050); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "quadruped",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "climb"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Binturong",
+      "kicker": "Mamalia · Keluarga musang",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "61–96 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "9–20 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–20 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "90–92 hari"
+        }
+      ],
+      "habitat": "Hutan hujan tropis lebat di daratan Asia Tenggara, Sumatra, Jawa, Kalimantan, dan Palawan.",
+      "diet": "Buah ara (beringin), buah-buahan hutan, pucuk daun, serangga, burung, telur, dan mamalia kecil.",
+      "facts": [
+        "Kelenjar aroma di bawah ekornya menghasilkan senyawa (2-AP) yang berbau persis seperti berondong jagung mentega hangat.",
+        "Salah satu dari hanya dua karnivora di dunia yang memiliki ekor prehensil kuat untuk mencengkeram dahan pohon."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

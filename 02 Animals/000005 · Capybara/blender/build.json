@@ -1,0 +1,97 @@
+{
+ "code": "000005",
+ "built": "2026-11-21T16:55:06",
+ "blender": "5.3.0",
+ "model_hash": "ba57a1eb5abf67ec",
+ "look_hash": "b3f8ffc96b2874bd",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "the pose moves the lowest point to z = -0.24: the engine sets the animal back on the ground",
+   "posed size 28.9 x 13.8 x 18.8 voxels (L x W x H), 3603 voxels, colours dark, eye, fur, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, snout; turned ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr"
+  ],
+  "size": [
+   28,
+   13,
+   18
+  ],
+  "voxels": 3603
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 3.7653453883182157,
+   "view": [
+    3.7653453883182157,
+    3.7653453883182157
+   ],
+   "box_size": [
+    2.635741771822751,
+    2.407014921307564
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 5.714345304764772,
+   "view": [
+    3.2143192339301843,
+    5.714345304764772
+   ],
+   "box_size": [
+    2.635741771822751,
+    2.407014921307564
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 6.292849467470754,
+   "view": [
+    6.292849467470754,
+    3.5397278254522995
+   ],
+   "box_size": [
+    2.635741771822751,
+    2.407014921307564
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 6.56577992718921,
+   "view": [
+    6.56577992718921,
+    6.56577992718921
+   ],
+   "box_size": [
+    2.635741771822751,
+    2.407014921307564
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 9.848669890783812,
+   "view": [
+    5.539876813565894,
+    9.848669890783812
+   ],
+   "box_size": [
+    2.635741771822751,
+    2.407014921307564
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 6.366526018895534,
+   "view": [
+    6.366526018895534,
+    3.581170885628738
+   ],
+   "box_size": [
+    2.635741771822751,
+    2.407014921307564
+   ]
+  }
+ },
+ "renders": {}
+}

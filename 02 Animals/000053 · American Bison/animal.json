@@ -1,0 +1,205 @@
+{
+  "code": "000053",
+  "common": "American Bison",
+  "scientific": "Bison bison",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "shag": "#1C1917",
+      "coat": "#973C00",
+      "horn": "#A6A09B",
+      "hoof": "#171717",
+      "white": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#E0D5A8",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.87,
+      0.06,
+      95.9
+    ],
+    "accent": null,
+    "why": "A warm prairie-wheat amber that complements its rich dark-brown shaggy forequarters and golden-tan hindquarters.",
+    "size": {
+      "real_m": 3.2,
+      "measure": "head-and-body length, 2.1–3.8 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Cattle family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Bovidae",
+      "genus": "Bison",
+      "species": "B. bison"
+    },
+    "conservation": {
+      "code": "NT",
+      "status": "Near Threatened",
+      "assessed": "2016",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Shoulder",
+        "value": "1.5–2 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "318–1,000 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Top speed",
+        "value": "56 km/h",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open grasslands, prairies, river valleys and plains across North America.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Prairie grasses and sedges, grazed across vast open plains throughout the year.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "North America's heaviest land mammal—despite weighing nearly a tonne, it can sprint at 56 km/h and jump 1.8 metres high.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Their massive head and shoulder hump act like a snowplow to sweep away deep winter snow from grass.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Bison_bison",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Bison bison: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Bison_bison/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Bison bison. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Bison_bison",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "american bison",
+      "buffalo",
+      "bison bison",
+      "prairie",
+      "plains",
+      "north america",
+      "wildlife",
+      "herbivore",
+      "mammal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Bison Amerika",
+      "kicker": "Mamalia · Keluarga sapi",
+      "stats": [
+        {
+          "label": "Bahu",
+          "value": "1,5–2 m"
+        },
+        {
+          "label": "Berat",
+          "value": "318–1.000 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–20 tahun"
+        },
+        {
+          "label": "Kecepatan",
+          "value": "56 km/jam"
+        }
+      ],
+      "habitat": "Padang rumput terbuka, prairi, lembah sungai, dan dataran luas di Amerika Utara.",
+      "diet": "Rumput prairi dan teki-tekian yang merumput di padang terbuka sepanjang tahun.",
+      "facts": [
+        "Mamalia darat terberat di Amerika Utara—meski bobotnya hampir satu ton, ia bisa berlari 56 km/jam dan melompat 1,8 meter.",
+        "Kepala besar dan punuk bahunya berfungsi seperti bajak salju untuk menyingkirkan salju tebal dari rumput."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

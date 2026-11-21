@@ -1,0 +1,206 @@
+{
+  "code": "000096",
+  "common": "Common Octopus",
+  "scientific": "Octopus vulgaris",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#EC003F",
+      "shade": "#A50036",
+      "sucker": "#FFCCD3",
+      "iris": "#FFD230",
+      "eye": "#171717"
+    },
+    "background": "#DFCAF3",
+    "background_name": "soft lilac",
+    "background_oklch": [
+      0.87,
+      0.06,
+      307.7
+    ],
+    "accent": null,
+    "why": "A soft twilight lavender-purple that complements the warm coral-terracotta skin and pale suction cups.",
+    "size": {
+      "real_m": 1.0,
+      "measure": "total arm span 0.6–1.0 m, up to 1.3 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mollusc · Octopus family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Mollusca",
+      "class": "Cephalopoda",
+      "order": "Octopoda",
+      "family": "Octopodidae",
+      "genus": "Octopus",
+      "species": "O. vulgaris"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2014",
+      "trend": "unknown",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Span",
+        "value": "0.6–1 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "1–3 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "1–2 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Eggs",
+        "value": "100,000+",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Coastal rocky reefs, seagrass beds, and sandy seafloors across temperate and tropical oceans worldwide.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Crabs, lobsters, clams, scallops, snails, and small benthic fish.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Has three hearts, blue copper-based blood, and roughly two-thirds of its neurons distributed inside its eight arms.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Can match both the color and bumpy texture of surrounding rocks in less than a second using chromatophores and papillae.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Octopus vulgaris: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Octopus_vulgaris/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Octopus vulgaris. The IUCN Red List of Threatened Species (2014 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2018-2.RLTS.T162571A918906.en",
+      "doi": "10.2305/IUCN.UK.2018-2.RLTS.T162571A918906.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "common octopus",
+      "octopus vulgaris",
+      "octopus",
+      "cephalopod",
+      "tentacles",
+      "marine life",
+      "ocean",
+      "sea creature",
+      "intelligent animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "crawl",
+      "wave"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Gurita Biasa",
+      "kicker": "Moluska · Keluarga gurita",
+      "stats": [
+        {
+          "label": "Rentang lengan",
+          "value": "0,6–1 m"
+        },
+        {
+          "label": "Berat",
+          "value": "1–3 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "1–2 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "100.000+ butir"
+        }
+      ],
+      "habitat": "Terumbu berbatu pesisir, padang lamun, dan dasar laut berpasir di perairan sedang hingga tropis.",
+      "diet": "Kepiting, lobster, kerang, simping, siput laut, dan ikan kecil dasar laut.",
+      "facts": [
+        "Memiliki tiga jantung, darah biru berbasis tembaga, dan sekitar dua pertiga neuronnya tersebar di kedelapan lengannya.",
+        "Dapat meniru warna sekaligus tekstur berbenjol batu di sekitarnya dalam waktu kurang dari satu detik."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

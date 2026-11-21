@@ -1,0 +1,206 @@
+{
+  "code": "000085",
+  "common": "Japanese Giant Salamander",
+  "scientific": "Andrias japonicus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#7B3306",
+      "mottle": "#292524",
+      "fold": "#44403B",
+      "belly": "#A6A09B",
+      "eye": "#171717"
+    },
+    "background": "#A9E2D6",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      180.4
+    ],
+    "accent": null,
+    "why": "A cool mountain-stream teal that contrasts cleanly with the warm dark umber mottled skin.",
+    "size": {
+      "real_m": 1.4,
+      "measure": "total length 1.0–1.5 m (second-largest amphibian in the world)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Amphibian · Giant salamander family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Amphibia",
+      "order": "Urodela",
+      "family": "Cryptobranchidae",
+      "genus": "Andrias",
+      "species": "A. japonicus"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2020",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "1–1.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "20–25 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "50–80 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "400–500 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Cold, fast-flowing mountain streams and clear rivers in southwestern Honshu, Shikoku, and Kyushu in Japan.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Fish, frogs, crabs, crayfish, and aquatic insects ambushed at night.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Breathes entirely through its wrinkled, folded skin rather than lungs, absorbing oxygen directly from cold stream water.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Known in Japan as osanshouo ('giant pepper fish') because its defensive skin secretion smells like Japanese pepper.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Andrias japonicus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Andrias_japonicus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Andrias japonicus. The IUCN Red List of Threatened Species (2020 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2021-1.RLTS.T1273A177177761.en",
+      "doi": "10.2305/IUCN.UK.2021-1.RLTS.T1273A177177761.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "japanese giant salamander",
+      "andrias japonicus",
+      "giant salamander",
+      "salamander",
+      "amphibian",
+      "japan",
+      "river",
+      "living fossil",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "swim"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Salamander Raksasa Jepang",
+      "kicker": "Amfibi · Keluarga salamander raksasa",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1–1,5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "20–25 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "50–80 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "400–500 butir"
+        }
+      ],
+      "habitat": "Sungai pegunungan yang dingin, jernih, dan berarus deras di Honshu barat daya, Shikoku, dan Kyushu, Jepang.",
+      "diet": "Ikan, katak, kepiting, udang karang, dan serangga air yang disergap pada malam hari.",
+      "facts": [
+        "Bernapas sepenuhnya melalui kulitnya yang berlipat-lipat, menyerap oksigen langsung dari air sungai yang dingin.",
+        "Dijuluki osanshouo ('ikan merica raksasa') di Jepang karena cairan kulitnya beraroma seperti merica Jepang."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

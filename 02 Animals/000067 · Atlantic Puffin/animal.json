@@ -1,0 +1,204 @@
+{
+  "code": "000067",
+  "common": "Atlantic Puffin",
+  "scientific": "Fratercula arctica",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "back": "#171717",
+      "belly": "#FAFAF9",
+      "face": "#D6D3D1",
+      "beak": "#FF6900",
+      "eye": "#171717"
+    },
+    "background": "#A6E0E7",
+    "background_name": "soft aqua",
+    "background_oklch": [
+      0.87,
+      0.06,
+      205.4
+    ],
+    "accent": null,
+    "why": "A crisp North-Atlantic sea-cyan that sets off its tuxedo plumage and bright orange-and-blue striped beak.",
+    "size": {
+      "real_m": 0.3,
+      "measure": "body length 26–30 cm; wingspan 47–63 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Auk family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Charadriiformes",
+      "family": "Alcidae",
+      "genus": "Fratercula",
+      "species": "F. arctica"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2018",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "26–30 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingspan",
+        "value": "47–63 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "320–480 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "20+ yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Cold North Atlantic oceans in winter, nesting on grassy sea cliffs and islands in spring and summer.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Small marine fish—especially sand eels, herring and capelin—caught by 'flying' underwater.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Backward-pointing spines on its tongue and palate let it hold up to 60 small fish crosswise in its beak at once!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Its famous rainbow bill is only worn in summer—in winter it sheds the outer plates and turns smaller and dull grey.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Fratercula_arctica",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Fratercula arctica: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Fratercula_arctica/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Fratercula arctica. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Fratercula_arctica",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "atlantic puffin",
+      "puffin",
+      "fratercula arctica",
+      "sea parrot",
+      "seabird",
+      "iceland",
+      "north atlantic",
+      "cute",
+      "bird"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "flier",
+    "actions": [
+      "pose",
+      "idle",
+      "fly"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Puffin Atlantik",
+      "kicker": "Burung · Keluarga auk (puffin)",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "26–30 cm"
+        },
+        {
+          "label": "Bentang sayap",
+          "value": "47–63 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "320–480 g"
+        },
+        {
+          "label": "Usia",
+          "value": "20+ tahun"
+        }
+      ],
+      "habitat": "Samudra Atlantik Utara yang dingin saat musim dingin, dan bersarang di tebing laut berumput saat musim panas.",
+      "diet": "Ikan laut kecil—terutama belut pasir, haring, dan kapelin—yang ditangkap dengan 'terbang' di bawah air.",
+      "facts": [
+        "Duri mengarah ke belakang di lidah dan langit-langit mulutnya memungkinkannya membawa hingga 60 ikan kecil sekaligus!",
+        "Paruh pelangi terkenalnya hanya dipakai di musim panas—saat musim dingin lapisan luarnya rontok dan warnanya memudar."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

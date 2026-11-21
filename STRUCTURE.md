@@ -3,11 +3,11 @@
 Mapped from Nilant's structure (`../Nilant/STRUCTURE.md`), 2026-11-15. Not an app: guides, one folder per animal,
 design assets, a licence log, a registry workbook and an engine (Blender for the pictures, Python for the type, the
 registry and the stock files). Naming follows Nilant (and Kodey): numbered top folders `NN Name`, human-facing files
-`Voxel Fauna · Title`, animal folders `YY-SEQ · Common Name`.
+`Voxel Fauna · Title`, animal folders `NNNNNN · Common Name` (six-digit code).
 
 | Nilant | Voxel Fauna | Why |
 |---|---|---|
-| `02 Videos/<YY-SEQ · Title>/` | `02 Animals/<YY-SEQ · Common Name>/` | one project per animal instead of per video |
+| `02 Videos/<YY-SEQ · Title>/` | `02 Animals/<NNNNNN · Common Name>/` | one project per animal instead of per video |
 | `video.json` | `animal.json` | the structured source of truth |
 | `overview.md` (by `npm run brief`) | `overview.md` (by `vf.py overview`) | generated front page |
 | `docs/` brief, script, scenes | `docs/animal-info.md`, `docs/references.md` | research instead of a script |
@@ -17,7 +17,7 @@ registry and the stock files). Naming follows Nilant (and Kodey): numbered top f
 | `_system/studio/blender/nilant_*` | `_system/studio/blender/vf_*` | the shared engine |
 | `npm run …` (Node) | `python _system/studio/scripts/vf.py …` | stills need no Remotion |
 | `_system/studio/render/render.bat` | `_system/studio/render/render.bat` | the same double-click renderer: build, previews, finals, offline |
-| `05 Publish/Nilant · Schedule & Metrics.xlsx` | `05 Publish/Voxel Fauna · Registry.xlsx` + `Voxel Fauna · Publish Log.md` | images, a dated publish log and platforms instead of a schedule |
+| `05 Publish/Nilant · Schedule & Metrics.xlsx` | `05 Publish/Voxel Fauna · Registry.xlsx` + `Voxel Fauna · Publish Log.md` | the animals' information instead of a schedule; the platform targets and their dated publish logs in `05 Publish/Platforms/` |
 | `_system/data/standards.lock.json` | same | the consistency contract |
 
 ```
@@ -30,7 +30,7 @@ nilant-voxel-isometric/
 ├── .claude/skills/
 │   ├── voxel-animal-production/  THE production skill (single source of truth)
 │   └── bsk-blender-director, bsk-creature-artist, bsk-stylized-style, bsk-qa-review   generic Blender craft (MIT, from Nilant)
-├── 00 TODO/                      the owner's brief (voxel-isometric.txt) and scratch
+├── 00 TODO/                      the owner's prompts while they are open (the first brief is in git history)
 ├── 01 Guide/
 │   ├── Voxel Fauna · Production Workflow.md
 │   ├── Voxel Fauna · Stock Platforms.md
@@ -38,8 +38,8 @@ nilant-voxel-isometric/
 ├── 02 Animals/
 │   ├── README.md
 │   ├── _Template/                copied by `vf.py new`
-│   ├── 26-001 · Red Fox/ … 26-025 · Plains Zebra/   the twenty-five example animals (2026-11-16)
-│   └── <YY-SEQ · Common Name>/
+│   ├── 000001 · Red Fox/ … 000025 · Plains Zebra/   the twenty-five example animals (2026-11-16)
+│   └── <NNNNNN · Common Name>/
 │       ├── overview.md           front page (generated)
 │       ├── animal.json           source of truth: names, look, card copy + sources, photo, stock metadata, approvals
 │       ├── docs/                 animal-info.md, references.md, voxel-model.md (the brief key-prompt.md needs)
@@ -48,13 +48,14 @@ nilant-voxel-isometric/
 │       └── export/               VF-<code>-ILL-1x1.png … VF-<code>-INF-16x9.png, stock/ (JPEGs)
 ├── 03 Design/
 │   ├── DESIGN-SYSTEM.md
-│   ├── Color/                    tailwind-v4-palette.json (copy of Nilant's)
+│   ├── Color/                    README.md (the colour rules: hex only, one-chroma backgrounds)
 │   ├── Fonts/                    Poppins (OFL)
 │   └── Reference/                approved stills
 ├── 04 Library/
 │   └── README.md                 licence and download log
 ├── 05 Publish/
-│   ├── Voxel Fauna · Registry.xlsx        Read Me, Animals, Images, Publish Log, Platforms
+│   ├── Voxel Fauna · Registry.xlsx        Read Me, Animals (the animal information)
+│   ├── Platforms/                         Voxel Fauna · <Platform>.xlsx: Read Me, Items, Publish Log
 │   ├── Voxel Fauna · Publish Log.md       every upload event (vf.py log)
 │   ├── Voxel Fauna · Publishing Checklist.md
 │   ├── README.md

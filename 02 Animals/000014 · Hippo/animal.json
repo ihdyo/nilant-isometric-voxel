@@ -1,0 +1,223 @@
+{
+  "code": "000014",
+  "common": "Hippo",
+  "scientific": "Hippopotamus amphibius",
+  "status": "Final",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "skin": "#8E7C8F",
+      "pink": "#FFCCD3",
+      "mouth": "#FF637E",
+      "tusk": "#FFFBEB",
+      "eye": "#0A0A0A"
+    },
+    "background": "#DAD7AA",
+    "background_name": "river-reed green",
+    "background_oklch": [
+      0.87,
+      0.06,
+      105
+    ],
+    "accent": null,
+    "why": "Reeds along an African river, the complement of the hippo's pinkish grey.",
+    "size": {
+      "real_m": 4.0,
+      "measure": "nose to tail: 2.9–5 m, mid-range",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Hippo family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Artiodactyla",
+      "family": "Hippopotamidae",
+      "genus": "Hippopotamus",
+      "species": "H. amphibius"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": null,
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "2.9–5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "1.3–3.2 t",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "~55 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Top speed",
+        "value": "30 km/h",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Rivers, lakes and swamps across sub-Saharan Africa. Water about 2 m deep is just right.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Grass, grass and more grass: about 40 kg a night, grazed in 4 to 5 hours on land.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Hippos make their own sunscreen: a red skin oil that blocks the sun and fights germs.",
+        "source": [
+          1,
+          3
+        ]
+      },
+      {
+        "text": "Calves are born in or near water and even nurse underwater, ears folded and nostrils shut.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-two-in-water.jpg",
+      "author": "William Warby",
+      "licence": "CC BY 2.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Hippopotamus_amphibius_Whipsnade_Zoo.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Hippopotamus amphibius: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Hippopotamus_amphibius/",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Lewison, R. & Pluháček, J. (2017). Hippopotamus amphibius. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2017-2.RLTS.T10103A18567364.en",
+      "doi": "10.2305/IUCN.UK.2017-2.RLTS.T10103A18567364.en",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Saikawa, Y., Hashimoto, K., Nakata, M., Yoshihara, M., Nagai, K., Ida, M. & Komiya, T. (2004). The red sweat of the hippopotamus. Nature 429: 363",
+      "publisher": "Springer Nature",
+      "url": "https://doi.org/10.1038/429363a",
+      "doi": "10.1038/429363a",
+      "accessed": "2026-11-16",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "hippopotamus",
+      "hippo",
+      "river horse",
+      "africa",
+      "safari",
+      "big mouth",
+      "yawn",
+      "wildlife",
+      "river animal"
+    ]
+  },
+  "approvals": {
+    "preview": "2026-11-17",
+    "final": null,
+    "preview_key": "11cddc012703e9a1/27bddde8820cf18d"
+  },
+  "notes": [
+    "Seeded 2026-11-16 (owner: 'create another 5 animals'); facts from ADW, the IUCN assessment and cited papers; photos approved by the owner as a batch."
+  ],
+  "history": [
+    "2026-11-16 Research (folder created)",
+    "2026-11-16 Preview",
+    "2026-11-17 Preview approved",
+    "2026-11-17 Final"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "yawn"
+    ],
+    "status": "proposed 2026-11-17 (owner: \"rig the animal now\"), not approved yet",
+    "options": {
+      "walk_jaw": 30
+    },
+    "note": "walk: the jaw opens wide and closes once a loop, like a yawn (owner 2026-11-21)"
+  },
+  "i18n": {
+    "id": {
+      "common": "Kuda Nil",
+      "kicker": "Mamalia · Keluarga kuda nil",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "2,9–5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "1,3–3,2 t"
+        },
+        {
+          "label": "Usia",
+          "value": "~55 tahun"
+        },
+        {
+          "label": "Kecepatan",
+          "value": "30 km/jam"
+        }
+      ],
+      "habitat": "Sungai, danau, dan rawa di Afrika sub-Sahara. Air sedalam sekitar 2 m paling pas.",
+      "diet": "Rumput, rumput, dan rumput lagi: sekitar 40 kg semalam, merumput 4–5 jam di darat.",
+      "facts": [
+        "Kuda nil punya tabir surya sendiri: minyak kulit merah yang menahan matahari dan kuman.",
+        "Anaknya lahir di dalam atau dekat air, bahkan menyusu di bawah air dengan telinga terlipat."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

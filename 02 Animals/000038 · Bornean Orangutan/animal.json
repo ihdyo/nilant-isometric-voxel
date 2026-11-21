@@ -1,0 +1,218 @@
+{
+  "code": "000038",
+  "common": "Bornean Orangutan",
+  "scientific": "Pongo pygmaeus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#CA3500",
+      "skin": "#292524",
+      "beard": "#FF6900",
+      "shade": "#7E2A0C",
+      "white": "#FAFAF9",
+      "eye": "#1C1917"
+    },
+    "background": "#EECEAA",
+    "background_name": "soft sand",
+    "background_oklch": [
+      0.87,
+      0.06,
+      70.2
+    ],
+    "accent": null,
+    "why": "A warm tropical terracotta-amber that resonates with Borneo's sunlit rainforest canopy and complements the rich rufous coat.",
+    "size": {
+      "real_m": 1.4,
+      "measure": "standing height about 1.2–1.4 m (adult males 1.2–1.4 m tall with arm span over 2 m per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Great ape family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Primates",
+      "family": "Hominidae",
+      "genus": "Pongo",
+      "species": "P. pygmaeus"
+    },
+    "conservation": {
+      "code": "CR",
+      "status": "Critically Endangered",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Height",
+        "value": "1.1–1.4 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "30–100 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "35–45 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "245 days",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Lowland tropical dipterocarp rainforests and peat-swamp forests across the island of Borneo.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Durians, figs, jackfruit, lychees, young leaves, bark, honey and termites—eating over 400 plant species.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The largest tree-dwelling mammal on Earth, weaving a fresh leafy sleeping nest high in the canopy every night.",
+        "source": [
+          1,
+          3
+        ]
+      },
+      {
+        "text": "Its name comes from Malay 'orang hutan', meaning 'person of the forest'; arm span reaches over 2 meters.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Eleifert",
+      "licence": "CC BY 3.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Orangutan_01.jpg",
+      "centre": [
+        0.5,
+        0.45
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Pongo pygmaeus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Pongo_pygmaeus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Ancrenaz, M., Gumal, M., Marshall, A.J., Meijaard, E., Wich, S.A. & Husson, S. (2016). Pongo pygmaeus (errata version published in 2018). The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2016-1.RLTS.T17975A17966347.en",
+      "doi": "10.2305/IUCN.UK.2016-1.RLTS.T17975A17966347.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "van Schaik, C.P., Ancrenaz, M., Borgen, G., Galdikas, B., Knott, C.D., Singleton, I., Suzuki, A., Utami, S.S. & Merrill, M. (2003). Orangutan cultures and the evolution of material culture. Science 299: 102–105",
+      "publisher": "AAAS",
+      "url": "https://doi.org/10.1126/science.1078004",
+      "doi": "10.1126/science.1078004",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "bornean orangutan",
+      "pongo pygmaeus",
+      "orangutan",
+      "borneo",
+      "great ape",
+      "rainforest",
+      "critically endangered",
+      "indonesia wildlife",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 036-050); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "ape_knuckle",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "swing"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Orangutan Kalimantan",
+      "kicker": "Mamalia · Keluarga kera besar",
+      "stats": [
+        {
+          "label": "Tinggi",
+          "value": "1,1–1,4 m"
+        },
+        {
+          "label": "Berat",
+          "value": "30–100 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "35–45 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "245 hari"
+        }
+      ],
+      "habitat": "Hutan hujan tropis dataran rendah dan hutan rawa gambut di seluruh Pulau Kalimantan (Borneo).",
+      "diet": "Durian, buah ara, nangka, leci, daun muda, kulit kayu, madu, dan rayap—memakan lebih dari 400 jenis tumbuhan.",
+      "facts": [
+        "Mamalia penghuni pohon terbesar di Bumi; setiap malam merangkai sarang tidur baru dari dedaunan di puncak kanopi.",
+        "Namanya berasal dari bahasa Melayu 'orang hutan' yang berarti manusia hutan; rentang lengannya mencapai lebih dari 2 meter."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

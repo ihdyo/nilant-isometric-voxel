@@ -1,0 +1,204 @@
+{
+  "code": "000062",
+  "common": "Eurasian Red Squirrel",
+  "scientific": "Sciurus vulgaris",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#F54900",
+      "belly": "#FAFAF9",
+      "tuft": "#9F2D00",
+      "paw": "#FEE685",
+      "eye": "#171717"
+    },
+    "background": "#EBD0A9",
+    "background_name": "soft sand",
+    "background_oklch": [
+      0.87,
+      0.06,
+      76.9
+    ],
+    "accent": null,
+    "why": "A soft autumn-peach backdrop that harmonizes with its bright chestnut-red coat, ear tufts and creamy belly.",
+    "size": {
+      "real_m": 0.42,
+      "measure": "total length, 34–43 cm including bushy tail",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Squirrel family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Rodentia",
+      "family": "Sciuridae",
+      "genus": "Sciurus",
+      "species": "S. vulgaris"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "34–43 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "250–340 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "3–7 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Leap",
+        "value": "Up to 2 m",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Coniferous and broadleaf woodlands across Europe and northern Asia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Pine cones, hazelnuts, acorns, tree buds, berries and fungi cached for winter.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its bushy tail acts as a rudder while leaping between branches and a warm blanket wrapped around its body while sleeping.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "In winter it grows dramatic long tufts of fur on the tips of its ears that shed each spring.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Sciurus_vulgaris",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Sciurus vulgaris: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Sciurus_vulgaris/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Sciurus vulgaris. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Sciurus_vulgaris",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "red squirrel",
+      "eurasian red squirrel",
+      "sciurus vulgaris",
+      "squirrel",
+      "ear tufts",
+      "woodland",
+      "forest",
+      "cute",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "hopper",
+    "actions": [
+      "pose",
+      "idle",
+      "hop"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Tupai Merah Eurasia",
+      "kicker": "Mamalia · Keluarga tupai",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "34–43 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "250–340 g"
+        },
+        {
+          "label": "Usia",
+          "value": "3–7 tahun"
+        },
+        {
+          "label": "Lompatan",
+          "value": "Hingga 2 m"
+        }
+      ],
+      "habitat": "Hutan konifer dan hutan berdaun lebar di seluruh Eropa dan Asia utara.",
+      "diet": "Biji pinus, hazelnut, biji ek, kuncup pohon, beri, dan jamur yang disimpan untuk musim dingin.",
+      "facts": [
+        "Ekor lebatnya berfungsi sebagai kemudi saat melompat antardahan dan selimut hangat saat tidur.",
+        "Di musim dingin, ujung telinganya menumbuhkan jumbai bulu panjang yang rontok setiap musim semi."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

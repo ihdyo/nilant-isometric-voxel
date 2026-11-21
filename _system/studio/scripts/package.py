@@ -301,7 +301,7 @@ def _front(animal, A, lang, cut_png, master_png, W, H, b, u):
         # animal, placed with a little room between them
         rnd = __import__("random").Random(animal["code"] + lang)
         fam = IG._token_of(animal["look"]["background"]).rsplit("-", 1)[0]
-        tints = [VL.rgb(IG._mute(f"{fam}-{s}")) for s in FRONT["particles"]["shades"] if f"{fam}-{s}" in VL.PALETTE]
+        tints = [VL.rgb(f"{fam}-{s}") for s in FRONT["particles"]["shades"]]
         occ = np.asarray(cut.getchannel("A").filter(ImageFilter.MaxFilter(9)), dtype=np.uint8) > 0
         placed = []
         P = FRONT["particles"]

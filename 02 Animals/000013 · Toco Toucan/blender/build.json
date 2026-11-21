@@ -1,0 +1,96 @@
+{
+ "code": "000013",
+ "built": "2026-11-21T16:56:05",
+ "blender": "5.3.0",
+ "model_hash": "36531dda4995cfbd",
+ "look_hash": "315dfae770a0deef",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "posed size 22.6 x 10.8 x 21.8 voxels (L x W x H), 1123 voxels, colours bill, bill_low, body, eye, feet, ring, throat, vent, parts beak, body, foot_l, foot_r, head, leg_l, leg_r, tail, wing_l, wing_r; turned beak, head, tail, wing_l"
+  ],
+  "size": [
+   23,
+   9,
+   20
+  ],
+  "voxels": 1123
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 2.912140999521528,
+   "view": [
+    2.912140999521528,
+    2.912140999521528
+   ],
+   "box_size": [
+    1.6539029472263849,
+    2.0384986996650696
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 3.5856974465612677,
+   "view": [
+    2.016954813690713,
+    3.5856974465612677
+   ],
+   "box_size": [
+    1.6539029472263849,
+    2.0384986996650696
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 5.329408365137436,
+   "view": [
+    5.329408365137436,
+    2.997792205389808
+   ],
+   "box_size": [
+    1.6539029472263849,
+    2.0384986996650696
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 5.560552917798882,
+   "view": [
+    5.560552917798882,
+    5.560552917798882
+   ],
+   "box_size": [
+    1.6539029472263849,
+    2.0384986996650696
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 8.34082937669832,
+   "view": [
+    4.691716524392805,
+    8.34082937669832
+   ],
+   "box_size": [
+    1.6539029472263849,
+    2.0384986996650696
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 4.628349538050392,
+   "view": [
+    4.628349538050392,
+    2.6034466151533455
+   ],
+   "box_size": [
+    1.6539029472263849,
+    2.0384986996650696
+   ]
+  }
+ },
+ "renders": {}
+}

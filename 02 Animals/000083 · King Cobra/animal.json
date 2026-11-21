@@ -1,0 +1,207 @@
+{
+  "code": "000083",
+  "common": "King Cobra",
+  "scientific": "Ophiophagus hannah",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "scales": "#2B2B22",
+      "band": "#FEE685",
+      "hood": "#FFD230",
+      "belly": "#FEF9C2",
+      "tongue": "#FF2056",
+      "eye": "#171717"
+    },
+    "background": "#DCD6A9",
+    "background_name": "soft straw",
+    "background_oklch": [
+      0.87,
+      0.06,
+      101.2
+    ],
+    "accent": null,
+    "why": "A warm bamboo-sunlight yellow that echoes its forest habitat while contrasting with the dark olive-black scales.",
+    "size": {
+      "real_m": 4.0,
+      "measure": "total length 3–4 m, up to 5.5 m (longest venomous snake)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Reptile · Elapid snake family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Reptilia",
+      "order": "Squamata",
+      "family": "Elapidae",
+      "genus": "Ophiophagus",
+      "species": "O. hannah"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2011",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "3–4 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "6–10 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "20–40 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Dense tropical forests, bamboo thickets, and mangrove swamps across South and Southeast Asia.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Primarily other snakes—including pythons and rat snakes—plus occasional monitor lizards.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "The world's longest venomous snake, capable of rearing a third of its body upright to look an adult human in the eye.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "The only known snake species that builds an above-ground nest mound of dead leaves to guard its eggs.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Ophiophagus hannah: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Ophiophagus_hannah/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Ophiophagus hannah. The IUCN Red List of Threatened Species (2011 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2012-1.RLTS.T177540A1491874.en",
+      "doi": "10.2305/IUCN.UK.2012-1.RLTS.T177540A1491874.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "king cobra",
+      "ophiophagus hannah",
+      "cobra",
+      "venomous snake",
+      "snake",
+      "reptile",
+      "rainforest",
+      "southeast asia",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "crawler",
+    "actions": [
+      "pose",
+      "idle",
+      "slither",
+      "hood"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Ular Kobra Raja",
+      "kicker": "Reptil · Keluarga ular sendok",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "3–4 m"
+        },
+        {
+          "label": "Berat",
+          "value": "6–10 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "20 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "20–40 butir"
+        }
+      ],
+      "habitat": "Hutan hujan tropis lebat, rumpun bambu, dan rawa bakau di Asia Selatan dan Asia Tenggara.",
+      "diet": "Terutama ular lain—termasuk sanca dan ular tikus—serta sesekali biawak.",
+      "facts": [
+        "Ular berbisa terpanjang di dunia, sanggup menegakkan sepertiga tubuhnya hingga sejajar mata manusia dewasa.",
+        "Satu-satunya spesies ular yang diketahui membangun gundukan sarang dari daun kering untuk menjaga telurnya."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

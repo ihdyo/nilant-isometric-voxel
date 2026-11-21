@@ -1,0 +1,206 @@
+{
+  "code": "000095",
+  "common": "Ocellaris Clownfish",
+  "scientific": "Amphiprion ocellaris",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "body": "#FF6900",
+      "stripe": "#FAFAF9",
+      "outline": "#171717",
+      "iris": "#FFB900",
+      "eye": "#171717"
+    },
+    "background": "#EECEAA",
+    "background_name": "soft sand",
+    "background_oklch": [
+      0.87,
+      0.06,
+      70.2
+    ],
+    "accent": null,
+    "why": "A warm coral-sunset pastel orange that harmonizes with the vibrant tangerine scales and crisp white bands.",
+    "size": {
+      "real_m": 0.11,
+      "measure": "total length 8–11 cm",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Ray-finned fish · Damselfish family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Actinopterygii",
+      "order": "Ovalentaria",
+      "family": "Pomacentridae",
+      "genus": "Amphiprion",
+      "species": "A. ocellaris"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2021",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "8–11 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "10–25 g",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "6–10 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Clutch",
+        "value": "100–1,000 eggs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Warm shallow coral reefs and lagoons across the eastern Indian Ocean, Indonesia, and western Pacific.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Zooplankton, copepods, benthic algae, and food scraps shared by its host sea anemone.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Coated in a specialized sugar-based mucus layer that prevents its host sea anemone from firing stinging cells.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Born male; if the dominant breeding female dies, the largest male permanently transforms into the new female.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": null,
+      "author": null,
+      "licence": null,
+      "source": "Wikimedia Commons",
+      "url": null,
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Amphiprion ocellaris: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Amphiprion_ocellaris/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Amphiprion ocellaris. The IUCN Red List of Threatened Species (2021 assessment)",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2022-2.RLTS.T188321A1857521.en",
+      "doi": "10.2305/IUCN.UK.2022-2.RLTS.T188321A1857521.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "ocellaris clownfish",
+      "clownfish",
+      "anemonefish",
+      "amphiprion ocellaris",
+      "coral reef",
+      "tropical fish",
+      "reef fish",
+      "orange fish",
+      "marine life"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000076 to 000100); facts compiled for Phase 1 Research."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "swimmer",
+    "actions": [
+      "pose",
+      "idle",
+      "swim",
+      "wiggle"
+    ],
+    "status": "proposed 2026-11-20, awaiting model.py and rig"
+  },
+  "i18n": {
+    "id": {
+      "common": "Ikan Badut Ocellaris",
+      "kicker": "Ikan bersirip kipas · Keluarga ikan betok laut",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "8–11 cm"
+        },
+        {
+          "label": "Berat",
+          "value": "10–25 g"
+        },
+        {
+          "label": "Usia",
+          "value": "6–10 tahun"
+        },
+        {
+          "label": "Telur",
+          "value": "100–1.000 butir"
+        }
+      ],
+      "habitat": "Terumbu karang dangkal dan laguna hangat di Samudra Hindia timur, Indonesia, dan Pasifik barat.",
+      "diet": "Zooplankton, kopepoda, alga dasar laut, dan sisa makanan dari anemon laut inangnya.",
+      "facts": [
+        "Dilapisi lendir khusus berbasis gula yang mencegah anemon laut inangnya melepaskan sel penyengat.",
+        "Terlahir sebagai jantan; jika betina dominan mati, pejantan terbesar akan berubah permanen menjadi betina baru."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

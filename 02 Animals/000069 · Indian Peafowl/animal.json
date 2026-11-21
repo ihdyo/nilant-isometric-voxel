@@ -1,0 +1,204 @@
+{
+  "code": "000069",
+  "common": "Indian Peafowl",
+  "scientific": "Pavo cristatus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "neck": "#1447E6",
+      "train": "#009966",
+      "eye_spot": "#FFB900",
+      "face": "#FAFAF9",
+      "eye": "#171717"
+    },
+    "background": "#B0E1CA",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      164.3
+    ],
+    "accent": null,
+    "why": "A fresh jungle-emerald pastel that frames its iridescent cobalt-blue neck and golden-green eyespot train.",
+    "size": {
+      "real_m": 2.1,
+      "measure": "total length 1.8–2.3 m (male including 1.5 m train)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Pheasant family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Galliformes",
+      "family": "Phasianidae",
+      "genus": "Pavo",
+      "species": "P. cristatus"
+    },
+    "conservation": {
+      "code": "LC",
+      "status": "Least Concern",
+      "assessed": "2024",
+      "trend": "stable",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "1.8–2.3 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "2.7–6 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Train feathers",
+        "value": "Over 200",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open deciduous forests, scrublands, riverbanks and village edges across the Indian subcontinent.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Seeds, berries, grain, insects, small reptiles and young snakes.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Its famous 1.5-metre 'tail' is actually made of over 200 elongated upper-tail covert feathers—each tipped with a shimmering eyespot!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "When displaying, the male rattles his feathers at 26 Hz, creating low-frequency infrasound vibrations felt by nearby peahens.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Pavo_cristatus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Pavo cristatus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Pavo_cristatus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Pavo cristatus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Pavo_cristatus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "peacock",
+      "indian peafowl",
+      "pavo cristatus",
+      "peafowl",
+      "iridescent",
+      "feathers",
+      "india",
+      "bird",
+      "wildlife"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Merak Biru (Indian Peafowl)",
+      "kicker": "Burung · Keluarga burung merak",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1,8–2,3 m"
+        },
+        {
+          "label": "Berat",
+          "value": "2,7–6 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–20 tahun"
+        },
+        {
+          "label": "Bulu ekor",
+          "value": "Lebih dari 200"
+        }
+      ],
+      "habitat": "Hutan gugur terbuka, semak belukar, tepi sungai, dan pinggiran desa di anak benua India.",
+      "diet": "Biji-bijian, beri, serangga, reptil kecil, dan anak ular.",
+      "facts": [
+        "'Ekor' terkenalnya yang sepanjang 1,5 meter sebenarnya terdiri dari lebih dari 200 bulu penutup ekor atas yang berujung motif mata!",
+        "Saat memikat betina, merak jantan menggetarkan bulunya pada 26 Hz, menghasilkan getaran infrasonik berfrekuensi rendah."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

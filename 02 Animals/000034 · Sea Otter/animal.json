@@ -1,0 +1,218 @@
+{
+  "code": "000034",
+  "common": "Sea Otter",
+  "scientific": "Enhydra lutris",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "coat": "#7B3306",
+      "head": "#E7E5E4",
+      "paw": "#171717",
+      "nose": "#171717",
+      "white": "#FAFAF9",
+      "eye": "#1C1917"
+    },
+    "background": "#A9E2D6",
+    "background_name": "soft mint",
+    "background_oklch": [
+      0.87,
+      0.06,
+      180.4
+    ],
+    "accent": null,
+    "why": "A cool North Pacific kelp-forest teal that evokes coastal waters and complements the warm chocolate-brown fur.",
+    "size": {
+      "real_m": 1.3,
+      "measure": "nose to tail tip, about 1.3 m (total length 1–1.5 m including 25–35 cm tail per ADW)",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Mammal · Weasel family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Mammalia",
+      "order": "Carnivora",
+      "family": "Mustelidae",
+      "genus": "Enhydra",
+      "species": "E. lutris"
+    },
+    "conservation": {
+      "code": "EN",
+      "status": "Endangered",
+      "assessed": "2020",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Total length",
+        "value": "1–1.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "14–45 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "15–20 yrs",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Pregnancy",
+        "value": "6–8 months",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Shallow coastal kelp forests and rocky reefs along the northern Pacific Ocean.",
+      "source": [
+        1,
+        2
+      ]
+    },
+    "diet": {
+      "text": "Sea urchins, abalones, clams, mussels, crabs and sea stars cracked open on its chest using a flat stone.",
+      "source": [
+        1,
+        3
+      ]
+    },
+    "facts": [
+      {
+        "text": "It has the densest fur of any animal—up to 150,000 hairs per square centimeter—trapping air instead of blubber for warmth.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Sea otters wrap themselves in kelp fronds while sleeping at sea so they do not drift away.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side-profile.jpg",
+      "author": "Mike Baird",
+      "licence": "CC BY 2.0",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/File:Sea_otter_cropped.jpg",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Enhydra lutris: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Enhydra_lutris/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Doroff, A., Burdin, A. & Larson, S. (2021). Enhydra lutris. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://doi.org/10.2305/IUCN.UK.2021-3.RLTS.T7750A219377647.en",
+      "doi": "10.2305/IUCN.UK.2021-3.RLTS.T7750A219377647.en",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    },
+    {
+      "id": 3,
+      "title": "Estes, J.A. & Palmisano, J.F. (1974). Sea otters: their role in structuring nearshore communities. Science 185: 1058–1060",
+      "publisher": "AAAS",
+      "url": "https://doi.org/10.1126/science.185.4156.1058",
+      "doi": "10.1126/science.185.4156.1058",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "sea otter",
+      "enhydra lutris",
+      "kelp forest",
+      "marine mammal",
+      "pacific ocean",
+      "keystone species",
+      "cute otter",
+      "endangered wildlife",
+      "voxel animal"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 026-035); facts from ADW, IUCN Red List and peer-reviewed literature."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "quadruped",
+    "actions": [
+      "pose",
+      "idle",
+      "walk",
+      "float"
+    ],
+    "status": "proposed 2026-11-20, not approved yet"
+  },
+  "i18n": {
+    "id": {
+      "common": "Berang-berang Laut",
+      "kicker": "Mamalia · Keluarga musang",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "1–1,5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "14–45 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "15–20 tahun"
+        },
+        {
+          "label": "Hamil",
+          "value": "6–8 bulan"
+        }
+      ],
+      "habitat": "Hutan rumput laut (kelp) pesisir yang dangkal dan terumbu berbatu di Samudra Pasifik bagian utara.",
+      "diet": "Bulu babi, abalon, kerang, remis, kepiting, dan bintang laut yang dipecahkan di dadanya memakai batu.",
+      "facts": [
+        "Memiliki bulu terlebat dari semua hewan—hingga 150.000 helai per sentimeter persegi—untuk menahan panas tubuh tanpa lapisan lemak tebal.",
+        "Berang-berang laut melilitkan tubuhnya dengan daun kelp saat tidur di laut agar tidak hanyut terbawa arus."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

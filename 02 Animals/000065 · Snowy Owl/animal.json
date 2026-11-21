@@ -1,0 +1,204 @@
+{
+  "code": "000065",
+  "common": "Snowy Owl",
+  "scientific": "Bubo scandiacus",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "plumage": "#FAFAF9",
+      "bar": "#57534D",
+      "beak": "#171717",
+      "iris": "#FFB900",
+      "eye": "#171717"
+    },
+    "background": "#BAD7FC",
+    "background_name": "soft periwinkle",
+    "background_oklch": [
+      0.87,
+      0.06,
+      254.8
+    ],
+    "accent": null,
+    "why": "A crisp twilight-glacier blue that makes its snow-white plumage and golden eyes glow.",
+    "size": {
+      "real_m": 0.65,
+      "measure": "body length 52–71 cm; wingspan 1.25–1.5 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Owl family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Strigiformes",
+      "family": "Strigidae",
+      "genus": "Bubo",
+      "species": "B. scandiacus"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2021",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Length",
+        "value": "52–71 cm",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingspan",
+        "value": "1.25–1.5 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "1.6–3 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Lifespan",
+        "value": "10+ yrs",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Open treeless Arctic tundra, coastal dunes and winter prairies across the far north.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Lemmings (up to 1,600 a year per owl!), plus voles, Arctic hares and seabirds.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "Unlike most owls, Snowy Owls hunt during the day—essential during 24-hour Arctic summer sunlight!",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Thick feathers cover even their toes and claws like warm winter boots.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Bubo_scandiacus",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Bubo scandiacus: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Bubo_scandiacus/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Bubo scandiacus. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Bubo_scandiacus",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "snowy owl",
+      "owl",
+      "bubo scandiacus",
+      "arctic",
+      "white owl",
+      "tundra",
+      "raptor",
+      "wildlife",
+      "bird"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "flier",
+    "actions": [
+      "pose",
+      "idle",
+      "fly"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Burung Hantu Salju",
+      "kicker": "Burung · Keluarga burung hantu",
+      "stats": [
+        {
+          "label": "Panjang",
+          "value": "52–71 cm"
+        },
+        {
+          "label": "Bentang sayap",
+          "value": "1,25–1,5 m"
+        },
+        {
+          "label": "Berat",
+          "value": "1,6–3 kg"
+        },
+        {
+          "label": "Usia",
+          "value": "10+ tahun"
+        }
+      ],
+      "habitat": "Tundra Arktik terbuka tanpa pohon, bukit pasir pesisir, dan prairi musim dingin di belahan utara.",
+      "diet": "Lemming (hingga 1.600 ekor per tahun untuk satu burung!), serta tikus padang, terwelu Arktik, dan burung laut.",
+      "facts": [
+        "Berbeda dari kebanyakan burung hantu, Burung Hantu Salju berburu di siang hari—penting saat matahari Arktik bersinar 24 jam!",
+        "Bulu tebal menutupi hingga ke jari kaki dan cakarnya layaknya sepatu bot musim dingin yang hangat."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}

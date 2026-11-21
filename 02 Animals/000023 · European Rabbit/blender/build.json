@@ -1,0 +1,97 @@
+{
+ "code": "000023",
+ "built": "2026-11-21T16:57:14",
+ "blender": "5.3.0",
+ "model_hash": "a2502e7b36404d07",
+ "look_hash": "8e66bd7038b61f08",
+ "build_standards": {
+  "_system/studio/blender/vf_standards.py": "ece495001a07e70d",
+  "_system/studio/blender/vf_voxel.py": "3a8c897aadf8a319",
+  "_system/studio/blender/vf_scene.py": "a377dedbb887c485"
+ },
+ "standards_version": "2.3",
+ "rig": "iso_top",
+ "geometry": "mob",
+ "model": {
+  "errors": [],
+  "notes": [
+   "the pose moves the lowest point to z = -0.12: the engine sets the animal back on the ground",
+   "posed size 16.9 x 9.2 x 19.2 voxels (L x W x H), 840 voxels, colours belly, ear, eye, fur, nose, tail, parts body, ear_l, ear_r, head, leg_fl, leg_fr, leg_hl, leg_hr, shin_hl, shin_hr; turned ear_l, ear_r, head, leg_fl, leg_fr"
+  ],
+  "size": [
+   16,
+   9,
+   19
+  ],
+  "voxels": 840
+ },
+ "frames": {
+  "ILL 1x1": {
+   "ortho_scale": 2.573389634490013,
+   "view": [
+    2.573389634490013,
+    2.573389634490013
+   ],
+   "box_size": [
+    1.6646255224446453,
+    1.8013727441430092
+   ]
+  },
+  "ILL 9x16": {
+   "ortho_scale": 3.608944222102212,
+   "view": [
+    2.0300311249324943,
+    3.608944222102212
+   ],
+   "box_size": [
+    1.6646255224446453,
+    1.8013727441430092
+   ]
+  },
+  "ILL 16x9": {
+   "ortho_scale": 4.709471226517671,
+   "view": [
+    4.709471226517671,
+    2.64907756491619
+   ],
+   "box_size": [
+    1.6646255224446453,
+    1.8013727441430092
+   ]
+  },
+  "INF 1x1": {
+   "ortho_scale": 4.913728161874003,
+   "view": [
+    4.913728161874003,
+    4.913728161874003
+   ],
+   "box_size": [
+    1.6646255224446453,
+    1.8013727441430092
+   ]
+  },
+  "INF 9x16": {
+   "ortho_scale": 7.370592242811003,
+   "view": [
+    4.145958136581189,
+    7.370592242811003
+   ],
+   "box_size": [
+    1.6646255224446453,
+    1.8013727441430092
+   ]
+  },
+  "INF 16x9": {
+   "ortho_scale": 4.089962240143061,
+   "view": [
+    4.089962240143061,
+    2.300603760080472
+   ],
+   "box_size": [
+    1.6646255224446453,
+    1.8013727441430092
+   ]
+  }
+ },
+ "renders": {}
+}

@@ -1,0 +1,204 @@
+{
+  "code": "000071",
+  "common": "Shoebill",
+  "scientific": "Balaeniceps rex",
+  "status": "Research",
+  "facing": "+X",
+  "look": {
+    "palette": {
+      "plumage": "#62748E",
+      "bill": "#FEE685",
+      "leg": "#171717",
+      "iris": "#FFDF20",
+      "eye": "#171717"
+    },
+    "background": "#B7D8FB",
+    "background_name": "soft periwinkle",
+    "background_oklch": [
+      0.87,
+      0.06,
+      250.0
+    ],
+    "accent": null,
+    "why": "A misty papyrus-swamp periwinkle blue that sets off its slate-blue feathers and huge clog-shaped bill.",
+    "size": {
+      "real_m": 1.35,
+      "measure": "standing height 1.1–1.4 m; wingspan 2.3–2.6 m",
+      "source": [
+        1
+      ]
+    }
+  },
+  "info": {
+    "kicker": "Bird · Shoebill family",
+    "classification": {
+      "kingdom": "Animalia",
+      "phylum": "Chordata",
+      "class": "Aves",
+      "order": "Pelecaniformes",
+      "family": "Balaenicipitidae",
+      "genus": "Balaeniceps",
+      "species": "B. rex"
+    },
+    "conservation": {
+      "code": "VU",
+      "status": "Vulnerable",
+      "assessed": "2016",
+      "trend": "decreasing",
+      "source": [
+        2
+      ]
+    },
+    "stats": [
+      {
+        "label": "Height",
+        "value": "1.1–1.4 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Wingspan",
+        "value": "2.3–2.6 m",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Weight",
+        "value": "4–7 kg",
+        "source": [
+          1
+        ]
+      },
+      {
+        "label": "Bill length",
+        "value": "Up to 24 cm",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "habitat": {
+      "text": "Vast freshwater papyrus swamps and marshes of East-Central Africa.",
+      "source": [
+        1
+      ]
+    },
+    "diet": {
+      "text": "Lungfish, bichirs, tilapia, water snakes and baby crocodiles ambushed in shallow swamp water.",
+      "source": [
+        1
+      ]
+    },
+    "facts": [
+      {
+        "text": "It stands completely motionless like a prehistoric statue for hours, then lunges forward to snap up lungfish with its 24-cm clog bill.",
+        "source": [
+          1
+        ]
+      },
+      {
+        "text": "Instead of singing, it greets its mate with rapid-fire bill-clattering that echoes across the swamp like a machine gun.",
+        "source": [
+          1
+        ]
+      }
+    ],
+    "photo": {
+      "file": "assets/photos/01-side.jpg",
+      "author": "Pending Wikimedia Commons selection",
+      "licence": "CC0 / CC BY",
+      "source": "Wikimedia Commons",
+      "url": "https://commons.wikimedia.org/wiki/Category:Balaeniceps_rex",
+      "centre": [
+        0.5,
+        0.5
+      ]
+    }
+  },
+  "sources": [
+    {
+      "id": 1,
+      "title": "Balaeniceps rex: Animal Diversity Web species account",
+      "publisher": "University of Michigan Museum of Zoology",
+      "url": "https://animaldiversity.org/accounts/Balaeniceps_rex/",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "no (edited species account with cited literature)"
+    },
+    {
+      "id": 2,
+      "title": "Balaeniceps rex. The IUCN Red List of Threatened Species",
+      "publisher": "IUCN",
+      "url": "https://www.iucnredlist.org/search?query=Balaeniceps_rex",
+      "accessed": "2026-11-20",
+      "peer_reviewed": "yes (IUCN Red List assessment)"
+    }
+  ],
+  "stock": {
+    "title": null,
+    "info_title": null,
+    "keywords": [
+      "shoebill",
+      "shoebill stork",
+      "balaeniceps rex",
+      "prehistoric bird",
+      "swamp",
+      "africa",
+      "uganda",
+      "vulnerable",
+      "bird"
+    ]
+  },
+  "approvals": {
+    "preview": null,
+    "final": null,
+    "preview_key": null
+  },
+  "notes": [
+    "Seeded 2026-11-20 from Voxel Fauna · Registry.xlsx (batch 000050 to 000075); biological data sourced from ADW and IUCN Red List."
+  ],
+  "history": [
+    "2026-11-20 Research (folder created)"
+  ],
+  "motion": {
+    "plan": "walker",
+    "actions": [
+      "pose",
+      "idle",
+      "walk"
+    ],
+    "status": "planned"
+  },
+  "i18n": {
+    "id": {
+      "common": "Paruh Sepatu (Shoebill)",
+      "kicker": "Burung · Keluarga paruh sepatu (shoebill)",
+      "stats": [
+        {
+          "label": "Tinggi",
+          "value": "1,1–1,4 m"
+        },
+        {
+          "label": "Bentang sayap",
+          "value": "2,3–2,6 m"
+        },
+        {
+          "label": "Berat",
+          "value": "4–7 kg"
+        },
+        {
+          "label": "Panjang paruh",
+          "value": "Hingga 24 cm"
+        }
+      ],
+      "habitat": "Rawa papirus air tawar yang luas di Afrika Timur-Tengah.",
+      "diet": "Ikan paru (lungfish), ikan nila, ular air, dan anak buaya yang disergap di perairan rawa dangkal.",
+      "facts": [
+        "Ia berdiri mematung tanpa bergerak selama berjam-jam, lalu menerjang ke depan untuk menangkap ikan paru dengan paruh raksasanya.",
+        "Alih-alih berkicau, ia menyapa pasangannya dengan membenturkan paruh secara cepat yang menggema di rawa."
+      ],
+      "note": "Bahasa Indonesia, translated from info (the same facts and sources)"
+    }
+  }
+}
