@@ -22,7 +22,23 @@ import vf_voxel as VX  # noqa: E402
 import vf_color as VC  # noqa: E402
 
 ROOT = os.path.abspath(os.path.join(STUDIO, "..", ".."))
-ANIMALS = os.path.join(ROOT, "02 Animals")
+
+
+def _animals_dir():
+    """Where the animal folders live: VF_ANIMALS (set by render.bat), then _system/studio/render/animal_path.txt (this
+    PC's path to the 02 Animals folder), then 02 Animals beside this project. The first one that exists wins."""
+    cands = [os.environ.get("VF_ANIMALS", "")]
+    txt = os.path.join(STUDIO, "render", "animal_path.txt")
+    if os.path.exists(txt):
+        cands.append(open(txt, encoding="utf-8-sig").read().strip().strip('"'))
+    cands.append(os.path.join(ROOT, "02 Animals"))
+    for c in cands:
+        if c and os.path.isdir(c):
+            return os.path.abspath(c)
+    return os.path.join(ROOT, "02 Animals")
+
+
+ANIMALS = _animals_dir()
 TEMPLATE = os.path.join(ANIMALS, "_Template")
 DESIGN = os.path.join(ROOT, "03 Design")
 FONTS = os.path.join(DESIGN, "Fonts")

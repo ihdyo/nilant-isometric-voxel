@@ -21,3 +21,6 @@ desktop.ini
 
 # render.bat remembers this PC's Python (the Blender path is _system/studio/blender_path.txt above)
 _system/studio/render/python_path.txt
+
+# render.bat remembers where this PC keeps the 02 Animals folder
+_system/studio/render/animal_path.txt

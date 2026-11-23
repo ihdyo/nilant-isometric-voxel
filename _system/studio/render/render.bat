@@ -15,6 +15,8 @@ rem  Pause any time: Ctrl+C or close the window (finished images are kept); open
 rem  Without the menu: render.bat status | build | preview | final | package [code] | <code> [preview|final]
 rem  Blender: the first blender.exe found below is remembered in ..\blender_path.txt (delete it to choose again).
 rem  Python: remembered in python_path.txt beside this file (delete it to choose again).
+rem  Animals: the 02 Animals folder is read from animal_path.txt beside this file; if it is missing and 02 Animals is not
+rem  found beside the scripts, the window asks for the folder's path and remembers it (delete the file to choose again).
 rem  Guide: "Voxel Fauna - How to Render.md" in this folder.
 rem ============================================================================================================
 setlocal
@@ -98,6 +100,44 @@ pause
 exit /b 1
 :have_python
 > "python_path.txt" echo %P%
+
+rem ---- find the animals (the 02 Animals folder) --------------------------------------------------------------------
+rem  1. animal_path.txt beside this file (this PC's path, written below)   2. ..\..\..\02 Animals, the folder beside the
+rem  scripts   3. otherwise ask: paste the path of the 02 Animals folder and it is remembered in animal_path.txt.
+set "A="
+if exist "animal_path.txt" set /p A=<"animal_path.txt"
+if defined A set "A=%A:"=%"
+if defined A if not exist "%A%\" set "A="
+if not defined A for %%I in ("%~dp0..\..\..\02 Animals") do if exist "%%~fI\" set "A=%%~fI"
+if defined A goto have_animals
+echo.
+echo  %BAD%The 02 Animals folder was not found next to the scripts.%END%
+echo  %DIM%Open it in Explorer, copy its address ^(the folder holding the 26-001 ... folders^), paste it here.%END%
+set "TRIES=0"
+:ask_animals
+set /a TRIES+=1
+if %TRIES% gtr 5 (
+  echo  %BAD%No folder given.%END% Create animal_path.txt beside this file with the path of 02 Animals in it.
+  pause
+  exit /b 1
+)
+set "A="
+set /p A=  Path of 02 Animals: 
+if not defined A goto ask_animals
+set "A=%A:"=%"
+if not exist "%A%\" (
+  echo  %BAD%Not a folder:%END% %A%
+  goto ask_animals
+)
+set "ANY="
+for /d %%D in ("%A%\0*" "%A%\1*" "%A%\2*" "%A%\3*") do set "ANY=1"
+if not defined ANY (
+  echo  %BAD%No animal folders ^(like 26-001 ...^) in:%END% %A%
+  goto ask_animals
+)
+:have_animals
+> "animal_path.txt" echo %A%
+set "VF_ANIMALS=%A%"
 
 rem ---- run ----------------------------------------------------------------------------------------------------
 set "BLENDER=%B%"
