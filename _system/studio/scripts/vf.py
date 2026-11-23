@@ -531,7 +531,10 @@ def _export_state(folder, animal, low=False, force=False):
     return dict(rt=rt, pl=pl, masters=masters, cutouts=cutouts, todo=todo, action=action, n=n, ld=ld, loop_ok=loop_ok)
 
 
-def final_plan(folder, animal, low=False, force=False):
+FINAL_PARTS = ("dyn", "block", "loop")                         # what `final` can render: the two masters and the loop
+
+
+def final_plan(folder, animal, low=False, force=False, parts=None):
     """[(label, seconds)] the ULTRA (or LOW) export still has to render, in the order `final` renders it: the two
     masters, then the loop. A rig that is missing or stale means everything. Seconds are the RTX 3050 estimates."""
     prof = "LOW" if low else "ULTRA"
@@ -544,15 +547,20 @@ def final_plan(folder, animal, low=False, force=False):
         todo, n, loop_ok = list(S["todo"]), S["n"], S["loop_ok"]
     except (OSError, ValueError, KeyError):
         todo, n, loop_ok = ["dyn", "block"], 24, False
+    parts = set(parts or FINAL_PARTS)
+    todo, loop_ok = [w for w in todo if w in parts], loop_ok or "loop" not in parts
     return [(f"master {w}", master_s) for w in todo] + ([("loop", n * frame_s)] if not loop_ok else [])
 
 
-def final(folder, animal, force=False, low=False):
+def final(folder, animal, force=False, low=False, parts=None):
     """The ULTRA renders of the export package (PROPOSED 2026-11-17, blender/vf_export.py): the two masters (dynamic
     and regular blocky, 4096 square, the animal in the centre safe square) into export/, their cut-outs and the frames
     of the looped animation into the cache. Rendering only: scripts/package.py builds the rest offline (render.bat, P).
-    Renders what is missing or older than the rig; low=True renders the same set at LOW into the cache (layouts)."""
+    Renders what is missing or older than the rig; low=True renders the same set at LOW into the cache (layouts).
+    `parts` (a subset of FINAL_PARTS: "dyn", "block", "loop"; default all) renders only those: the render menu's choice."""
     import package as PK
+    parts = set(parts or FINAL_PARTS)
+    full = parts >= set(FINAL_PARTS)
     code = animal["code"]
     ap = animal.get("approvals") or {}
     if not low:
@@ -571,6 +579,8 @@ def final(folder, animal, force=False, low=False):
     rig_blend = rig_paths(folder, animal)[0]
     S = _export_state(folder, animal, low, force)
     pl, cutouts, todo, action, n, ld, loop_ok = (S[k] for k in ("pl", "cutouts", "todo", "action", "n", "ld", "loop_ok"))
+    todo = {w: p for w, p in todo.items() if w in parts}
+    loop_ok = loop_ok or "loop" not in parts
     stamp = os.path.join(pl, "export.json")
     prof = "LOW" if low else "ULTRA"
     units = ([(f"master {w}", ST.PROFILES[prof]["estimate"]["1x1"]) for w in todo]
@@ -594,7 +604,7 @@ def final(folder, animal, force=False, low=False):
     finally:
         if own and units:
             VL.LIVE.stop()
-    if not low:
+    if not low and full:
         advance(animal, "Final")
         VL.save(folder, animal)
         write_overview(folder, animal)

@@ -82,12 +82,22 @@ def stock_file(folder, code):
     return os.path.join(folder, "export", PK.export_id(code, STOCK) + ".jpg")
 
 
-def package(folder, animal, only=None):
+STOCK_PARTS = ("jpeg", "csv", "zip")           # the stock JPEG, the upload CSVs, the Gumroad zip
+
+
+def zip_file(folder, animal):
+    return os.path.join(VL.PUBLISH, "Gumroad", f"{animal['code']} · {animal['common']} · {ST.COLLECTION}.zip")
+
+
+def package(folder, animal, only=None, parts=None):
     """The stock JPEG (the whole dynamic master, no crop, in export/ beside the package; owner 2026-11-17: "keep stock
     but dont crop it from master") and its upload CSVs; the cards carry a third-party photograph, so stock sites get
     the stock image only. The Gumroad zip holds the export package (the two masters, the loop GIF and the English and
-    Indonesian cards). `only` is kept for the command line and ignored: there is one stock image per animal."""
+    Indonesian cards). `only` is kept for the command line and ignored: there is one stock image per animal.
+    `parts` (a subset of STOCK_PARTS, default all) builds only those: the render menu's choice (the CSVs need the JPEG's
+    title and keywords, which come from animal.json, so they do not need the JPEG to be rebuilt)."""
     import package as PK
+    parts = set(parts or STOCK_PARTS)
     code = animal["code"]
     icc = ImageCms.ImageCmsProfile(ImageCms.createProfile("sRGB")).tobytes()
     pdir = os.path.join(VL.PUBLISH, "Stock")
@@ -101,17 +111,18 @@ def package(folder, animal, only=None):
         iid = PK.export_id(code, STOCK)
         dst = stock_file(folder, code)
         title, kws = _titles(animal, "ILL"), _keywords(animal, "ILL")
-        with Image.open(src) as im:
-            im = im.convert("RGB")
-            mp = im.width * im.height / 1e6
-            im.save(dst, "JPEG", quality=95, subsampling=0, optimize=True, dpi=(300, 300), icc_profile=icc,
-                    xmp=_xmp(title, kws))
-        mb = os.path.getsize(dst) / 1e6
-        ok = 4 <= mp <= 100 and mb <= 45
-        lines.append(f"{iid}.jpg  {mp:.1f} MP  {mb:.1f} MB  {'ok' if ok else 'OUTSIDE ADOBE LIMITS'}")
+        if "jpeg" in parts:
+            with Image.open(src) as im:
+                im = im.convert("RGB")
+                mp = im.width * im.height / 1e6
+                im.save(dst, "JPEG", quality=95, subsampling=0, optimize=True, dpi=(300, 300), icc_profile=icc,
+                        xmp=_xmp(title, kws))
+            mb = os.path.getsize(dst) / 1e6
+            ok = 4 <= mp <= 100 and mb <= 45
+            lines.append(f"{iid}.jpg  {mp:.1f} MP  {mb:.1f} MB  {'ok' if ok else 'OUTSIDE ADOBE LIMITS'}")
         adobe.append([iid + ".jpg", title[:200], ", ".join(kws), ADOBE_ANIMALS, ""])
         shutter.append([iid + ".jpg", title[:200], ",".join(kws[:50]), "Animals/Wildlife", "yes", "no", "no"])
-    if adobe:
+    if adobe and "csv" in parts:
         p = os.path.join(pdir, f"{code} · Adobe Stock.csv")
         with open(p, "w", newline="", encoding="utf-8") as f:
             w = csv.writer(f)
@@ -125,10 +136,12 @@ def package(folder, animal, only=None):
             w.writerows(shutter)
         lines.append(f"-> {VL.rel(p)}")
     missing = [m for m in masters if not os.path.exists(m)]
-    if not missing:
+    if "zip" not in parts:
+        pass
+    elif not missing:
         gdir = os.path.join(VL.PUBLISH, "Gumroad")
         os.makedirs(gdir, exist_ok=True)
-        z = os.path.join(gdir, f"{code} · {animal['common']} · {ST.COLLECTION}.zip")
+        z = zip_file(folder, animal)
         with zipfile.ZipFile(z, "w", zipfile.ZIP_STORED) as zf:      # PNG, GIF and PDF are already compressed
             for m in masters:
                 zf.write(m, os.path.basename(m))
